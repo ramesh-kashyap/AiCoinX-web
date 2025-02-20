@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/footer';
 function Home() {
+  const [activeTab, setActiveTab] = useState('tokens');
   return (
     <div className="container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
       <div className="w-[582px] h-[582px] rounded-full bg-g300/10 absolute -top-48 -left-20 blur-[575px]"></div>
@@ -87,17 +88,18 @@ function Home() {
         {/* Tab Section */}
         <div className="homeTab pt-8 px-6">
           <ul className="tab-button flex justify-between items-center text-lg font-semibold">
-            <li id="tabOne" className="activeTabButton tabButton w-full text-center pb-2 border-b-2 border-n700">
+            <li id="tabOne" onClick={() => setActiveTab('tokens')} className={`tabButton w-full text-center pb-2 border-b-2 border-n700 ${activeTab === 'tokens' ? 'activeTabButton' : ''}`}>
               Tokens
             </li>
-            <li id="tabTwo" className="tabButton w-full text-center pb-2 border-b-2 border-n700">
+            <li id="tabTwo" onClick={() => setActiveTab('nft')}  className={`tabButton w-full text-center pb-2 border-b-2 border-n700 ${activeTab === 'nft' ? 'activeTabButton' : ''}`}>
               NFT
             </li>
-            <li id="tabThree" className="tabButton w-full text-center pb-2 border-b-2 border-n700">
+            <li id="tabThree"  onClick={() => setActiveTab('activity')} className={`tabButton w-full text-center pb-2 border-b-2 border-n700 ${activeTab === 'activity' ? 'activeTabButton' : ''}`}>
               Activity
             </li>
           </ul>
           <div className="pt-8">
+          {activeTab === 'tokens' && (
             <div className="tab-content activeTab" id="tabOne_data">
               <div className="flex justify-between items-center">
                 <p className="text-xl font-semibold">Tokens</p>
@@ -147,7 +149,9 @@ function Home() {
                 </Link>
               </div>
             </div>
-            <div className="tab-content hiddenTab" id="tabTwo_data">
+              )}
+            {activeTab === 'nft' && (
+            <div className="tab-content " id="tabTwo_data">
               <ul className="flex justify-start items-center gap-3 overflow-y-auto">
                 <li className="flex justify-center items-center gap-1 py-2 px-4 rounded-md text-n900 bg-g300 border border-g300">
                   All <i className="ph ph-caret-right"></i>
@@ -191,7 +195,7 @@ function Home() {
                     </button>
                   </div>
                 </div>
-                <div className="rounded-xl overflow-hidden">
+                {/* <div className="rounded-xl overflow-hidden">
                   <img src="assets/images/nft-tab-img-3.png" alt="NFT 3" />
                   <div className="bg-white bg-opacity-5 p-3 flex justify-between items-start">
                     <div className="flex justify-start items-start flex-col gap-2">
@@ -205,10 +209,12 @@ function Home() {
                       <i className="ph ph-dots-three-vertical"></i>
                     </button>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
-            <div className="tab-content hiddenTab" id="tabThree_data">
+             )}
+              {activeTab === 'activity' && (
+            <div className="tab-content " id="tabThree_data">
               <div className="flex flex-col gap-4">
                 <div className="flex justify-between items-center border-b border-white border-opacity-5 pb-4">
                   <div className="flex justify-start items-center gap-2">
@@ -260,6 +266,7 @@ function Home() {
                 </div>
               </div>
             </div>
+            )}
           </div>
         </div>
 
