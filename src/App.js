@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter  as Router, Route, Routes, Navigate } from 'react-router-dom';
 // import Splash from './pages';
+
+
 import Register from './pages/auth/registerScreen';
 import CreatePassword from './pages/auth/createPasswordScreen';
 import SecureWallet from './pages/auth/secureWalletScreen';
@@ -24,6 +26,16 @@ import TopGainers from './pages/dashboard/home/topGainers';
 import TopLosers from './pages/dashboard/home/topLosers';
 import Notification from './pages/components/notofications';
 import Splash from './pages/splash';
+import Tokentransaction from './pages/invest/Tokentransaction';
+import Receiveds from './pages/invest/Receiveds';
+import Swaps from './pages/invest/Swaps';
+import Buysells from './pages/invest/Buysells';
+import Fromswap from './pages/invest/Fromswap';
+
+
+
+
+
 function App() {
   return (
     <Router>
@@ -53,6 +65,16 @@ function App() {
         <Route path="/top-gainers" element={<TopGainers />} />
         <Route path="/top-losers" element={<TopLosers />} />
         <Route path="/notification" element={<Notification />} />
+        <Route path="/token-transaction" element={<Tokentransaction />} />
+        <Route path="/invest/received" element={<Receiveds/>} />
+        <Route path="/invest/swaps" element={<Swaps/>} />
+        <Route path="/invest/buysells" element={<Buysells/>} />
+        <Route path="/invest/swap-from" element={<Fromswap/>} />
+
+
+
+
+
     </Routes>
   </Router>
   );

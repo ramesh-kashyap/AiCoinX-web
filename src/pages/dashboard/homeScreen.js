@@ -55,7 +55,7 @@ function Home() {
                 <p className="text-white font-semibold text-sm">Send</p>
               </Link>
               <Link
-                to="/received"
+                to="/invest/received"
                 className="flex flex-col justify-center items-center gap-2"
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
@@ -64,7 +64,7 @@ function Home() {
                 <p className="text-white font-semibold text-sm">Receive</p>
               </Link>
               <Link
-                to="/swap"
+                to="/invest/swaps"
                 className="flex flex-col justify-center items-center gap-2"
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
@@ -73,7 +73,7 @@ function Home() {
                 <p className="text-white font-semibold text-sm">Swap</p>
               </Link>
               <Link
-                to="/buy-sell"
+                to="/invest/buysells"
                 className="flex flex-col justify-center items-center gap-2"
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
