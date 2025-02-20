@@ -27,20 +27,6 @@ import Fromswap from './pages/invest/Fromswap';
 
 
 
-// import Splash from './pages';
-import Register from './pages/auth/registerScreen';
-import CreatePassword from './pages/auth/createPasswordScreen';
-import SecureWallet from './pages/auth/secureWalletScreen';
-import SeedPhrase from './pages/auth/seedPharseScreen';
-import ConfirmSeedPhrase from './pages/auth/confirmseedPharseScreen';
-import ChooseAccount from './pages/auth/chooseAccountScreen';
-import Home from './pages/dashboard/homeScreen';
-import Browser from './pages/dashboard/browerScreen';
-import Marketplace from './pages/dashboard/marketScreen';
-import Account from './pages/dashboard/profileScreen';
-import SendTo from './pages/profile/wallet/send';
-import Received from './pages/profile/wallet/recieved';
-import Swap from './pages/profile/wallet/swap';
 import About from './pages/support/about';
 import PrivacyPolicy from './pages/support/privacy-policy';
 import Language from './pages/profile/language/language';
