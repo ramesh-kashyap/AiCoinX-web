@@ -23,10 +23,6 @@ import Swaps from './pages/invest/Swaps';
 import Buysells from './pages/invest/Buysells';
 import Fromswap from './pages/invest/Fromswap';
 
-
-
-
-
 import About from './pages/support/about';
 import PrivacyPolicy from './pages/support/privacy-policy';
 import Language from './pages/profile/language/language';
