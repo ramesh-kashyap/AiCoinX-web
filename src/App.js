@@ -17,6 +17,8 @@ import Account from './pages/dashboard/profileScreen';
 import SendTo from './pages/profile/wallet/send';
 import Received from './pages/profile/wallet/recieved';
 import Swap from './pages/profile/wallet/swap';
+import Profile from './pages/profile/Profile';
+
 import Tokentransaction from './pages/invest/Tokentransaction';
 import Receiveds from './pages/invest/Receiveds';
 import Swaps from './pages/invest/Swaps';
@@ -62,6 +64,7 @@ function App() {
 
 
 
+        <Route path="/profile" element={<Profile />} />
 
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
