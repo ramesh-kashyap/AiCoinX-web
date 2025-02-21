@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -13,24 +13,50 @@ function Footer() {
             </div>
           </a>
         </div>
-        <Link to="/home" className="flex flex-col justify-center items-center gap-1 relative z-20">
-       
-          <i className="ph ph-house text-2xl text-g300"></i>
+        <NavLink
+          to="/home"
+          className={({ isActive }) =>
+            `flex flex-col justify-center items-center gap-1 relative z-20 ${
+              isActive ? 'text-g300' : 'text-violet-500'
+            }`
+          }
+        >
+          <i className="ph ph-house text-2xl"></i>
           <p className="text-xs font-semibold">Home</p>
-        
-        </Link>
-        <Link to="/browser" className="flex flex-col justify-center items-center gap-1 z-20">
+        </NavLink>
+        <NavLink
+          to="/browser"
+          className={({ isActive }) =>
+            `flex flex-col justify-center items-center gap-1 z-20 ${
+              isActive ? 'text-g300' : 'text-violet-500'
+            }`
+          }
+        >
           <i className="ph ph-globe text-2xl"></i>
           <p className="text-xs font-semibold">Browser</p>
-        </Link>
-        <Link to="/market" className="flex flex-col justify-center items-center gap-1 z-20">
+        </NavLink>
+        <NavLink
+          to="/market"
+          className={({ isActive }) =>
+            `flex flex-col justify-center items-center gap-1 z-20 ${
+              isActive ? 'text-g300' : 'text-violet-500'
+            }`
+          }
+        >
           <i className="ph ph-align-bottom text-2xl"></i>
-          <p className="text-xs font-semibold">Marketplace</p>
-        </Link>
-        <Link to="/account" className="flex flex-col justify-center items-center gap-1 z-20">
+          <p className="text-xs font-semibold">Assets</p>
+        </NavLink>
+        <NavLink
+          to="/account"
+          className={({ isActive }) =>
+            `flex flex-col justify-center items-center gap-1 z-20 ${
+              isActive ? 'text-g300' : 'text-violet-500'  
+            }`
+          }
+        >
           <i className="ph ph-user text-2xl"></i>
           <p className="text-xs font-semibold">Account</p>
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

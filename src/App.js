@@ -16,7 +16,7 @@ import Marketplace from './pages/dashboard/marketScreen';
 import Account from './pages/dashboard/profileScreen';
 import SendTo from './pages/profile/wallet/send';
 import Received from './pages/profile/wallet/recieved';
-import Swap from './pages/profile/wallet/swap';
+// import Swap from './pages/profile/wallet/swap';
 import Profile from './pages/profile/Profile';
 
 
@@ -29,17 +29,20 @@ import TopGainers from './pages/dashboard/home/topGainers';
 import TopLosers from './pages/dashboard/home/topLosers';
 import Notification from './pages/components/notofications';
 import Splash from './pages/splash';
+
 import Tokentransaction from './pages/invest/Tokentransaction';
 import Receiveds from './pages/invest/Receiveds';
 import Swaps from './pages/invest/Swaps';
 import Buysells from './pages/invest/Buysells';
 import Fromswap from './pages/invest/Fromswap';
 import PriceCard from './pages/components/priceCard';
+import UpdateProfile from './pages/profile/security/profile';
 import EnterPin from './pages/components/enterPin';
 import Login from './pages/auth/loginScreen';
 
 
-
+import ChangePassword from './pages/profile/security/changePassword';
+import Refferals from './pages/profile/security/refferals';
 
 
 function App() {
@@ -62,9 +65,13 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/sent-to" element={<SendTo />} />
         <Route path="/received" element={<Received />} />
-        <Route path="/swap" element={<Swap />} />
+        {/* <Route path="/swap" element={<Swap />} /> */}
   
+        <Route path="/price-card" element={<PriceCard/>} />
+
         <Route path="/profile" element={<Profile />} />
+        <Route path="/UpdateProfile" element={<UpdateProfile />} />
+
 
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -82,6 +89,12 @@ function App() {
         <Route path="/price-card" element={<PriceCard/>} />
         <Route path="/enter-pin" element={<EnterPin/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/security/change-password" element={<ChangePassword/>} />
+        <Route path="/security/refferals-user" element={<Refferals/>} />
+
+
+
+
 
 
 
@@ -91,3 +104,5 @@ function App() {
 }
 
 export default App;
+
+
