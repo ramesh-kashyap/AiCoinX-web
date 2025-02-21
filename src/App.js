@@ -19,11 +19,6 @@ import Received from './pages/profile/wallet/recieved';
 import Swap from './pages/profile/wallet/swap';
 import Profile from './pages/profile/Profile';
 
-import Tokentransaction from './pages/invest/Tokentransaction';
-import Receiveds from './pages/invest/Receiveds';
-import Swaps from './pages/invest/Swaps';
-import Buysells from './pages/invest/Buysells';
-import Fromswap from './pages/invest/Fromswap';
 
 import About from './pages/support/about';
 import PrivacyPolicy from './pages/support/privacy-policy';
@@ -66,15 +61,7 @@ function App() {
         <Route path="/sent-to" element={<SendTo />} />
         <Route path="/received" element={<Received />} />
         <Route path="/swap" element={<Swap />} />
-        <Route path="/token-transaction" element={<Tokentransaction />} />
-        <Route path="/invest/received" element={<Receiveds/>} />
-        <Route path="/invest/swaps" element={<Swaps/>} />
-        <Route path="/invest/buysells" element={<Buysells/>} />
-        <Route path="/invest/swap-from" element={<Fromswap/>} />
-
-
-
-
+  
         <Route path="/profile" element={<Profile />} />
 
         <Route path="/about" element={<About />} />
