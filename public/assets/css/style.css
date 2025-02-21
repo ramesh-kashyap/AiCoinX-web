@@ -500,7 +500,7 @@ video {
 }
 .toggle.active{
   --tw-bg-opacity: 1;
-  background-color: rgba(45, 181, 47, 1);
+  background-color: #9583ff;
   background-color: #9583ff;
 }
 .toggle.active .circle{
@@ -533,13 +533,13 @@ video {
   border-width: 1px;
   content: var(--tw-content);
   --tw-border-opacity: 1;
-  border-color: rgba(45, 181, 47, 1);
-  border-color: rgba(45, 181, 47, var(--tw-border-opacity));
+  border-color: #9583ff;
+  border-color: #9583ff;
 }
 .customCheckbox input:checked + label::before{
   content: var(--tw-content);
   --tw-bg-opacity: 1;
-  background-color: rgba(45, 181, 47, 1);
+  background-color: #9583ff;
   background-color: #9583ff;
 }
 .customCheckbox input:checked + label::after{
@@ -565,10 +565,14 @@ video {
 /* Active Tab Item */
 .activeTabButton{
   --tw-border-opacity: 1 !important;
-  border-color: rgba(45, 181, 47, 1) !important;
-  border-color: rgba(45, 181, 47, var(--tw-border-opacity)) !important;
+  border-color: #9583ff  ;
+  border-color: #9583ff;
   --tw-text-opacity: 1;
-  color: rgba(45, 181, 47, 1);
+  color: #9583ff
+
+
+
+  ;
   color: #9583ff;
 }
 .activeTab {
@@ -587,7 +591,7 @@ video {
 }
 .radioItems .item.active i{
   --tw-text-opacity: 1;
-  color: rgba(45, 181, 47, 1);
+  color: #9583ff;
   color: #9583ff;
 }
 /*Lock Time */
@@ -602,7 +606,7 @@ video {
 .lockTimeItems .item.active i{
   display: block;
   --tw-text-opacity: 1;
-  color: rgba(45, 181, 47, 1);
+  color: #9583ff;
   color: #9583ff;
 }
 .browserCategory .item{
@@ -613,8 +617,8 @@ video {
   border-radius: 0.375rem;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgba(45, 181, 47, 1);
-  border-color: rgba(45, 181, 47, var(--tw-border-opacity));
+  border-color: #9583ff;
+  border-color: #9583ff;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   padding-left: 0.75rem;
@@ -623,10 +627,10 @@ video {
 .browserCategory .item.active{
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgba(45, 181, 47, 1);
-  border-color: rgba(45, 181, 47, var(--tw-border-opacity));
+  border-color: #9583ff;
+  border-color: #9583ff;
   --tw-bg-opacity: 1;
-  background-color: rgba(45, 181, 47, 1);
+  background-color: #9583ff;
   background-color: #9583ff;
   --tw-text-opacity: 1;
   color: rgba(17, 24, 32, 1);
@@ -1000,8 +1004,8 @@ video {
 }
 .border-g300{
   --tw-border-opacity: 1;
-  border-color: rgba(45, 181, 47, 1);
-  border-color: rgba(45, 181, 47, var(--tw-border-opacity));
+  border-color: #9583ff;
+  border-color: #9583ff;
 }
 .border-n700{
   --tw-border-opacity: 1;
@@ -1021,7 +1025,7 @@ video {
 }
 .bg-g300{
   --tw-bg-opacity: 1;
-  background-color: rgba(45, 181, 47, 1);
+  background-color:  #9583ff;
   background-color: #9583ff;
 }
 .bg-g300\/10{
@@ -1291,7 +1295,7 @@ video {
 }
 .text-g300{
   --tw-text-opacity: 1;
-  color: rgba(45, 181, 47, 1);
+  color: #9583ff;
   color: #9583ff;
 }
 .text-n70{
@@ -1552,7 +1556,7 @@ body {
 
 .group:hover .group-hover\:bg-g300{
   --tw-bg-opacity: 1;
-  background-color: rgba(45, 181, 47, 1);
+  background-color: #9583ff;
   background-color: #9583ff;
 }
 
