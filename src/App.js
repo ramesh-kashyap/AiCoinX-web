@@ -17,7 +17,7 @@ import Account from './pages/dashboard/profileScreen';
 import SendTo from './pages/profile/wallet/send';
 import Received from './pages/profile/wallet/recieved';
 // import Swap from './pages/profile/wallet/swap';
-// import Profile from './pages/profile/Profile';
+import Profile from './pages/profile/Profile';
 
 
 import About from './pages/support/about';
