@@ -17,6 +17,14 @@ import Account from './pages/dashboard/profileScreen';
 import SendTo from './pages/profile/wallet/send';
 import Received from './pages/profile/wallet/recieved';
 import Swap from './pages/profile/wallet/swap';
+import Profile from './pages/profile/Profile';
+
+import Tokentransaction from './pages/invest/Tokentransaction';
+import Receiveds from './pages/invest/Receiveds';
+import Swaps from './pages/invest/Swaps';
+import Buysells from './pages/invest/Buysells';
+import Fromswap from './pages/invest/Fromswap';
+
 import About from './pages/support/about';
 import PrivacyPolicy from './pages/support/privacy-policy';
 import Language from './pages/profile/language/language';
@@ -70,6 +78,7 @@ function App() {
 
 
 
+        <Route path="/profile" element={<Profile />} />
 
     </Routes>
   </Router>
