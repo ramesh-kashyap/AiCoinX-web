@@ -59,33 +59,51 @@ function Marketplace() {
         </div>
         </div>
 
-     {/* Claimable Section */}<div className="px-6 pt-8">
-     <div class="bg-white bg-opacity-5 rounded-lg shadow-md p-4 px-6 max-w-sm w-full">
-      
-   <div class="flex items-center justify-between mb-2">
-    
-    <div class="flex items-center">
-     <span class="text-gray-600 font-medium">
-      Claimable
-     </span>
+        <div className="px-6 pt-8">
+      <div className="bg-white bg-opacity-5 rounded-lg shadow-md p-4 px-6 max-w-sm w-full">
+        
+        {/* Claimable Section */}
+        <div className="flex items-center justify-between text-white p-4 rounded-md">
+          
+          {/* Left Section - Logo */}
+          <img 
+            src="assets/images/saving.png" 
+            alt="Saving Logo" 
+            className="w-10 h-10" style={{width:"40px", marginRight:"-138px"}}
+          />
+
+          {/* Right Section - Text, Amount & Icon */}
+          <div className="flex flex-col text-right">
+            <span className="text-gray-400 font-medium">Claimable</span>
+            
+            {/* Amount & Icon */}
+            <div className="flex items-center justify-end gap-2">
+            <img 
+                src="assets/images/tether-usdt-logo.png" 
+                alt="USDT Icon" 
+                className="w-5 h-5"
+              />
+              <span className="text-white text-lg font-semibold">00.00</span>
+           
+            </div>
+
+          </div>
+          < AlertCircle/>
+          
+        </div>
+
+        {/* Minimum Claimable Info */}
+        <p className="text-gray-500 text-n70 mb-6 text-sm">
+          Minimum claimable rewards to transfer is 5 USDT.
+        </p>
+
+        {/* Claim Button */}
+        <button className="w-full mt-6 bg-g300 text-purple-600 py-2 rounded-lg font-medium">
+          Claim to Wallet
+        </button>
+        
+      </div>
     </div>
-    <AlertCircle />
-    
-   </div>
-   <div class="flex items-center mb-4">
-    <img alt="USDT icon" class=" ml-2 w-4 h-4 mr-1" height="16" src="assets/images/tether-usdt-logo.png" width="16"/>
-    <span class="text-white  text-xl font-semibold" style={{margin:"0px 0px 3px 3px"}}>
-     0.00
-    </span>
-   </div>
-   <p class="text-gray-500 mb-4">
-    Minimum claimable rewards to transfer is 5 USDT.
-   </p>
-   <button class="w-full bg-g300 text-purple-600 py-2 rounded-lg font-medium">
-    Claim to Wallet
-   </button>
-  </div>
-  </div>
        
 
         {/* Invite Section */}
@@ -93,7 +111,7 @@ function Marketplace() {
           <div className="w-full bg-g300 p-5 flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden">
             <img
               src="assets/images/invite_bg.png"
-              alt="Invite Background"
+              alt="Invite Background" 
               className="absolute top-0 right-0 bottom-0 h-full"
             />
             <div className="max-w-[200px]">
