@@ -16,27 +16,27 @@ import Marketplace from './pages/dashboard/marketScreen';
 import Account from './pages/dashboard/profileScreen';
 import SendTo from './pages/profile/wallet/send';
 import Received from './pages/profile/wallet/recieved';
-import Swap from './pages/profile/wallet/swap';
-import Profile from './pages/profile/Profile';
+// import Swap from './pages/profile/wallet/swap';
+// import Profile from './pages/profile/Profile';
 
 
-import About from './pages/support/about';
-import PrivacyPolicy from './pages/support/privacy-policy';
-import Language from './pages/profile/language/language';
-import Currency from './pages/profile/language/currency';
-import AddToken from './pages/dashboard/home/addToken';
-import TopGainers from './pages/dashboard/home/topGainers';
-import TopLosers from './pages/dashboard/home/topLosers';
-import Notification from './pages/components/notofications';
-import Splash from './pages/splash';
-import Profile from './pages/profile/Profile';
+// import About from './pages/support/about';
+// import PrivacyPolicy from './pages/support/privacy-policy';
+// import Language from './pages/profile/language/language';
+// import Currency from './pages/profile/language/currency';
+// import AddToken from './pages/dashboard/home/addToken';
+// import TopGainers from './pages/dashboard/home/topGainers';
+// import TopLosers from './pages/dashboard/home/topLosers';
+// import Notification from './pages/components/notofications';
+// import Splash from './pages/splash';
+// import Profile from './pages/profile/Profile';
 
-import Tokentransaction from './pages/invest/Tokentransaction';
-import Receiveds from './pages/invest/Receiveds';
-import Swaps from './pages/invest/Swaps';
-import Buysells from './pages/invest/Buysells';
-import Fromswap from './pages/invest/Fromswap';
-import PriceCard from './pages/components/priceCard';
+// import Tokentransaction from './pages/invest/Tokentransaction';
+// import Receiveds from './pages/invest/Receiveds';
+// import Swaps from './pages/invest/Swaps';
+// import Buysells from './pages/invest/Buysells';
+// import Fromswap from './pages/invest/Fromswap';
+// import PriceCard from './pages/components/priceCard';
 
 
 
@@ -86,9 +86,9 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/sent-to" element={<SendTo />} />
         <Route path="/received" element={<Received />} />
-        <Route path="/swap" element={<Swap />} />
+        {/* <Route path="/swap" element={<Swap />} /> */}
   
-        <Route path="/profile" element={<Profile />} />
+        {/* <Route path="/profile" element={<Profile />} /> */}
 
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -103,7 +103,7 @@ function App() {
         <Route path="/invest/swaps" element={<Swaps/>} />
         <Route path="/invest/buysells" element={<Buysells/>} />
         <Route path="/invest/swap-from" element={<Fromswap/>} />
-        <Route path="/price-card" element={<PriceCard/>} />
+        {/* <Route path="/price-card" element={<PriceCard/>} /> */}
 
 
 
@@ -112,7 +112,7 @@ function App() {
 
 
 
-        <Route path="/profile" element={<Profile />} />
+        {/* <Route path="/profile" element={<Profile />} /> */}
 
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
