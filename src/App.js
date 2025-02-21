@@ -31,6 +31,10 @@ import Receiveds from './pages/invest/Receiveds';
 import Swaps from './pages/invest/Swaps';
 import Buysells from './pages/invest/Buysells';
 import Fromswap from './pages/invest/Fromswap';
+import ChangePassword from './pages/profile/security/changePassword';
+import Refferals from './pages/profile/security/refferals';
+
+
 
 
 
@@ -70,6 +74,10 @@ function App() {
         <Route path="/invest/swaps" element={<Swaps/>} />
         <Route path="/invest/buysells" element={<Buysells/>} />
         <Route path="/invest/swap-from" element={<Fromswap/>} />
+        <Route path="/security/change-password" element={<ChangePassword/>} />
+        <Route path="/security/refferals-user" element={<Refferals/>} />
+
+
 
 
 
