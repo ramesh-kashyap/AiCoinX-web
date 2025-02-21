@@ -19,11 +19,29 @@ import Received from './pages/profile/wallet/recieved';
 import Swap from './pages/profile/wallet/swap';
 import Profile from './pages/profile/Profile';
 
+
+import About from './pages/support/about';
+import PrivacyPolicy from './pages/support/privacy-policy';
+import Language from './pages/profile/language/language';
+import Currency from './pages/profile/language/currency';
+import AddToken from './pages/dashboard/home/addToken';
+import TopGainers from './pages/dashboard/home/topGainers';
+import TopLosers from './pages/dashboard/home/topLosers';
+import Notification from './pages/components/notofications';
+import Splash from './pages/splash';
+import Profile from './pages/profile/Profile';
+
 import Tokentransaction from './pages/invest/Tokentransaction';
 import Receiveds from './pages/invest/Receiveds';
 import Swaps from './pages/invest/Swaps';
 import Buysells from './pages/invest/Buysells';
 import Fromswap from './pages/invest/Fromswap';
+import PriceCard from './pages/components/priceCard';
+
+
+
+
+
 
 import About from './pages/support/about';
 import PrivacyPolicy from './pages/support/privacy-policy';
@@ -69,11 +87,27 @@ function App() {
         <Route path="/sent-to" element={<SendTo />} />
         <Route path="/received" element={<Received />} />
         <Route path="/swap" element={<Swap />} />
+  
+        <Route path="/profile" element={<Profile />} />
+
+        <Route path="/about" element={<About />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/language" element={<Language />} />
+        <Route path="/currency" element={<Currency />} />
+        <Route path="/add-token" element={<AddToken />} />
+        <Route path="/top-gainers" element={<TopGainers />} />
+        <Route path="/top-losers" element={<TopLosers />} />
+        <Route path="/notification" element={<Notification />} />
         <Route path="/token-transaction" element={<Tokentransaction />} />
         <Route path="/invest/received" element={<Receiveds/>} />
         <Route path="/invest/swaps" element={<Swaps/>} />
         <Route path="/invest/buysells" element={<Buysells/>} />
         <Route path="/invest/swap-from" element={<Fromswap/>} />
+        <Route path="/price-card" element={<PriceCard/>} />
+
+
+
+
 
 
 
