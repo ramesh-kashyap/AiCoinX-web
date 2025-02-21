@@ -35,6 +35,8 @@ import Swaps from './pages/invest/Swaps';
 import Buysells from './pages/invest/Buysells';
 import Fromswap from './pages/invest/Fromswap';
 import PriceCard from './pages/components/priceCard';
+import EnterPin from './pages/components/enterPin';
+import Login from './pages/auth/loginScreen';
 
 
 
@@ -78,7 +80,8 @@ function App() {
         <Route path="/invest/buysells" element={<Buysells/>} />
         <Route path="/invest/swap-from" element={<Fromswap/>} />
         <Route path="/price-card" element={<PriceCard/>} />
-
+        <Route path="/enter-pin" element={<EnterPin/>} />
+        <Route path="/login" element={<Login/>} />
 
 
 
