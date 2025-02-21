@@ -21,7 +21,7 @@ import Profile from './pages/profile/Profile';
 
 import Tokentransaction from './pages/invest/Tokentransaction';
 import Receiveds from './pages/invest/Receiveds';
-import Swaps from './pages/invest/Swaps';
+// import Swaps from './pages/invest/Swaps';
 import Buysells from './pages/invest/Buysells';
 import Fromswap from './pages/invest/Fromswap';
 
@@ -34,11 +34,11 @@ import TopGainers from './pages/dashboard/home/topGainers';
 import TopLosers from './pages/dashboard/home/topLosers';
 import Notification from './pages/components/notofications';
 import Splash from './pages/splash';
-import Tokentransaction from './pages/invest/Tokentransaction';
-import Receiveds from './pages/invest/Receiveds';
-import Swaps from './pages/invest/Swaps';
-import Buysells from './pages/invest/Buysells';
-import Fromswap from './pages/invest/Fromswap';
+// import Tokentransaction from './pages/invest/Tokentransaction';
+// import Receiveds from './pages/invest/Receiveds';
+// import Swaps from './pages/invest/Swaps';
+// import Buysells from './pages/invest/Buysells';
+// import Fromswap from './pages/invest/Fromswap';
 
 function App() {
   return (
@@ -71,7 +71,7 @@ function App() {
         <Route path="/notification" element={<Notification />} />
         <Route path="/token-transaction" element={<Tokentransaction />} />
         <Route path="/invest/received" element={<Receiveds/>} />
-        <Route path="/invest/swaps" element={<Swaps/>} />
+        {/* <Route path="/invest/swaps" element={<Swaps/>} /> */}
         <Route path="/invest/buysells" element={<Buysells/>} />
         <Route path="/invest/swap-from" element={<Fromswap/>} />
 
