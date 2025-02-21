@@ -270,72 +270,7 @@ function Home() {
           </div>
         </div>
 
-        {/* Trending Token Section */}
-        <div className="px-6 pt-8">
-          <h1 className="text-xl font-semibold">Trending Token</h1>
-          <div className="flex justify-start items-center gap-4 pt-5 overflow-x-auto vertical-scrollbar pb-3">
-            <div className="bg-white bg-opacity-5 rounded-xl p-3">
-              <div className="flex justify-between items-center gap-6">
-                <div className="p-3 bg-g300 rounded-md">
-                  <img src="assets/images/trending-token-logo1.png" alt="Trending Token 1" />
-                </div>
-                <div className="flex justify-start items-center text-g300 text-xs">
-                  <i className="ph ph-arrow-up"></i>
-                  <span>10.5%</span>
-                </div>
-              </div>
-              <div className="flex justify-between items-center gap-6 pt-3">
-                <div>
-                  <p className="font-semibold uppercase">USDT</p>
-                  <p className="font-medium text-n70">148.50k</p>
-                </div>
-                <div className="w-12">
-                  <img src="assets/images/trend-graph.png" alt="Trend Graph" />
-                </div>
-              </div>
-            </div>
-            <div className="bg-white bg-opacity-5 rounded-xl p-3">
-              <div className="flex justify-between items-center gap-6">
-                <div className="p-3 bg-g300 rounded-md">
-                  <img src="assets/images/trending-token-logo3.png" alt="Trending Token 3" />
-                </div>
-                <div className="flex justify-start items-center text-g300 text-xs">
-                  <i className="ph ph-arrow-up"></i>
-                  <span>7.5%</span>
-                </div>
-              </div>
-              <div className="flex justify-between items-center gap-6 pt-3">
-                <div>
-                  <p className="font-semibold uppercase">BIT</p>
-                  <p className="font-medium text-n70">148.50k</p>
-                </div>
-                <div className="w-12">
-                  <img src="assets/images/trend-graph.png" alt="Trend Graph" />
-                </div>
-              </div>
-            </div>
-            <div className="bg-white bg-opacity-5 rounded-xl p-3">
-              <div className="flex justify-between items-center gap-6">
-                <div className="p-3 bg-g300 rounded-md">
-                  <img src="assets/images/trending-token-logo2.png" alt="Trending Token 2" />
-                </div>
-                <div className="flex justify-start items-center text-g300 text-xs">
-                  <i className="ph ph-arrow-up"></i>
-                  <span>4.9%</span>
-                </div>
-              </div>
-              <div className="flex justify-between items-center gap-6 pt-3">
-                <div>
-                  <p className="font-semibold uppercase">USDT</p>
-                  <p className="font-medium text-n70">148.50k</p>
-                </div>
-                <div className="w-12">
-                  <img src="assets/images/trend-graph.png" alt="Trend Graph" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+       
 
         {/* Invite Section */}
         <div className="px-6 pt-8">
@@ -460,7 +395,73 @@ function Home() {
             </div>
           </div>
         </div>
-
+        
+         {/* Trending Token Section */}
+         <div className="px-6 pt-8">
+          <h1 className="text-xl font-semibold">Trending News</h1>
+          <div className="flex justify-start items-center gap-4 pt-5 overflow-x-auto vertical-scrollbar pb-3">
+            <div className="bg-white bg-opacity-5 rounded-xl p-3">
+              <div className="flex justify-between items-center gap-6">
+                <div className="p-3 bg-g300 rounded-md">
+                  <img src="assets/images/trending-token-logo1.png" alt="Trending Token 1" />
+                </div>
+                <div className="flex justify-start items-center text-g300 text-xs">
+                  <i className="ph ph-arrow-up"></i>
+                  <span>10.5%</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center gap-6 pt-3">
+                <div>
+                  <p className="font-semibold uppercase">USDT</p>
+                  <p className="font-medium text-n70">148.50k</p>
+                </div>
+                <div className="w-12">
+                  <img src="assets/images/trend-graph.png" alt="Trend Graph" />
+                </div>
+              </div>
+            </div>
+            <div className="bg-white bg-opacity-5 rounded-xl p-3">
+              <div className="flex justify-between items-center gap-6">
+                <div className="p-3 bg-g300 rounded-md">
+                  <img src="assets/images/trending-token-logo3.png" alt="Trending Token 3" />
+                </div>
+                <div className="flex justify-start items-center text-g300 text-xs">
+                  <i className="ph ph-arrow-up"></i>
+                  <span>7.5%</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center gap-6 pt-3">
+                <div>
+                  <p className="font-semibold uppercase">BIT</p>
+                  <p className="font-medium text-n70">148.50k</p>
+                </div>
+                <div className="w-12">
+                  <img src="assets/images/trend-graph.png" alt="Trend Graph" />
+                </div>
+              </div>
+            </div>
+            <div className="bg-white bg-opacity-5 rounded-xl p-3">
+              <div className="flex justify-between items-center gap-6">
+                <div className="p-3 bg-g300 rounded-md">
+                  <img src="assets/images/trending-token-logo2.png" alt="Trending Token 2" />
+                </div>
+                <div className="flex justify-start items-center text-g300 text-xs">
+                  <i className="ph ph-arrow-up"></i>
+                  <span>4.9%</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center gap-6 pt-3">
+                <div>
+                  <p className="font-semibold uppercase">USDT</p>
+                  <p className="font-medium text-n70">148.50k</p>
+                </div>
+                <div className="w-12">
+                  <img src="assets/images/trend-graph.png" alt="Trend Graph" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* Tab Area Start */}
         <Footer />
         {/* Tab Area End */}
