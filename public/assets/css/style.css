@@ -1291,7 +1291,7 @@ video {
 }
 .text-g300{
   --tw-text-opacity: 1;
-  color: rgba(45, 181, 47, 1);
+  color: rgba(149, 131, 255, 1);
   color: rgba(45, 181, 47, var(--tw-text-opacity));
 }
 .text-n70{
@@ -1370,7 +1370,7 @@ video {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #2db52f;
+  background-color:rgba(149, 131, 255, 1);;
   border-radius: 3px;
 }
 
