@@ -4,14 +4,21 @@ function Register() {
   return (
     <div className="container bg-n900 h-dvh relative overflow-hidden flex justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
-      <div className="relative z-20 px-6">
-        <div className="flex justify-center items-center flex-col gap-3 pt-8">
-          <h1 className="text-2xl font-semibold">Change Password</h1>
-          <p className="text-n70 text-sm text-center">
-            Find the 12 or 24-word seed phrase that was provided when you
-            created your wallet.
-          </p>
-        </div>
+      
+            <div className="px-6 py-8 relative z-20 w-full">
+              {/* Header */}
+              <div className="flex justify-start items-center pb-8 mr-8">
+                <Link
+                  to="/home"  // Adjust the route as needed
+                  className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900"
+                >
+                  <i className="ph-bold ph-caret-left"></i>
+                </Link>
+                <div className="flex justify-center items-center w-full">
+                  <h1 className="font-semibold text-2xl">Change Password</h1>
+                </div>
+              </div>
+        
 
         <form className="pt-8 flex flex-col gap-4">
           <div>
