@@ -227,14 +227,14 @@ function Account() {
           <p className="text-n70 font-semibold pb-5">Security</p>
           <div className="flex flex-col gap-5">
             <Link
-              to="/confirm-seed-list"
+              to="/security/change-password"
               className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
             >
               <div className="flex justify-start items-center gap-3">
                 <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
                   <i className="ph ph-cardholder"></i>
                 </div>
-                <p className="font-semibold">Validate Seed</p>
+                <p className="font-semibold">Change Password</p>
               </div>
               <i className="ph ph-caret-right text-g300"></i>
             </Link>
