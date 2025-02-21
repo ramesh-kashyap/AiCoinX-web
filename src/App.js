@@ -32,10 +32,6 @@ import Swaps from './pages/invest/Swaps';
 import Buysells from './pages/invest/Buysells';
 import Fromswap from './pages/invest/Fromswap';
 
-
-
-
-
 function App() {
   return (
     <Router>
