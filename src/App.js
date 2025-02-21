@@ -31,6 +31,7 @@ import Receiveds from './pages/invest/Receiveds';
 import Swaps from './pages/invest/Swaps';
 import Buysells from './pages/invest/Buysells';
 import Fromswap from './pages/invest/Fromswap';
+import PriceCard from './pages/components/priceCard';
 
 
 
@@ -70,7 +71,7 @@ function App() {
         <Route path="/invest/swaps" element={<Swaps/>} />
         <Route path="/invest/buysells" element={<Buysells/>} />
         <Route path="/invest/swap-from" element={<Fromswap/>} />
-
+        <Route path="/price-card" element={<PriceCard/>} />
 
 
 
