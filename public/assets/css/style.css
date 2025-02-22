@@ -830,7 +830,7 @@ video {
   height: 100dvh;
 }
 .h-full{
-  height: 100%;
+  height: 600px;
 }
 .h-px{
   height: 1px;
