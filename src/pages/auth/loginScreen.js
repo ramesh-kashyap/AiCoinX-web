@@ -13,7 +13,7 @@ function Login() {
     console.log( 'check:',email,
       password,)
     try {
-      const response = await Api.post("/auth/login", {
+      const response = await Api.post("/login", {
         email,
         password,
       });

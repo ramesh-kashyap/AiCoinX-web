@@ -18,11 +18,7 @@ import Received from './pages/profile/wallet/recieved';
 // import Swap from './pages/profile/wallet/swap';
 import Profile from './pages/profile/Profile';
 
-import Tokentransaction from './pages/invest/Tokentransaction';
-import Receiveds from './pages/invest/Receiveds';
-import Swaps from './pages/invest/Swaps';
-import Buysells from './pages/invest/Buysells';
-import Fromswap from './pages/invest/Fromswap';
+
 import Invest from './pages/invest/Invest';
 import Depositconfirm from './pages/invest/Depositconfirm';
 
@@ -316,45 +312,16 @@ function App() {
             </ProtectedRoute>
           } 
         />
-      </Routes>
-    </Router>
+          <Route path="/invest" element={
+        <ProtectedRoute><Invest/></ProtectedRoute>} />
+        <Route path="/invest/depositconfirm" element={ <ProtectedRoute><Depositconfirm/></ProtectedRoute>} />
+         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+    
+  
       
-        <Route path="/register" element={<Register />} />
-        <Route path="/create-password" element={<CreatePassword />} />
-        <Route path="/secure-wallet" element={<SecureWallet />} />
-        <Route path="/seed-phrase" element={<SeedPhrase />} />
-        <Route path="/confirm-seed-phrase" element={<ConfirmSeedPhrase />} />
-        <Route path="/choose-account" element={<ChooseAccount />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/browser" element={<Browser />} />
-        <Route path="/market" element={<Marketplace />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/sent-to" element={<SendTo />} />
-        <Route path="/received" element={<Received />} />
-        <Route path="/swap" element={<Swap />} />
-        <Route path="/token-transaction" element={<Tokentransaction />} />
-        <Route path="/invest/received" element={<Receiveds/>} />
-        <Route path="/invest/swaps" element={<Swaps/>} />
-        <Route path="/invest/buysells" element={<Buysells/>} />
-        <Route path="/invest/swap-from" element={<Fromswap/>} />
-        <Route path="/invest" element={<Invest/>} />
-        <Route path="/invest/depositconfirm" element={<Depositconfirm/>} />
+      
 
-
-
-
-
-
-        <Route path="/profile" element={<Profile />} />
-
-        <Route path="/about" element={<About />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/language" element={<Language />} />
-        <Route path="/currency" element={<Currency />} />
-        <Route path="/add-token" element={<AddToken />} />
-        <Route path="/top-gainers" element={<TopGainers />} />
-        <Route path="/top-losers" element={<TopLosers />} />
-        <Route path="/notification" element={<Notification />} />
+      
     </Routes>
   </Router>
   );
