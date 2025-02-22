@@ -55,13 +55,13 @@ function Home() {
                 <p className="text-white font-semibold text-sm">Send</p>
               </Link>
               <Link
-                to="/invest/received"
+                to="/invest"
                 className="flex flex-col justify-center items-center gap-2"
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
                   <i className="ph-fill ph-download-simple"></i>
                 </div>
-                <p className="text-white font-semibold text-sm">Receive</p>
+                <p className="text-white font-semibold text-sm">Deposit</p>
               </Link>
               <Link
                 to="/invest/swaps"

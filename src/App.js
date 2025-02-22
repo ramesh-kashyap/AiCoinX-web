@@ -24,6 +24,10 @@ import Receiveds from './pages/invest/Receiveds';
 import Swaps from './pages/invest/Swaps';
 import Buysells from './pages/invest/Buysells';
 import Fromswap from './pages/invest/Fromswap';
+import Invest from './pages/invest/Invest';
+import Depositconfirm from './pages/invest/Depositconfirm';
+
+
 
 import About from './pages/support/about';
 import PrivacyPolicy from './pages/support/privacy-policy';
@@ -60,6 +64,10 @@ function App() {
         <Route path="/invest/swaps" element={<Swaps/>} />
         <Route path="/invest/buysells" element={<Buysells/>} />
         <Route path="/invest/swap-from" element={<Fromswap/>} />
+        <Route path="/invest" element={<Invest/>} />
+        <Route path="/invest/depositconfirm" element={<Depositconfirm/>} />
+
+
 
 
 
