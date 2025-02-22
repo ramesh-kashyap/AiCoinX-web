@@ -18,11 +18,7 @@ import Received from './pages/profile/wallet/recieved';
 // import Swap from './pages/profile/wallet/swap';
 import Profile from './pages/profile/Profile';
 
-import Tokentransaction from './pages/invest/Tokentransaction';
-import Receiveds from './pages/invest/Receiveds';
-import Swaps from './pages/invest/Swaps';
-import Buysells from './pages/invest/Buysells';
-import Fromswap from './pages/invest/Fromswap';
+
 import Invest from './pages/invest/Invest';
 import Depositconfirm from './pages/invest/Depositconfirm';
 
