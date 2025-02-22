@@ -1,9 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter  as Router, Route, Routes, Navigate } from 'react-router-dom';
-// import Splash from './pages';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { ProtectedRoute, PublicRoute, ProtecRegRoute } from './Helper/helper'; // adjust the path accordingly
 
-
+import Splash from './pages/splash';
 import Register from './pages/auth/registerScreen';
 import CreatePassword from './pages/auth/createPasswordScreen';
 import SecureWallet from './pages/auth/secureWalletScreen';
@@ -16,7 +15,7 @@ import Marketplace from './pages/dashboard/marketScreen';
 import Account from './pages/dashboard/profileScreen';
 import SendTo from './pages/profile/wallet/send';
 import Received from './pages/profile/wallet/recieved';
-import Swap from './pages/profile/wallet/swap';
+// import Swap from './pages/profile/wallet/swap';
 import Profile from './pages/profile/Profile';
 
 import Tokentransaction from './pages/invest/Tokentransaction';
@@ -37,13 +36,23 @@ import AddToken from './pages/dashboard/home/addToken';
 import TopGainers from './pages/dashboard/home/topGainers';
 import TopLosers from './pages/dashboard/home/topLosers';
 import Notification from './pages/components/notofications';
-import Splash from './pages/splash';
+import Tokentransaction from './pages/invest/Tokentransaction';
+import Receiveds from './pages/invest/Receiveds';
+import Swaps from './pages/invest/Swaps';
+import Buysells from './pages/invest/Buysells';
+import Fromswap from './pages/invest/Fromswap';
+import PriceCard from './pages/components/priceCard';
+import UpdateProfile from './pages/profile/security/profile';
+import EnterPin from './pages/components/enterPin';
+import Login from './pages/auth/loginScreen';
+import ChangePassword from './pages/profile/security/changePassword';
+import Refferals from './pages/profile/security/refferals';
+
 function App() {
   return (
     <Router>
-         
-    <Routes>
-      {/* Home Routes */}
+      <Routes>
+        {/* Public Route: Splash or landing page */}
         <Route path="/" element={<Splash />} />
       
         <Route path="/register" element={<Register />} />
