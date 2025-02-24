@@ -1,7 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link, NavLink } from 'react-router-dom';
+import Api from "../../service/Api";
+
 import Footer from '../components/footer';
 function Profile() {
+  const [users, setUsers] = useState([]); // ✅ Always start with an empty array
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    fetchUsers();
+    
+}, []);
+
+const fetchUsers= async () => {
+  try {
+     const response = await Api.get('/user-details');
+     setUsers(response.data);
+  } catch (err) {
+     setError(err.response?.data?.error || "Error fetching income");
+  }
+};
+
+
+
+
+
+
   return (
     <div className="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white pb-28">
       {/* Background Circle */}
@@ -39,56 +63,52 @@ function Profile() {
           <p className="text-n70 font-semibold pb-5">Wallet</p>
           <div className="flex flex-col gap-5">
          
-            <Link
-              to="/received"
+            <a
+              
               className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
             >
               <div className="flex justify-start items-center gap-3">
                
-                <p className="font-semibold">Username</p>
+                <p className="font-semibold">{users.username}</p>
               </div>
               <i className="ph ph-caret-right text-g300"></i>
-            </Link>
-            <Link
-              to="/swap"
+            </a>
+            <a
               className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
             >
               <div className="flex justify-start items-center gap-3">
              
-                <p className="font-semibold">Last Name</p>
+                <p className="font-semibold">{users.lastname}</p>
               </div>
               {/* <i className="ph ph-caret-right text-g300"></i> */}
-            </Link>
-            <Link
-              to="/buy-sell"
+            </a>
+            <a
               className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
             >
               <div className="flex justify-start items-center gap-3">
                
-                <p className="font-semibold">First Name</p>
+                <p className="font-semibold">{users?.	fullname}</p>
               </div>
               {/* <i className="ph ph-caret-right text-g300"></i> */}
-            </Link>
-            <Link
-              to="/rewards"
+            </a>
+            <a
               className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
             >
               <div className="flex justify-start items-center gap-3">
                
-                <p className="font-semibold">Date of birth</p>
+                <p className="font-semibold">{users?.date_of_birth}</p>
               </div>
               {/* <i className="ph ph-caret-right text-g300"></i> */}
-            </Link>
-            <Link
-              to="/rewards"
+            </a>
+            <a
               className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
             >
               <div className="flex justify-start items-center gap-3">
               
-                <p className="font-semibold">Email</p>
+                <p className="font-semibold">{users?.email}</p>
               </div>
               {/* <i className="ph ph-caret-right text-g300"></i> */}
-            </Link>
+            </a>
            
           </div>
         </div>

@@ -20,6 +20,8 @@ import Profile from './pages/profile/Profile';
 
 
 import Invest from './pages/invest/Invest';
+import Depositreport from './pages/invest/Depositreport';
+
 import Depositconfirm from './pages/invest/Depositconfirm';
 
 
@@ -43,6 +45,8 @@ import EnterPin from './pages/components/enterPin';
 import Login from './pages/auth/loginScreen';
 import ChangePassword from './pages/profile/security/changePassword';
 import Refferals from './pages/profile/security/refferals';
+import Withdrawhistroy from './pages/Withdraw/Withdrawhistroy';
+
 
 function App() {
   return (
@@ -272,6 +276,26 @@ function App() {
             </ProtectedRoute>
           } 
         />
+
+<Route 
+          path="/invest/Depositreport" 
+          element={
+            <ProtectedRoute>
+              <Depositreport />
+            </ProtectedRoute>
+          } 
+        />
+
+<Route 
+          path="/withdrawhistroy" 
+          element={
+            <ProtectedRoute>
+              <Withdrawhistroy />
+            </ProtectedRoute>
+          } 
+        />
+
+
         <Route 
           path="/invest/buysells" 
           element={
