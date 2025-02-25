@@ -95,6 +95,47 @@ function App() {
         <Route path="/security/change-password" element={<ChangePassword/>} />
         <Route path="/security/refferals-user" element={<Refferals/>} />
         <Route path="/promotion/promocode" element={<PromoCode/>} />
+        <Route 
+          path="/invest/Depositreport" 
+          element={
+            <ProtectedRoute>
+              <Depositreport />
+            </ProtectedRoute>
+          } 
+        />
+
+<Route 
+          path="/withdrawhistroy" 
+          element={
+            <ProtectedRoute>
+              <Withdrawhistroy />
+            </ProtectedRoute>
+          } 
+        />
+           <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/referral" 
+          element={
+            <ProtectedRoute>
+              <Referral/>
+            </ProtectedRoute>
+          } 
+        />
+            <Route 
+          path="/market" 
+          element={
+            <ProtectedRoute>
+              <Marketplace />
+            </ProtectedRoute>
+          } 
+        />
 
 
 
