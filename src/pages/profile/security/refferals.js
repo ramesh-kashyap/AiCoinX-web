@@ -22,7 +22,7 @@ export default function ReferralProgram() {
       <div   style={{ backgroundColor: "rgba(17, 24, 32, 1)" }}  className="w-full max-w-md mx-auto p-5">
         {/* Header */}
         <div className="flex justify-start items-center pb-8 mr-8">
-          <Link to="/home" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
+          <Link to="/account" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
             <i className="ph-bold ph-caret-left"></i>
           </Link>
           <div className="flex justify-center items-center w-full">

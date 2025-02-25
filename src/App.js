@@ -41,6 +41,8 @@ import UpdateProfile from './pages/profile/security/profile';
 
 import ChangePassword from './pages/profile/security/changePassword';
 import Refferals from './pages/profile/security/refferals';
+import PromoCode from './pages/profile/promotion/addPromoCode';
+
 
 
 function App() {
@@ -86,6 +88,8 @@ function App() {
         <Route path="/invest/swap-from" element={<Fromswap/>} />
         <Route path="/security/change-password" element={<ChangePassword/>} />
         <Route path="/security/refferals-user" element={<Refferals/>} />
+        <Route path="/promotion/promocode" element={<PromoCode/>} />
+
 
 
 
