@@ -58,7 +58,8 @@ function App() {
       <Routes>
         {/* Public Route: Splash or landing page */}
         <Route path="/" element={<Splash />} />
-      
+        <Route path="/login" element={<Login />} />
+
         <Route path="/register" element={<Register />} />
         <Route path="/create-password" element={<CreatePassword />} />
         <Route path="/secure-wallet" element={<SecureWallet />} />

@@ -2,7 +2,7 @@ import React, { useState,useRef } from 'react';
 import { Link } from "react-router-dom";
 import { Camera, Image as Gallery } from "lucide-react";
 
-function Register() {
+function Profile() {
    const [showPopup, setShowPopup] = useState(false);
    const fileInputRef = useRef(null);
    const [selectedImage, setSelectedImage] = useState("/assets/images/referral-3272324_1280.webp"); // Default Image
@@ -183,4 +183,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Profile;
