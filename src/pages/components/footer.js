@@ -25,16 +25,20 @@ function Footer() {
           <p className="text-xs font-semibold">Home</p>
         </NavLink>
         <NavLink
-          to="/browser"
-          className={({ isActive }) =>
-            `flex flex-col justify-center items-center gap-1 z-20 ${
-              isActive ? 'text-g300' : 'text-violet-500'
-            }`
-          }
-        >
-          <i className="ph ph-globe text-2xl"></i>
-          <p className="text-xs font-semibold">Browser</p>
-        </NavLink>
+  to="/security/refferals-user"
+  className={({ isActive }) =>
+    `flex flex-col justify-center items-center gap-1 z-20 ${
+      isActive ? 'text-g300' : 'text-violet-500'
+    }`
+  }
+>
+  <i className="ph ph-users-three text-2xl"></i> 
+  <p className="text-xs font-semibold">Refer Friends</p>
+</NavLink>
+
+
+
+
         <NavLink
           to="/market"
           className={({ isActive }) =>

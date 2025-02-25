@@ -9,7 +9,7 @@ function Register() {
               {/* Header */}
               <div className="flex justify-start items-center pb-8 mr-8">
                 <Link
-                  to="/home"  // Adjust the route as needed
+                  to="/account"  // Adjust the route as needed
                   className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900"
                 >
                   <i className="ph-bold ph-caret-left"></i>
@@ -39,7 +39,7 @@ function Register() {
       placeholder="Enter Otp"
       className="bg-transparent outline-none placeholder:text-sm text-sm passwordField"
     />
-    <button  style={{ backgroundColor: '#142b22',color: 'white' }}className="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-600">
+    <button  style={{ backgroundColor: 'rgb(33 36 59)',color: 'white' }}className="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-600">
     Send OTP
   </button>
   </div>
