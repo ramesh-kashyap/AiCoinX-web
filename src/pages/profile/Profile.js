@@ -1,10 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { Link, NavLink } from 'react-router-dom';
+import React, { useEffect, useState,useRef } from "react";
+import { Link } from "react-router-dom";
+import { Camera, Image as Gallery } from "lucide-react";
 import Api from "../../service/Api";
 
-import Footer from '../components/footer';
 function Profile() {
-  const [users, setUsers] = useState([]); // ✅ Always start with an empty array
+  const [showPopup, setShowPopup] = useState(false);
+  const fileInputRef = useRef(null);
+  const [selectedImage, setSelectedImage] = useState("/assets/images/referral-3272324_1280.webp"); 
+  // const [users, setUsers] = useState([]); // ✅ Always start with an empty array
+  // const [error, setError] = useState("");
+
+  const [users, setUsers] = useState({
+    username: "",
+    first_name: "",
+    last_name: "",
+    email: "",
+    date_of_birth: ""
+  }); 
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -24,151 +36,145 @@ const fetchUsers= async () => {
 
 
 
+  const openCamera = () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.capture = "environment"; // Opens mobile camera
+    input.onchange = (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const imageUrl = URL.createObjectURL(file);
+        setSelectedImage(imageUrl); // Update Profile Picture
+        setShowPopup(false); // Close popup
+      }
+    };
+    input.click();
+  };
 
+  // 🖼️ Open Gallery / File Manager
+  const openGallery = () => {
+    fileInputRef.current.click();
+  };
 
   return (
-    <div className="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white pb-28">
-      {/* Background Circle */}
+    <div className="container bg-n900 h-dvh relative overflow-hidden flex justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
 
-      <div className="relative z-20 p-6 w-full">
-        {/* Header */}
-        <div className="flex justify-between items-center">
-          <p className="text-2xl font-semibold">ChainMaster</p>
-          <div className="flex justify-start items-center gap-3">
-            <div className="p-2 rounded-full flex justify-center items-center bg-n700 text-g300">
-              <i className="ph ph-headset"></i>
-            </div>
-            <div className="p-2 rounded-full flex justify-center items-center bg-n700 text-g300">
-              <i className="ph ph-bell"></i>
-            </div>
-          </div>
-        </div>
-
-        {/* Account Card */}
-        <div className="py-8">
-          <a className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl">
-            <div className="flex justify-start items-center gap-3">
-              <img src="assets/images/account-img-1.png" alt="DigitalNomad" />
-              <div>
-                <p className="font-semibold">Personal Details</p>
-              </div>
-            </div>
-            {/* <i className="ph ph-caret-right text-g300"></i> */}
-          </a>
-        </div>
-
-        {/* Wallet Section */}
-        <div>
-          <p className="text-n70 font-semibold pb-5">Wallet</p>
-          <div className="flex flex-col gap-5">
-         
-            <a
-              
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
+      <div className="px-6 py-8 relative z-20 w-full">
+        {/* Popup for Edit Photo */}
+        {showPopup && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+            onClick={() => setShowPopup(false)} // Click outside to close
+          >
+            <div
+              style={{ backgroundColor: "#202338", width: 425, height: 313, marginBottom: -39 }}
+              className="fixed bottom-10 bg-n900 text-white p-6 shadow-lg rounded-t-lg transition-transform transform translate-y-0"
+              onClick={(e) => e.stopPropagation()} // Prevent closing on click inside
             >
-              <div className="flex justify-start items-center gap-3">
-               
-                <p className="font-semibold">{users.username}</p>
-              </div>
-              <i className="ph ph-caret-right text-g300"></i>
-            </a>
-            <a
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-            >
-              <div className="flex justify-start items-center gap-3">
-             
-                <p className="font-semibold">{users.lastname}</p>
-              </div>
-              {/* <i className="ph ph-caret-right text-g300"></i> */}
-            </a>
-            <a
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-            >
-              <div className="flex justify-start items-center gap-3">
-               
-                <p className="font-semibold">{users?.	fullname}</p>
-              </div>
-              {/* <i className="ph ph-caret-right text-g300"></i> */}
-            </a>
-            <a
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-            >
-              <div className="flex justify-start items-center gap-3">
-               
-                <p className="font-semibold">{users?.date_of_birth}</p>
-              </div>
-              {/* <i className="ph ph-caret-right text-g300"></i> */}
-            </a>
-            <a
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-            >
-              <div className="flex justify-start items-center gap-3">
-              
-                <p className="font-semibold">{users?.email}</p>
-              </div>
-              {/* <i className="ph ph-caret-right text-g300"></i> */}
-            </a>
-           
-          </div>
-        </div>
-
-      
-
-      
-
-        {/* Tab Area (Footer Navigation) */}
-        <Footer />
-        {/* End Tab Area */}
-
-        {/* Hidden Modals */}
-        <div className="hidden inset-0 z-40 checkBiometrics">
-          <div className="container bg-white bg-opacity-10 flex justify-end items-end h-full">
-            <div className="bg-n900 px-6 pt-3 pb-6 w-full rounded-t-[31px] relative">
-              <div className="flex justify-center items-center">
-                <div className="w-16 h-1 bg-white bg-opacity-5 rounded-full"></div>
-              </div>
-              <h2 className="text-xl font-semibold text-center pt-8">
-                Check your biometrics
+              <div className="h-1 w-16 bg-gray-300 rounded mx-auto mb-3"></div>
+              <h2 style={{ marginLeft: "109px", marginBottom: "4px" }} className="text-lg font-bold mb-4">
+                Edit Photo
               </h2>
-              <button className="absolute top-4 right-4 text-2xl text-g300 checkBiometricsCloseButton">
-                <i className="ph ph-x-circle"></i>
+
+              <button className="w-full flex items-center gap-3 p-4 text-black border-b" onClick={openCamera}>
+                <Camera style={{ color: "#fff" }} size={22} />
+                <span style={{ color: "#fff" }}>Take Photo</span>
               </button>
-              <div className="flex flex-col gap-4 pt-8">
-                <div className="text-[100px] text-g300 flex justify-center items-center">
-                  <i className="ph ph-fingerprint"></i>
-                </div>
-                <div className="text-center">
-                  <p className="text-xs text-n70">Touch the fingerprint sensor</p>
-                </div>
-              </div>
+
+              <button className="w-full flex items-center gap-3 p-4 text-black" onClick={openGallery}>
+                <Gallery style={{ color: "#fff" }} size={22} />
+                <span style={{ color: "#fff" }}>Choose from Library</span>
+              </button>
+
+              {/* Hidden File Input for Gallery Selection */}
+              <input
+                type="file"
+                accept="image/*"
+                ref={fileInputRef}
+                className="hidden"
+                onChange={(event) => {
+                  const file = event.target.files[0];
+                  if (file) {
+                    const imageUrl = URL.createObjectURL(file);
+                    setSelectedImage(imageUrl); // Update Profile Picture
+                    setShowPopup(false); // Close popup
+                  }
+                }}
+              />
             </div>
+          </div>
+        )}
+
+        {/* Header */}
+        <div className="flex justify-start items-center pb-8 mr-8">
+          <Link to="/#" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
+            <i className="ph-bold ph-caret-left"></i>
+          </Link>
+          <div className="flex justify-center items-center w-full">
+            <h1 className="font-semibold text-2xl">Personal Details</h1>
           </div>
         </div>
-        <div className="hidden inset-0 z-40 logoutModal">
-          <div className="container bg-white bg-opacity-10 flex justify-end items-end h-full">
-            <div className="bg-n900 px-6 pt-3 pb-6 w-full rounded-t-[31px] relative">
-              <div className="flex justify-center items-center">
-                <div className="w-16 h-1 bg-white bg-opacity-5 rounded-full"></div>
-              </div>
-              <h2 className="text-2xl font-semibold text-center pt-8 text-g300 pb-5">
-                Logout
-              </h2>
-              <div className="pt-5 border-t border-dashed border-white border-opacity-10">
-                <p className="text-n70 text-center">
-                  Are you sure you want to log out of your account?
-                </p>
-              </div>
-              <div className="w-full pt-12 flex justify-between items-center gap-3">
-                <button className="block text-g300 border border-g300 bg-white bg-opacity-5 font-semibold text-center py-3 rounded-lg w-full logoutModalCloseButton">
-                  Cancel
-                </button>
-                <a href="" className="block bg-g300 font-semibold text-center py-3 rounded-lg w-full">
-                  Yes, Logout
-                </a>
-              </div>
+
+        {/* Profile Image Section */}
+        <div className="flex justify-center mb-6 relative">
+          <img
+            alt="Profile picture"
+            className="rounded-full w-24 h-24"
+            height="80"
+            src={selectedImage}
+            width="80"
+          />
+          <div className="absolute bottom-0 right-10 bg-black text-white rounded-full p-1">
+            <button style={{ marginLeft: "100px" }} onClick={() => setShowPopup(true)} className="text-purple-500 text-2xl">
+              <i style={{ color: "#9583ff" }} className="ph ph-pencil-simple"></i>
+            </button>
+          </div>
+        </div>
+
+        {/* Form */}
+        <form className="pt-8 flex flex-col gap-4">
+
+
+
+       
+          <div>
+            <p className="text-sm font-semibold pb-2">User Name</p>
+            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+              <input type="text"    value={users.username || ""}  placeholder="Enter Username" className="bg-transparent outline-none placeholder:text-sm text-sm" />
             </div>
           </div>
+
+        
+
+          <div>
+            <p className="text-sm font-semibold pb-2">First Name</p>
+            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+              <input type="text" placeholder="Enter First Name" className="bg-transparent outline-none placeholder:text-sm text-sm" />
+            </div>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold pb-2">Date of Birth</p>
+            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+              <input type="date" className="bg-transparent outline-none text-sm" />
+            </div>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold pb-2">Email</p>
+            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+              <input type="email" placeholder="Enter Email" className="bg-transparent outline-none placeholder:text-sm text-sm" />
+            </div>
+          </div>
+        </form>
+
+        {/* Delete Account */}
+        <div className="w-full pt-20">
+          <a href="#" className="block bg-g300 font-semibold text-center py-3 rounded-lg">
+            Delete account
+          </a>
         </div>
       </div>
     </div>
