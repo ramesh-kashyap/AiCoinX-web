@@ -17,6 +17,8 @@ import SendTo from './pages/profile/wallet/send';
 import Received from './pages/profile/wallet/recieved';
 // import Swap from './pages/profile/wallet/swap';
 import Profile from './pages/profile/Profile';
+import Referral from './pages/team/Referral';
+
 
 
 import Invest from './pages/invest/Invest';
@@ -98,6 +100,17 @@ function App() {
             </ProtectedRoute>
           } 
         />
+
+
+<Route 
+          path="/referral" 
+          element={
+            <ProtectedRoute>
+              <Referral/>
+            </ProtectedRoute>
+          } 
+        />
+
         <Route 
           path="/confirm-seed-phrase" 
           element={
