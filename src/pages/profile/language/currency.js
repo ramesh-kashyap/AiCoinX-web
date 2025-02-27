@@ -41,7 +41,7 @@ function Profile() {
    onClick={() => setShowPopup(false)} // Click outside to close
  >
    <div 
-     style={{ backgroundColor: "#202338", width: 425, height: 313, marginBottom: -39 }}
+     style={{ backgroundColor: "rgb(43 48 67)", width: 429, height: 313, marginBottom: -39,borderTopLeftRadius: "38px",borderTopRightRadius: "38px" }}
      className="fixed bottom-10 bg-n900 text-white p-6 shadow-lg rounded-t-lg transition-transform transform translate-y-0"
      onClick={(e) => e.stopPropagation()} // Prevent closing on click inside
    >

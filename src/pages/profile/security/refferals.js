@@ -12,7 +12,7 @@ import TelegramIcon from "@mui/icons-material/Telegram"; // Telegram
 export default function ReferralProgram() {
   const inputRef = useRef(null);
   const [showPopup, setShowPopup] = useState(false);
-  const shareUrl = "https://yourwebsite.com/invite?ref=USERNAME"; // Replace with actual referral link
+  const shareUrl = "http://localhost:3000/ref=11223344"; // Replace with actual referral link
 
 
   const handleShare = (platform) => {
@@ -88,7 +88,7 @@ export default function ReferralProgram() {
           onClick={() => setShowPopup(false)} 
         >
           <div
-            style={{ backgroundColor: "#fff", width: 429, height: 420, marginBottom: -39,marginBottom:"-200px",borderTopLeftRadius: "38px",borderTopRightRadius: "38px" }}
+            style={{ backgroundColor: "#fff", width: 429, height: 420,marginBottom:"-200px",borderTopLeftRadius: "38px",borderTopRightRadius: "38px" }}
             className="fixed bottom-10 bg-n900 text-white p-6 shadow-lg rounded-t-lg transition-transform transform translate-y-0"
             onClick={(e) => e.stopPropagation()} 
           >
@@ -134,7 +134,7 @@ export default function ReferralProgram() {
 
         <div
   style={{
-    background: "linear-gradient(to left, rgb(112 92 229), rgb(116 94 243 / 50%))"
+    background: "linear-gradient(to left, rgb(112 92 229), rgb(116 94 243 / 50%))",marginTop:"-3px"
   }}
   className="bg-purple-700 p-5 rounded-lg mt-5 text-center"
 >
@@ -199,8 +199,7 @@ export default function ReferralProgram() {
     backgroundColor: "transparent", // Background hata diya
     marginTop: "10px",
     border: "2px solid", // Border width set kiya
-    borderImage: "linear-gradient(to left, rgb(149, 131, 255), rgba(149, 131, 255, 0.5)) 1", // Border ke liye gradient
-    borderRadius: "10px", // Border ko rounded banane ke liye
+    borderRadius: "13px", // Border ko rounded banane ke liye
     padding: "16px" // Andar ka space maintain karne ke liye
   }}
   className="mb-3"
