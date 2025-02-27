@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Uncomment if using React Router
-
+import Api from '../../service/Api';
 function Notification() {
+     const [message, setMessage] = useState([]);
+  const fetchNotification = async () => {  try {
+    // Fetch news data (adjust the endpoint as needed)
+    const response = await Api.get('/getNotifications'); 
+    if(response.data.status){
+      setMessage(response.data.data);
+   
+    console.log('News data:', response.data.data );
+  }else {
+    console.error('Failed to fetch balance:', response.data);
+}
+ 
+  } catch (error) {
+    console.error('Error fetching news data:', error);
+  }
+}
+
+useEffect(() => {
+  
+  
+  fetchNotification();
+  
+ 
+}, []);
   const styles = {
     // We removed maxWidth/margin from here since we're using Tailwind to center
     container: {
@@ -87,6 +111,16 @@ function Notification() {
       fontSize: '12px',
       color: '#888',
     },
+    notificationTitle: {
+      fontSize: "16px",
+      fontWeight: "bold",
+      margin: "0",
+    },
+    notificationDescription: {
+      fontSize: "14px",
+      color: "#fff",
+      margin: "5px 0",
+    },
   };
   return (
     <div className="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white">
@@ -127,18 +161,27 @@ function Notification() {
       {/* Date */}
       <p style={styles.date}>20 February 2025</p>
 
+
       {/* Notification Item */}
+      {message.length > 0 ? (
+        message.map((notification) => (
       <div style={styles.notificationItem}>
         <div style={styles.iconContainer}>
           <span style={styles.infoIcon}>i</span>
         </div>
         <div style={styles.notificationText}>
-          <p style={styles.notificationTitle}>
-            Congratulations! You've earned 50,000 points for completing Refer a friend with completed registration.
+        <p style={styles.notificationTitle}>{notification.title}</p>
+          <p style={styles.notificationDescription}>
+          {notification.description}
           </p>
-          <p style={styles.notificationDate}>20 February 2025 / 18:02</p>
+          <p style={styles.notificationDate}>{new Date(notification.createdAt).toLocaleString()}</p>
         </div>
       </div>
+      ))
+
+        ) : (
+          <p>No notifications found.</p>
+        )}
 
         {/* <div className="flex flex-col justify-center items-center pt-6 text-center">
           <img src="assets/images/not-found-illus.png" alt="Not found illustration" />

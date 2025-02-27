@@ -8,20 +8,42 @@ import Api from '../../service/Api';
 // Connect to your backend Socket.IO server (adjust the URL/port if needed)
 
 function Home() {
+  const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('tokens');
   const [coinData, setCoinData] = useState(null);
   const [news, setNews] = useState(null);
   const [user, setUser] = useState(null);
+  const [balance, setBalance] = useState(null);
    const [liveData, setLiveData] = useState({ topGainers: [], topLosers: [] });
    const fetchNewsData = async () => {  try {
     // Fetch news data (adjust the endpoint as needed)
     const newsResponse = await Api.get('/news'); 
+    if(newsResponse.data.status){
     setNews(newsResponse.data.data);
     setUser(newsResponse.data.userData[0].fullname);
     console.log('News data:', newsResponse.data.userData[0].fullname);
+  }else {
+    console.error('Failed to fetch balance:', newsResponse.data);
+}
+ 
   } catch (error) {
     console.error('Error fetching news data:', error);
   }
+}
+const fetchGetBalance = async () => {  try {
+  // Fetch news data (adjust the endpoint as needed)
+  const response = await Api.get('/getBalance'); 
+  if(response.data.status){
+    setBalance(response.data.data.
+      available_balance);
+    console.log('Balance data:', response.data);
+  }else {
+    console.error('Failed to fetch balance:', response.data);
+}
+ 
+} catch (error) {
+  console.error('Error fetching news data:', error);
+}
 }
   useEffect(() => {
     // Function to fetch data from the backend
@@ -34,7 +56,7 @@ function Home() {
         console.error('Error fetching live data:', error);
       }
     };
-
+    fetchGetBalance();
     fetchData();
     fetchNewsData();
     // Optional: Refresh data every 10 seconds
@@ -77,14 +99,14 @@ function Home() {
             <div className="flex justify-start items-center gap-2">
               <img src="assets/images/ok3d.png" alt="ok3d"  style={{ maxWidth: "12%" }} />
               <p className="text-[32px] font-bold text-white relative">
-                0.180275565
+            {balance}
                 <span className="text-sm font-normal text-g300 absolute top-1 -right-14">
                  
                 </span>
               </p>
             </div>
             <p className="text-sm text-n70">
-              <span className="text-g300">$</span>210.44 (USD)
+              {/* <span className="text-g300">$</span>210.44 (USD) */}
             </p>
             <div className="my-6 w-full border border-white border-opacity-5 border-dashed"></div>
             <div className="flex justify-around items-center">
@@ -136,8 +158,8 @@ function Home() {
         {/* Invite Section */}
         <div className="px-6 pt-8">
           <div className="w-full  p-5 flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
-           color: '#000',
-          backgroundColor: 'rgba(255,255,255,0.9)', // White bg with 5% opacity
+           color: '#fff',
+          // backgroundColor: 'rgba(255,255,255,0.9)', // White bg with 5% opacity
         }}>
             <img
               src="assets/images/invite_bg.png"
@@ -246,6 +268,8 @@ function Home() {
 
           </div>
         </div>
+
+        
         {/* Tab Area Start */}
         <Footer />
         {/* Tab Area End */}
