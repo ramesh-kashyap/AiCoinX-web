@@ -51,13 +51,15 @@ import PromoCode from './pages/profile/promotion/addPromoCode';
 
 import Withdrawhistroy from './pages/Withdraw/Withdrawhistroy';
 
+import Defi from './pages/dashboard/defiScreen';
+import DetailPage from './pages/components/detail';
 
 function App() {
   return (
     <Router>
       <Routes>
         {/* Public Route: Splash or landing page */}
-        <Route path="/" element={<Splash />} />
+        <Route path="/" element={<PublicRoute><Splash /></PublicRoute>} />
         <Route path="/login" element={<Login />} />
 
         <Route path="/register" element={<Register />} />
@@ -146,12 +148,134 @@ function App() {
             </ProtectedRoute>
           } 
         />
-
-
-
-
-
-
+        <Route 
+          path="/privacy-policy" 
+          element={
+            <ProtectedRoute>
+              <PrivacyPolicy />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/language" 
+          element={
+            <ProtectedRoute>
+              <Language />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/currency" 
+          element={
+            <ProtectedRoute>
+              <Currency />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/add-token" 
+          element={
+            <ProtectedRoute>
+              <AddToken />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/top-gainers" 
+          element={
+            <ProtectedRoute>
+              <TopGainers />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/top-losers" 
+          element={
+            <ProtectedRoute>
+              <TopLosers />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/notification" 
+          element={
+            <ProtectedRoute>
+              <Notification />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/token-transaction" 
+          element={
+            <ProtectedRoute>
+              <Tokentransaction />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/invest/received" 
+          element={
+            <ProtectedRoute>
+              <Receiveds />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/invest/swaps" 
+          element={
+            <ProtectedRoute>
+              <Swaps />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/invest/buysells" 
+          element={
+            <ProtectedRoute>
+              <Buysells />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/invest/swap-from" 
+          element={
+            <ProtectedRoute>
+              <Fromswap />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/enter-pin" 
+          element={
+            <ProtectedRoute>
+              <EnterPin />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/security/change-password" 
+          element={
+            <ProtectedRoute>
+              <ChangePassword />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/security/refferals-user" 
+          element={
+            <ProtectedRoute>
+              <Refferals />
+            </ProtectedRoute>
+          } 
+        />
+          <Route path="/invest" element={
+        <ProtectedRoute><Invest/></ProtectedRoute>} />
+        <Route path="/invest/depositconfirm" element={ <ProtectedRoute><Depositconfirm/></ProtectedRoute>} />
+         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+    
+  
+      
+      
 
       
     </Routes>

@@ -10,17 +10,23 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log( 'check:',email,
-      password,)
+  
     try {
       const response = await Api.post("/login", {
         email,
         password,
       });
       console.log('response:',response);
+
+      if(response.data.status){
+        
       const { token } = response.data;
       localStorage.setItem("authToken", token);
-      navigate("/home");
+      navigate("/home");}
+      else{
+        console.error('Login failed:', response.data.error);
+      }
+
     } catch (err) {
       console.error(err);
       setError("Invalid credentials. Please try again.");
