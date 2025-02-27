@@ -9,7 +9,7 @@ function Profile() {
                     {/* Header */}
                     <div className="flex justify-start items-center pb-8 mr-8">
                       <Link
-                        to="/home"  // Adjust the route as needed
+                        to="/account"  // Adjust the route as needed
                         className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900"
                       >
                         <i className="ph-bold ph-caret-left"></i>

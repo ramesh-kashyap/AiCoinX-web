@@ -17,9 +17,13 @@ import SendTo from './pages/profile/wallet/send';
 import Received from './pages/profile/wallet/recieved';
 // import Swap from './pages/profile/wallet/swap';
 import Profile from './pages/profile/Profile';
+import Referral from './pages/team/Referral';
+
 
 
 import Invest from './pages/invest/Invest';
+import Depositreport from './pages/invest/Depositreport';
+
 import Depositconfirm from './pages/invest/Depositconfirm';
 
 
@@ -43,6 +47,10 @@ import EnterPin from './pages/components/enterPin';
 import Login from './pages/auth/loginScreen';
 import ChangePassword from './pages/profile/security/changePassword';
 import Refferals from './pages/profile/security/refferals';
+import PromoCode from './pages/profile/promotion/addPromoCode';
+
+import Withdrawhistroy from './pages/Withdraw/Withdrawhistroy';
+
 import Defi from './pages/dashboard/defiScreen';
 import DetailPage from './pages/components/detail';
 
@@ -52,8 +60,53 @@ function App() {
       <Routes>
         {/* Public Route: Splash or landing page */}
         <Route path="/" element={<PublicRoute><Splash /></PublicRoute>} />
+        <Route path="/login" element={<Login />} />
 
-        {/* Public Routes: Only accessible if not authenticated */}
+        <Route path="/register" element={<Register />} />
+        <Route path="/create-password" element={<ProtectedRoute><CreatePassword /></ProtectedRoute>} />
+        <Route path="/secure-wallet" element={<ProtectedRoute><SecureWallet /></ProtectedRoute>} />
+        <Route path="/seed-phrase" element={<ProtectedRoute><SeedPhrase /></ProtectedRoute>} />
+        <Route path="/confirm-seed-phrase" element={<ProtectedRoute><ConfirmSeedPhrase /></ProtectedRoute>} />
+        <Route path="/choose-account" element={<ProtectedRoute><ChooseAccount /></ProtectedRoute>} />
+        <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/browser" element={<ProtectedRoute><Browser /></ProtectedRoute>} />
+        <Route path="/market" element={<ProtectedRoute><Marketplace /></ProtectedRoute>} />
+        <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
+        <Route path="/sent-to" element={<ProtectedRoute><SendTo /></ProtectedRoute>} />
+        <Route path="/received" element={<ProtectedRoute><Received /></ProtectedRoute>} />
+        {/* <Route path="/swap" element={<Swap />} /> */}
+  
+        <Route path="/price-card" element={<ProtectedRoute><PriceCard/></ProtectedRoute>} />
+
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/UpdateProfile" element={<ProtectedRoute><UpdateProfile /></ProtectedRoute>} />
+
+
+        <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+        <Route path="/privacy-policy" element={<ProtectedRoute><PrivacyPolicy /></ProtectedRoute>} />
+        <Route path="/language" element={<ProtectedRoute><Language /></ProtectedRoute>} />
+        <Route path="/currency" element={<ProtectedRoute><Currency /></ProtectedRoute>} />
+        <Route path="/add-token" element={<ProtectedRoute><AddToken /></ProtectedRoute>} />
+        <Route path="/top-gainers" element={<ProtectedRoute><TopGainers /></ProtectedRoute>} />
+        <Route path="/top-losers" element={<ProtectedRoute><TopLosers /></ProtectedRoute>} />
+        <Route path="/notification" element={<ProtectedRoute><Notification /></ProtectedRoute>} />
+        <Route path="/token-transaction" element={<ProtectedRoute><Tokentransaction /></ProtectedRoute>} />
+        <Route path="/invest/received" element={<ProtectedRoute><Receiveds/></ProtectedRoute>} />
+        <Route path="/invest/swaps" element={<ProtectedRoute><Swaps/></ProtectedRoute>} />
+        <Route path="/invest/buysells" element={<ProtectedRoute><Buysells/></ProtectedRoute>} />
+        <Route path="/invest/swap-from" element={<ProtectedRoute><Fromswap/></ProtectedRoute>} />
+        <Route path="/security/change-password" element={<ProtectedRoute><ChangePassword/></ProtectedRoute>} />
+        <Route path="/security/refferals-user" element={<ProtectedRoute><Refferals/></ProtectedRoute>} />
+        <Route path="/promotion/promocode" element={<ProtectedRoute><PromoCode/></ProtectedRoute>} />
+
+
+
+
+        <Route path="/invest/Depositreport" element={<ProtectedRoute><Depositreport /></ProtectedRoute>}/>
+
+
+
+
         <Route 
           path="/login" 
           element={
@@ -62,115 +115,16 @@ function App() {
             </PublicRoute>
           } 
         />
-        <Route 
-          path="/register" 
-          element={
-            <PublicRoute>
-              <Register />
-            </PublicRoute>
-          } 
-        />
 
-        {/* Registration Flow Routes: Use ProtecRegRoute if you want to enforce registration status */}
-        <Route 
-          path="/create-password" 
+<Route 
+          path="/withdrawhistroy" 
           element={
             <ProtectedRoute>
-              <CreatePassword />
+              <Withdrawhistroy />
             </ProtectedRoute>
           } 
         />
-        <Route 
-          path="/secure-wallet" 
-          element={
-            <ProtectedRoute>
-              <SecureWallet />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/seed-phrase" 
-          element={
-            <ProtectedRoute>
-              <SeedPhrase />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/confirm-seed-phrase" 
-          element={
-            <ProtectedRoute>
-              <ConfirmSeedPhrase />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/choose-account" 
-          element={
-            <ProtectedRoute>
-              <ChooseAccount />
-            </ProtectedRoute>
-          } 
-        />
-
-        {/* Protected Routes: Only accessible when authenticated */}
-        <Route 
-          path="/home" 
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/browser" 
-          element={
-            <ProtectedRoute>
-              <Browser />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/market" 
-          element={
-            <ProtectedRoute>
-              <Marketplace />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/account" 
-          element={
-            <ProtectedRoute>
-              <Account />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/sent-to" 
-          element={
-            <ProtectedRoute>
-              <SendTo />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/received" 
-          element={
-            <ProtectedRoute>
-              <Received />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/price-card" 
-          element={
-            <ProtectedRoute>
-              <PriceCard />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
+           <Route 
           path="/profile" 
           element={
             <ProtectedRoute>
@@ -179,18 +133,18 @@ function App() {
           } 
         />
         <Route 
-          path="/UpdateProfile" 
+          path="/referral" 
           element={
             <ProtectedRoute>
-              <UpdateProfile />
+              <Referral/>
             </ProtectedRoute>
           } 
         />
-        <Route 
-          path="/about" 
+            <Route 
+          path="/market" 
           element={
             <ProtectedRoute>
-              <About />
+              <Marketplace />
             </ProtectedRoute>
           } 
         />
@@ -318,8 +272,7 @@ function App() {
         <ProtectedRoute><Invest/></ProtectedRoute>} />
         <Route path="/invest/depositconfirm" element={ <ProtectedRoute><Depositconfirm/></ProtectedRoute>} />
          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-         <Route path="/defi" element={<ProtectedRoute><Defi /></ProtectedRoute>} />
-         <Route path="/defi/detail" element={<ProtectedRoute><DetailPage /></ProtectedRoute>} />
+    
   
       
       

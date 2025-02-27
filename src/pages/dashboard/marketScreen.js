@@ -1,10 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from 'react-router-dom';
 import {       BadgeCent, Trophy,  AlertCircle } from 'lucide-react';
-
+import Api from "../../service/Api";
 import Footer from '../components/footer';
 function Marketplace() {
   const [activeTab, setActiveTab] = useState('tokens');
+  const [users, setUsers] = useState([]); // ✅ Always start with an empty array
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    fetchUsers();
+    
+}, []);
+
+const fetchUsers = async () => {
+    try {
+        const response = await Api.get("/user-income");
+
+        if (response.data && Array.isArray(response.data.data)) {
+            setUsers(response.data.data);
+        } else {
+            setUsers([]); 
+        }
+
+        console.log(response.data);
+
+
+        console.log(response.data.data);
+    } catch (err) {
+        setError(err.response?.data?.error || "Error fetching income");
+    }
+};
+
+
+
+
+
+
+
+
   return (
     <div className="container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
       <div className="w-[582px] h-[582px] rounded-full bg-g300/10 absolute -top-48 -left-20 blur-[575px]"></div>
@@ -126,40 +160,39 @@ function Marketplace() {
             <div className="tab-content activeTab" id="tabOne_data">
               <div className="flex justify-between items-center">
                 <p className="text-xl font-semibold"></p>
-                <p className="text-sm text-g300">View All</p>
+                {/* <p className="text-sm text-g300">View All</p> */}
               </div>
-              <div className="flex flex-col gap-3 pt-5">
+
+
+              {users.length > 0 ? (
+            users.map((user, index) => (
+              <div className="flex flex-col gap-3 pt-5" key={index}>
                 <div className="flex justify-between items-center p-4 rounded-xl bg-white bg-opacity-5">
                   <div className="flex justify-start items-start gap-3">
                     <div className="p-2 rounded-full bg-white bg-opacity-5 flex justify-center items-center size-12">
                       <img src="assets/images/Ethereum_ETH.png" alt="Ethereum" />
                     </div>
                     <div>
-                      <p className="font-semibold pb-2">Ether</p>
-                      <p className="text-sm text-n70">0.01564 ETH</p>
+                      <p className="font-semibold pb-2">{user.remarks}</p>
+                      <p className="text-sm text-n70">{user.status}</p>
                     </div>
                   </div>
                   <div>
-                    {/* <p className="font-semibold">$120.00 USD</p> */}
-                    <p className="text-sm text-g300 pt-2">+$44.00 USD</p>
+                    <p className="font-semibold">{user.user_id_fk}</p>
+                    <p className="text-sm text-g300 pt-2">$ {user.comm}</p>
                   </div>
                 </div>
-                <div className="flex justify-between items-center p-4 rounded-xl bg-white bg-opacity-5">
-                  <div className="flex justify-start items-start gap-3">
-                    <div className="p-2 rounded-full bg-white bg-opacity-5 flex justify-center items-center size-12">
-                      <img src="assets/images/Bitcoin_icon.png" alt="Bitcoin" />
-                    </div>
-                    <div>
-                      <p className="font-semibold pb-2">Bitcoin</p>
-                      <p className="text-sm text-n70">0.01564 BTC</p>
-                    </div>
-                  </div>
-                  <div>
-                    {/* <p className="font-semibold">$140.00 USD</p> */}
-                    <p className="text-sm text-g300 pt-2">+$42.00 USD</p>
-                  </div>
-                </div>
+               
+
+
               </div>
+
+))
+) : (
+    <p>No users found</p>
+)}
+
+
               {/* <div className="pt-6">
                 <Link
                   to="/add-token"
