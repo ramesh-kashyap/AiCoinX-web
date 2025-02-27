@@ -43,13 +43,15 @@ import EnterPin from './pages/components/enterPin';
 import Login from './pages/auth/loginScreen';
 import ChangePassword from './pages/profile/security/changePassword';
 import Refferals from './pages/profile/security/refferals';
+import Defi from './pages/dashboard/defiScreen';
+import DetailPage from './pages/components/detail';
 
 function App() {
   return (
     <Router>
       <Routes>
         {/* Public Route: Splash or landing page */}
-        <Route path="/" element={<Splash />} />
+        <Route path="/" element={<PublicRoute><Splash /></PublicRoute>} />
 
         {/* Public Routes: Only accessible if not authenticated */}
         <Route 
@@ -316,7 +318,8 @@ function App() {
         <ProtectedRoute><Invest/></ProtectedRoute>} />
         <Route path="/invest/depositconfirm" element={ <ProtectedRoute><Depositconfirm/></ProtectedRoute>} />
          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-    
+         <Route path="/defi" element={<ProtectedRoute><Defi /></ProtectedRoute>} />
+         <Route path="/defi/detail" element={<ProtectedRoute><DetailPage /></ProtectedRoute>} />
   
       
       

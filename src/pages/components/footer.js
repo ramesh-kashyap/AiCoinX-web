@@ -25,7 +25,7 @@ function Footer() {
           <p className="text-xs font-semibold">Home</p>
         </NavLink>
         <NavLink
-          to="/browser"
+          to="/defi"
           className={({ isActive }) =>
             `flex flex-col justify-center items-center gap-1 z-20 ${
               isActive ? 'text-g300' : 'text-violet-500'
@@ -33,7 +33,7 @@ function Footer() {
           }
         >
           <i className="ph ph-globe text-2xl"></i>
-          <p className="text-xs font-semibold">Browser</p>
+          <p className="text-xs font-semibold">Defi</p>
         </NavLink>
         <NavLink
           to="/market"

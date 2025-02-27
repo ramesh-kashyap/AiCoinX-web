@@ -35,5 +35,5 @@ export const ProtecRegRoute = ({ children }) => {
   };
 // Public Route Component
 export const PublicRoute = ({ children }) => {
-    return isAuthenticated() ? <Navigate to="/" /> : children;
+    return isAuthenticated() ? <Navigate to="/home" /> : children;
 };
