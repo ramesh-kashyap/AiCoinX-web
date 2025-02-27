@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/footer';
+import { useNavigate } from "react-router-dom";
+
 
 function Account() {
   const [showPopup, setShowPopup] = useState(false);
   const [username, setUsername] = useState("Set Username");
+  const [showPopupLogout, setShowPopupLogout] = useState(false);
+  const [selectedButton, setSelectedButton] = useState("no");
+  const navigate = useNavigate(); // Redirect function
+
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Token remove
+    setShowPopupLogout(false); // Popup hide
+    navigate("/login"); // Redirect to login
+  };
 
 
   return (
@@ -13,6 +24,7 @@ function Account() {
     <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
 
     <div className="relative z-20 p-6 w-full">
+
           {/* Popup Form */}
           {showPopup && (
   <div 
@@ -20,7 +32,7 @@ function Account() {
     onClick={() => setShowPopup(false)} // Click se close hoga
   >
     <div 
-      style={{ backgroundColor: "#202338", width: 429, left: 693,height: 313
+      style={{ backgroundColor: "#202338", width: 429, left: 636,height: 313
       }}
       className="fixed bottom-10 bg-n900 text-white p-6 shadow-lg rounded-t-lg transition-transform transform translate-y-0"
       onClick={(e) => e.stopPropagation()} // Yeh ensure karega ki popup par click karne se close na ho
@@ -52,6 +64,63 @@ Please fill in the field to continue     </p>
 )}
 
 
+
+{/* Logout Popup */}
+{showPopupLogout && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+          onClick={() => setShowPopupLogout(false)} // Click outside to close
+        >
+          <div
+            style={{ backgroundColor: "#202338", width: 425, height: 384, marginBottom: -39 }}
+            className="fixed bottom-10 bg-n900 text-white p-6 shadow-lg rounded-t-lg transition-transform transform translate-y-0"
+            onClick={(e) => e.stopPropagation()} // Prevent closing on click inside
+          >
+            {/* Info Icon */}
+            <div className="h-1 w-16 bg-gray-300 rounded mx-auto mb-3"></div>
+
+            {/* Rounded Image */}
+            <div className="flex justify-center mb-4">
+              <img
+                src="/assets/images/dc113b39-e659-4e08-be93-ca29058dc0dc.webp"
+                alt="Info"
+                className="w-16 h-16 rounded-full"
+              />
+            </div>
+
+            {/* Confirmation Message */}
+            <h2 style={{ marginTop: "10px", marginBottom: "10px" }} className="text-lg font-bold mb-4 text-center">
+              Are you sure?
+            </h2>
+
+            {/* Yes & No Buttons with 12px gap */}
+            <div className="flex flex-col gap-3">
+              <button
+                style={{
+                  backgroundColor: selectedButton === "yes" ? "#9583ff" : "white",
+                  color: selectedButton === "yes" ? "white" : "black",
+                  border: "1px solid gray",
+                }}
+                className="w-full py-3 font-semibold rounded"
+                onClick={handleLogout} // Logout on Yes click
+              >
+                Yes
+              </button>
+
+              <button
+                style={{
+                  backgroundColor: selectedButton === "no" ? "#9583ff" : "white",
+                  color: selectedButton === "no" ? "white" : "black",
+                }}
+                className="w-full py-3 font-semibold rounded"
+                onClick={() => setShowPopupLogout(false)}
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
 
       <div className="flex justify-start items-center pb-8 mr-8">
@@ -372,16 +441,18 @@ Please fill in the field to continue     </p>
     </Link>
 
     {/* Logout Button */}
-    <button
-      className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group logoutModalOpenButton"
-    >
-      <div className="flex justify-start items-center gap-3">
-        <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-          <i className="ph ph-arrows-down-up"></i>
+    <button 
+               onClick={() => setShowPopupLogout(true)}
+
+        className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group logoutModalOpenButton"
+      >
+        <div className="flex justify-start items-center gap-3">
+          <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
+            <i className="ph ph-arrows-down-up"></i>
+          </div>
+          <p className="font-semibold">Logout</p>
         </div>
-        <p className="font-semibold">Logout</p>
-      </div>
-    </button>
+      </button>
   </div>
 </div>
 
