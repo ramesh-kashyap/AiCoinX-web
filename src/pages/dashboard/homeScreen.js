@@ -78,15 +78,17 @@ const fetchGetBalance = async () => {  try {
         <div className="bg-white bg-opacity-5 py-8 px-6 rounded-b-3xl">
           <div className="flex justify-between items-center">
             <div className="flex justify-start items-center gap-2">
+               <Link to="/currency">
               <img src="assets/images/account-img-1.png" alt="Account" />
+              </Link>
               <p className="text-sm">Welcome Back, <br />{user 
     ? user.charAt(0).toUpperCase() + user.slice(1) 
     : "Guest"}</p> 
               
             </div>
             <div className="flex justify-start items-center gap-2">
-              <a
-                href="#"
+                     <Link to="/security/refferals-user" 
+             
                 className="flex justify-center items-center text-xl p-2 text-g100 rounded-full bg-white bg-opacity-5"   style={{
                   background: "linear-gradient(to bottom, #9583ff 0%, #bbaaff 30%, #bbaaff 30%)",
 
@@ -95,7 +97,7 @@ const fetchGetBalance = async () => {  try {
                 }}
               >
                 <i className="ph ph-gift" style={{ marginRight: "8px" }}></i> <p className="text-sm" style={{ fontWeight: 'bold' }}> For friends</p>
-              </a>
+              </Link>
               <Link
                 to="/notification"
                 className="flex justify-center items-center text-xl p-2 text-g300 rounded-full bg-white bg-opacity-5" 

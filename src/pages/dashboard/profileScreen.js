@@ -15,7 +15,7 @@ function Account() {
      const [user, setUser] = useState(null);
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Token remove
+    localStorage.removeItem("authToken"); // Token remove
     setShowPopupLogout(false); // Popup hide
     navigate("/login"); // Redirect to login
   };
@@ -356,7 +356,7 @@ marginTop:"13px"
                 <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
                   <i className="ph ph-cardholder"></i>
                 </div>
-                <p className="font-semibold">Change Password</p>
+                <p className="font-semibold">Change Pin</p>
               </div>
               <i className="ph ph-caret-right text-g300"></i>
             </Link>
