@@ -38,8 +38,7 @@ function EnterPin() {
 
       if(response.data.status){
         
-        const { token } = response.data;
-        localStorage.setItem("authToken", token);
+      
         navigate("/home");}
         else{
           console.error('Login failed:', response.message);
