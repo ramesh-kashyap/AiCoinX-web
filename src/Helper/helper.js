@@ -5,20 +5,12 @@ import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'r
 
  export const isAuthenticated = () => {
     const token = localStorage.getItem('authToken');
-    if (!token) return false;
-
-    try {
-        const decoded = jwtDecode(token);
-        const currentTime = Date.now() / 1000;
-        return decoded.exp > currentTime; // Token is valid if not expired
-    } catch (err) {
-        return false; // Invalid token
-    }
+    return !!localStorage.getItem('authToken'); 
 };
 
 // Protected Route Component
 export const ProtectedRoute = ({ children }) => {
-    return isAuthenticated() ? children : <Navigate to="/enter-pin" />;
+    return isAuthenticated() ? children : <Navigate to="/login" />;
 };
 
 export const ProtecRegRoute = ({ children }) => {
@@ -35,5 +27,5 @@ export const ProtecRegRoute = ({ children }) => {
   };
 // Public Route Component
 export const PublicRoute = ({ children }) => {
-    return isAuthenticated() ? <Navigate to="/home" /> : children;
+    return isAuthenticated() ? <Navigate to="/enter-pin" /> : children;
 };

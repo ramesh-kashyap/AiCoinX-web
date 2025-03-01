@@ -15,7 +15,7 @@ function Account() {
      const [user, setUser] = useState(null);
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Token remove
+    localStorage.removeItem("authToken"); // Token remove
     setShowPopupLogout(false); // Popup hide
     navigate("/login"); // Redirect to login
   };

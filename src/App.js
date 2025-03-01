@@ -60,16 +60,16 @@ function App() {
       <Routes>
         {/* Public Route: Splash or landing page */}
         <Route path="/" element={<PublicRoute><Splash /></PublicRoute>} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
         <Route 
           path="/enter-pin" 
           element={
-            <PublicRoute>
+            <ProtectedRoute>
               <EnterPin />
-            </PublicRoute>
+            </ProtectedRoute>
           } 
         />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
         <Route path="/create-password" element={<ProtectedRoute><CreatePassword /></ProtectedRoute>} />
         <Route path="/secure-wallet" element={<ProtectedRoute><SecureWallet /></ProtectedRoute>} />
         <Route path="/seed-phrase" element={<ProtectedRoute><SeedPhrase /></ProtectedRoute>} />
