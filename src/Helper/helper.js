@@ -18,7 +18,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'r
 
 // Protected Route Component
 export const ProtectedRoute = ({ children }) => {
-    return isAuthenticated() ? children : <Navigate to="/login" />;
+    return isAuthenticated() ? children : <Navigate to="/enter-pin" />;
 };
 
 export const ProtecRegRoute = ({ children }) => {
