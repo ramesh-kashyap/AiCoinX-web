@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/footer';
 import { useNavigate } from "react-router-dom";
+import Api from "../../service/Api";
 
 
 function Account() {
   const [showPopup, setShowPopup] = useState(false);
-  const [username, setUsername] = useState("Set Username");
   const [showPopupLogout, setShowPopupLogout] = useState(false);
   const [selectedButton, setSelectedButton] = useState("no");
   const navigate = useNavigate(); // Redirect function
+   const [newName, setNewName] = useState(null); // User data store karne ke liye state
+     const [UserData, setUserData] = useState(null); // User data store karne ke liye state
+     const [user, setUser] = useState(null);
 
   const handleLogout = () => {
     localStorage.removeItem("token"); // Token remove
@@ -18,6 +21,40 @@ function Account() {
   };
 
 
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await Api.get("getUsername"); // API call to fetch user data
+        if (response.data) {
+          setNewName(response.data); 
+          setUserData(response.data.fullname); 
+
+
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+
+  const handleUpdateProfile = async () => {
+    try {
+        const response = await Api.put("updateFullName", { fullname: UserData });
+
+        if (response.data) {
+            setUser((prevUser) => ({ ...prevUser, fullname: UserData }));
+             console.log("Profile Updated Successfully");
+             
+        }
+       
+    } catch (error) {
+        console.error("Error updating profile:", error);
+    } 
+};
+  
   return (
     <div className="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white pb-28">
     {/* Background Circle */}
@@ -28,36 +65,57 @@ function Account() {
           {/* Popup Form */}
           {showPopup && (
   <div 
-    className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+    className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-end z-20"
     onClick={() => setShowPopup(false)} // Click se close hoga
   >
     <div 
-      style={{ backgroundColor: "#202338", width: 429, left: 636,height: 313
+      style={{ 
+        backgroundColor: "rgb(32 37 57)", 
+        width: 429, 
+        height: 313,
+        borderTopLeftRadius: "38px",
+        borderTopRightRadius: "38px"
       }}
-      className="fixed bottom-10 bg-n900 text-white p-6 shadow-lg rounded-t-lg transition-transform transform translate-y-0"
+      className="fixed bottom-20 bg-n900 text-white p-6 shadow-lg rounded-t-lg transition-transform transform translate-y-0 z-30"
       onClick={(e) => e.stopPropagation()} // Yeh ensure karega ki popup par click karne se close na ho
     >
-      <h2 style={{ marginLeft: "109px", marginBottom: "4px" }} className="text-lg font-bold mb-4">
-        Create Username
-      </h2>
-      <p style={{color:"rgba(169, 172, 175, 1)",marginLeft: 62,marginBottom:30}} className="text-gray-500">
-Please fill in the field to continue     </p>
-      <form  className="flex flex-col gap-3">
-        <input  style={{ backgroundColor: "#292c3d",color: "rgba(169, 172, 175, 1)",borderColor:"#292c3d"}}
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="w-full p-3 border rounded-md text-black"
-          required
-        />
-        <button
-          style={{ backgroundColor: "#9583ff" }}
+      <div className="flex justify-center items-center">
+                <div style={{backgroundColor:"#fff"}} className="w-16 h-1 bg-white bg-opacity-5 rounded-full"></div>
+              </div>
+      <h1 style={{marginTop:"18px"}} className="text-lg font-bold mb-4 text-center">
+        Edit Username
+      </h1>
+      <p style={{marginTop:"10px",marginBottom:"20px"}} className="text-gray-500 text-center mb-4">
+        Please fill in the field to continue
+      </p>
+
+      <form className="flex flex-col gap-3">
+        <div className="relative w-full">
+          <i style={{marginTop:"24px",marginLeft:"10px"}} className="ph ph-user absolute inset-y-0 left-3 flex items-center text-white text-lg"></i>
+
+          <input  
+            style={{ 
+              backgroundColor: "rgb(88 102 89)", 
+              color: "#fff", 
+              borderColor: "#292c3d",
+              paddingLeft: "40px", // Left padding taaki text icon se overlap na ho
+marginTop:"13px"
+            }}
+            type="text"
+            value={UserData}        
+            onChange={(e) => setUserData(e.target.value)} 
+            className="w-full p-3 border rounded-md text-black"
+            required
+          />
+        </div>
+
+        <button onClick={handleUpdateProfile} 
+          style={{ backgroundColor: "#9583ff",marginTop:"16px" }}
           type="submit"
-          className="w-full p-3 bg-purple-500 text-white rounded-md hover:bg-purple-600"
+          className="w-full p-3 font-bold mb-4 bg-purple-500 text-white rounded-md hover:bg-purple-600"
         >
-          Save
+          Save Changes
         </button>
-      
       </form>
     </div>
   </div>
@@ -65,23 +123,27 @@ Please fill in the field to continue     </p>
 
 
 
+
 {/* Logout Popup */}
 {showPopupLogout && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-end z-20"
           onClick={() => setShowPopupLogout(false)} // Click outside to close
         >
           <div
-            style={{ backgroundColor: "#202338", width: 425, height: 384, marginBottom: -39 }}
+            style={{ backgroundColor: "#202338", width: 425, height: 351, marginBottom: -39, borderTopLeftRadius: "38px",
+              borderTopRightRadius: "38px" }}
             className="fixed bottom-10 bg-n900 text-white p-6 shadow-lg rounded-t-lg transition-transform transform translate-y-0"
             onClick={(e) => e.stopPropagation()} // Prevent closing on click inside
           >
             {/* Info Icon */}
             <div className="h-1 w-16 bg-gray-300 rounded mx-auto mb-3"></div>
-
+            <div className="flex justify-center items-center">
+                <div style={{backgroundColor:"#fff"}} className="w-16 h-1 bg-white bg-opacity-5 rounded-full"></div>
+              </div>
             {/* Rounded Image */}
             <div className="flex justify-center mb-4">
-              <img
+              <img style={{marginTop:"36px"}}
                 src="/assets/images/dc113b39-e659-4e08-be93-ca29058dc0dc.webp"
                 alt="Info"
                 className="w-16 h-16 rounded-full"
@@ -100,6 +162,7 @@ Please fill in the field to continue     </p>
                   backgroundColor: selectedButton === "yes" ? "#9583ff" : "white",
                   color: selectedButton === "yes" ? "white" : "black",
                   border: "1px solid gray",
+                  borderRadius:"12px"
                 }}
                 className="w-full py-3 font-semibold rounded"
                 onClick={handleLogout} // Logout on Yes click
@@ -110,7 +173,8 @@ Please fill in the field to continue     </p>
               <button
                 style={{
                   backgroundColor: selectedButton === "no" ? "#9583ff" : "white",
-                  color: selectedButton === "no" ? "white" : "black",
+                  color: selectedButton === "no" ? "white" : "black",borderRadius:"12px",marginTop:"14px"
+
                 }}
                 className="w-full py-3 font-semibold rounded"
                 onClick={() => setShowPopupLogout(false)}
@@ -133,11 +197,10 @@ Please fill in the field to continue     </p>
         </div>
    <div className="flex items-center mb-4">
 
-    <img alt="Profile picture of a person with sunglasses" className="w-12 h-12 rounded-full" height="50" src="https://storage.googleapis.com/a1aa/image/yO-LqRJKUNBLOw8Ts417QWZTuDaOGqucVV77ub5Gk7o.jpg" width="50"/>
+    <img alt="Profile picture of a person with sunglasses" className="w-12 h-12 rounded-full" height="50" src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg" width="50"/>
     <div style={{marginLeft:"10px"}} className="ml-4">
      <h2 className="text-lg font-bold">
-      Set Username
-     </h2>
+     {UserData}  </h2>
      <p style={{color:"rgba(169, 172, 175, 1)"}} className="text-gray-500">
       sagartyagi1024@gmail.com
      </p>
@@ -168,7 +231,7 @@ Please fill in the field to continue     </p>
           <img 
             alt="Logo"
             className="w-5 h-5 mx-2"
-            style={{ borderRadius: "16px",marginLeft:"5px" }} // Adjust as needed
+            style={{ borderRadius: "16px",marginLeft:"5px",height:"15px"}} // Adjust as needed
 
             src="\assets\images\CN4qG6TV3-Wa_6LmTOhuis9qBStFL6tljoDrSm4MNnk.jpg"
           />
@@ -189,7 +252,7 @@ Please fill in the field to continue     </p>
   alt="Referrals"
   className="w-12 h-12"
   style={{ borderRadius: "32px" }}
-  src="\assets\images\49a5487a-d692-4a2d-afb6-816ddd79d190.webp"  // Replace with the actual image path
+  src="\assets\images\Task.61fab7c74b5700a23bb5c33281136ac7.svg"  // Replace with the actual image path
 />
               <div>
                 <p className="font-semibold">Refer Friends</p>
@@ -207,7 +270,7 @@ Please fill in the field to continue     </p>
   className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl"
 >
   <div className="flex justify-start items-center gap-3">
-    <img src="assets/images/account-img-1.png" alt="DigitalNomad" />
+    <img src="\assets\images\Youtube.svg" alt="DigitalNomad" />
     <div>
       <p className="font-semibold">Learn How Klink Works</p>
       <p className="text-n70 text-sm">Gain insights on how to use Klink</p>
