@@ -16,12 +16,10 @@ function Profile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await Api.get("getUsername"); // API call to fetch user data
+        const response = await Api.get("/news"); // API call to fetch user data
         if (response.data) {
-          setNewName(response.data); 
-          setUserData(response.data.user_name); 
-
-
+          setUserData(response.data.userData[0].user_name); 
+          setNewName(response.data.userData[0]);
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
