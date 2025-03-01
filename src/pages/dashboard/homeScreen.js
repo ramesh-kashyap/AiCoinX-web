@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom';
 import Footer from '../components/footer';
 import AirdropCard from '../components/airDrop';
 import NewsCard from '../components/newsComponent';
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import { FreeMode, Pagination, Autoplay } from "swiper/modules";
 import Api from '../../service/Api';
+import WalletBalance from '../components/wallet';
 // Connect to your backend Socket.IO server (adjust the URL/port if needed)
 
 function Home() {
@@ -81,21 +87,26 @@ const fetchGetBalance = async () => {  try {
             <div className="flex justify-start items-center gap-2">
               <a
                 href="#"
-                className="flex justify-center items-center text-xl p-2 text-g300 rounded-full bg-white bg-opacity-5"
+                className="flex justify-center items-center text-xl p-2 text-g100 rounded-full bg-white bg-opacity-5"   style={{
+                  background: "linear-gradient(to bottom, #9583ff 0%, #bbaaff 30%, #bbaaff 30%)",
+
+
+                  color: '#fff'
+                }}
               >
-                <i className="ph ph-gift"></i> <p className="text-sm" style={{ fontWeight: 'bold' }}> For friends</p>
+                <i className="ph ph-gift" style={{ marginRight: "8px" }}></i> <p className="text-sm" style={{ fontWeight: 'bold' }}> For friends</p>
               </a>
               <Link
                 to="/notification"
-                className="flex justify-center items-center text-xl p-2 text-g300 rounded-full bg-white bg-opacity-5"
+                className="flex justify-center items-center text-xl p-2 text-g300 rounded-full bg-white bg-opacity-5" 
               >
-                <i className="ph ph-bell"></i>
+                <i className="ph ph-bell" style={{colo:'#fff' }}></i>
               </Link>
             </div>
           </div>
           <AirdropCard/>
           <div className="py-8">
-            <p className="text-n70 text-sm">Your available balance</p>
+            {/* <p className="text-n70 text-sm">Your available balance</p>
             <div className="flex justify-start items-center gap-2">
               <img src="assets/images/ok3d.png" alt="ok3d"  style={{ maxWidth: "12%" }} />
               <p className="text-[32px] font-bold text-white relative">
@@ -104,7 +115,8 @@ const fetchGetBalance = async () => {  try {
                  
                 </span>
               </p>
-            </div>
+            </div> */}
+            <WalletBalance balance={balance} />
             <p className="text-sm text-n70">
               {/* <span className="text-g300">$</span>210.44 (USD) */}
             </p>
@@ -157,7 +169,7 @@ const fetchGetBalance = async () => {  try {
 
         {/* Invite Section */}
         <div className="px-6 pt-8">
-          <div className="w-full  p-5 flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
+          <div className="w-full  flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
            color: '#fff',
           // backgroundColor: 'rgba(255,255,255,0.9)', // White bg with 5% opacity
         }}>
@@ -192,7 +204,7 @@ const fetchGetBalance = async () => {  try {
           {liveData ? (
           <div className="pt-8">
           {activeTab === 'tokens' && (
-         <div className="flex flex-col gap-2 pt-5">
+         <div className="flex flex-col gap-2 ">
 
 {liveData.topGainers.map((coin, index) => (
          <div className="flex justify-between items-center bg-white bg-opacity-5 p-4 rounded-xl">
@@ -246,30 +258,49 @@ const fetchGetBalance = async () => {  try {
         
          {/* Trending Token Section */}
          <div className="px-6 pt-8">
-          <h1 className="text-xl font-semibold">Trending News</h1>
-          <div className="flex justify-start items-center gap-4 pt-5 overflow-x-auto vertical-scrollbar pb-3">
-          {(news?.length || 0) > 0 ? (
-        news.map((item) => (
-          <NewsCard 
-            key={item.id}
-            image={item.image}
-            title={item.title}
-            paragraph={item.paragraph}
-            created_at={item.created_at}
-          />
-        ))
-      ) : (
-        <p>No news available.</p>
-      )}
-           
-          
+      <h1 className="text-xl font-semibold">Trending News</h1>
 
-            
-
-          </div>
-        </div>
-
-        
+      <Swiper
+        slidesPerView={"auto"}
+        spaceBetween={20}
+     
+        pagination={{ clickable: true , el: ".swiper-pagination",}}
+        autoplay={{
+          delay: 3000, // 3 seconds delay
+          disableOnInteraction: false, // Keeps autoplay even after user interaction
+        }}
+        loop={true} // Infinite looping
+        modules={[FreeMode, Pagination, Autoplay]}
+        className="pt-5 pb-3"
+        style={{ position: "relative" }}
+      >
+        {news?.length > 0 ? (
+          news.map((item) => (
+            <SwiperSlide key={item.id} style={{ width: "180px" }}>
+              <NewsCard
+                image={item.image}
+                title={item.title}
+                paragraph={item.paragraph}
+                created_at={item.created_at}
+              />
+            </SwiperSlide>
+          ))
+        ) : (
+          <p>No news available.</p>
+        )}
+        <div
+    className="swiper-pagination"
+    style={{
+      position: "absolute",
+      bottom: "100px", // Adjust for spacing
+      left: "92%",
+      transform: "translateX(-50%)",
+      textAlign: "center",
+      zIndex: 10,
+    }}
+  ></div>
+      </Swiper>
+    </div>
         {/* Tab Area Start */}
         <Footer />
         {/* Tab Area End */}

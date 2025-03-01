@@ -9,7 +9,7 @@ function Footer() {
     {isOpen ? (
       <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)} />
     ) : (
-    <div className="fixed left-0 right-0 bottom-0">
+    <div className="fixed left-0 right-0 bottom-0" style={{  zIndex: 1 }}>
       
       <div className="container relative bg-white bg-opacity-5 py-5 flex justify-around items-center after:absolute after:bg-n700 after:inset-0">
         <div className="absolute left-[41%] bottom-[72px] z-40">

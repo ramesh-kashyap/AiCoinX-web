@@ -1,69 +1,75 @@
 import React, { useState } from "react";
-import { startAuthentication } from "@simplewebauthn/browser";
-
+import Api from "../../service/Api";
+import { useNavigate, Link } from "react-router-dom";
 function EnterPin() {
   const [pin, setPin] = useState("");
-
-  // Add a digit if the PIN has less than 4 digits.
+  const navigate = useNavigate();
+  // ✅ FIXED: Properly updates state using prevPin
   const handleDigitClick = (digit) => {
-    if (pin.length < 4) {
-      setPin(pin + digit);
-    }
+    console.log("Button clicked:", digit); // Debugging
+    setPin((prevPin) => {
+      if (prevPin.length < 4) {
+        console.log("Updated PIN:", prevPin + digit.toString()); // Debugging
+        const newPin = prevPin.length < 4 ? prevPin + digit.toString() : prevPin;
+        if (newPin.length === 4) {
+          verifyPin(newPin); // 🔥 API Call when PIN is complete
+        }
+        return prevPin + digit.toString();
+      }
+      return prevPin;
+    });
   };
 
-  // Remove the last digit.
+  // ✅ Backspace: Remove last digit
   const handleBackspace = () => {
-    setPin(pin.slice(0, -1));
+    setPin((prevPin) => prevPin.slice(0, -1));
   };
 
-  // Use WebAuthn for fingerprint/biometric authentication.
-  const handleFingerprintAuth = async () => {
+  // ✅ WebAuthn Fingerprint Authentication
+  const verifyPin = async (pin) => {
+    console.log("Verifying PIN:", pin); // Debugging
+
     try {
-      // Fetch the authentication options from your server.
-      const optionsResponse = await fetch("/auth/generate-authentication-options");
-      const options = await optionsResponse.json();
-
-      // Initiate the authentication ceremony.
-      const authResponse = await startAuthentication(options);
-
-      // Send the response to your server for verification.
-      const verificationResponse = await fetch("/auth/verify-authentication", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(authResponse),
+      
+      const response = await Api.post("/verify-pin", {
+        pin 
+      
       });
 
-      if (verificationResponse.ok) {
-        alert("Fingerprint authentication successful");
-      } else {
-        alert("Fingerprint authentication failed");
-      }
+      if(response.data.status){
+        
+        const { token } = response.data;
+        localStorage.setItem("authToken", token);
+        navigate("/home");}
+        else{
+          console.error('Login failed:', response.message);
+        }
+  
+ 
     } catch (error) {
-      console.error(error);
-      alert("Fingerprint authentication failed");
+      console.error("API Error:", error.response.data.error);
+      alert("API Error:", error.response.data.error);
+      setPin(""); // Clear PIN on error
     }
   };
-
-  // Render four circles, filling in a dot if a digit is present.
-  const renderPinDots = () => {
-    return (
-      <div style={styles.pinDisplay}>
-        {[0, 1, 2, 3].map((i) => (
-          <div key={i} style={styles.pinDot}>
-            {pin[i] ? <div style={styles.filledDot} /> : null}
-          </div>
-        ))}
-      </div>
-    );
-  };
+  // ✅ Render PIN dots (displays dots for entered digits)
+  const renderPinDots = () => (
+    <div style={styles.pinDisplay}>
+      {[0, 1, 2, 3].map((i) => (
+        <div key={i} style={styles.pinDot}>
+          {pin[i] ? <div style={styles.filledDot} /> : null}
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <div className="container relative overflow-hidden justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
-      <div style={styles.container}  className="bg-n900">
-        {/* Top Logo (Placeholder) */}
+      <div style={styles.container} className="bg-n900">
+        
+        {/* Logo */}
         <div style={styles.logoContainer}>
-          {/* Replace this with your actual logo/image */}
           <svg width="50" height="50" viewBox="0 0 50 50">
             <circle cx="25" cy="25" r="25" fill="#000" />
             <circle cx="35" cy="15" r="8" fill="#6f49ed" />
@@ -71,10 +77,8 @@ function EnterPin() {
         </div>
 
         {/* Title & Subtitle */}
-        <h1 style={styles.title}>Enter Pin!</h1>
-        <p style={styles.subtitle}>
-          Enter your four digit Pin to create a new Pin
-        </p>
+        <h1 style={styles.title}>Enter PIN!</h1>
+        <p style={styles.subtitle}>Enter your four-digit PIN to create a new PIN</p>
 
         {/* PIN Dots */}
         {renderPinDots()}
@@ -85,42 +89,31 @@ function EnterPin() {
             <button
               key={num}
               style={styles.keyButton}
-              onClick={() => handleDigitClick(num.toString())}
+              onClick={() => handleDigitClick(num)}
             >
               {num}
             </button>
           ))}
 
-          {/* Spacer */}
+          {/* Empty Space for Layout */}
           <div />
 
-          <button style={styles.keyButton} onClick={() => handleDigitClick("0")}>
+          {/* Zero Button */}
+          <button style={styles.keyButton} onClick={() => handleDigitClick(0)}>
             0
           </button>
 
+          {/* Backspace Button */}
           <button style={styles.keyButton} onClick={handleBackspace}>
             ✕
           </button>
         </div>
 
         {/* Fingerprint Authentication Button */}
-        <button
-          style={styles.fingerprintButton}
-          onClick={handleFingerprintAuth}
-        >
-          <svg width="30" height="30" viewBox="0 0 24 24">
-            <path
-              fill="#6f49ed"
-              d="M12,12C15.31,12 18,9.31 18,6C18,2.69 15.31,0 12,0C8.69,0 6,2.69 6,6C6,9.31 8.69,12 12,12M12,14C7.03,14 2.84,17.11 1,22H23C21.16,17.11 17,14 12,14Z"
-            />
-          </svg>
-          <span style={styles.fingerprintText}>Use Fingerprint</span>
-        </button>
+       
 
-        {/* Forgot Pin link */}
-        <a href="#!" style={styles.forgotPin}>
-          Forgot Pin?
-        </a>
+        {/* Forgot PIN Link */}
+        <a href="#!" style={styles.forgotPin}>Forgot PIN?</a>
       </div>
     </div>
   );
@@ -136,7 +129,6 @@ const styles = {
     padding: "2rem 1rem",
     fontFamily: "sans-serif",
     color: "#000",
- 
   },
   logoContainer: {
     marginBottom: "1.5rem",
@@ -193,6 +185,8 @@ const styles = {
     backgroundColor: "#fff",
     cursor: "pointer",
     outline: "none",
+    position: "relative",  // ✅ Ensure button is not blocked
+    zIndex: 10,   
   },
   fingerprintButton: {
     display: "flex",

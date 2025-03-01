@@ -1,3 +1,4 @@
+import zIndex from "@mui/material/styles/zIndex";
 import React , { useState,useEffect }from "react";
 import { FaCreditCard, FaArrowDown, FaExchangeAlt, FaArrowUp } from "react-icons/fa";
 
@@ -7,6 +8,7 @@ const BottomSheet = ({ isOpen, onClose }) => {
   const styles = {
     overlay: {
       position: "fixed",
+      zIndex:10,
       top: 0,
       left: 0,
       right: 0,
@@ -23,6 +25,7 @@ const BottomSheet = ({ isOpen, onClose }) => {
       borderRadius: "20px 20px 0 0",
       padding: "20px",
       boxShadow: "0px -4px 10px rgba(0,0,0,0.1)",
+      
     },
     handle: {
       width: "50px",

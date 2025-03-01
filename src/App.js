@@ -43,7 +43,7 @@ import Buysells from './pages/invest/Buysells';
 import Fromswap from './pages/invest/Fromswap';
 import PriceCard from './pages/components/priceCard';
 import UpdateProfile from './pages/profile/security/profile';
-import EnterPin from './pages/components/enterPin';
+import EnterPin from './pages/auth/enterPin';
 import Login from './pages/auth/loginScreen';
 import ChangePassword from './pages/profile/security/changePassword';
 import Refferals from './pages/profile/security/refferals';
@@ -61,7 +61,14 @@ function App() {
         {/* Public Route: Splash or landing page */}
         <Route path="/" element={<PublicRoute><Splash /></PublicRoute>} />
         <Route path="/login" element={<Login />} />
-
+        <Route 
+          path="/enter-pin" 
+          element={
+            <PublicRoute>
+              <EnterPin />
+            </PublicRoute>
+          } 
+        />
         <Route path="/register" element={<Register />} />
         <Route path="/create-password" element={<ProtectedRoute><CreatePassword /></ProtectedRoute>} />
         <Route path="/secure-wallet" element={<ProtectedRoute><SecureWallet /></ProtectedRoute>} />
@@ -244,14 +251,7 @@ function App() {
             </ProtectedRoute>
           } 
         />
-        <Route 
-          path="/enter-pin" 
-          element={
-            <ProtectedRoute>
-              <EnterPin />
-            </ProtectedRoute>
-          } 
-        />
+      
         <Route 
           path="/security/change-password" 
           element={

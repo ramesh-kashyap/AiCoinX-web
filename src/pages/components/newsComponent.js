@@ -9,7 +9,7 @@ const NewsCard = ({ image, title, paragraph, created_at }) => {
         
         <div class="flex justify-between items-center gap-6">
          
-          <div class="p-3 bg-g300 rounded-md" style={{ width: '150px'}}>
+          <div class="p-3  rounded-md" style={{ width: '150px'}}>
             <img style={{ width: '130px', height: '70px' }}    src={image}
         alt={title} />
           </div>
