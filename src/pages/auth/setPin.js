@@ -1,67 +1,65 @@
 import React, { useState } from "react";
 import Api from "../../service/Api";
-import { useNavigate, Link } from "react-router-dom";
-import { BorderColor } from "@mui/icons-material";
-function EnterPin() {
+import { useNavigate } from "react-router-dom";
+
+function SetPin() {
+  const [step, setStep] = useState("setPin"); // 'setPin' -> Set PIN, 'confirmPin' -> Confirm PIN
   const [pin, setPin] = useState("");
+  const [confirmPin, setConfirmPin] = useState("");
   const navigate = useNavigate();
-  // ✅ FIXED: Properly updates state using prevPin
+
+  // ✅ Handle PIN Entry
   const handleDigitClick = (digit) => {
-    console.log("Button clicked:", digit); // Debugging
-    setPin((prevPin) => {
-      if (prevPin.length < 4) {
-        console.log("Updated PIN:", prevPin + digit.toString()); // Debugging
-        const newPin = prevPin.length < 4 ? prevPin + digit.toString() : prevPin;
+    if (step === "setPin") {
+      if (pin.length < 4) {
+        const newPin = pin + digit.toString();
+        setPin(newPin);
         if (newPin.length === 4) {
-          verifyPin(newPin); // 🔥 API Call when PIN is complete
+          setStep("confirmPin"); // Move to confirm step
         }
-        return prevPin + digit.toString();
       }
-      return prevPin;
-    });
-  };
-
-  // ✅ Backspace: Remove last digit
-  const handleBackspace = () => {
-    setPin((prevPin) => prevPin.slice(0, -1));
-  };
-
-  // ✅ WebAuthn Fingerprint Authentication
-  const verifyPin = async (pin) => {
-    console.log("Verifying PIN:", pin); // Debugging
-
-    try {
-      
-      const response = await Api.post("/verify-pin", {
-        pin 
-      
-      });
-
-      if(response.data.status){
-        
-      
-        navigate("/home");}
-        else{
-          console.error('Login failed:', response.message);
+    } else {
+      if (confirmPin.length < 4) {
+        const newConfirmPin = confirmPin + digit.toString();
+        setConfirmPin(newConfirmPin);
+        if (newConfirmPin.length === 4) {
+          verifyPin(pin, newConfirmPin); // Call API once both PINs are entered
         }
-  
- 
-    } catch (error) {
-      console.error("API Error:", error.response.data.error);
-      alert("API Error:", error.response.data.error);
-      setPin(""); // Clear PIN on error
+      }
     }
   };
-  // ✅ Render PIN dots (displays dots for entered digits)
-  const renderPinDots = () => (
-    <div style={styles.pinDisplay}>
-      {[0, 1, 2, 3].map((i) => (
-        <div key={i} style={styles.pinDot}>
-          {pin[i] ? <div style={styles.filledDot} /> : null}
-        </div>
-      ))}
-    </div>
-  );
+  
+  // ✅ Remove Last PIN Digit
+  const handleBackspace = () => {
+    if (step === "setPin") {
+      setPin((prevPin) => prevPin.slice(0, -1));
+    } else {
+      setConfirmPin((prevPin) => prevPin.slice(0, -1));
+    }
+  };
+
+  // ✅ Verify PINs and Call API
+  const verifyPin = async (enteredPin, confirmedPin) => {
+    if (enteredPin !== confirmedPin) {
+      alert("PINs do not match! Try again.");
+      setPin("");
+      setConfirmPin("");
+      setStep("setPin");
+      return;
+    }
+  
+    try {
+      const response = await Api.post("/set-pin", { pin: enteredPin });
+      if (response.data.status) {
+        navigate("/home"); // Redirect after successful PIN setup
+      } else {
+        alert("Error setting PIN.");
+      }
+    } catch (error) {
+      console.error("API Error:", error.response?.data?.error || "Unknown Error");
+    }
+  };
+  
 
   return (
     <div className="container relative overflow-hidden justify-start items-start text-white">
@@ -70,24 +68,34 @@ function EnterPin() {
         
         {/* Logo */}
         <div style={styles.logoContainer}>
-        <img alt="Profile picture of a person with sunglasses" className="w-12 h-12 rounded-full" height="50" src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg" width="50"/>
+          <img
+            alt="Profile picture"
+            className="w-12 h-12 rounded-full"
+            height="50"
+            src="/assets/images/userIcon.svg"
+            width="50"
+          />
         </div>
 
         {/* Title & Subtitle */}
-        <h1 style={styles.title}>Enter PIN!</h1>
-        <p style={styles.subtitle}>Enter your four-digit PIN to create a new PIN</p>
+        <h1 style={styles.title}>{step === "setPin" ? "Set PIN" : "Confirm PIN"}</h1>
+        <p style={styles.subtitle}>
+          {step === "setPin" ? "Enter a 4-digit PIN" : "Confirm your 4-digit PIN"}
+        </p>
 
         {/* PIN Dots */}
-        {renderPinDots()}
+        <div style={styles.pinDisplay}>
+          {[0, 1, 2, 3].map((i) => (
+            <div key={i} style={styles.pinDot}>
+              {(step === "setPin" ? pin[i] : confirmPin[i]) ? <div style={styles.filledDot} /> : null}
+            </div>
+          ))}
+        </div>
 
         {/* Keypad */}
         <div style={styles.keypad}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-            <button
-              key={num}
-              style={styles.keyButton}
-              onClick={() => handleDigitClick(num)}
-            >
+            <button key={num} style={styles.keyButton} onClick={() => handleDigitClick(num)}>
               {num}
             </button>
           ))}
@@ -106,9 +114,6 @@ function EnterPin() {
           </button>
         </div>
 
-        {/* Fingerprint Authentication Button */}
-       
-
         {/* Forgot PIN Link */}
         <a href="#!" style={styles.forgotPin}>Forgot PIN?</a>
       </div>
@@ -119,7 +124,7 @@ function EnterPin() {
 const styles = {
   container: {
     minHeight: "100vh",
-    backgroundColor: 'rgb(17 22 27)',
+    backgroundColor: "rgb(17 22 27)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -128,7 +133,6 @@ const styles = {
     color: "#000",
   },
   logoContainer: {
-    BorderColor:"#fff",
     marginBottom: "1.5rem",
     marginTop: "2rem",
   },
@@ -168,7 +172,8 @@ const styles = {
   },
   keypad: {
     display: "grid",
-    gridTemplateColumns: "repeat(3, 60px)",
+    gridTemplateColumns: "repeat(3, 1fr)",  // Ensures uniform spacing
+    gridTemplateRows: "repeat(4, 60px)",   // Ensures correct layout
     gridGap: "1rem",
     justifyContent: "center",
     alignItems: "center",
@@ -183,26 +188,9 @@ const styles = {
     backgroundColor: "#fff",
     cursor: "pointer",
     outline: "none",
-    position: "relative",  // ✅ Ensure button is not blocked
-    zIndex: 10,   
-  },
-  fingerprintButton: {
-    display: "flex",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    border: "1px solid #6f49ed",
-    padding: "0.5rem 1rem",
-    borderRadius: "8px",
-    cursor: "pointer",
-    outline: "none",
-    marginBottom: "1rem",
-  },
-  fingerprintText: {
-    marginLeft: "0.5rem",
-    color: "#6f49ed",
-    fontSize: "1rem",
-    fontWeight: "500",
-  },
+    position: "relative",  // Ensure it's not hidden behind other elements
+    zIndex: 10,  // Bring buttons to the front
+},
   forgotPin: {
     marginTop: "auto",
     color: "#6f49ed",
@@ -211,4 +199,4 @@ const styles = {
   },
 };
 
-export default EnterPin;
+export default SetPin;
