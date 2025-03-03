@@ -65,7 +65,7 @@ function Register() {
         setFormData(initialState);
         setSuccess(true); // Show success message
         // toast.success("✅ Registration successful!");
-        navigate("/login");
+        navigate("/set-pin");
       } else {
         toast.error(response.data.message || "Login failed");
       }

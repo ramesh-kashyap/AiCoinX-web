@@ -57,6 +57,7 @@ import Withdrawhistroy from './pages/Withdraw/Withdrawhistroy';
 
 import Defi from './pages/dashboard/defiScreen';
 import DetailPage from './pages/components/detail';
+import SetPin from './pages/auth/setPin';
 
 function App() {
   return (
@@ -85,6 +86,7 @@ function App() {
         <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
         <Route path="/sent-to" element={<ProtectedRoute><SendTo /></ProtectedRoute>} />
         <Route path="/received" element={<ProtectedRoute><Received /></ProtectedRoute>} />
+        <Route path="/set-pin" element={<PublicRoute><SetPin /></PublicRoute>} />
         {/* <Route path="/swap" element={<Swap />} /> */}
   
         <Route path="/price-card" element={<ProtectedRoute><PriceCard/></ProtectedRoute>} />
