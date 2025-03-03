@@ -1,64 +1,73 @@
 import React, { useState } from "react";
-import Api from "../../../service/Api";
 import { useNavigate, Link } from "react-router-dom";
-function EnterPin() {
-  const [pin, setPin] = useState("");
-  const navigate = useNavigate();
+import Api from "../../../service/Api"; // Ensure correct path
+
+function ConfirmPin() {
+    const [confirmPin, setConfirmPin] = useState("");
+    const navigate = useNavigate();
   // ✅ FIXED: Properly updates state using prevPin
   const handleDigitClick = (digit) => {
-    console.log("Button clicked:", digit); // Debugging
-    setPin((prevPin) => {
-      if (prevPin.length < 4) {
-        console.log("Updated PIN:", prevPin + digit.toString()); // Debugging
-        const newPin = prevPin.length < 4 ? prevPin + digit.toString() : prevPin;
-        if (newPin.length === 4) {
-          verifyPin(newPin); // 🔥 API Call when PIN is complete
+    setConfirmPin((prev) => {
+      if (prev.length < 4) {
+        const updatedPin = prev + digit.toString();
+        if (updatedPin.length === 4) {
+          verifyAndUpdatePin(updatedPin);
         }
-        return prevPin + digit.toString();
+        return updatedPin;
       }
-      return prevPin;
+      return prev;
     });
   };
 
-  // ✅ Backspace: Remove last digit
-  const handleBackspace = () => {
-    setPin((prevPin) => prevPin.slice(0, -1));
-  };
 
-  // ✅ WebAuthn Fingerprint Authentication
-  const verifyPin = async (pin) => {
-    console.log("Verifying PIN:", pin); // Debugging
+
+  const verifyAndUpdatePin = async (confirmPin) => {
+    const newPin = localStorage.getItem("newPin");
+
+    if (!newPin) {
+      alert("New PIN is missing. Please restart the process.");
+      navigate("/security/new-password");
+      return;
+    }
+
+    if (newPin !== confirmPin) {
+      alert("PINs do not match! Please try again.");
+      setConfirmPin(""); // Reset field
+      return;
+    }
 
     try {
-      
-      const response = await Api.post("/verify-pin", {
-        pin 
-      
+      const response = await Api.post("/updatePin", {
+        newPin,
+        confirmPin,
       });
 
-      if(response.data.status){
-        
-      
-        navigate("/security/new-password");}
-        else{
-          alert(response.data.error || "PIN verification failed.");
-        }
-  
- 
+      if (response.data.status) {
+        alert("PIN updated successfully!");
+        localStorage.removeItem("newPin");
+        navigate("/home"); // Redirect after success
+      } else {
+        alert(response.data.error || "Error updating PIN.");
+      }
     } catch (error) {
-      console.error("API Error:", error.response?.data?.error || "Unknown error");
-
-      // Error message ko alert me show karna
-      alert(error.response?.data?.error || "Something went wrong!");
-      setPin(""); // Clear PIN on error
+      console.error("API Error:", error);
+      alert("Server error, please try again.");
     }
   };
+
+
+  // ✅ Backspace: Remove last digit
+  const handleBackspace = () => {
+    setConfirmPin((prevPin) => prevPin.slice(0, -1));
+  };
+
+  
   // ✅ Render PIN dots (displays dots for entered digits)
   const renderPinDots = () => (
     <div style={styles.pinDisplay}>
       {[0, 1, 2, 3].map((i) => (
         <div key={i} style={styles.pinDot}>
-          {pin[i] ? <div style={styles.filledDot} /> : null}
+          {confirmPin[i] ? <div style={styles.filledDot} /> : null}
         </div>
       ))}
     </div>
@@ -76,8 +85,8 @@ function EnterPin() {
         </div>
 
         {/* Title & Subtitle */}
-        <h1 style={styles.title}>Verify Your Old PIN!</h1>
-        <p style={styles.subtitle}>Enter your four-digit PIN to create a new PIN</p>
+        <h1 style={styles.title}>Confirm Your New PIN</h1>
+<p style={styles.subtitle}>Re-enter your new four-digit PIN to confirm.</p>
 
         {/* PIN Dots */}
         {renderPinDots()}
@@ -212,4 +221,4 @@ const styles = {
   },
 };
 
-export default EnterPin;
+export default ConfirmPin;

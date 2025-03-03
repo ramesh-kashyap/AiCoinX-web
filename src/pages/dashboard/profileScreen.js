@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../components/footer';
 import { useNavigate } from "react-router-dom";
 import Api from "../../service/Api";
+import AirdropCard from '../components/airDrop';
 
 
 function Account() {
@@ -24,20 +25,20 @@ function Account() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await Api.get("getUsername"); // API call to fetch user data
-        if (response.data) {
-          setNewName(response.data); 
-          setUserData(response.data.fullname); 
-
-
+        const response = await Api.get("/news"); // API call
+  
+        if (response.data && response.data.userData) {
+          setNewName(response.data.userData.fullname); 
+          setUserData(response.data.userData[0].fullname); 
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
     };
-
+  
     fetchUserData();
   }, []);
+  
 
 
   const handleUpdateProfile = async () => {
@@ -211,37 +212,8 @@ marginTop:"13px"
    </div>
    
     
-   <div
-      style={{ borderColor: "#9583ff", marginTop: "30px" }}
-      className="border border-purple-300 rounded-lg p-4 flex items-center justify-between shadow-md"
-    >
-      {/* Left Side: Parachute Image */}
-      <img
-        alt="Parachute with a logo"
-        className="w-12 h-12"
-        style={{ borderRadius: "32px" }}
-        src="\assets\images\SxSoOaFiKKPtK5BDitkmVcvn2HTgm69wuHAJeJzcjmQ.jpg"
-      />
+   <AirdropCard/>
 
-      {/* Middle Content */}
-      <div className="flex flex-col">
-        <h3   style={{ color: "#fff" }} className="font-bold text-black text-lg">Earn more $KLINK!</h3>
-        <div className="text-gray-500 flex items-center">
-          <span style={{ color: "#9583ff" }} className="text-xl font-bold text-black">70,000.00</span>
-          <img 
-            alt="Logo"
-            className="w-5 h-5 mx-2"
-            style={{ borderRadius: "16px",marginLeft:"5px",height:"15px"}} // Adjust as needed
-
-            src="\assets\images\CN4qG6TV3-Wa_6LmTOhuis9qBStFL6tljoDrSm4MNnk.jpg"
-          />
-          <span style={{ marginLeft:"5px"}}>points earned so far</span>
-        </div>
-      </div>
-
-      {/* Right Side: Arrow Icon */}
-      <i className="fas fa-chevron-right text-gray-400"></i>
-    </div>
         {/* Account Card */}
         <div className="mt-6 space-y-3">
 

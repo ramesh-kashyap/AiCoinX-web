@@ -98,7 +98,7 @@ function Profile() {
               paddingLeft: "40px", // Left padding taaki text icon se overlap na ho
 marginTop:"13px"
             }}
-            type="text"
+            type="text" 
             value={UserData}        
             onChange={(e) => setUserData(e.target.value)} 
             className="w-full p-3 border rounded-md text-black"

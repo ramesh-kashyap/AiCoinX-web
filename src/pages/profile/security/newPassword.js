@@ -1,64 +1,35 @@
 import React, { useState } from "react";
-import Api from "../../../service/Api";
 import { useNavigate, Link } from "react-router-dom";
-function EnterPin() {
-  const [pin, setPin] = useState("");
-  const navigate = useNavigate();
+function NewPin() {
+    const [newPin, setNewPin] = useState("");
+    const navigate = useNavigate();
   // ✅ FIXED: Properly updates state using prevPin
   const handleDigitClick = (digit) => {
-    console.log("Button clicked:", digit); // Debugging
-    setPin((prevPin) => {
-      if (prevPin.length < 4) {
-        console.log("Updated PIN:", prevPin + digit.toString()); // Debugging
-        const newPin = prevPin.length < 4 ? prevPin + digit.toString() : prevPin;
-        if (newPin.length === 4) {
-          verifyPin(newPin); // 🔥 API Call when PIN is complete
+    setNewPin((prev) => {
+      if (prev.length < 4) {
+        const updatedPin = prev + digit.toString();
+        if (updatedPin.length === 4) {
+          localStorage.setItem("newPin", updatedPin); // Store new PIN temporarily
+          navigate("/security/confirm-password"); // Move to Confirm PIN page
         }
-        return prevPin + digit.toString();
+        return updatedPin;
       }
-      return prevPin;
+      return prev;
     });
   };
 
   // ✅ Backspace: Remove last digit
   const handleBackspace = () => {
-    setPin((prevPin) => prevPin.slice(0, -1));
+    setNewPin((prevPin) => prevPin.slice(0, -1));
   };
 
-  // ✅ WebAuthn Fingerprint Authentication
-  const verifyPin = async (pin) => {
-    console.log("Verifying PIN:", pin); // Debugging
-
-    try {
-      
-      const response = await Api.post("/verify-pin", {
-        pin 
-      
-      });
-
-      if(response.data.status){
-        
-      
-        navigate("/security/new-password");}
-        else{
-          alert(response.data.error || "PIN verification failed.");
-        }
   
- 
-    } catch (error) {
-      console.error("API Error:", error.response?.data?.error || "Unknown error");
-
-      // Error message ko alert me show karna
-      alert(error.response?.data?.error || "Something went wrong!");
-      setPin(""); // Clear PIN on error
-    }
-  };
   // ✅ Render PIN dots (displays dots for entered digits)
   const renderPinDots = () => (
     <div style={styles.pinDisplay}>
       {[0, 1, 2, 3].map((i) => (
         <div key={i} style={styles.pinDot}>
-          {pin[i] ? <div style={styles.filledDot} /> : null}
+          {newPin[i] ? <div style={styles.filledDot} /> : null}
         </div>
       ))}
     </div>
@@ -76,7 +47,7 @@ function EnterPin() {
         </div>
 
         {/* Title & Subtitle */}
-        <h1 style={styles.title}>Verify Your Old PIN!</h1>
+        <h1 style={styles.title}>Enter PIN!</h1>
         <p style={styles.subtitle}>Enter your four-digit PIN to create a new PIN</p>
 
         {/* PIN Dots */}
@@ -212,4 +183,4 @@ const styles = {
   },
 };
 
-export default EnterPin;
+export default NewPin;

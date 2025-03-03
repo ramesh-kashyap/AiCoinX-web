@@ -46,6 +46,10 @@ import UpdateProfile from './pages/profile/security/profile';
 import EnterPin from './pages/auth/enterPin';
 import Login from './pages/auth/loginScreen';
 import ChangePassword from './pages/profile/security/changePassword';
+import NewPassword from './pages/profile/security/newPassword';
+import ConfirmPassword from './pages/profile/security/confirmPin';
+
+
 import Refferals from './pages/profile/security/refferals';
 import PromoCode from './pages/profile/promotion/addPromoCode';
 
@@ -103,6 +107,9 @@ function App() {
         <Route path="/invest/buysells" element={<ProtectedRoute><Buysells/></ProtectedRoute>} />
         <Route path="/invest/swap-from" element={<ProtectedRoute><Fromswap/></ProtectedRoute>} />
         <Route path="/security/change-password" element={<ProtectedRoute><ChangePassword/></ProtectedRoute>} />
+        <Route path="/security/new-password" element={<ProtectedRoute><NewPassword/></ProtectedRoute>} />
+        <Route path="/security/confirm-password" element={<ProtectedRoute><ConfirmPassword/></ProtectedRoute>} />
+
         <Route path="/security/refferals-user" element={<ProtectedRoute><Refferals/></ProtectedRoute>} />
         <Route path="/promotion/promocode" element={<ProtectedRoute><PromoCode/></ProtectedRoute>} />
 
