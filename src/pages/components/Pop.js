@@ -1,12 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-function Deposit() {
-  return (
 <div class="bg-n900 px-6 pt-3 pb-6 w-full rounded-t-[31px] relative">
               <div class="flex justify-center items-center">
                 <div class="w-16 h-1 bg-white bg-opacity-5 rounded-full"></div>
               </div>
+              <h2 class="text-xl font-semibold text-center pt-8 pb-5">Swap</h2>
               <button class="absolute top-4 right-4 text-2xl text-g300 swapModalCloseButton">
                 <i class="ph ph-x-circle"></i>
               </button>
@@ -30,11 +26,7 @@ function Deposit() {
               </div>
               <div class="w-full pt-8">
                 <a href="successfully-sent.html" class="block bg-g300 font-semibold text-center py-3 rounded-lg">
-                  Save Change
+                  Save
                 </a>
               </div>
             </div>
-  );
-}
-
-export default Deposit;
