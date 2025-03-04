@@ -273,48 +273,25 @@ marginTop:"13px"
           </div>
         </div>
 
-        {/* Support Section */}
+
+
         <div className="pt-8">
-          <p className="text-n70 font-semibold pb-5">Support</p>
-          <div className="flex flex-col gap-5">
-            <Link
-              to="/help-center"
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-            >
-              <div className="flex justify-start items-center gap-3">
-                <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-                  <i className="ph ph-question"></i>
-                </div>
-                <p className="font-semibold">Help Center</p>
-              </div>
-              <i className="ph ph-caret-right text-g300"></i>
-            </Link>
-            <Link
-              to="/privacy-policy"
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-            >
-              <div className="flex justify-start items-center gap-3">
-                <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-                  <i className="ph ph-file-lock"></i>
-                </div>
-                <p className="font-semibold">Privacy Policy</p>
-              </div>
-              <i className="ph ph-caret-right text-g300"></i>
-            </Link>
-            <Link
-              to="/about"
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-            >
-              <div className="flex justify-start items-center gap-3">
-                <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-                  <i className="ph ph-paper-plane-tilt"></i>
-                </div>
-                <p className="font-semibold">About</p>
-              </div>
-              <i className="ph ph-caret-right text-g300"></i>
-            </Link>
-          </div>
-        </div>
+  <p className="text-n70 font-semibold pb-5">Support</p>
+
+  <div className="border border-white border-opacity-10 p-4 rounded-lg">
+  <LinkBox url="/help-center" icon="ph-plus-circle" name="Help Center" />
+  <hr className="border-white border-opacity-10" />
+    {/* Add Promo Code */}
+    <LinkBox url="/privacy-policy" icon="ph-plus-circle" name="Privacy Policy" />
+    <hr className="border-white border-opacity-10" />
+
+    {/* Refer a Friend */}
+    <LinkBox url="/about" icon="ph-user-plus" name="About" />
+
+  </div>
+</div>
+        {/* Support Section */}
+       
 
  {/* Security Section */}
  <div className="pt-8">
@@ -340,156 +317,74 @@ marginTop:"13px"
 
          {/* Support Section */}
          <div className="pt-8">
-          <p className="text-n70 font-semibold pb-5">Promotions</p>
-          <div className="flex flex-col gap-5">
-            <Link
-              to="/promotion/promocode"
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-            >
-              <div className="flex justify-start items-center gap-3">
-                <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-                <i className="ph ph-plus-circle"></i>
-                </div>
-                <p className="font-semibold">Add Promo Code</p>
-              </div>
-              <i className="ph ph-caret-right text-g300"></i>
-            </Link>
-            <Link
-              to="/security/refferals-user"
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-            >
-              <div className="flex justify-start items-center gap-3">
-                <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-                <i className="ph ph-user-plus"></i> 
-                </div>
-                <p className="font-semibold">Refer a Friend</p>
-              </div>
-              <i className="ph ph-caret-right text-g300"></i>
-            </Link>
-           
-          </div>
-        </div>
+  <p className="text-n70 font-semibold pb-5">Promotions</p>
+
+  <div className="border border-white border-opacity-10 p-4 rounded-lg">
+    
+    {/* Add Promo Code */}
+    <LinkBox url="/promotion/promocode" icon="ph-plus-circle" name="Add Promo Code" />
+    <hr className="border-white border-opacity-10" />
+
+    {/* Refer a Friend */}
+    <LinkBox url="/security/refferals-user" icon="ph-user-plus" name="Refer a Friend" />
+
+  </div>
+</div>
 
         {/* Social Section */}
         <div className="pt-8">
-  <p className="text-n70 font-semibold pb-5">Follow Us</p>
-  <div className="flex flex-col gap-5">
+        <p style={{paddingBottom: "1.25rem"}} className="text-n70 font-semibold pb-5">Follow Us</p>
+
+        <div className="border border-white border-opacity-10 p-4 rounded-lg">
     {/* Telegram */}
-    <Link
-              to="https://t.me/yourtelegramchannel"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
->
-      <div className="flex justify-start items-center gap-3">
-        <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-          <i className="ph ph-telegram-logo"></i>
-        </div>
-        <p className="font-semibold">Telegram</p>
-      </div>
-      <i className="ph ph-caret-right text-g300"></i>
-      </Link>
-    {/* YouTube */}
-    
+        {/* Telegram */}
+      <LinkBox url="https://t.me/yourtelegramchannel" icon="ph-telegram-logo" name="Telegram" />
+      <hr className="border-white border-opacity-10" />
 
-<Link
-              to="https://youtube.com/yourchannel"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
->
-      <div className="flex justify-start items-center gap-3">
-        <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-          <i className="ph ph-youtube-logo"></i>
-        </div>
-        <p className="font-semibold">YouTube</p>
-      </div>
-      <i className="ph ph-caret-right text-g300"></i>
-      </Link>
+      {/* YouTube */}
+      <LinkBox url="https://youtube.com/yourchannel" icon="ph-youtube-logo" name="YouTube" />
+      <hr className="border-white border-opacity-10" />
 
-    {/* LinkedIn */}
-    
+      {/* Facebook */}
+      <LinkBox url="https://facebook.com/yourpage" icon="ph-facebook-logo" name="Facebook" />
+      <hr className="border-white border-opacity-10" />
 
-    {/* Facebook */}
-    <Link
-              to="https://facebook.com/yourpage"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
->
-   
-      <div className="flex justify-start items-center gap-3">
-        <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-          <i className="ph ph-facebook-logo"></i>
-        </div>
-        <p className="font-semibold">Facebook</p>
-      </div>
-      <i className="ph ph-caret-right text-g300"></i>
-    </Link>
+      {/* Instagram */}
+      <LinkBox url="https://instagram.com/yourprofile" icon="ph-instagram-logo" name="Instagram" />
+      <hr className="border-white border-opacity-10" />
 
-    {/* Instagram */}
-    <Link
-      href="https://instagram.com/yourprofile"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-    >
-      <div className="flex justify-start items-center gap-3">
-        <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-          <i className="ph ph-instagram-logo"></i>
-        </div>
-        <p className="font-semibold">Instagram</p>
-      </div>
-      <i className="ph ph-caret-right text-g300"></i>
-    </Link>
+      {/* Twitter */}
+      <LinkBox url="https://twitter.com/yourhandle" icon="ph-twitter-logo" name="Twitter" />
+      <hr className="border-white border-opacity-10" />
 
-    {/* Twitter */}
-    <Link
-      href="https://twitter.com/yourhandle"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-    >
-      <div className="flex justify-start items-center gap-3">
-        <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-          <i className="ph ph-twitter-logo"></i>
-        </div>
-        <p className="font-semibold">Twitter</p>
-      </div>
-      <i className="ph ph-caret-right text-g300"></i>
-    </Link>
-
-    {/* Discord */}
-    <Link
-      href="https://discord.gg/yourinvite"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
-    >
-      <div className="flex justify-start items-center gap-3">
-        <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-          <i className="ph ph-discord-logo"></i>
-        </div>
-        <p className="font-semibold">Discord</p>
-      </div>
-      <i className="ph ph-caret-right text-g300"></i>
-    </Link>
+      {/* Discord */}
+      <LinkBox url="https://discord.gg/yourinvite" icon="ph-discord-logo" name="Discord" />
 
     {/* Logout Button */}
-    <button 
-               onClick={() => setShowPopupLogout(true)}
+   
 
-        className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group logoutModalOpenButton"
-      >
-        <div className="flex justify-start items-center gap-3">
-          <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
-            <i className="ph ph-arrows-down-up"></i>
-          </div>
-          <p className="font-semibold">Logout</p>
-        </div>
-      </button>
+    
   </div>
 </div>
+{/* <button
+          onClick={() => setShowPopupLogout(true)}
+          className="rounded-lg p-3 w-full flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group logoutModalOpenButton"
+        >
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
+            <i className="ph ph-arrows-down-up"></i>
+            </div>
+            <p className="font-semibold"></p>
+          </div>
+        </button> */}
+
+<button 
+  onClick={() => setShowPopupLogout(true)}
+  style={{ marginTop: "16px", border: "2px solid red",borderRadius:"50px",marginTop:"25px"}} 
+  className="w-full p-3 font-bold mb-4 bg-purple-500 text-white rounded-md hover:bg-purple-600"
+>
+  Logout
+</button>
 
 
         {/* Tab Area (Footer Navigation) */}
@@ -549,6 +444,23 @@ marginTop:"13px"
     </div>
   );
 }
+const LinkBox = ({ url, icon, name }) => {
+  return (
+    <Link
+      to={url}
+     
+      className="flex justify-between items-center p-3 hover:bg-white hover:bg-opacity-5 duration-300 group"
+    >
+      <div className="flex items-center gap-3">
+      <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
+      <i className={`ph ${icon}`}></i>
+        </div>
+        <p className="font-semibold">{name}</p>
+      </div>
+      <i className="ph ph-caret-right text-g300"></i>
+    </Link>
+  );
+};
 const styles = {
   container: {
     maxWidth: '100%',

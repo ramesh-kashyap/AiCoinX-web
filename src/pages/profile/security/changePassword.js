@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Api from "../../../service/Api";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
 function EnterPin() {
   const [pin, setPin] = useState("");
   const navigate = useNavigate();
@@ -67,8 +69,14 @@ function EnterPin() {
   return (
     <div className="container relative overflow-hidden justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
+      
       <div style={styles.container} className="bg-n900">
-        
+         <div style={{marginRight:"20rem"}}  className="flex justify-start items-center pb-8 mr-8">
+                  <Link  to="/home" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
+                    <i className="ph-bold ph-caret-left"></i>
+                  </Link>
+                 
+                </div>
         {/* Logo */}
         <div style={{marginBottom:"20px"}}>
           <img style={{width:"70px"}} alt="Profile picture of a person with sunglasses" className="w-12 h-12 rounded-full" height="50" src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg" width="50"/>
@@ -112,7 +120,6 @@ function EnterPin() {
        
 
         {/* Forgot PIN Link */}
-        <a href="#!" style={styles.forgotPin}>Forgot PIN?</a>
       </div>
     </div>
   );

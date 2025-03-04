@@ -29,10 +29,11 @@ export default function ReferralProgram() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await Api.get("getUsername"); // API call to fetch user data
-        if (response.data && response.data.username) {
+        const response = await Api.get("/news"); // API call to fetch user data
+        if (response.data && response.data.userData) {
           setUsername(response.data.username);
-          setShareUrl(response.data.username);
+          setShareUrl(response.data.userData[0].username);
+
         }
       } catch (error) {
         console.error("Error fetching user data:", error);

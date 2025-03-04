@@ -21,7 +21,6 @@ function Register() {
     lastname: "",
     email: "",
     date: "",
-
     password: "",
     repeatPassword: "",
     referralCode: "",
@@ -54,10 +53,9 @@ function Register() {
       const response = await Api.post("/register", {
         fullname,
         lastname,
-        selectedDate,
+        date_of_birth: selectedDate,
         email,
         password,
-        repeatPassword,
         referralCode,
       });
       if (response.data.status) {
@@ -65,7 +63,8 @@ function Register() {
         setFormData(initialState);
         setSuccess(true); // Show success message
         // toast.success("✅ Registration successful!");
-        navigate("/set-pin");
+        navigate("/set-pin", { state: { email } });
+
       } else {
         toast.error(response.data.message || "Login failed");
       }
