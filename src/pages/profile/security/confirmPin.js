@@ -1,66 +1,62 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate,Link } from "react-router-dom";
 import Api from "../../../service/Api"; // Ensure correct path
+import { Toaster, toast } from "react-hot-toast";
 
 function ConfirmPin() {
     const [confirmPin, setConfirmPin] = useState("");
     const navigate = useNavigate();
-  // ✅ FIXED: Properly updates state using prevPin
-  const handleDigitClick = (digit) => {
-    setConfirmPin((prev) => {
-      if (prev.length < 4) {
-        const updatedPin = prev + digit.toString();
-        if (updatedPin.length === 4) {
-          verifyAndUpdatePin(updatedPin);
+
+    // ✅ Handle Digit Click
+    const handleDigitClick = (digit) => {
+        setConfirmPin((prev) => (prev.length < 4 ? prev + digit.toString() : prev));
+    };
+
+    // ✅ Backspace: Remove last digit
+    const handleBackspace = () => {
+        setConfirmPin((prevPin) => prevPin.slice(0, -1));
+    };
+
+    // ✅ Call API only when `confirmPin` is 4 digits
+    useEffect(() => {
+        if (confirmPin.length === 4) {
+            verifyAndUpdatePin(confirmPin);
         }
-        return updatedPin;
-      }
-      return prev;
-    });
-  };
+    }, [confirmPin]); // ✅ Runs only when `confirmPin` changes
 
+    const verifyAndUpdatePin = async (confirmPin) => {
+        const newPin = localStorage.getItem("newPin");
 
+        if (!newPin) {
+            toast.dismiss(); // 🔥 Remove any duplicate toasts
+            toast.error("New PIN is missing. Please restart the process."); 
+            navigate("/security/new-password");
+            return;
+        }
 
-  const verifyAndUpdatePin = async (confirmPin) => {
-    const newPin = localStorage.getItem("newPin");
+        if (newPin !== confirmPin) {
+            toast.dismiss();
+            toast.error("PINs do not match! Please try again."); 
+            setConfirmPin(""); 
+            return;
+        }
 
-    if (!newPin) {
-      alert("New PIN is missing. Please restart the process.");
-      navigate("/security/new-password");
-      return;
-    }
+        try {
+            const response = await Api.post("/updatePin", { newPin, confirmPin });
 
-    if (newPin !== confirmPin) {
-      alert("PINs do not match! Please try again.");
-      setConfirmPin(""); // Reset field
-      return;
-    }
-
-    try {
-      const response = await Api.post("/updatePin", {
-        newPin,
-        confirmPin,
-      });
-
-      if (response.data.status) {
-        alert("PIN updated successfully!");
-        localStorage.removeItem("newPin");
-        navigate("/home"); // Redirect after success
-      } else {
-        alert(response.data.error || "Error updating PIN.");
-      }
-    } catch (error) {
-      console.error("API Error:", error);
-      alert("Server error, please try again.");
-    }
-  };
-
-
-  // ✅ Backspace: Remove last digit
-  const handleBackspace = () => {
-    setConfirmPin((prevPin) => prevPin.slice(0, -1));
-  };
-
+            toast.dismiss();
+            if (response.data.status) {
+                toast.success("PIN updated successfully!"); 
+                localStorage.removeItem("newPin");
+            } else {
+                toast.error(response.data.error || "Error updating PIN."); 
+            }
+        } catch (error) {
+            console.error("API Error:", error);
+            toast.dismiss();
+            toast.error("Server error, please try again."); 
+        }
+    };
   
   // ✅ Render PIN dots (displays dots for entered digits)
   const renderPinDots = () => (
@@ -74,7 +70,7 @@ function ConfirmPin() {
   );
 
   return (
-    <div className="container relative overflow-hidden justify-start items-start text-white">
+    <><Toaster position="top-center" /><div className="container relative overflow-hidden justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
       <div style={styles.container} className="bg-n900">
          <div style={{marginRight:"20rem"}}  className="flex justify-start items-center pb-8 mr-8">
@@ -117,9 +113,9 @@ function ConfirmPin() {
           </button>
 
           {/* Backspace Button */}
-          <button style={styles.keyButton} onClick={handleBackspace}>
-            ✕
-          </button>
+          <button style={styles.keyCross}  onClick={handleBackspace}>
+             <img src="\assets\images\icons8-clear-symbol-24.png" alt="DigitalNomad" />
+            </button>
         </div>
 
         {/* Fingerprint Authentication Button */}
@@ -127,7 +123,7 @@ function ConfirmPin() {
 
         {/* Forgot PIN Link */}
       </div>
-    </div>
+    </div></>
   );
 }
 
@@ -155,7 +151,7 @@ const styles = {
   subtitle: {
     margin: "0.5rem 0 2rem 0",
     fontSize: "0.95rem",
-    color: "#fff",
+    color: "rgba(169, 172, 175, 1)",
     textAlign: "center",
     maxWidth: "300px",
   },
@@ -168,22 +164,22 @@ const styles = {
     width: "20px",
     height: "20px",
     borderRadius: "50%",
-    border: "2px solid #ccc",
+    backgroundColor: "rgb(101, 105, 110)",
     margin: "0 5px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   filledDot: {
-    width: "10px",
-    height: "10px",
+    width: "20px",
+    height: "20px",
     borderRadius: "50%",
-    backgroundColor: "#fff",
+    backgroundColor: "#9583ff",
   },
   keypad: {
     display: "grid",
     gridTemplateColumns: "repeat(3, 60px)",
-    gridGap: "1rem",
+    gridGap: "3.5rem",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "1.5rem",
@@ -193,12 +189,17 @@ const styles = {
     height: "60px",
     fontSize: "1.5rem",
     borderRadius: "50%",
-    border: "1px solid #ccc",
-    backgroundColor: "#fff",
+    
+   color:"rgba(169, 172, 175, 1)",
     cursor: "pointer",
     outline: "none",
     position: "relative",  // ✅ Ensure button is not blocked
     zIndex: 10,   
+  },
+  keyCross: {
+    width: "30px",
+    height: "30px",
+    marginLeft:"10px",
   },
   fingerprintButton: {
     display: "flex",

@@ -4,6 +4,7 @@ import Footer from '../components/footer';
 import { useNavigate } from "react-router-dom";
 import Api from "../../service/Api";
 import AirdropCard from '../components/airDrop';
+import {Toaster,toast } from "react-hot-toast";
 
 
 function Account() {
@@ -47,12 +48,14 @@ function Account() {
 
         if (response.data) {
             setUser((prevUser) => ({ ...prevUser, fullname: UserData }));
-             console.log("Profile Updated Successfully");
+            toast.success("Profile updated successfully!", { position: "top-center" });
              
         }
        
     } catch (error) {
         console.error("Error updating profile:", error);
+        toast.error("Failed to update profile. Please try again.", { position: "top-center" });
+
     } 
 };
   
@@ -218,7 +221,7 @@ marginTop:"13px"
         <div className="mt-6 space-y-3">
 
         <Link to="/security/refferals-user" >
-          <a className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl">
+          <a style={{backgroundColor:"#242b47"}} className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl">
             <div className="flex justify-start items-center gap-3">
             <img
   alt="Referrals"
@@ -238,7 +241,7 @@ marginTop:"13px"
   href="https://www.youtube.com" 
   target="_blank" 
   rel="noopener noreferrer"
-  style={{ marginTop: "10px" }} 
+  style={{ marginTop: "10px",backgroundColor:"#242b47" }} 
   className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl"
 >
   <div className="flex justify-start items-center gap-3">
@@ -258,10 +261,10 @@ marginTop:"13px"
             
             <Link
               to="/currency"
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
+              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center  hover:bg-opacity-5 duration-300 group"
             >
               <div className="flex justify-start items-center gap-3">
-              <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
+              <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl  duration-300">
               <i className="ph ph-user-circle"></i>
                 </div>
                 <p className="font-semibold">Personal Details</p>
@@ -299,10 +302,10 @@ marginTop:"13px"
           <div className="flex flex-col gap-5">
             <Link
               to="/security/change-password"
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group"
+              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center  hover:bg-opacity-5 duration-300 group"
             >
               <div className="flex justify-start items-center gap-3">
-                <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
+                <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl  duration-300">
                   <i className="ph ph-cardholder"></i>
                 </div>
                 <p className="font-semibold">Change Pin</p>
@@ -380,10 +383,10 @@ marginTop:"13px"
 
 <button 
   onClick={() => setShowPopupLogout(true)}
-  style={{ marginTop: "16px", border: "2px solid red",borderRadius:"50px",marginTop:"25px"}} 
+  style={{ marginTop: "16px", border: "2px solid red",borderRadius:"15px",marginTop:"25px",color:"red"}} 
   className="w-full p-3 font-bold mb-4 bg-purple-500 text-white rounded-md hover:bg-purple-600"
 >
-  Logout
+  Log Out
 </button>
 
 
@@ -449,10 +452,10 @@ const LinkBox = ({ url, icon, name }) => {
     <Link
       to={url}
      
-      className="flex justify-between items-center p-3 hover:bg-white hover:bg-opacity-5 duration-300 group"
+      className="flex justify-between items-center p-3  hover:bg-opacity-5 duration-300 group"
     >
       <div className="flex items-center gap-3">
-      <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
+      <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl 0  duration-300">
       <i className={`ph ${icon}`}></i>
         </div>
         <p className="font-semibold">{name}</p>

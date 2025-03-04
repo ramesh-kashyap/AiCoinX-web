@@ -1,25 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Api from "../../../service/Api";
-import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { useNavigate,Link } from "react-router-dom";
+import { Toaster, toast } from "react-hot-toast";
 
 function EnterPin() {
   const [pin, setPin] = useState("");
   const navigate = useNavigate();
-  // ✅ FIXED: Properly updates state using prevPin
+
   const handleDigitClick = (digit) => {
-    console.log("Button clicked:", digit); // Debugging
-    setPin((prevPin) => {
-      if (prevPin.length < 4) {
-        console.log("Updated PIN:", prevPin + digit.toString()); // Debugging
-        const newPin = prevPin.length < 4 ? prevPin + digit.toString() : prevPin;
-        if (newPin.length === 4) {
-          verifyPin(newPin); // 🔥 API Call when PIN is complete
-        }
-        return prevPin + digit.toString();
-      }
-      return prevPin;
-    });
+    setPin((prevPin) => (prevPin.length < 4 ? prevPin + digit.toString() : prevPin));
   };
 
   // ✅ Backspace: Remove last digit
@@ -27,32 +16,33 @@ function EnterPin() {
     setPin((prevPin) => prevPin.slice(0, -1));
   };
 
-  // ✅ WebAuthn Fingerprint Authentication
+  // ✅ API Call when PIN is complete
+  useEffect(() => {
+    if (pin.length === 4) {
+      verifyPin(pin);
+    }
+  }, [pin]); // 🔥 Runs only when `pin` changes
+
   const verifyPin = async (pin) => {
-    console.log("Verifying PIN:", pin); // Debugging
+    console.log("Verifying PIN:", pin); 
 
     try {
-      
-      const response = await Api.post("/verify-pin", {
-        pin 
-      
-      });
+      const response = await Api.post("/verify-pin", { pin });
 
-      if(response.data.status){
-        
-      
-        navigate("/security/new-password");}
-        else{
-          alert(response.data.error || "PIN verification failed.");
-        }
-  
- 
+      toast.dismiss(); // ✅ Ensure only one toast at a time
+
+      if (response.data.status) {
+        toast.success("PIN verified successfully!"); 
+        navigate("/security/new-password");
+      } else {
+        toast.error(response.data.error || "PIN verification failed."); 
+      }
     } catch (error) {
       console.error("API Error:", error.response?.data?.error || "Unknown error");
 
-      // Error message ko alert me show karna
-      alert(error.response?.data?.error || "Something went wrong!");
-      setPin(""); // Clear PIN on error
+      toast.dismiss(); // Remove previous toasts
+      toast.error(error.response?.data?.error || "Something went wrong!"); 
+      setPin(""); 
     }
   };
   // ✅ Render PIN dots (displays dots for entered digits)
@@ -67,14 +57,14 @@ function EnterPin() {
   );
 
   return (
-    <div className="container relative overflow-hidden justify-start items-start text-white">
+    <><Toaster position="top-center" /><div className="container relative overflow-hidden justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
       
       <div style={styles.container} className="bg-n900">
          <div style={{marginRight:"20rem"}}  className="flex justify-start items-center pb-8 mr-8">
-                  <Link  to="/home" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
-                    <i className="ph-bold ph-caret-left"></i>
-                  </Link>
+                    <Link to="/home" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
+                              <i className="ph-bold ph-caret-left"></i>
+                            </Link>
                  
                 </div>
         {/* Logo */}
@@ -111,9 +101,10 @@ function EnterPin() {
           </button>
 
           {/* Backspace Button */}
-          <button style={styles.keyButton} onClick={handleBackspace}>
-            ✕
-          </button>
+          
+          <button style={styles.keyCross}  onClick={handleBackspace}>
+             <img src="\assets\images\icons8-clear-symbol-24.png" alt="DigitalNomad" />
+            </button>
         </div>
 
         {/* Fingerprint Authentication Button */}
@@ -121,7 +112,7 @@ function EnterPin() {
 
         {/* Forgot PIN Link */}
       </div>
-    </div>
+    </div></>
   );
 }
 
@@ -149,7 +140,7 @@ const styles = {
   subtitle: {
     margin: "0.5rem 0 2rem 0",
     fontSize: "0.95rem",
-    color: "#fff",
+    color: "rgba(169, 172, 175, 1)",
     textAlign: "center",
     maxWidth: "300px",
   },
@@ -162,22 +153,22 @@ const styles = {
     width: "20px",
     height: "20px",
     borderRadius: "50%",
-    border: "2px solid #ccc",
+    backgroundColor: "rgb(101, 105, 110)",
     margin: "0 5px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   filledDot: {
-    width: "10px",
-    height: "10px",
+    width: "20px",
+    height: "20px",
     borderRadius: "50%",
-    backgroundColor: "#fff",
+    backgroundColor: "#9583ff",
   },
   keypad: {
     display: "grid",
     gridTemplateColumns: "repeat(3, 60px)",
-    gridGap: "1rem",
+    gridGap: "3.5rem",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "1.5rem",
@@ -187,12 +178,17 @@ const styles = {
     height: "60px",
     fontSize: "1.5rem",
     borderRadius: "50%",
-    border: "1px solid #ccc",
-    backgroundColor: "#fff",
+    
+   color:"rgba(169, 172, 175, 1)",
     cursor: "pointer",
     outline: "none",
     position: "relative",  // ✅ Ensure button is not blocked
     zIndex: 10,   
+  },
+  keyCross: {
+    width: "30px",
+    height: "30px",
+    marginLeft:"10px", 
   },
   fingerprintButton: {
     display: "flex",
