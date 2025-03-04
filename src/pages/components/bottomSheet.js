@@ -64,7 +64,7 @@ const BottomSheet = ({ isOpen, onClose }) => {
           <FaCreditCard style={styles.icon} />
           <div>
             <strong>Buy</strong>
-            <p style={{ margin: "0", fontSize: "12px", color: "#777" }}>
+            <p style={{ margin: "0", fontSize: "12px", color: "#fff" }}>
               Buy crypto with card or bank transfer
             </p>
           </div>
@@ -75,7 +75,7 @@ const BottomSheet = ({ isOpen, onClose }) => {
           <FaArrowDown style={styles.icon} />
           <div>
             <strong>Deposit</strong>
-            <p style={{ margin: "0", fontSize: "12px", color: "#777" }}>
+            <p style={{ margin: "0", fontSize: "12px", color: "#fff" }}>
               Deposit tokens from other wallets
             </p>
           </div>
@@ -86,7 +86,7 @@ const BottomSheet = ({ isOpen, onClose }) => {
           <FaExchangeAlt style={styles.icon} />
           <div>
             <strong>Swap</strong>
-            <p style={{ margin: "0", fontSize: "12px", color: "#777" }}>
+            <p style={{ margin: "0", fontSize: "12px", color: "#fff" }}>
               Exchange one token for another
             </p>
           </div>
@@ -97,7 +97,7 @@ const BottomSheet = ({ isOpen, onClose }) => {
           <FaArrowUp style={styles.icon} />
           <div>
             <strong>Send</strong>
-            <p style={{ margin: "0", fontSize: "12px", color: "#777" }}>
+            <p style={{ margin: "0", fontSize: "12px", color: "#fff" }}>
               Transfer tokens to other wallets
             </p>
           </div>

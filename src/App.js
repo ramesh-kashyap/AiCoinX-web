@@ -58,6 +58,7 @@ import Withdrawhistroy from './pages/Withdraw/Withdrawhistroy';
 import Defi from './pages/dashboard/defiScreen';
 import DetailPage from './pages/components/detail';
 import SetPin from './pages/auth/setPin';
+import Team from './pages/team/Referral';
 
 function App() {
   return (
@@ -114,7 +115,7 @@ function App() {
 
         <Route path="/security/refferals-user" element={<ProtectedRoute><Refferals/></ProtectedRoute>} />
         <Route path="/promotion/promocode" element={<ProtectedRoute><PromoCode/></ProtectedRoute>} />
-
+        <Route path="/refferals-user/team" element={<ProtectedRoute><Team /></ProtectedRoute>} />
 
 
 
