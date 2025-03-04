@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState , useEffect  } from "react";
 import Api from "../../service/Api";
 import { useLocation,useNavigate } from "react-router-dom";
-
 
 function SetPin() {
   const location = useLocation();
   const [step, setStep] = useState("setPin"); // 'setPin' -> Set PIN, 'confirmPin' -> Confirm PIN
   const [pin, setPin] = useState("");
+  const [confirmPin, setConfirmPin] = useState("");
   const navigate = useNavigate();
   const email = location.state?.email || "";
   useEffect(() => {
@@ -14,25 +14,46 @@ function SetPin() {
       navigate("/register"); // Agar email nahi mili to register page bhejo
     }
   }, [email, navigate]);
-
   // ✅ Handle PIN Entry
   const handleDigitClick = (digit) => {
-    if (pin.length < 4) {
-      const newPin = pin + digit.toString();
-      setPin(newPin);
-      if (newPin.length === 4) {
-        verifyPin(newPin); // PIN complete hone ke baad API call
+    if (step === "setPin") {
+      if (pin.length < 4) {
+        const newPin = pin + digit.toString();
+        setPin(newPin);
+        if (newPin.length === 4) {
+          setStep("confirmPin"); // Move to confirm step
+        }
+      }
+    } else {
+      if (confirmPin.length < 4) {
+        const newConfirmPin = confirmPin + digit.toString();
+        setConfirmPin(newConfirmPin);
+        if (newConfirmPin.length === 4) {
+          verifyPin(pin, newConfirmPin); // Call API once both PINs are entered
+        }
       }
     }
   };
-  
+
   // ✅ Remove Last PIN Digit
   const handleBackspace = () => {
-    setPin((prevPin) => prevPin.slice(0, -1));
+    if (step === "setPin") {
+      setPin((prevPin) => prevPin.slice(0, -1));
+    } else {
+      setConfirmPin((prevPin) => prevPin.slice(0, -1));
+    }
   };
 
-  const verifyPin = async (pin) => {
-    console.log("Email being sent to backend:", email);  // Debug Email being sent
+  // ✅ Verify PINs and Call API
+  const verifyPin = async (enteredPin, confirmedPin) => {
+    if (enteredPin !== confirmedPin) {
+      alert("PINs do not match! Try again.");
+      setPin("");
+      setConfirmPin("");
+      setStep("setPin");
+      return;
+    }
+
     try {
       const response = await Api.post("/set-pin", { email, pin });
       console.log("API Response:", response.data); // Debug API Response
@@ -46,30 +67,36 @@ function SetPin() {
     } catch (error) {
       console.error("API Error:", error.response?.data?.error || "Unknown Error");
     }
-};
+  };
 
-  
 
   return (
     <div className="container relative overflow-hidden justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
       <div style={styles.container} className="bg-n900">
-        
-        {/* Logo */}
-        <div style={{marginBottom:"20px"}}>
-          <img style={{width:"70px"}} alt="Profile picture of a person with sunglasses" className="w-12 h-12 rounded-full" height="50" src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg" width="50"/>
 
+        {/* Logo */}
+        <div style={styles.logoContainer}>
+          <img
+            alt="Profile picture"
+            className="w-12 h-12 rounded-full"
+            height="50"
+            src="/assets/images/userIcon.svg"
+            width="50"
+          />
         </div>
 
         {/* Title & Subtitle */}
-        <h1 style={styles.title}>Set PIN</h1>
-        <p style={styles.subtitle}>Enter a 4-digit PIN</p>
+        <h1 style={styles.title}>{step === "setPin" ? "Set PIN" : "Confirm PIN"}</h1>
+        <p style={styles.subtitle}>
+          {step === "setPin" ? "Enter a 4-digit PIN" : "Confirm your 4-digit PIN"}
+        </p>
 
         {/* PIN Dots */}
         <div style={styles.pinDisplay}>
           {[0, 1, 2, 3].map((i) => (
             <div key={i} style={styles.pinDot}>
-              {pin[i] ? <div style={styles.filledDot} /> : null}
+              {(step === "setPin" ? pin[i] : confirmPin[i]) ? <div style={styles.filledDot} /> : null}
             </div>
           ))}
         </div>
@@ -150,7 +177,7 @@ const styles = {
     width: "10px",
     height: "10px",
     borderRadius: "50%",
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
   },
   keypad: {
     display: "grid",
