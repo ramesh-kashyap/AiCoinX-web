@@ -50,11 +50,11 @@ const formatDate = (dateString) => {
       <div className="buySellTab pt-8 px-6 w-full relative z-20">
         <ul className="tab-button flex justify-between items-center text-lg font-semibold">
           <li className="activeTabButton tabButton w-full text-center pb-2 border-b-2 border-n700">
-            Buy
+            Deposit History
           </li>
-          <li className="tabButton w-full text-center pb-2 border-b-2 border-n700">
+          {/* <li className="tabButton w-full text-center pb-2 border-b-2 border-n700">
             Sell
-          </li>
+          </li> */}
         </ul>
 
         <div className="pt-8">

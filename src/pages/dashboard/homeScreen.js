@@ -143,7 +143,8 @@ const fetchGetBalance = async () => {  try {
                 <p className="text-white font-semibold text-sm">Deposit</p>
               </Link>
               <Link
-                to="/invest/swaps"
+                  to={`https://thirdparty.com/invest/swaps?userid=12&amount=12`}
+                  target="_blank"
                 className="flex flex-col justify-center items-center gap-2"
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">

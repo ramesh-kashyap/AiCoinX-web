@@ -11,7 +11,8 @@ function EnterPin() {
     setPin((prevPin) => {
       if (prevPin.length < 4) {
         console.log("Updated PIN:", prevPin + digit.toString()); // Debugging
-        const newPin = prevPin.length < 4 ? prevPin + digit.toString() : prevPin;
+        const newPin =
+          prevPin.length < 4 ? prevPin + digit.toString() : prevPin;
         if (newPin.length === 4) {
           verifyPin(newPin); // 🔥 API Call when PIN is complete
         }
@@ -26,26 +27,20 @@ function EnterPin() {
     setPin((prevPin) => prevPin.slice(0, -1));
   };
 
-  // ✅ WebAuthn Fingerprint Authentication
+  
   const verifyPin = async (pin) => {
     console.log("Verifying PIN:", pin); // Debugging
 
     try {
-      
       const response = await Api.post("/verify-pin", {
-        pin 
-      
+        pin,
       });
 
-      if(response.data.status){
-        
-      
-        navigate("/home");}
-        else{
-          console.error('Login failed:', response.message);
-        }
-  
- 
+      if (response.data.status) {
+        navigate("/home");
+      } else {
+        console.error("Login failed:", response.message);
+      }
     } catch (error) {
       console.error("API Error:", error.response.data.error);
       alert("API Error:", error.response.data.error);
@@ -67,15 +62,22 @@ function EnterPin() {
     <div className="container relative overflow-hidden justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
       <div style={styles.container} className="bg-n900">
-        
         {/* Logo */}
         <div style={styles.logoContainer}>
-        <img alt="Profile picture of a person with sunglasses" className="w-12 h-12 rounded-full" height="50" src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg" width="50"/>
+          <img
+            alt="Profile picture of a person with sunglasses"
+            className="w-12 h-12 rounded-full"
+            height="50"
+            src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg"
+            width="50"
+          />
         </div>
 
         {/* Title & Subtitle */}
         <h1 style={styles.title}>Enter PIN!</h1>
-        <p style={styles.subtitle}>Enter your four-digit PIN to create a new PIN</p>
+        <p style={styles.subtitle}>
+          Enter your four-digit PIN to create a new PIN
+        </p>
 
         {/* PIN Dots */}
         {renderPinDots()}
@@ -107,10 +109,11 @@ function EnterPin() {
         </div>
 
         {/* Fingerprint Authentication Button */}
-       
 
         {/* Forgot PIN Link */}
-        <a href="#!" style={styles.forgotPin}>Forgot PIN?</a>
+        <a href="#!" style={styles.forgotPin}>
+          Forgot PIN?
+        </a>
       </div>
     </div>
   );
@@ -119,7 +122,7 @@ function EnterPin() {
 const styles = {
   container: {
     minHeight: "100vh",
-    backgroundColor: 'rgb(17 22 27)',
+    backgroundColor: "rgb(17 22 27)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -128,7 +131,7 @@ const styles = {
     color: "#000",
   },
   logoContainer: {
-    BorderColor:"#fff",
+    BorderColor: "#fff",
     marginBottom: "1.5rem",
     marginTop: "2rem",
   },
@@ -183,8 +186,8 @@ const styles = {
     backgroundColor: "#fff",
     cursor: "pointer",
     outline: "none",
-    position: "relative",  // ✅ Ensure button is not blocked
-    zIndex: 10,   
+    position: "relative", // ✅ Ensure button is not blocked
+    zIndex: 10,
   },
   fingerprintButton: {
     display: "flex",

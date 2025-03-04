@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Api from "../../service/Api";
 
 
-const Referral = () => {
+const Team = () => {
   const [users, setUsers] = useState([]); // ✅ Always start with an empty array
   const [error, setError] = useState("");
 
@@ -140,4 +140,4 @@ const formatDate = (dateString) => {
   );
 };
 
-export default Referral;
+export default Team;
