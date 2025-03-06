@@ -11,6 +11,7 @@ const TransactionHistory = () => {
   const itemsPerPage = 10;
 
   useEffect(() => {
+    
     fetchUsers();
   }, [searchQuery, currentPage]); 
 
