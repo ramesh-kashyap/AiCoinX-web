@@ -129,7 +129,7 @@ const fetchGetBalance = async () => {  try {
                 className="flex flex-col justify-center items-center gap-2"
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
-                  <i className="ph-fill ph-paper-plane-tilt"></i>
+                <i className="ph-fill ph-currency-dollar"></i>
                 </div>
                 <p className="text-white font-semibold text-sm">Withdraw</p>
               </Link>
