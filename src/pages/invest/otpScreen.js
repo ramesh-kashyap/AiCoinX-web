@@ -1,23 +1,23 @@
-import React, { useState,useEffect , useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Api from "../../service/Api";
-import { useLocation,useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 function Otp() {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
-  
+
   const location = useLocation();
   const otpGenerated = useRef(false);
   const verifyingRef = useRef(false);
   const handleResendOtp = async () => {
     // Optionally reset the current OTP
     setOtp("");
-    
+
     // Optionally disable the resend link for a few seconds here (not shown)
-    
+
     // Call your OTP generation function again
     await generateOtp();
-    
+
     // Optionally display a toast notification or message to the user
     toast.success("OTP has been resent!");
   };
@@ -34,7 +34,7 @@ function Otp() {
       return prevOtp;
     });
   };
- useEffect(() => {
+  useEffect(() => {
     const otpAuth = localStorage.getItem("otpauth"); // Get flag
     if (otpAuth !== "true") {
       navigate("/home");
@@ -45,25 +45,19 @@ function Otp() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
- 
   /**
    * Calls the backend API to generate an OTP.
    */
   const generateOtp = async () => {
     try {
-      
       const response = await Api.post("/generate-otp");
       if (response.data.status) {
         // In production, do not show OTP in response.
-        
-      } else {
-       
+        console.log("otp gentrate", response.data.status);
       }
     } catch (error) {
-
-    
-      console.error("Error generating OTP",  error.response.data.message);
-    } 
+      console.error("Error generating OTP", error.response.data.message);
+    }
   };
 
   // Remove the last digit (Backspace functionality)
@@ -81,27 +75,24 @@ function Otp() {
     try {
       const response = await Api.post("/verify-otp", { otp: otpValue });
       if (response.data.status) {
-        localStorage.removeItem("otpauth"); 
+        localStorage.removeItem("otpauth");
         const response = await Api.post("/withdraw", {
-      
           walletAddress, // sending the wallet address obtained from dummy data
           amount,
         });
-        if (response.data.status){navigate("/home");}
-        else {
+        if (response.data.status) {
+          navigate("/home");
+        } else {
           console.error("OTP verification failed:", response.data.message);
-         
         }
-        
       } else {
-        
         console.error("OTP verification failed:", response.data.message);
         setOtp(""); // Clear OTP on failure
       }
     } catch (error) {
       console.error("API Error:", error);
       toast.error(error.response?.data?.message);
-     
+
       setOtp(""); // Clear OTP on error
       setTimeout(() => {
         navigate("/withdraw");
@@ -175,7 +166,7 @@ function Otp() {
           Resend OTP?
         </a>
       </div>
-       <Toaster />
+      <Toaster />
     </div>
   );
 }
@@ -242,7 +233,7 @@ const styles = {
     outline: "none",
     position: "relative",
     zIndex: 10,
-    color:"#000",
+    color: "#000",
   },
   forgotPin: {
     marginTop: "auto",
