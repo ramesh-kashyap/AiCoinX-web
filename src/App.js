@@ -59,6 +59,8 @@ import Defi from './pages/dashboard/defiScreen';
 import DetailPage from './pages/components/detail';
 import SetPin from './pages/auth/setPin';
 import Team from './pages/team/Referral';
+import Withdraw from './pages/Withdraw/withdraw';
+import Otp from './pages/invest/otpScreen';
 
 function App() {
   return (
@@ -95,7 +97,8 @@ function App() {
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/UpdateProfile" element={<ProtectedRoute><UpdateProfile /></ProtectedRoute>} />
 
-
+        <Route path="/withdraw" element={<ProtectedRoute><Withdraw /></ProtectedRoute>} />
+        <Route path="/withdraw/otp" element={<ProtectedRoute><Otp /></ProtectedRoute>} />
         <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
         <Route path="/privacy-policy" element={<ProtectedRoute><PrivacyPolicy /></ProtectedRoute>} />
         <Route path="/language" element={<ProtectedRoute><Language /></ProtectedRoute>} />

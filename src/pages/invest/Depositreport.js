@@ -58,6 +58,7 @@ const formatDate = (dateString) => {
         </ul>
 
         <div className="pt-8">
+
           <div className="tab-content activeTab" id="tabOne_data">
             <div className="flex justify-between items-center gap-4 bg-white bg-opacity-5 rounded-lg py-3 px-4">
               <input
