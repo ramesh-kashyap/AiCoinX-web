@@ -34,7 +34,15 @@ const fetchUsers = async () => {
 
 
 
-
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+    hour12: false,
+  }).replace(",", "");
+};
 
 
 
@@ -148,7 +156,7 @@ const fetchUsers = async () => {
      <div className="homeTab pt-8 px-6">
           <ul className="tab-button flex justify-between items-center text-lg font-semibold">
             <li   onClick={() => setActiveTab('tokens')} className={`tabButton w-full  pb-2 border-b-2 border-n700 ${activeTab === 'activity' ? 'activeTabButton' : ''}`}>
-              Income
+              History
             </li>
           
             <li 
@@ -192,7 +200,7 @@ const fetchUsers = async () => {
                   </div>
                   <div>
                     <p className="font-semibold">{user.comm} USDT</p>
-                    <p className="text-sm text-g300 pt-2"> +{(user.comm * 0.10).toFixed(2)}%</p>
+                    <p className="text-g300 text-sm">{formatDate(user.created_at)}</p>
                     </div>
                 </div>
                
