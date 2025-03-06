@@ -1,139 +1,169 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from 'react-router-dom';
 import Api from "../../service/Api";
+import { Link } from "react-router-dom";
 
-
-const Depositreport = () => {
-  const [users, setUsers] = useState([]); // ✅ Always start with an empty array
+const TransactionHistory = () => {
+  const [users, setUsers] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(""); 
   const [error, setError] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const itemsPerPage = 10;
 
   useEffect(() => {
     fetchUsers();
-    
-}, []);
+  }, [searchQuery, currentPage]); 
 
-const fetchUsers = async () => {
+  const fetchUsers = async () => {
     try {
-      const response =await Api.post('/user-details',);                
-      setUsers(response.data);
+      const response = await Api.get("/deposit-History", {
+        params: { search: searchQuery, page: currentPage, limit: itemsPerPage }, 
+      });
 
-
-        console.log(response.data);
-
-
+      if (response.data && Array.isArray(response.data.data)) {
+        setUsers(response.data.data);
+        setTotalPages(response.data.totalPages);
+      } else {
+        setUsers([]);
+      }
     } catch (err) {
-        setError(err.response?.data?.error || "Error fetching income");
+      setError(err.response?.data?.error || "Error fetching data");
     }
-};
+  };
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    setCurrentPage(1);
+  };
 
-const formatDate = (dateString) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
       day: "2-digit",
-      weekday: "short", // Includes day of the week (e.g., Mon, Tue)
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false // Ensures 24-hour format
-  }).replace(",", ""); // Remove comma for a cleaner format
-};
+      hour12: false,
+    }).replace(",", "");
+  };
 
-
+  const handlePageChange = (newPage) => {
+    if (newPage > 0 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
 
   return (
     <div className="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
 
+
+     
       <div className="buySellTab pt-8 px-6 w-full relative z-20">
+      <div className="flex justify-start items-center pb-8 mr-8">
+                <Link
+                  to="/account"  // Adjust the route as needed
+                  className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900"
+                >
+                  <i className="ph-bold ph-caret-left"></i>
+                </Link>
+               
+                
+              </div>
         <ul className="tab-button flex justify-between items-center text-lg font-semibold">
-          <li className="activeTabButton tabButton w-full text-center pb-2 border-b-2 border-n700">
-            Deposit History
+          <li style={{color:"#fff"}} className="activeTabButton tabButton w-full text-center pb-2 border-b-2 border-n700">
+            Transactions History
           </li>
-          {/* <li className="tabButton w-full text-center pb-2 border-b-2 border-n700">
-            Sell
-          </li> */}
         </ul>
 
         <div className="pt-8">
-
-          <div className="tab-content activeTab" id="tabOne_data">
-            <div className="flex justify-between items-center gap-4 bg-white bg-opacity-5 rounded-lg py-3 px-4">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="outline-none bg-transparent w-full text-n70 placeholder:text-n70 text-sm"
-              />
-              <div>
-                <i className="ph ph-magnifying-glass text-g300 text-xl"></i>
-              </div>
-            </div>
-
-
-            {users.length > 0 ? (
-            users.map((user, index) => (
-            <div className="flex flex-col gap-2 pt-5" key={index}>
-              <div className="flex justify-between items-center bg-white bg-opacity-5 p-4 rounded-xl">
-                <div className="flex justify-start items-center gap-2">
-                  <p className="text-sm text-n70">#01</p>
-                  <div className="text-g300 flex justify-center items-center size-10 rounded-full text-xl bg-white bg-opacity-5">
-                    <img src="/assets/images/tet.png" alt="Ethereum" />
-                  </div>
-                  <p className="font-semibold">{user.user_id_fk}</p>
-                </div>
-                <div className="flex flex-col justify-end items-end">
-                  <p className="font-semibold">+{user.amount}</p>
-                  <p className="text-g300 text-sm">{formatDate(user.created_at)}</p>
-                </div>
-              </div>
-              
-            
-
-            </div>
-
-))
-) : (
-    <p>No users found</p>
-)}
-          </div>
-          
-          <div className="tab-content hiddenTab" id="tabTwo_data">
-            {/* Repeat same structure for Sell tab content */}
-            <div className="flex justify-between items-center gap-4 bg-white bg-opacity-5 rounded-lg py-3 px-4">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="outline-none bg-transparent w-full text-n70 placeholder:text-n70 text-sm"
-              />
-              <div>
-                <i className="ph ph-magnifying-glass text-g300 text-xl"></i>
-              </div>
-            </div>
-            <div className="flex flex-col gap-2 pt-5">
-              <div className="flex justify-between items-center bg-white bg-opacity-5 p-4 rounded-xl">
-                <div className="flex justify-start items-center gap-2">
-                  <p className="text-sm text-n70">#01</p>
-                  <div className="text-g300 flex justify-center items-center size-10 rounded-full text-xl bg-white bg-opacity-5">
-                    <img src="" alt="Ethereum" />
-                  </div>
-                  <p className="font-semibold">Ethereum</p>
-                </div>
-                <div className="flex flex-col justify-end items-end">
-                  <p className="font-semibold">$0.352416</p>
-                  <p className="text-g300 text-sm">+3.00%</p>
-                </div>
-              </div>
-              
-              {/* Repeat all entries again for Sell tab... */}
-
+          <div style={styles.box} className="flex justify-between items-center gap-4 bg-white bg-opacity-5 rounded-lg py-3 px-4">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              placeholder="Search..."
+              className="outline-none bg-transparent w-full text-n70 placeholder:text-n70 text-sm"
+            />
+            <div>
+              <i className="ph ph-magnifying-glass text-g300 text-xl"></i>
             </div>
           </div>
+
+          {/* <div className="tab-content activeTab" id="tabOne_data">
+            <div style={{ marginTop: "35px" }} className="flex justify-between items-center">
+              <p className="text-xl font-semibold">Tokens</p>
+            </div>
+          </div> */}
+
+          {users.length > 0 ? (
+            users.map((user, index) => {
+              const isWithdrawal = user.remark?.toLowerCase().includes("withdraw");
+              const amountSign = isWithdrawal ? "-" : "+";
+              const amountColor = isWithdrawal ? "text-red-400" : "text-green-400";
+              const iconClass = isWithdrawal ? "ph-arrow-down" : "ph-arrow-up";
+
+              return (
+                <div key={index} className="homeTab pt-8 px-6">
+                  <div className="pt-8">
+                    <div className="flex flex-col gap-4">
+                      <div className="flex justify-between items-center border-b border-white border-opacity-5 pb-4">
+                        <div className="flex justify-start items-center gap-2">
+                          <div className="text-g300 flex justify-center items-center p-2 rounded-full text-xl bg-white bg-opacity-5">
+                            <i className={`ph ${iconClass}`}></i>
+                          </div>
+                          <p className={`font-semibold`}>
+                            {amountSign}{user.amount} USDT
+                          </p>
+                        </div>
+                        <div className="flex flex-col justify-end items-end">
+                        <p className="font-semibold">{user.remark}</p>
+
+                          <p className="text-g300 text-sm">{formatDate(user.created_at)}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <p className="text-center text-gray-400 mt-4">No transactions found</p>
+          )}
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-4 mt-6">
+              <button
+                className="px-4 py-2 bg-g300 text-white rounded-md"
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                &lt;&lt;
+              </button>
+              
+              {currentPage > 2 && <span className="text-white">1, 2...</span>}
+              <span className="text-white">{currentPage}</span>
+              {currentPage < totalPages - 1 && <span className="text-white">... {totalPages}</span>}
+              
+              <button
+                className="px-4 py-2 bg-g300 text-white rounded-md"
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+              >
+                &gt;&gt;
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default Depositreport;
+const styles = {
+  box: {
+    backgroundColor: "rgba(255, 255, 255, var(--tw-bg-opacity))",
+  },
+};
+
+export default TransactionHistory;

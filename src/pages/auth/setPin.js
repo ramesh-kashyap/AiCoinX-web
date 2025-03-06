@@ -118,7 +118,7 @@ function SetPin() {
           </button>
 
           {/* Backspace Button */}
-          <button style={styles.keyButton} onClick={handleBackspace}>
+          <button style={styles.keyCross} onClick={handleBackspace}>
             ✕
           </button>
         </div>
@@ -133,7 +133,7 @@ function SetPin() {
 const styles = {
   container: {
     minHeight: "100vh",
-    backgroundColor: "rgb(17 22 27)",
+    backgroundColor: 'rgb(17 22 27)',
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -154,7 +154,7 @@ const styles = {
   subtitle: {
     margin: "0.5rem 0 2rem 0",
     fontSize: "0.95rem",
-    color: "#fff",
+    color: "rgba(169, 172, 175, 1)",
     textAlign: "center",
     maxWidth: "300px",
   },
@@ -167,23 +167,22 @@ const styles = {
     width: "20px",
     height: "20px",
     borderRadius: "50%",
-    border: "2px solid #ccc",
+    backgroundColor: "rgb(101, 105, 110)",
     margin: "0 5px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   filledDot: {
-    width: "10px",
-    height: "10px",
+    width: "20px",
+    height: "20px",
     borderRadius: "50%",
     backgroundColor: "#000",
   },
   keypad: {
     display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",  // Ensures uniform spacing
-    gridTemplateRows: "repeat(4, 60px)",   // Ensures correct layout
-    gridGap: "1rem",
+    gridTemplateColumns: "repeat(3, 60px)",
+    gridGap: "3.5rem",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "1.5rem",
@@ -193,13 +192,43 @@ const styles = {
     height: "60px",
     fontSize: "1.5rem",
     borderRadius: "50%",
-    border: "1px solid #ccc",
-    backgroundColor: "#fff",
+    
+   color:"rgba(169, 172, 175, 1)",
     cursor: "pointer",
     outline: "none",
-    position: "relative",  // Ensure it's not hidden behind other elements
-    zIndex: 10,  // Bring buttons to the front
-},
+    position: "relative",  // ✅ Ensure button is not blocked
+    zIndex: 10,   
+  },
+  keyCross: {
+    width: "50px",
+    height: "50px",
+    fontSize: "1.5rem",
+    borderRadius: "50%",
+    
+   color:"#fff",
+    cursor: "pointer",
+    outline: "none",
+    position: "relative",  // ✅ Ensure button is not blocked
+    zIndex: 10,   
+    backgroundColor:"rgba(169, 172, 175, 1)",
+  },
+  fingerprintButton: {
+    display: "flex",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    border: "1px solid #6f49ed",
+    padding: "0.5rem 1rem",
+    borderRadius: "8px",
+    cursor: "pointer",
+    outline: "none",
+    marginBottom: "1rem",
+  },
+  fingerprintText: {
+    marginLeft: "0.5rem",
+    color: "#6f49ed",
+    fontSize: "1rem",
+    fontWeight: "500",
+  },
   forgotPin: {
     marginTop: "auto",
     color: "#6f49ed",
@@ -207,5 +236,4 @@ const styles = {
     fontWeight: "500",
   },
 };
-
 export default SetPin;

@@ -10,7 +10,7 @@ function About() {
         <div className="flex justify-start items-center pb-8 mr-8">
           {/* Replace with Link if using react-router */}
           <a
-            href="import-seed.html"
+            href="/account"
             className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900"
           >
             <i className="ph-bold ph-caret-left"></i>
