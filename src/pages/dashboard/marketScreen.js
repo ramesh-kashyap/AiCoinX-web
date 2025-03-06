@@ -147,13 +147,26 @@ const fetchUsers = async () => {
      {/* Tab Section */}
      <div className="homeTab pt-8 px-6">
           <ul className="tab-button flex justify-between items-center text-lg font-semibold">
-            <li id="tabOne" onClick={() => setActiveTab('tokens')} className={`tabButton w-full  pb-2 border-b-2 border-n700 ${activeTab === 'tokens' ? 'activeTabButton' : ''}`}>
+            <li   onClick={() => setActiveTab('tokens')} className={`tabButton w-full  pb-2 border-b-2 border-n700 ${activeTab === 'activity' ? 'activeTabButton' : ''}`}>
               Income
             </li>
           
-            {/* <li id="tabThree"  onClick={() => setActiveTab('activity')} className={`tabButton w-full text-center pb-2 border-b-2 border-n700 ${activeTab === 'activity' ? 'activeTabButton' : ''}`}>
-            Withdraw History
-            </li> */}
+            <li 
+  
+  style={{
+    textAlign: "right",
+    fontSize: "14px",  
+    padding: "10px 1px", 
+    lineHeight: "1.2",  
+  }}  
+  onClick={() => setActiveTab('activity')} 
+  className={`tabButton w-full border-b-2 border-n700 ${
+    activeTab === 'tokens' ? 'activeTabButton' : ''
+  }`}
+> <Link to="/invest/Depositreport">View All</Link>
+  
+</li>
+
           </ul>
           <div className="pt-8">
           {activeTab === 'tokens' && (
@@ -178,9 +191,9 @@ const fetchUsers = async () => {
                     </div>
                   </div>
                   <div>
-                    <p className="font-semibold">{user.user_id_fk}</p>
-                    <p className="text-sm text-g300 pt-2">$ {user.comm}</p>
-                  </div>
+                    <p className="font-semibold">{user.comm} USDT</p>
+                    <p className="text-sm text-g300 pt-2"> +{(user.comm * 0.10).toFixed(2)}%</p>
+                    </div>
                 </div>
                
 
