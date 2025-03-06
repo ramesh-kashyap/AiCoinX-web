@@ -54,12 +54,23 @@ function Withdraw() {
     e.preventDefault();
     setLoading(true);
     setSuccess(false);
-    const {  walletAddress, amount } = formData;
+    console.log("handleSubmit called");
+    if (!formData.walletAddress || !formData.amount) {
+      toast.error("Please fill in all required fields");
+      setLoading(false);
+      return;
+    }
 
-   
-    
-     
-      navigate("/withdraw/otp", { state: { walletAddress, amount } });
+    const amountValue = Number(formData.amount);
+if (isNaN(amountValue) || !Number.isInteger(amountValue)) {
+  toast.error("Amount must be an integer value");
+  setLoading(false);
+  return;
+}
+    // Navigate to OTP page with state data
+    navigate("/withdraw/otp", {
+      state: { walletAddress: formData.walletAddress, amount: formData.amount },
+    });
       localStorage.setItem("otpauth", "true"); 
       
   };
@@ -140,18 +151,19 @@ function Withdraw() {
               />
             </div>
           </div>
+          <div className="w-full pt-20">
+          <button
+      type="submit"
+      className="block bg-g300 font-semibold text-center rounded-xl py-3 w-full"
+    >
+      Withdraw
+    </button>
+        </div>
+
         </form>
 
         {/* Withdraw Button */}
-        <div className="w-full pt-20">
-          <a
-            onClick={handleSubmit}
-            className="block bg-g300 font-semibold text-center rounded-xl py-3"
-          >
-            Withdraw
-          </a>
-        </div>
-
+        
         {/* Bottom Instruction */}
         <div className="w-full pt-4 text-left text-sm text-n70">
             

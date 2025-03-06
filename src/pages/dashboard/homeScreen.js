@@ -125,13 +125,13 @@ const fetchGetBalance = async () => {  try {
             <div className="my-6 w-full border border-white border-opacity-5 border-dashed"></div>
             <div className="flex justify-around items-center">
               <Link
-                to="/token-transaction"
+                to="/withdraw"
                 className="flex flex-col justify-center items-center gap-2"
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
                   <i className="ph-fill ph-paper-plane-tilt"></i>
                 </div>
-                <p className="text-white font-semibold text-sm">Send</p>
+                <p className="text-white font-semibold text-sm">Withdraw</p>
               </Link>
               <Link
                 to="/invest"
@@ -171,7 +171,8 @@ const fetchGetBalance = async () => {  try {
        
 
         {/* Invite Section */}
-        <div className="px-6 pt-8">
+        <Link to='/security/refferals-user'>
+        <div className="px-6 pt-8" >
           <div className="w-full  flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
            color: '#fff',
           // backgroundColor: 'rgba(255,255,255,0.9)', // White bg with 5% opacity
@@ -194,6 +195,7 @@ const fetchGetBalance = async () => {  try {
             </div>
           </div>
         </div>
+        </Link>
         <div className="homeTab pt-8 px-6">
           <ul className="tab-button flex justify-between items-center text-lg font-semibold">
             <li id="tabOne" onClick={() => setActiveTab('tokens')} className={`tabButton w-full text-center pb-2 border-b-2 border-n700 ${activeTab === 'tokens' ? 'activeTabButton' : ''}`}>
