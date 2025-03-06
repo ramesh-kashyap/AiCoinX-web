@@ -71,7 +71,7 @@ const TransactionHistory = () => {
               </div>
         <ul className="tab-button flex justify-between items-center text-lg font-semibold">
           <li style={{color:"#fff"}} className="activeTabButton tabButton w-full text-center pb-2 border-b-2 border-n700">
-            Transactions History
+           History
           </li>
         </ul>
 

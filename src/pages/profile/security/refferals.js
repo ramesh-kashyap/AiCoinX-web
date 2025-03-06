@@ -250,7 +250,7 @@ export default function ReferralProgram() {
 
           {/* Referral Link */}
           <div style={{ backgroundColor: "rgb(153 138 243 / 97%)" }} className="bg-white text-black p-2 rounded-md flex justify-between items-center mt-4">
-            <input style={{ color: "#fff" }} type="text" ref={inputRef} value={shareUrl} className="bg-transparent w-full text-sm px-2" readOnly />
+            <input style={{ color: "#fff" }} type="text" ref={inputRef}   value={`Referral Code: ${shareUrl}`}className="bg-transparent w-full text-sm px-2" readOnly />
             <button onClick={copyToClipboard} className="text-blue-600">
               <i style={{ color: "#fff" }} className="ph-bold ph-copy"></i>
             </button>
@@ -279,9 +279,10 @@ export default function ReferralProgram() {
           </div>
         </div>
 
-        {/* How to Earn USDT Payouts */}
+        {/* How to Earn USDT Payouts */};
+
         <div className="mt-6">
-  <h2 style={{ color: "#fff" }} className="text-lg font-semibold text-center mb-3">
+  <h2 style={{ color: "#fff",borderColor:"#6755d3" }} className="text-lg font-semibold text-center mb-3">
     How to earn USDT payouts
   </h2>
 
@@ -292,7 +293,8 @@ export default function ReferralProgram() {
     marginTop: "10px",
     border: "2px solid", // Border width set kiya
     borderRadius: "13px", // Border ko rounded banane ke liye
-    padding: "16px" // Andar ka space maintain karne ke liye
+    padding: "16px", // Andar ka space maintain karne ke liye
+    borderColor:"#6151c7"
   }}
   className="mb-3"
 >
