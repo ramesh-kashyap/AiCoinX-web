@@ -279,7 +279,7 @@ export default function ReferralProgram() {
           </div>
         </div>
 
-        {/* How to Earn USDT Payouts */};
+        {/* How to Earn USDT Payouts */}
 
         <div className="mt-6">
   <h2 style={{ color: "#fff",borderColor:"#6755d3" }} className="text-lg font-semibold text-center mb-3">

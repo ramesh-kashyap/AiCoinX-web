@@ -15,6 +15,9 @@ function Register() {
   const [selectedDate, setSelectedDate] = useState(null);
   // const [selectedCountry, setSelectedCountry] = useState(null);
   // const options = countryList().getData();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
 
   const initialState = {
     fullname: "",
@@ -168,15 +171,15 @@ function Register() {
               <p className="text-sm font-semibold pb-2">New Password</p>
               <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="Enter Password"
                   value={formData.password}
                   onChange={handleChange}
                   className="bg-transparent outline-none placeholder:text-sm text-sm w-full"
                 />
-                <div className="flex justify-start items-center gap-1">
-                  <i className="ph ph-eye-closed cursor-pointer confirmPasswordShow"></i>
+                <div className="flex justify-start items-center gap-1 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>
+                <i className={`ph ${showPassword ? "ph-eye" : "ph-eye-closed"} passwordShow`}></i>
                 </div>
               </div>
             </div>
@@ -186,15 +189,15 @@ function Register() {
               <p className="text-sm font-semibold pb-2">Confirm Password</p>
               <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
                 <input
-                  type="password"
+                 type={showConfirmPassword ? "text" : "password"}
                   name="repeatPassword"
                   placeholder="Repeat Password"
                   value={formData.repeatPassword}
                   onChange={handleChange}
                   className="bg-transparent outline-none placeholder:text-sm text-sm w-full"
                 />
-                <div className="flex justify-start items-center gap-1">
-                  <i className="ph ph-eye-closed cursor-pointer passwordShow"></i>
+                <div className="flex justify-start items-center gap-1 cursor-pointer" onClick={() => setShowConfirmPassword(!showConfirmPassword)}                >
+                <i className={`ph ${showConfirmPassword ? "ph-eye" : "ph-eye-closed"} passwordShow`}></i>
                 </div>
               </div>
             </div>
