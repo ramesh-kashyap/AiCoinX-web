@@ -78,17 +78,17 @@ if (isNaN(amountValue) || !Number.isInteger(amountValue)) {
  
 
   return (
-    <div className="container bg-n900  relative overflow-hidden justify-start items-start text-white">
+    <div className="container bg-n900 h-dvh relative overflow-hidden justify-start items-start text-white">
       {/* Blurred Circular Background */}
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
       
       <div className="relative z-20 px-6 w-full">
         {/* Header Text */}
-        <div className="flex justify-start items-center gap-3 pb-8 w-full " style={{ gap: "3rem" }}>
+        <div className="flex justify-start items-center gap-3 pb-8 w-full " style={{ gap: "3rem" ,paddingTop: '1rem' }}>
                       <Link to="/account" className="flex justify-center  p-2 rounded-full bg-g300 text-n900">
                         <i className="ph-bold ph-caret-left"></i>
                       </Link>
-                      <div className="flex justify-center items-center flex-col gap-2 pt-8">
+                      <div className="flex justify-center items-center flex-col gap-2 pt-8" >
                       <h1 className="text-2xl font-semibold">Withdraw</h1>
           <p className="text-n70 text-sm ">
             Please fill in the form to continue
@@ -99,7 +99,7 @@ if (isNaN(amountValue) || !Number.isInteger(amountValue)) {
 
         <form onSubmit={handleSubmit} className="pt-8 flex flex-col gap-4">
           {/* Wallet Selection */}
-          <div>
+          {/* <div>
             <p className="text-sm font-semibold pb-2">Select Wallet</p>
             <div className="w-full">
               <button
@@ -120,10 +120,32 @@ if (isNaN(amountValue) || !Number.isInteger(amountValue)) {
                 <span className="font-bold text-xl leading-10">AiCoinX</span>
               </button>
             </div>
+          </div> */}
+
+         
+
+          {/* Amount Input */}
+          <div>
+            <p className="text-sm font-semibold pb-2">Amount  <img
+                  src="assets/images/ok3d.png"
+                  alt="BEP20 Logo"
+                  width="25px"
+                  className="inline mr-1"
+                /></p>
+            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-xl text-n70 text-xl">
+              <input
+                type="text"
+                name="amount"
+                placeholder="Enter the Amount"
+                value={formData.amount}
+                onChange={handleChange}
+                className="bg-transparent outline-none placeholder:text-sm text-white text-sm w-full"
+              />
+            </div>
           </div>
 
-          {/* Wallet Address Input */}
-          <div>
+           {/* Wallet Address Input */}
+           <div>
             <p className="text-sm font-semibold pb-2">Wallet Address</p>
             <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-xl text-white text-n70 text-xl">
               <input
@@ -136,27 +158,27 @@ if (isNaN(amountValue) || !Number.isInteger(amountValue)) {
               />
             </div>
           </div>
-
-          {/* Amount Input */}
-          <div>
-            <p className="text-sm font-semibold pb-2">Amount</p>
-            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-xl text-n70 text-xl">
-              <input
-                type="text"
-                name="amount"
-                placeholder="Enter the Amount"
-                value={formData.amount}
-                onChange={handleChange}
-                className="bg-transparent outline-none placeholder:text-sm text-white text-sm w-full"
-              />
-            </div>
-          </div>
-          <div className="w-full pt-20">
+          <div className="w-full pt-20" style={{ paddingTop: '1rem' }}>
           <button
       type="submit"
       className="block bg-g300 font-semibold text-center rounded-xl py-3 w-full"
     >
       Withdraw
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        className="w-5 h-5 ml-2 inline"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M10 6l6 6-6 6"
+        />
+      </svg>
+      
     </button>
         </div>
 
