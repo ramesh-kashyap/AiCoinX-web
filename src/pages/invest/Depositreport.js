@@ -39,12 +39,19 @@ const TransactionHistory = () => {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "2-digit",
-      hour12: false,
-    }).replace(",", "");
+    const currentDate = new Date();
+  
+    // Difference in milliseconds
+    const diffTime = currentDate - date;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); // Convert to days
+  
+    if (diffDays === 0) {
+      return "Today";
+    } else if (diffDays === 1) {
+      return "1 day ago";
+    } else {
+      return `${diffDays} days ago`;
+    }
   };
 
   const handlePageChange = (newPage) => {
@@ -72,7 +79,7 @@ const TransactionHistory = () => {
               </div>
         <ul className="tab-button flex justify-between items-center text-lg font-semibold">
           <li style={{color:"#fff"}} className="activeTabButton tabButton w-full text-center pb-2 border-b-2 border-n700">
-           History
+           TRANSACTION
           </li>
         </ul>
 
@@ -90,48 +97,47 @@ const TransactionHistory = () => {
             </div>
           </div>
 
-          {/* <div className="tab-content activeTab" id="tabOne_data">
-            <div style={{ marginTop: "35px" }} className="flex justify-between items-center">
-              <p className="text-xl font-semibold">Tokens</p>
-            </div>
-          </div> */}
+      
 
-          {users.length > 0 ? (
-            users.map((user, index) => {
-              const isWithdrawal = user.remark?.toLowerCase().includes("withdraw");
-              const amountSign = isWithdrawal ? "-" : "+";
-              const amountColor = isWithdrawal ? "text-red-400" : "text-green-400";
-              const iconClass = isWithdrawal ? "ph-arrow-down" : "ph-arrow-up";
+        {users.length > 0 ? (
+  users.map((user, index) => {
+    const isWithdrawal = user.remark?.toLowerCase().includes("withdraw");
+    const amountSign = isWithdrawal ? "-" : "+";
+    const amountColor = isWithdrawal ? "text-red-400" : "text-green-400"; 
 
-              return (
-                <div key={index} className="homeTab pt-8 px-6">
-                  <div className="pt-8">
-                    <div className="flex flex-col gap-4">
-                      <div className="flex justify-between items-center border-b border-white border-opacity-5 pb-4">
-                        <div className="flex justify-start items-center gap-2">
-                          <div className="text-g300 flex justify-center items-center p-2 rounded-full text-xl bg-white bg-opacity-5">
-                            <i className={`ph ${iconClass}`}></i>
-                          </div>
-                          <p className={`font-semibold`}>
-                            {amountSign}{user.amount} USDT
-                          </p>
-                        </div>
-                        <div className="flex flex-col justify-end items-end">
-                        <p className="font-semibold">{user.remark}</p>
-
-                          <p className="text-g300 text-sm">{formatDate(user.created_at)}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+    return (
+      <div key={index} className="homeTab pt-8 px-6">
+        <div className="pt-8">
+          <div className="flex flex-col gap-4">
+            <div className="flex justify-between items-center border-b border-white border-opacity-5 pb-4">
+              <div className="flex justify-start items-center gap-2">
+           
+                <div className="text-g300 flex justify-center items-center p-2 rounded-full text-xl bg-white bg-opacity-5">
+                  <i className={`ph ${isWithdrawal ? "ph-arrow-up" : "ph-arrow-down"}`}></i>
                 </div>
-              );
-            })
-          ) : (
-            <p className="text-center text-gray-400 mt-4">No transactions found</p>
-          )}
+              
+                <p className={`font-semibold  ${amountColor} !important`}>
+                  {amountSign}{user.amount} 
+                </p>
+                <img style={{height:"18px"}} src="/assets/images/tet.png" alt="Bonus Icon" className="w-8 h-8 mr-2" />
 
-          {/* Pagination Controls */}
+              </div>
+          
+              <div className="flex flex-col justify-end items-end">
+                <p className="font-semibold">{user.remark}</p>
+                <p className="text-g300 text-sm">{formatDate(user.created_at)}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  })
+) : (
+  <p>No users found.</p>
+)}
+
+          
           {totalPages > 1 && (
             <div className="flex justify-center items-center gap-4 mt-6">
               <button

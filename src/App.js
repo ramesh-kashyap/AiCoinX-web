@@ -122,7 +122,7 @@ function App() {
 
 
 
-        <Route path="/invest/Depositreport" element={<ProtectedRoute><Depositreport /></ProtectedRoute>}/>
+        <Route path="/all/transaction" element={<ProtectedRoute><Depositreport /></ProtectedRoute>}/>
 
 
 

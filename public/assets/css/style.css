@@ -1020,13 +1020,15 @@ video {
 .border-opacity-10{
   --tw-border-opacity: 0.1;
 }
+.text-green-400{
+  color:green;
+}
 .border-opacity-5{
   --tw-border-opacity: 0.05;
 }
 .bg-g300{
   --tw-bg-opacity: 1;
-  background-color:  #9583ff;
-  background-color: #9583ff;
+  background-color: #5844cd;
 }
 
 .bg-g301{
