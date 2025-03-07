@@ -2,6 +2,7 @@ import React, { useState,useRef,useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { Camera, Image as Gallery } from "lucide-react";
 import Api from "../../../service/Api";
+import { Toaster, toast } from "react-hot-toast";
 
 function Profile() {
    const [showPopupProfile, setShowPopupProfile] = useState(false);
@@ -17,7 +18,8 @@ function Profile() {
     const fetchUserData = async () => {
       try {
         const response = await Api.get("/news"); // API call to fetch user data
-        if (response.data) {
+        if (response.data.userData && response.data.userData.length > 0) {
+
           setUserData(response.data.userData[0].user_name); 
           setNewName(response.data.userData[0]);
         }
@@ -31,23 +33,27 @@ function Profile() {
 
   const handleUpdateProfile = async () => {
     try {
-        const response = await Api.put("updateUsername", { user_name: UserData });
+        const response = await Api.put("/updateUsername", { user_name: UserData });
 
         if (response.data) {
             setUser((prevUser) => ({ ...prevUser, user_name: UserData }));
+            toast.success(response.data.message); // Use message from backend
+
              console.log("Profile Updated Successfully");
              
         }
        
     } catch (error) {
         console.error("Error updating profile:", error);
+        toast.error(error.response?.data?.error || "Something went wrong!"); 
+
     } 
 };
 
 
  
   return (
-    <div className="container bg-n900 h-dvh relative overflow-hidden flex justify-start items-start text-white">
+     <><Toaster position="top-center" /><div className="container bg-n900 h-dvh relative overflow-hidden flex justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
       
             <div className="px-6 py-8 relative z-20 w-full">
@@ -65,7 +71,7 @@ function Profile() {
       style={{
         backgroundColor: "#202338",
         width: 429,
-        height: 313,
+        height: 300,
         borderTopLeftRadius: "38px",
         borderTopRightRadius: "38px"
       }}
@@ -149,26 +155,37 @@ marginTop:"13px"
 
    <form className="pt-8 flex flex-col gap-4 items-center w-full">
   <div className="bg-gray-900 p-6 rounded-xl w-full max-w-md border border-gray-700">
-  {newName ? (
-              [
-                { label: "User name", value: UserData, icon: true },
-                { label: "Last name", value: newName.fullname },
-                { label: "First name", value: newName.lastname },
-                { label: "Date of birth", value: newName.date_of_birth },
-                { label: "Email", value: newName.email },
-              ].map((item, index) => (
-                <div key={index} className="py-3 flex justify-between items-center border-b border-gray-700">
-                  <div>
-                    <p className="text-gray-400 text-sm">{item.label}</p>
-                    <p className="text-lg font-semibold">{item.value || "N/A"}</p>
-                  </div>
-                  {item.icon &&<i  onClick={() => setShowPopupProfile(true)}className="ph-bold ph-caret-right"></i>
-                  }
-                </div>
-              ))
-            ) : (
-              <p className="text-center text-gray-400">Loading user data...</p>
-            )}
+    {newName ? (
+      [
+        { label: "User name", value: UserData, icon: true },
+        { label: "Last name", value: newName.fullname },
+        { label: "First name", value: newName.lastname },
+        { label: "Date of birth", value: newName.date_of_birth },
+        { label: "Email", value: newName.email },
+      ].map((item, index, array) => (
+        <div
+          key={index}
+          className={`py-3 flex justify-between items-center ${
+            index !== array.length - 1 ? "border-b border-gray-700" : "" // Last element par border remove
+          }`}
+        >
+          <div>
+            <p className="text-gray-400 text-sm">{item.label}</p>
+            <p 
+  className="text-lg font-semibold" 
+  style={{ color: "rgb(245 245 245)" }}
+>
+  {item.value || "N/A"}
+</p>
+          </div>
+          {item.icon && (
+            <i onClick={() => setShowPopupProfile(true)} className="ph-bold ph-caret-right"></i>
+          )}
+        </div>
+      ))
+    ) : (
+      <p className="text-center text-gray-400">Loading user data...</p>
+    )}
   </div>
 </form>
 
@@ -182,7 +199,7 @@ marginTop:"13px"
           </Link>
         </div>
       </div>
-    </div>
+    </div></>
   );
 }
 

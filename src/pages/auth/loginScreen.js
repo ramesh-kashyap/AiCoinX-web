@@ -7,6 +7,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,20 +65,23 @@ function Login() {
 
           {/* Password Field */}
           <div>
-            <p className="text-sm font-semibold pb-2">Password</p>
-            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
-              <input
-                type="password"
-                placeholder="******"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="bg-transparent outline-none placeholder:text-sm text-sm passwordField"
-              />
-              <div className="flex justify-start items-center gap-1">
-                <i className="ph ph-eye-closed cursor-pointer passwordShow"></i>
-              </div>
-            </div>
-          </div>
+      <p className="text-sm font-semibold pb-2">Password</p>
+      <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+        <input
+          type={showPassword ? "text" : "password"}
+          placeholder="******"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="bg-transparent outline-none placeholder:text-sm text-sm passwordField"
+        />
+        <div
+          className="flex justify-start items-center gap-1 cursor-pointer"
+          onClick={() => setShowPassword(!showPassword)}
+        >
+          <i className={`ph ${showPassword ? "ph-eye" : "ph-eye-closed"} passwordShow`}></i>
+        </div>
+      </div>
+    </div>
         </form>
 
         {/* Face ID Toggle */}

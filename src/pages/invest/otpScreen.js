@@ -1,11 +1,26 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Api from "../../service/Api";
-import { useLocation,useNavigate, Link } from "react-router-dom";
-
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import { Toaster, toast } from "react-hot-toast";
 function Otp() {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
+
   const location = useLocation();
+  const otpGenerated = useRef(false);
+  const verifyingRef = useRef(false);
+  const handleResendOtp = async () => {
+    // Optionally reset the current OTP
+    setOtp("");
+
+    // Optionally disable the resend link for a few seconds here (not shown)
+
+    // Call your OTP generation function again
+    await generateOtp();
+
+    // Optionally display a toast notification or message to the user
+    toast.success("OTP has been resent!");
+  };
   // When a digit is clicked, append it to the OTP (max 6 digits)
   const handleDigitClick = (digit) => {
     setOtp((prevOtp) => {
@@ -22,11 +37,11 @@ function Otp() {
   useEffect(() => {
     const otpAuth = localStorage.getItem("otpauth"); // Get flag
     if (otpAuth !== "true") {
-       
-        navigate("/home");
-    }else{ generateOtp();}
-   
-
+      navigate("/home");
+    } else if (!otpGenerated.current) {
+      otpGenerated.current = true;
+      generateOtp();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -35,19 +50,14 @@ function Otp() {
    */
   const generateOtp = async () => {
     try {
-      
       const response = await Api.post("/generate-otp");
       if (response.data.status) {
         // In production, do not show OTP in response.
-        
-      } else {
-       
+        console.log("otp gentrate", response.data.status);
       }
     } catch (error) {
-
-    
-      console.error("Error generating OTP",  error.response.data.message);
-    } 
+      console.error("Error generating OTP", error.response.data.message);
+    }
   };
 
   // Remove the last digit (Backspace functionality)
@@ -57,26 +67,36 @@ function Otp() {
 
   // Verify OTP using API
   const verifyOtp = async (otpValue) => {
+    if (verifyingRef.current) return; // Prevent duplicate verification calls
+    verifyingRef.current = true;
+
     const { walletAddress, amount } = location.state || {};
     console.log("Verifying OTP:", otpValue);
     try {
       const response = await Api.post("/verify-otp", { otp: otpValue });
       if (response.data.status) {
-        localStorage.removeItem("otpauth"); 
+        localStorage.removeItem("otpauth");
         const response = await Api.post("/withdraw", {
-      
           walletAddress, // sending the wallet address obtained from dummy data
           amount,
         });
-        navigate("/home");
+        if (response.data.status) {
+          navigate("/home");
+        } else {
+          console.error("OTP verification failed:", response.data.message);
+        }
       } else {
         console.error("OTP verification failed:", response.data.message);
         setOtp(""); // Clear OTP on failure
       }
     } catch (error) {
-      console.error("API Error:", error.response?.data?.error || error.message);
-      alert("API Error: " + (error.response?.data?.error || error.message));
+      console.error("API Error:", error);
+      toast.error(error.response?.data?.message);
+
       setOtp(""); // Clear OTP on error
+      setTimeout(() => {
+        navigate("/withdraw");
+      }, 5000);
     }
   };
 
@@ -142,10 +162,11 @@ function Otp() {
         </div>
 
         {/* Resend OTP Link */}
-        <a href="#!" style={styles.forgotPin}>
+        <a href="#!" style={styles.forgotPin} onClick={handleResendOtp}>
           Resend OTP?
         </a>
       </div>
+      <Toaster />
     </div>
   );
 }
@@ -212,7 +233,7 @@ const styles = {
     outline: "none",
     position: "relative",
     zIndex: 10,
-    color:"#000",
+    color: "#000",
   },
   forgotPin: {
     marginTop: "auto",

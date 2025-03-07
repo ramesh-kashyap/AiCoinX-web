@@ -1,6 +1,7 @@
 import React, { useState , useEffect  } from "react";
 import Api from "../../service/Api";
 import { useLocation,useNavigate } from "react-router-dom";
+import { Toaster, toast } from "react-hot-toast";
 
 function SetPin() {
   const location = useLocation();
@@ -60,30 +61,28 @@ function SetPin() {
       if (response.data.status) {
         const { token } = response.data;
       localStorage.setItem("authToken", token);
+
       navigate("/home");
       } else {
         alert("Error setting PIN.");
       }
     } catch (error) {
       console.error("API Error:", error.response?.data?.error || "Unknown Error");
+      toast.error(error.response?.data?.error || "Something went wrong!"); 
+
     }
   };
 
 
   return (
-    <div className="container relative overflow-hidden justify-start items-start text-white">
+     <><Toaster position="top-center" /><div className="container relative overflow-hidden justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
       <div style={styles.container} className="bg-n900">
 
         {/* Logo */}
-        <div style={styles.logoContainer}>
-          <img
-            alt="Profile picture"
-            className="w-12 h-12 rounded-full"
-            height="50"
-            src="/assets/images/userIcon.svg"
-            width="50"
-          />
+        <div style={{marginBottom:"20px"}}>
+          <img style={{width:"70px"}} alt="Profile picture of a person with sunglasses" className="w-12 h-12 rounded-full" height="50" src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg" width="50"/>
+
         </div>
 
         {/* Title & Subtitle */}
@@ -118,7 +117,7 @@ function SetPin() {
           </button>
 
           {/* Backspace Button */}
-          <button style={styles.keyCross} onClick={handleBackspace}>
+          <button style={styles.keyButton} onClick={handleBackspace}>
             ✕
           </button>
         </div>
@@ -126,14 +125,14 @@ function SetPin() {
         {/* Forgot PIN Link */}
         <a href="#!" style={styles.forgotPin}>Forgot PIN?</a>
       </div>
-    </div>
+    </div></>
   );
 }
 
 const styles = {
   container: {
     minHeight: "100vh",
-    backgroundColor: 'rgb(17 22 27)',
+    backgroundColor: "rgb(17 22 27)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -142,6 +141,7 @@ const styles = {
     color: "#000",
   },
   logoContainer: {
+    BorderColor: "#fff",
     marginBottom: "1.5rem",
     marginTop: "2rem",
   },
@@ -154,7 +154,7 @@ const styles = {
   subtitle: {
     margin: "0.5rem 0 2rem 0",
     fontSize: "0.95rem",
-    color: "rgba(169, 172, 175, 1)",
+    color: "#fff",
     textAlign: "center",
     maxWidth: "300px",
   },
@@ -167,22 +167,22 @@ const styles = {
     width: "20px",
     height: "20px",
     borderRadius: "50%",
-    backgroundColor: "rgb(101, 105, 110)",
+    border: "2px solid #ccc",
     margin: "0 5px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   filledDot: {
-    width: "20px",
-    height: "20px",
+    width: "18px",
+    height: "18px",
     borderRadius: "50%",
-    backgroundColor: "#000",
+    backgroundColor: "#fff",
   },
   keypad: {
     display: "grid",
     gridTemplateColumns: "repeat(3, 60px)",
-    gridGap: "3.5rem",
+    gridGap: "3rem",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "1.5rem",
@@ -192,25 +192,12 @@ const styles = {
     height: "60px",
     fontSize: "1.5rem",
     borderRadius: "50%",
-    
-   color:"rgba(169, 172, 175, 1)",
+    border: "1px solid #ccc",
+    backgroundColor: "#fff",
     cursor: "pointer",
     outline: "none",
-    position: "relative",  // ✅ Ensure button is not blocked
-    zIndex: 10,   
-  },
-  keyCross: {
-    width: "50px",
-    height: "50px",
-    fontSize: "1.5rem",
-    borderRadius: "50%",
-    
-   color:"#fff",
-    cursor: "pointer",
-    outline: "none",
-    position: "relative",  // ✅ Ensure button is not blocked
-    zIndex: 10,   
-    backgroundColor:"rgba(169, 172, 175, 1)",
+    position: "relative", // ✅ Ensure button is not blocked
+    zIndex: 10,
   },
   fingerprintButton: {
     display: "flex",

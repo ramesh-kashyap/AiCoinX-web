@@ -79,7 +79,7 @@ const fetchGetBalance = async () => {  try {
           <div className="flex justify-between items-center">
             <div className="flex justify-start items-center gap-2">
                <Link to="/currency">
-              <img src="assets/images/account-img-1.png" alt="Account" />
+              <img src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg" alt="Account" />
               </Link>
               <p className="text-sm">Welcome Back, <br />{user 
     ? user.charAt(0).toUpperCase() + user.slice(1) 
@@ -124,42 +124,44 @@ const fetchGetBalance = async () => {  try {
             </p>
             <div className="my-6 w-full border border-white border-opacity-5 border-dashed"></div>
             <div className="flex justify-around items-center">
-              <Link
-                to="/token-transaction"
-                className="flex flex-col justify-center items-center gap-2"
-              >
-                <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
-                  <i className="ph-fill ph-paper-plane-tilt"></i>
-                </div>
-                <p className="text-white font-semibold text-sm">Send</p>
-              </Link>
-              <Link
-                to="/invest"
-                className="flex flex-col justify-center items-center gap-2"
-              >
-                <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
-                  <i className="ph-fill ph-download-simple"></i>
-                </div>
-                <p className="text-white font-semibold text-sm">Deposit</p>
-              </Link>
-              <Link
+            <Link
                   to={`https://thirdparty.com/invest/swaps?userid=12&amount=12`}
                   target="_blank"
                 className="flex flex-col justify-center items-center gap-2"
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
-                  <i className="ph-fill ph-arrows-down-up"></i>
+                <i className="ph-fill ph-swap"></i>
                 </div>
                 <p className="text-white font-semibold text-sm">Swap</p>
               </Link>
+
               <Link
-                to="/invest/buysells"
+                to="/withdraw"
                 className="flex flex-col justify-center items-center gap-2"
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
-                  <i className="ph-fill ph-swap"></i>
+                <i className="ph-fill ph-currency-dollar"></i>
                 </div>
-                <p className="text-white font-semibold text-sm">Buy & Sell</p>
+                <p className="text-white font-semibold text-sm">Withdraw</p>
+              </Link>
+             
+              <Link
+                to="/invest"
+                className="flex flex-col justify-center items-center gap-2"
+              >
+                <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
+                <i className="ph-fill ph-wallet"></i> 
+                </div>
+                <p className="text-white font-semibold text-sm">Stake</p>
+              </Link>
+              <Link
+                to="/invest/Depositreport"
+                className="flex flex-col justify-center items-center gap-2"
+              >
+                <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
+               <i className="fas fa-history"></i>
+                </div>
+                <p className="text-white font-semibold text-sm">History</p>
               </Link>
             </div>
           </div>
@@ -171,7 +173,8 @@ const fetchGetBalance = async () => {  try {
        
 
         {/* Invite Section */}
-        <div className="px-6 pt-8">
+        <Link to='/security/refferals-user'>
+        <div className="px-6 pt-8" style={{ paddingTop: "1rem" }} >
           <div className="w-full  flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
            color: '#fff',
           // backgroundColor: 'rgba(255,255,255,0.9)', // White bg with 5% opacity
@@ -194,7 +197,8 @@ const fetchGetBalance = async () => {  try {
             </div>
           </div>
         </div>
-        <div className="homeTab pt-8 px-6">
+        </Link>
+        <div className="homeTab pt-8 px-6" style={{ paddingTop: "1rem" }}>
           <ul className="tab-button flex justify-between items-center text-lg font-semibold">
             <li id="tabOne" onClick={() => setActiveTab('tokens')} className={`tabButton w-full text-center pb-2 border-b-2 border-n700 ${activeTab === 'tokens' ? 'activeTabButton' : ''}`}>
             Top Gainers
@@ -207,10 +211,10 @@ const fetchGetBalance = async () => {  try {
           {liveData ? (
           <div className="pt-8">
           {activeTab === 'tokens' && (
-         <div className="flex flex-col gap-2 ">
+         <div className="flex flex-col gap-2 pt-5">
 
 {liveData.topGainers.map((coin, index) => (
-         <div className="flex justify-between items-center bg-white bg-opacity-5 p-4 rounded-xl">
+         <div className="flex justify-between items-center bg-white bg-opacity-5 p-4 rounded-xl" style={{ paddingTop: "1rem" }}>
            <div className="flex justify-start items-center gap-2">
              {/* <p className="text-sm text-n70">#01</p> */}
              <div className="text-g300 flex justify-center items-center size-10 rounded-full text-xl bg-white bg-opacity-5">
@@ -231,7 +235,7 @@ const fetchGetBalance = async () => {  try {
             {activeTab === 'nft' && (
              <div className="flex flex-col gap-2 pt-5">
             {liveData.topLosers.map((coin, index) => (
-         <div className="flex justify-between items-center bg-white bg-opacity-5 p-4 rounded-xl">
+         <div className="flex justify-between items-center bg-white bg-opacity-5 rounded-xl" style={{ paddingTop: "1rem" }}>
            <div className="flex justify-start items-center gap-2">
              {/* <p className="text-sm text-n70">#01</p> */}
              <div className="text-g300 flex justify-center items-center size-10 rounded-full text-xl bg-white bg-opacity-5">
@@ -260,7 +264,7 @@ const fetchGetBalance = async () => {  try {
        
         
          {/* Trending Token Section */}
-         <div className="px-6 pt-8">
+         <div className="px-6 pt-8" style={{ paddingTop: "1rem" }}>
       <h1 className="text-xl font-semibold">Trending News</h1>
 
       <Swiper

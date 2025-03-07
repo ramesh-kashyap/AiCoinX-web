@@ -46,7 +46,7 @@ function ConfirmPin() {
 
             toast.dismiss();
             if (response.data.status) {
-                toast.success("PIN updated successfully!"); 
+              toast.success(response.data.message); 
                 localStorage.removeItem("newPin");
             } else {
                 toast.error(response.data.error || "Error updating PIN."); 
@@ -54,7 +54,7 @@ function ConfirmPin() {
         } catch (error) {
             console.error("API Error:", error);
             toast.dismiss();
-            toast.error("Server error, please try again."); 
+      toast.error(error.response?.data?.error || "Something went wrong!"); 
         }
     };
   
@@ -113,9 +113,9 @@ function ConfirmPin() {
           </button>
 
           {/* Backspace Button */}
-          <button style={styles.keyCross}  onClick={handleBackspace}>
-             <img src="\assets\images\icons8-clear-symbol-24.png" alt="DigitalNomad" />
-            </button>
+          <button style={styles.keyButton} onClick={handleBackspace}>
+            ✕
+          </button>
         </div>
 
         {/* Fingerprint Authentication Button */}
@@ -130,7 +130,7 @@ function ConfirmPin() {
 const styles = {
   container: {
     minHeight: "100vh",
-    backgroundColor: 'rgb(17 22 27)',
+    backgroundColor: "rgb(17 22 27)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -139,6 +139,7 @@ const styles = {
     color: "#000",
   },
   logoContainer: {
+    BorderColor: "#fff",
     marginBottom: "1.5rem",
     marginTop: "2rem",
   },
@@ -151,7 +152,7 @@ const styles = {
   subtitle: {
     margin: "0.5rem 0 2rem 0",
     fontSize: "0.95rem",
-    color: "rgba(169, 172, 175, 1)",
+    color: "#fff",
     textAlign: "center",
     maxWidth: "300px",
   },
@@ -164,22 +165,22 @@ const styles = {
     width: "20px",
     height: "20px",
     borderRadius: "50%",
-    backgroundColor: "rgb(101, 105, 110)",
+    border: "2px solid #ccc",
     margin: "0 5px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   filledDot: {
-    width: "20px",
-    height: "20px",
+    width: "18px",
+    height: "18px",
     borderRadius: "50%",
-    backgroundColor: "#9583ff",
+    backgroundColor: "#fff",
   },
   keypad: {
     display: "grid",
     gridTemplateColumns: "repeat(3, 60px)",
-    gridGap: "3.5rem",
+    gridGap: "3rem",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "1.5rem",
@@ -189,17 +190,12 @@ const styles = {
     height: "60px",
     fontSize: "1.5rem",
     borderRadius: "50%",
-    
-   color:"rgba(169, 172, 175, 1)",
+    border: "1px solid #ccc",
+    backgroundColor: "#fff",
     cursor: "pointer",
     outline: "none",
-    position: "relative",  // ✅ Ensure button is not blocked
-    zIndex: 10,   
-  },
-  keyCross: {
-    width: "30px",
-    height: "30px",
-    marginLeft:"10px",
+    position: "relative", // ✅ Ensure button is not blocked
+    zIndex: 10,
   },
   fingerprintButton: {
     display: "flex",

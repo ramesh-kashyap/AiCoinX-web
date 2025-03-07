@@ -34,7 +34,15 @@ const fetchUsers = async () => {
 
 
 
-
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+    hour12: false,
+  }).replace(",", "");
+};
 
 
 
@@ -62,7 +70,7 @@ const fetchUsers = async () => {
 
                 <p className="text-n70 font-semibold">Total earning</p>
                 <div className="flex justify-center items-center  gap-1">
-                  <img src="assets/images/Ethereum_ETH.png" alt="Ethereum" className="h-4" />
+                  <img src="assets/images/ok3d.png" alt="Ethereum" className="h-5" />
                   <p className="text-n70 font-medium">00.00k</p>
                 </div>
               </div>
@@ -107,7 +115,7 @@ const fetchUsers = async () => {
     
    </div>
    <div class="flex items-center mb-4">
-    <img alt="USDT icon" class=" ml-2 w-4 h-4 mr-1" height="16" src="assets/images/tether-usdt-logo.png" width="16"/>
+    <img alt="USDT icon" class=" ml-2 w-5 h-5 mr-1" height="20" src="assets/images/ok3d.png" width="16"/>
     <span class="text-white  text-xl font-semibold" style={{margin:"0px 0px 3px 3px"}}>
      0.00
     </span>
@@ -124,7 +132,10 @@ const fetchUsers = async () => {
 
         {/* Invite Section */}
         <div className="px-6 pt-8">
-          <div className="w-full bg-g300 p-5 flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden">
+          <div className="w-full  flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
+           color: '#fff',
+          // backgroundColor: 'rgba(255,255,255,0.9)', // White bg with 5% opacity
+        }}>
             <img
               src="assets/images/invite_bg.png"
               alt="Invite Background"
@@ -132,12 +143,14 @@ const fetchUsers = async () => {
             />
             <div className="max-w-[200px]">
               <p className="text-xl font-semibold">
-                Refer friends and earn 100 USDT! <span className="text-g300">$</span>
+                Invite a friends and get <span className="text-g300">$</span>20
               </p>
-           
+              <p className="text-n70 pt-4 text-xs">
+                This section can be used as an Advertisement or a Call to Action
+              </p>
             </div>
             <div>
-              <img src="assets/images/invite_img.png" alt="Invite" style={{width:"70px"}} />
+              <img src="assets/images/invite_img.png" alt="Invite" />
             </div>
           </div>
         </div>
@@ -148,7 +161,7 @@ const fetchUsers = async () => {
      <div className="homeTab pt-8 px-6">
           <ul className="tab-button flex justify-between items-center text-lg font-semibold">
             <li   onClick={() => setActiveTab('tokens')} className={`tabButton w-full  pb-2 border-b-2 border-n700 ${activeTab === 'activity' ? 'activeTabButton' : ''}`}>
-              Income
+              History
             </li>
           
             <li 
@@ -183,8 +196,11 @@ const fetchUsers = async () => {
                 <div className="flex justify-between items-center p-4 rounded-xl bg-white bg-opacity-5">
                   <div className="flex justify-start items-start gap-3">
                     <div className="p-2 rounded-full bg-white bg-opacity-5 flex justify-center items-center size-12">
-                      <img src="assets/images/Ethereum_ETH.png" alt="Ethereum" />
-                    </div>
+<img
+        src="assets/images/ok3d.png" // Replace with actual icon URL
+        alt="Wallet Icon"
+        style={{width:"40px",height:"35px"}}
+      />                    </div> 
                     <div>
                       <p className="font-semibold pb-2">{user.remarks}</p>
                       <p className="text-sm text-n70">{user.status}</p>
@@ -192,7 +208,7 @@ const fetchUsers = async () => {
                   </div>
                   <div>
                     <p className="font-semibold">{user.comm} USDT</p>
-                    <p className="text-sm text-g300 pt-2"> +{(user.comm * 0.10).toFixed(2)}%</p>
+                    <p className="text-g300 text-sm">{formatDate(user.created_at)}</p>
                     </div>
                 </div>
                

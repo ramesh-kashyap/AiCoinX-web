@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Api from "../../service/Api";
 import { useNavigate, Link } from "react-router-dom";
 import { BorderColor } from "@mui/icons-material";
+import { Toaster, toast } from "react-hot-toast";
+
 function EnterPin() {
   const [pin, setPin] = useState("");
   const navigate = useNavigate();
@@ -43,7 +45,7 @@ function EnterPin() {
       }
     } catch (error) {
       console.error("API Error:", error.response.data.error);
-      alert("API Error:", error.response.data.error);
+      toast.error(error.response?.data?.error || "Something went wrong!"); 
       setPin(""); // Clear PIN on error
     }
   };
@@ -59,7 +61,7 @@ function EnterPin() {
   );
 
   return (
-    <div className="container relative overflow-hidden justify-start items-start text-white">
+     <><Toaster position="top-center" /><div className="container relative overflow-hidden justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
       <div style={styles.container} className="bg-n900">
         {/* Logo */}
@@ -115,7 +117,7 @@ function EnterPin() {
           Forgot PIN?
         </a>
       </div>
-    </div>
+    </div></>
   );
 }
 
@@ -164,15 +166,15 @@ const styles = {
     justifyContent: "center",
   },
   filledDot: {
-    width: "10px",
-    height: "10px",
+    width: "18px",
+    height: "18px",
     borderRadius: "50%",
-    backgroundColor: "#000",
+    backgroundColor: "#fff",
   },
   keypad: {
     display: "grid",
     gridTemplateColumns: "repeat(3, 60px)",
-    gridGap: "1rem",
+    gridGap: "3rem",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "1.5rem",

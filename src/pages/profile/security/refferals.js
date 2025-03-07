@@ -110,7 +110,7 @@ export default function ReferralProgram() {
       <div   style={{ backgroundColor: "rgba(17, 24, 32, 1)" }}  className="w-full max-w-md mx-auto p-5">
         {/* Header */}
         <div className="flex justify-start items-center pb-8 mr-8">
-          <Link to="/account" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
+          <Link to="/home" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
             <i className="ph-bold ph-caret-left"></i>
           </Link>
           <div className="flex justify-center items-center w-full">
@@ -234,14 +234,14 @@ export default function ReferralProgram() {
 
 
 
-  <img src="/assets/images/referral-3272324_1280.webp" alt="Referral" className="mx-auto mb-4 w-32 h-32" />
+  <img src="\assets\images\connected-world-concept-illustration_114360-3027-removebg-preview.png" alt="Referral" className="mx-auto mb-4 w-32 h-32" />
   
   <h2 className="text-lg font-bold">Invite friends and earn up to</h2>
 
   {/* 100 USDT with icon in one line */}
   <p className="text-2xl font-bold text-green-400 flex items-center justify-center">
-    <img src="\assets\images\crypto_icon.png" alt="Crypto Icon" className="w-8 h-8 mr-2" />
-    100 USDT
+    <img src="/assets/images/ok3d.png" alt="Crypto Icon" className="w-6 h-5 mr-2" />
+    100 AiCoinX
   </p>
 
   <p style={{ marginBottom: "17px",marginTop: "10px" }} className="text-sm text-gray-200 mt-2">
@@ -250,14 +250,14 @@ export default function ReferralProgram() {
 
           {/* Referral Link */}
           <div style={{ backgroundColor: "rgb(153 138 243 / 97%)" }} className="bg-white text-black p-2 rounded-md flex justify-between items-center mt-4">
-            <input style={{ color: "#fff" }} type="text" ref={inputRef} value={shareUrl} className="bg-transparent w-full text-sm px-2" readOnly />
+            <input style={{ color: "#fff" }} type="text" ref={inputRef}   value={`Referral Code: ${shareUrl}`}className="bg-transparent w-full text-sm px-2" readOnly />
             <button onClick={copyToClipboard} className="text-blue-600">
               <i style={{ color: "#fff" }} className="ph-bold ph-copy"></i>
             </button>
           </div>
 
           {/* Invite Button */}
-          <button           onClick={() => setShowPopup(true)} style={{ backgroundColor: "rgba(0, 0, 0, 1)", marginTop: "16px" }} className="bg-black rounded-md px-5 py-2 text-white mt-3 w-full">
+          <button           onClick={() => setShowPopup(true)} style={{ backgroundColor: "rgba(0, 0, 0, 1)", marginTop: "16px",borderRadius:"30px" }} className="bg-black rounded-md px-5 py-2 text-white mt-3 w-full">
             Invite Friends
           </button>
         </div>
@@ -280,8 +280,9 @@ export default function ReferralProgram() {
         </div>
 
         {/* How to Earn USDT Payouts */}
+
         <div className="mt-6">
-  <h2 style={{ color: "#fff" }} className="text-lg font-semibold text-center mb-3">
+  <h2 style={{ color: "#fff",borderColor:"#6755d3" }} className="text-lg font-semibold text-center mb-3">
     How to earn USDT payouts
   </h2>
 
@@ -292,14 +293,17 @@ export default function ReferralProgram() {
     marginTop: "10px",
     border: "2px solid", // Border width set kiya
     borderRadius: "13px", // Border ko rounded banane ke liye
-    padding: "16px" // Andar ka space maintain karne ke liye
+    padding: "16px", // Andar ka space maintain karne ke liye
+    borderColor:"#6151c7"
   }}
   className="mb-3"
 >
   <div className="flex items-center mb-3">
-    <img src="\assets\images\bin.png" alt="Task Icon" className="w-8 h-8 mr-3" />
+    <img src="/assets/images/ok3d.png" alt="Task Icon" className="w-8 h-8 mr-3"   style={{
+   width: '40px'
+  }}/>
     <p style={{ color: "#fff", marginLeft: "10px" }} className="text-sm text-gray-700">
-      Your invited friend must earn <strong>10 USDT</strong> by completing featured offer quests.
+      Your invited friend must earn <strong>10 AiCoinX</strong> by completing featured offer quests.
     </p>
   </div>
 
