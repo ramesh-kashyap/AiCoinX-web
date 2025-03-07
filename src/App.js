@@ -118,7 +118,7 @@ function App() {
 
         <Route path="/security/refferals-user" element={<ProtectedRoute><Refferals/></ProtectedRoute>} />
         <Route path="/promotion/promocode" element={<ProtectedRoute><PromoCode/></ProtectedRoute>} />
-        <Route path="/refferals-user/team" element={<ProtectedRoute><Team /></ProtectedRoute>} />
+        <Route path="/team-list" element={<ProtectedRoute><Team /></ProtectedRoute>} />
 
 
 
