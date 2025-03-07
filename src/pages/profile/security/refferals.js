@@ -240,8 +240,8 @@ export default function ReferralProgram() {
 
   {/* 100 USDT with icon in one line */}
   <p className="text-2xl font-bold text-green-400 flex items-center justify-center">
-    <img src="\assets\images\crypto_icon.png" alt="Crypto Icon" className="w-8 h-8 mr-2" />
-    100 USDT
+    <img src="/assets/images/ok3d.png" alt="Crypto Icon" className="w-6 h-5 mr-2" />
+    100 AiCoinX
   </p>
 
   <p style={{ marginBottom: "17px",marginTop: "10px" }} className="text-sm text-gray-200 mt-2">
@@ -299,9 +299,11 @@ export default function ReferralProgram() {
   className="mb-3"
 >
   <div className="flex items-center mb-3">
-    <img src="\assets\images\bin.png" alt="Task Icon" className="w-8 h-8 mr-3" />
+    <img src="/assets/images/ok3d.png" alt="Task Icon" className="w-8 h-8 mr-3"   style={{
+   width: '40px'
+  }}/>
     <p style={{ color: "#fff", marginLeft: "10px" }} className="text-sm text-gray-700">
-      Your invited friend must earn <strong>10 USDT</strong> by completing featured offer quests.
+      Your invited friend must earn <strong>10 AiCoinX</strong> by completing featured offer quests.
     </p>
   </div>
 
