@@ -1,6 +1,7 @@
 import React, { useState , useEffect  } from "react";
 import Api from "../../service/Api";
 import { useLocation,useNavigate } from "react-router-dom";
+import { Toaster, toast } from "react-hot-toast";
 
 function SetPin() {
   const location = useLocation();
@@ -60,18 +61,21 @@ function SetPin() {
       if (response.data.status) {
         const { token } = response.data;
       localStorage.setItem("authToken", token);
+
       navigate("/home");
       } else {
         alert("Error setting PIN.");
       }
     } catch (error) {
       console.error("API Error:", error.response?.data?.error || "Unknown Error");
+      toast.error(error.response?.data?.error || "Something went wrong!"); 
+
     }
   };
 
 
   return (
-    <div className="container relative overflow-hidden justify-start items-start text-white">
+     <><Toaster position="top-center" /><div className="container relative overflow-hidden justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
       <div style={styles.container} className="bg-n900">
 
@@ -121,7 +125,7 @@ function SetPin() {
         {/* Forgot PIN Link */}
         <a href="#!" style={styles.forgotPin}>Forgot PIN?</a>
       </div>
-    </div>
+    </div></>
   );
 }
 

@@ -200,18 +200,28 @@ marginTop:"13px"
             <h1 style={{ color: "#fff" }} className="font-semibold text-2xl">Profile</h1>
           </div>
         </div>
-   <div className="flex items-center mb-4">
-
-    <img alt="Profile picture of a person with sunglasses" className="w-12 h-12 rounded-full" height="50" src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg" width="50"/>
-    <div style={{marginLeft:"10px"}} className="ml-4">
-     <h2 className="text-lg font-bold">
-     {UserData}  </h2>
-     <p style={{color:"rgba(169, 172, 175, 1)"}} className="text-gray-500">
-{newEmail}     </p>
+        <div className="flex items-center justify-between w-full mb-4">
+  {/* Profile Image & User Details */}
+  <div className="flex items-center gap-3">
+    <img 
+      alt="Profile picture of a person with sunglasses" 
+      className="w-12 h-12 rounded-full" 
+      height="50" 
+      src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg" 
+      width="50"
+    />
+    <div>
+      <h2 className="text-lg font-bold">{UserData}</h2>
+      <p style={{ color: "rgba(169, 172, 175, 1)" }} className="text-gray-500">
+        {newEmail}
+      </p>
     </div>
-    <button style={{ marginLeft:"100px" }} onClick={() => setShowPopup(true)} className="text-purple-500 text-2xl">
-            <i style={{ color: "#9583ff" }} className="ph ph-pencil-simple"></i>
-          </button>
+  </div>
+
+  {/* Pencil Icon Right */}
+  <button onClick={() => setShowPopup(true)} className="text-purple-500 text-2xl">
+    <i style={{ color: "#9583ff" }} className="ph ph-pencil-simple"></i>
+  </button>
    </div>
    
     
@@ -239,6 +249,8 @@ marginTop:"13px"
           </Link>
           <a 
   href="https://www.youtube.com" 
+  target="_blank" 
+  rel="noopener noreferrer"
   
   style={{ marginTop: "10px",backgroundColor:"#242b47" }} 
   className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl"
@@ -450,7 +462,8 @@ const LinkBox = ({ url, icon, name }) => {
   return (
     <Link
       to={url}
-     
+     target="_blank" 
+  rel="noopener noreferrer"
       className="flex justify-between items-center p-3  hover:bg-opacity-5 duration-300 group"
     >
       <div className="flex items-center gap-3">
