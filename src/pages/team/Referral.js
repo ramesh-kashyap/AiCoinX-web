@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation,useNavigate } from "react-router-dom";
 import Api from "../../service/Api";
 import Loader from "../components/Loader";
 
 export default function Referral() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { lvl } = useParams();
 
   const [error, setError] = useState("");
@@ -74,7 +75,7 @@ export default function Referral() {
       <div class="px-6 py-8 relative z-20 w-full" style={{background: '#1d282c'}}>
         <div class="flex justify-start items-center pb-8 mr-8">
           <a
-            href="swap.html"
+            onClick={() => navigate(-1)} 
             class="flex justify-center items-center p-2 rounded-full bg-g300 text-n900"
           >
             <i class="ph-bold ph-caret-left"></i>
