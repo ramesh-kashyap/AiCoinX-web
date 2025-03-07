@@ -249,6 +249,8 @@ marginTop:"13px"
           </Link>
           <a 
   href="https://www.youtube.com" 
+  target="_blank" 
+  rel="noopener noreferrer"
   
   style={{ marginTop: "10px",backgroundColor:"#242b47" }} 
   className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl"
@@ -460,7 +462,8 @@ const LinkBox = ({ url, icon, name }) => {
   return (
     <Link
       to={url}
-     
+     target="_blank" 
+  rel="noopener noreferrer"
       className="flex justify-between items-center p-3  hover:bg-opacity-5 duration-300 group"
     >
       <div className="flex items-center gap-3">
