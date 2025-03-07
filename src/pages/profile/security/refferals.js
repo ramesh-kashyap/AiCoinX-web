@@ -234,7 +234,7 @@ export default function ReferralProgram() {
 
 
 
-  <img src="/assets/images/referral-3272324_1280.webp" alt="Referral" className="mx-auto mb-4 w-32 h-32" />
+  <img src="\assets\images\connected-world-concept-illustration_114360-3027-removebg-preview.png" alt="Referral" className="mx-auto mb-4 w-32 h-32" />
   
   <h2 className="text-lg font-bold">Invite friends and earn up to</h2>
 
@@ -257,7 +257,7 @@ export default function ReferralProgram() {
           </div>
 
           {/* Invite Button */}
-          <button           onClick={() => setShowPopup(true)} style={{ backgroundColor: "rgba(0, 0, 0, 1)", marginTop: "16px" }} className="bg-black rounded-md px-5 py-2 text-white mt-3 w-full">
+          <button           onClick={() => setShowPopup(true)} style={{ backgroundColor: "rgba(0, 0, 0, 1)", marginTop: "16px",borderRadius:"30px" }} className="bg-black rounded-md px-5 py-2 text-white mt-3 w-full">
             Invite Friends
           </button>
         </div>

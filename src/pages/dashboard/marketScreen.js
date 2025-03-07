@@ -132,7 +132,10 @@ const formatDate = (dateString) => {
 
         {/* Invite Section */}
         <div className="px-6 pt-8">
-          <div className="w-full bg-g300 p-5 flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden">
+          <div className="w-full  flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
+           color: '#fff',
+          // backgroundColor: 'rgba(255,255,255,0.9)', // White bg with 5% opacity
+        }}>
             <img
               src="assets/images/invite_bg.png"
               alt="Invite Background"
@@ -140,12 +143,14 @@ const formatDate = (dateString) => {
             />
             <div className="max-w-[200px]">
               <p className="text-xl font-semibold">
-                Refer friends and earn 100 USDT! <span className="text-g300">$</span>
+                Invite a friends and get <span className="text-g300">$</span>20
               </p>
-           
+              <p className="text-n70 pt-4 text-xs">
+                This section can be used as an Advertisement or a Call to Action
+              </p>
             </div>
             <div>
-              <img src="assets/images/invite_img.png" alt="Invite" style={{width:"70px"}} />
+              <img src="assets/images/invite_img.png" alt="Invite" />
             </div>
           </div>
         </div>
@@ -191,8 +196,11 @@ const formatDate = (dateString) => {
                 <div className="flex justify-between items-center p-4 rounded-xl bg-white bg-opacity-5">
                   <div className="flex justify-start items-start gap-3">
                     <div className="p-2 rounded-full bg-white bg-opacity-5 flex justify-center items-center size-12">
-                      <img src="assets/images/Ethereum_ETH.png" alt="Ethereum" />
-                    </div>
+<img
+        src="assets/images/ok3d.png" // Replace with actual icon URL
+        alt="Wallet Icon"
+        style={{width:"40px",height:"35px"}}
+      />                    </div> 
                     <div>
                       <p className="font-semibold pb-2">{user.remarks}</p>
                       <p className="text-sm text-n70">{user.status}</p>
