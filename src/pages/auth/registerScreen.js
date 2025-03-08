@@ -10,6 +10,7 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import Api from "../../service/Api";
 import { Toaster, toast } from "react-hot-toast";
 
+
 function Register() {
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
@@ -64,22 +65,21 @@ function Register() {
       if (response.data.status) {
         // Reset form after successful registration
         setFormData(initialState);
-        setSuccess(true); // Show success message
-        // toast.success("✅ Registration successful!");
+        toast.success(response.data.message); // Use message from backend
         navigate("/set-pin", { state: { email } });
 
       } else {
         toast.error(response.data.message || "Login failed");
       }
     } catch (error) {
-      toast.error(`❌ ${error.message || "Registration failed"}`);
+      toast.error(error.response?.data?.error || "Something went wrong!"); 
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="container bg-n900 h-dvh relative overflow-hidden flex justify-start items-start text-white">
+   <><Toaster position="top-center" /> <div className="container bg-n900 h-dvh relative overflow-hidden flex justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
       <div className="relative z-20 px-6">
         <div className="flex justify-center items-center flex-col gap-3 pt-8">
@@ -213,7 +213,7 @@ function Register() {
           </a>
         </div>
       </div>
-    </div>
+    </div></>
   );
 }
 

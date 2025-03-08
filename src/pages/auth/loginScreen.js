@@ -2,6 +2,8 @@ import React,{useState} from "react";
 
 import { useNavigate, Link } from "react-router-dom";
 import Api from "../../service/Api";
+import { Toaster, toast } from "react-hot-toast";
+
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -23,18 +25,20 @@ function Login() {
         
       const { token } = response.data;
       localStorage.setItem("authToken", token);
+      toast.success(response.data.message); // Use message from backend
+      
       navigate("/home");}
       else{
         console.error('Login failed:', response.data.error);
       }
 
-    } catch (err) {
-      console.error(err);
-      setError("Invalid credentials. Please try again.");
+    } catch (error) {
+      console.error(error);
+       toast.error(error.response?.data?.error || "Something went wrong!"); 
     }
   };
   return (
-    <div className="container bg-n900 h-dvh relative overflow-hidden  justify-start items-start text-white">
+   <><Toaster position="top-center" /> <div className="container bg-n900 h-dvh relative overflow-hidden  justify-start items-start text-white">
       {/* Blurred Circular Background */}
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
       
@@ -110,7 +114,7 @@ function Login() {
           </a>
         </div>
       </div>
-    </div>
+    </div></>
   );
 }
 

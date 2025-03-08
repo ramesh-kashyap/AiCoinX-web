@@ -40,7 +40,8 @@ const fetchUsers = async () => {
 const fetchIncomes = async () => {
   try {
      const response = await Api.get('/user-incomes');
-     setIncome(response.data);
+     console.log('cehel',response.data.data);
+     setIncome(response.data.data);
   } catch (err) {
      setError(err.response?.data?.error || "Error fetching income");
   }
@@ -94,7 +95,7 @@ const formatDate = (dateString) => {
                 <p className="text-n70 font-semibold">Total Stake</p>
                 <div className="flex justify-center items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="h-5" />
-                  <p className="text-n70 font-medium">00.00k</p>
+                  <p className="text-n70 font-medium">{income.totalInvestmentAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -112,7 +113,7 @@ const formatDate = (dateString) => {
                 <p className="text-n70 font-semibold">Total Withdraw</p>
                 <div className="flex justify-center items-center  gap-1" style={{marginLeft: '-53px'}}>
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
-                  <p className=" text-n70 font-medium">00.00k</p>
+                  <p className=" text-n70 font-medium">{income.totalWithdrawlAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -132,9 +133,9 @@ const formatDate = (dateString) => {
               <i className="ph ph-currency-dollar text-2xl text-g300"></i>
 
                 <p className="text-n70 font-semibold">Total Commission</p>
-                <div className="flex justify-center items-center  gap-1" style={{marginLeft: '-53px'}}>
+                <div className="flex justify-center items-center  gap-1">
                   <img src="assets/images/ok3d.png"   className="h-5" />
-                  <p className="text-n70 font-medium">00.00k</p>
+                  <p className="text-n70 font-medium">{income.totalTeamAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -152,7 +153,7 @@ const formatDate = (dateString) => {
                 <p className="text-n70 font-semibold">Roi Income</p>
                 <div className="flex justify-center items-center  gap-1" style={{marginLeft: '-20px'}}>
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
-                  <p className=" text-n70 font-medium">00.00k</p>
+                  <p className=" text-n70 font-medium">{income.totalRoiAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -179,7 +180,7 @@ const formatDate = (dateString) => {
    <div class="flex items-center mb-4">
     <img alt="USDT icon" class=" ml-2 w-5 h-5 mr-1" height="20" src="assets/images/ok3d.png" width="16"/>
     <span class="text-white  text-xl font-semibold" style={{margin:"0px 0px 3px 3px"}}>
-     0.00
+    {income.balanceData.available_balance}
     </span>
    </div>
    <p class="text-gray-500 mb-4" style={{paddingBottom: '11px'}}>
@@ -194,7 +195,7 @@ const formatDate = (dateString) => {
 
         {/* Invite Section */}
         <div className="px-6 pt-8">
-          <div className="w-full  flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
+          <div className="w-full  p-5 flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
            color: '#fff',
           // backgroundColor: 'rgba(255,255,255,0.9)', // White bg with 5% opacity
         }}>
