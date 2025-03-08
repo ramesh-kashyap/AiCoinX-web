@@ -103,8 +103,9 @@ export default function Referral() {
 
 
         <ul class="flex justify-start items-center gap-3 overflow-y-auto pt-4 vertical-scrollbar pb-3 browserCategory">
-          <li class="item active">All <i class="ph ph-caret-right"></i></li>
-          {levels.map((level) => (
+        <li className="item active">
+  <a href="/team-list">All <i className="ph ph-caret-right"></i></a>
+</li>          {levels.map((level) => (
             <li key={level} className="item" onClick={() => handleLevelClick(level)}>
               Level {level}
             </li>
