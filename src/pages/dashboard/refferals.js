@@ -17,6 +17,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import RedditIcon from "@mui/icons-material/Reddit";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import EmailIcon from "@mui/icons-material/Email";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
 export default function ReferralProgram() {
   const inputRef = useRef(null);
@@ -24,6 +26,10 @@ export default function ReferralProgram() {
   const [shareUrl, setShareUrl] = useState("");
   const [username, setUsername] = useState("");
   const [isCopied, setIsCopied] = useState(false);
+  const [totalIncome, setTotalIncome] = useState(0);
+  const [totalUser, setTotalUser] = useState(0);
+
+
 
 
   useEffect(() => {
@@ -42,6 +48,41 @@ export default function ReferralProgram() {
 
     fetchUserData();
   }, []);
+
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+        try {
+            const response = await Api.get("/Direct-income"); // API call to fetch user data
+            
+            if (response.data.success) { 
+                setTotalIncome(response.data.total_income || 0); // ✅ Corrected reference
+            }
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+        }
+    };
+
+    fetchUserData();
+}, []);
+
+
+useEffect(() => {
+  const fetchUserData = async () => {
+      try {
+          const response = await Api.get("/Direct-user"); // API call to fetch user data
+          
+          if (response.data.success) { 
+              setTotalUser(response.data.total_user || 0); // ✅ Corrected reference
+          }
+      } catch (error) {
+          console.error("Error fetching user data:", error);
+      }
+  };
+
+  fetchUserData();
+}, []);
+
 
   const handleShare = (platform) => {
     let url = "";
@@ -129,7 +170,7 @@ export default function ReferralProgram() {
           onClick={() => setShowPopup(false)} 
         >
           <div
-            style={{ backgroundColor: "rgb(17 24 32)", width: 429, height: 452, marginBottom: "-200px",borderTopLeftRadius: "38px",
+            style={{ backgroundColor: "rgb(17 24 32)", width: 429, height: 542, marginBottom: "-200px",borderTopLeftRadius: "38px",
               borderTopRightRadius: "38px"  }}
             className="fixed bottom-10 bg-n900 text-white p-6 shadow-lg transition-transform transform translate-y-0"
             onClick={(e) => e.stopPropagation()}
@@ -241,8 +282,8 @@ export default function ReferralProgram() {
   {/* 100 USDT with icon in one line */}
   <p className="text-2xl font-bold text-400 flex items-center justify-center">
     <img src="/assets/images/ok3d.png" alt="Crypto Icon" className="w-6 h-5 mr-2" style={{width:'30px',height:'30px'}}/>
-    100 
-  </p>
+    {totalIncome ?? 0} 
+      </p>
 
   <p style={{ marginBottom: "17px",marginTop: "10px" }} className="text-sm text-gray-200 mt-2">
     Earn a permanent bonus based on your friend's earnings for every successful referral.
@@ -277,7 +318,7 @@ export default function ReferralProgram() {
           <div style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
   <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Referral Earnings</p>
   <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center">
-  <img src="/assets/images/ok3d.png" alt="Crypto Icon" style={{ width: '30px', height: '30px' }} className="ml-2"/> 100
+  <img src="/assets/images/ok3d.png" alt="Crypto Icon" style={{ width: '30px', height: '30px' }} className="ml-2"/>   {totalIncome}
    
   </p>
 </div>
@@ -288,7 +329,7 @@ export default function ReferralProgram() {
 
             <div style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
               <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Successful Referrals</p>
-              <p style={{ color: "#9583ff" }} className="text-xl font-bold flex justify-center items-center"><img src="/assets/images/ok3d.png" alt="Crypto Icon" style={{ width: '30px', height: '30px' }} className="ml-2"/> 400
+              <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center"> <FontAwesomeIcon style={{ color: "#9583ff",marginRight:"7px",height:"18px" }} icon={faUserFriends}  /> {totalUser}
               </p>
             </div>
           </div>
