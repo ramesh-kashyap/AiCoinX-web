@@ -36,13 +36,21 @@ const fetchUsers = async () => {
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "2-digit",
-    hour12: false,
-  }).replace(",", "");
+  const currentDate = new Date();
+
+  // Difference in milliseconds
+  const diffTime = currentDate - date;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); // Convert to days
+
+  if (diffDays === 0) {
+    return "Today";
+  } else if (diffDays === 1) {
+    return "1 day ago";
+  } else {
+    return `${diffDays} days ago`;
+  }
 };
+
 
 
 
@@ -170,13 +178,13 @@ const formatDate = (dateString) => {
     textAlign: "right",
     fontSize: "14px",  
     padding: "10px 1px", 
-    lineHeight: "1.2",  
+    lineHeight: "1.1",  
   }}  
   onClick={() => setActiveTab('activity')} 
   className={`tabButton w-full border-b-2 border-n700 ${
     activeTab === 'tokens' ? 'activeTabButton' : ''
   }`}
-> <Link to="/invest/Depositreport">View All</Link>
+> <Link to="/all/transaction">View All</Link>
   
 </li>
 
@@ -189,37 +197,49 @@ const formatDate = (dateString) => {
                 {/* <p className="text-sm text-g300">View All</p> */}
               </div>
 
-
               {users.length > 0 ? (
-            users.map((user, index) => (
-              <div className="flex flex-col gap-3 pt-5" key={index}>
-                <div className="flex justify-between items-center p-4 rounded-xl bg-white bg-opacity-5">
-                  <div className="flex justify-start items-start gap-3">
-                    <div className="p-2 rounded-full bg-white bg-opacity-5 flex justify-center items-center size-12">
-<img
-        src="assets/images/ok3d.png" // Replace with actual icon URL
-        alt="Wallet Icon"
-        style={{width:"40px",height:"35px"}}
-      />                    </div> 
-                    <div>
-                      <p className="font-semibold pb-2">{user.remarks}</p>
-                      <p className="text-sm text-n70">{user.status}</p>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="font-semibold">{user.comm} USDT</p>
-                    <p className="text-g300 text-sm">{formatDate(user.created_at)}</p>
-                    </div>
-                </div>
-               
+  users.map((user, index) => {
+  
 
+    return (
+      <div key={index} className="homeTab pt-8 px-6">
+        <div className="pt-8">
+          <div className="flex flex-col gap-4">
+            <div className="flex justify-between items-center border-b border-white border-opacity-5 pb-4">
+              <div className="flex justify-start items-center gap-2">
+  {/* Icon */}
+  <div className="text-g300 flex justify-center items-center p-2 rounded-full text-xl bg-white bg-opacity-5">
+    <i className="ph ph-arrow-down"></i>
+  </div>
+  
+  {/* Image (Left side of Amount) */}
 
+  {/* Amount with color fix */}
+  <p className="font-semibold">
+    +{user.amount}
+  </p>
+  <img alt="USDT icon" class=" ml-2 w-5 h-5 mr-1" height="30" width="20px" src="/assets/images/ok3d.png" />
+
+</div>
+
+              {/* Remark & Date */}
+              <div className="flex flex-col justify-end items-end">
+                <p className="font-semibold">{user.remark}</p>
+                <p className="text-g300 text-sm">{formatDate(user.created_at)}</p>
               </div>
-
-))
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  })
 ) : (
-    <p>No users found</p>
+  <p>No users found.</p>
 )}
+
+
+
+
 
 
               {/* <div className="pt-6">
