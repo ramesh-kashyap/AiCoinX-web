@@ -186,7 +186,7 @@ const fetchGetBalance = async () => {  try {
             />
             <div className="max-w-[200px]">
               <p className="text-xl font-semibold">
-                Invite a friends and get <span className="text-g300">$</span>20
+                Invite a friends and get <span className="text-g300">5%</span>
               </p>
               <p className="text-n70 pt-4 text-xs">
                 This section can be used as an Advertisement or a Call to Action

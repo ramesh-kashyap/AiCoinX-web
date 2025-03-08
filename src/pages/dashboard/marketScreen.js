@@ -7,7 +7,7 @@ function Marketplace() {
   const [activeTab, setActiveTab] = useState('tokens');
   const [users, setUsers] = useState([]); 
   const [income, setIncome] = useState([]); // ✅ Always start with an empty array
-
+  const [balance, setBalance] = useState([]); 
   // ✅ Always start with an empty array
   const [error, setError] = useState("");
 
@@ -42,6 +42,8 @@ const fetchIncomes = async () => {
      const response = await Api.get('/user-incomes');
      console.log('cehel',response.data.data);
      setIncome(response.data.data);
+     setBalance(response.data.data.balanceData.available_balance);
+     
   } catch (err) {
      setError(err.response?.data?.error || "Error fetching income");
   }
@@ -82,7 +84,7 @@ const formatDate = (dateString) => {
 
           </NavLink>
 
-          <div class="flex justify-center items-center w-full"><h1 class="font-semibold text-2xl">Assets</h1></div>
+          <div class="flex justify-center items-center w-full" style={{justifyContent:'center'}}><h1 class="font-semibold text-2xl">Assets</h1></div>
           </div>
           <div className="grid grid-cols-2 gap-4 pt-5">
           {/* Item 1 */}
@@ -90,10 +92,10 @@ const formatDate = (dateString) => {
             <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
               <div className="flex flex-col gap-2">
                 
-              <i className="ph ph-currency-dollar text-2xl text-g300"></i>
+              <i className="ph ph-wallet text-2xl text-g300"></i>
 
                 <p className="text-n70 font-semibold">Total Stake</p>
-                <div className="flex justify-center items-center  gap-1">
+                <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="h-5" />
                   <p className="text-n70 font-medium">{income.totalInvestmentAmount}</p>
                 </div>
@@ -108,10 +110,10 @@ const formatDate = (dateString) => {
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
             <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
               <div className="flex flex-col gap-2">
-              <i className="ph ph-trophy text-2xl text-g300"></i>
+              <i className="ph ph-handbag text-2xl text-g300"></i>
 
                 <p className="text-n70 font-semibold">Total Withdraw</p>
-                <div className="flex justify-center items-center  gap-1">
+                <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
                   <p className=" text-n70 font-medium">{income.totalWithdrawlAmount}</p>
                 </div>
@@ -130,10 +132,10 @@ const formatDate = (dateString) => {
             <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
               <div className="flex flex-col gap-2">
                 
-              <i className="ph ph-currency-dollar text-2xl text-g300"></i>
+              <i className="ph ph-users text-2xl text-g300"></i>
 
                 <p className="text-n70 font-semibold">Team Commission</p>
-                <div className="flex justify-center items-center  gap-1">
+                <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"   className="h-5" />
                   <p className="text-n70 font-medium">{income.totalTeamAmount}</p>
                 </div>
@@ -148,10 +150,10 @@ const formatDate = (dateString) => {
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
             <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
               <div className="flex flex-col gap-2">
-              <i className="ph ph-trophy text-2xl text-g300"></i>
+              <i className="ph ph-coins text-2xl text-g300"></i> 
 
                 <p className="text-n70 font-semibold">Roi Income</p>
-                <div className="flex justify-center items-center  gap-1">
+                <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
                   <p className=" text-n70 font-medium">{income.totalRoiAmount}</p>
                 </div>
@@ -180,7 +182,7 @@ const formatDate = (dateString) => {
    <div class="flex items-center mb-4">
     <img alt="USDT icon" class=" ml-2 w-5 h-5 mr-1" height="20" src="assets/images/ok3d.png" width="16"/>
     <span class="text-white  text-xl font-semibold" style={{margin:"0px 0px 3px 3px"}}>
-    {income.balanceData.available_balance}
+   {balance}
     </span>
    </div>
    <p class="text-gray-500 mb-4" style={{paddingBottom: '11px'}}>
@@ -206,7 +208,7 @@ const formatDate = (dateString) => {
             />
             <div className="max-w-[200px]">
               <p className="text-xl font-semibold">
-                Invite a friends and get <span className="text-g300">$</span>20
+                Invite a friends and get <span className="text-g300">5%</span>
               </p>
               <p className="text-n70 pt-4 text-xs">
                 This section can be used as an Advertisement or a Call to Action

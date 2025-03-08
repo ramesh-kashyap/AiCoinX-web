@@ -241,7 +241,7 @@ marginTop:"13px"
 />
               <div>
                 <p className="font-semibold">Refer Friends</p>
-                <p  className="text-n70 text-sm">Refer and earn up to 100 USDT per friend</p>
+                <p  className="text-n70 text-sm">Refer and earn up to 100 Coins per friend</p>
               </div>
             </div>
             <i className="ph ph-caret-right text-g300"></i>
@@ -258,7 +258,7 @@ marginTop:"13px"
   <div className="flex justify-start items-center gap-3">
     <img src="\assets\images\Youtube.svg" alt="DigitalNomad" />
     <div>
-      <p className="font-semibold">Learn How Klink Works</p>
+      <p className="font-semibold">Learn How AI CoinX Works</p>
       <p className="text-n70 text-sm">Gain insights on how to use Klink</p>
     </div>
   </div>

@@ -66,7 +66,7 @@ const AirdropCard = () => {
 
         {/* Text Content */}
         <div>
-          <h2 style={styles.title}>Earn more $KLINK!</h2>
+          <h2 style={styles.title}>Earn more AI CoinX!</h2>
           <p style={styles.points}>
             <span style={styles.amount}>70,000.00</span>
             <img
