@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 import { Pagination } from "swiper/modules";
-import Api from "../../../service/Api";
-
+import Api from "../../service/Api";
+import Footer from '../components/footer';
 import "swiper/css";
 import "swiper/css/pagination";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -107,7 +107,7 @@ export default function ReferralProgram() {
       className="container bg-n900 h-dvh relative flex justify-start items-start text-white"
     >
       {/* Page Content */}
-      <div   style={{ backgroundColor: "rgba(17, 24, 32, 1)" }}  className="w-full max-w-md mx-auto p-5">
+      <div   style={{ backgroundColor: "rgba(17, 24, 32, 1)",paddingBottom:"110px" }}  className="w-full max-w-md mx-auto p-5">
         {/* Header */}
         <div className="flex justify-start items-center pb-8 mr-8">
           <Link to="/home" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
@@ -236,12 +236,12 @@ export default function ReferralProgram() {
 
   <img src="\assets\images\connected-world-concept-illustration_114360-3027-removebg-preview.png" alt="Referral" className="mx-auto mb-4 w-32 h-32" />
   
-  <h2 className="text-lg font-bold">Invite friends and earn up to</h2>
+  <h2  className="text-lg font-bold">Invite friends and earn up to</h2>
 
   {/* 100 USDT with icon in one line */}
   <p className="text-2xl font-bold text-green-400 flex items-center justify-center">
-    <img src="/assets/images/ok3d.png" alt="Crypto Icon" className="w-6 h-5 mr-2" />
-    100 AiCoinX
+    <img src="/assets/images/ok3d.png" alt="Crypto Icon" className="w-6 h-5 mr-2" style={{width:'30px',height:'30px'}}/>
+    100 
   </p>
 
   <p style={{ marginBottom: "17px",marginTop: "10px" }} className="text-sm text-gray-200 mt-2">
@@ -257,10 +257,16 @@ export default function ReferralProgram() {
           </div>
 
           {/* Invite Button */}
-          <button           onClick={() => setShowPopup(true)} style={{ backgroundColor: "rgba(0, 0, 0, 1)", marginTop: "16px",borderRadius:"30px" }} className="bg-black rounded-md px-5 py-2 text-white mt-3 w-full">
+          <button     onClick={() => setShowPopup(true)} style={{ backgroundColor: "rgba(0, 0, 0, 1)", marginTop: "16px", marginRight: "5px",borderRadius:"30px",width: "45%" }} className="bg-black rounded-md px-5 py-2 text-white mt-3 w-full">
             Invite Friends
           </button>
+          <Link to='/team-list'>
+          <button   style={{ backgroundColor: "rgba(0, 0, 0, 1)", marginTop: "16px",borderRadius:"30px", marginLeft: "5px",width: "45%" }} className="bg-black rounded-md px-5 py-2 text-white mt-3 w-full">
+            Team Lists
+          </button>
+          </Link>
         </div>
+        
         <p style={{ marginBottom: "14px",marginTop: "12px",fontStyle:"oblique",fontSize:"17px",marginLeft:"75px" }} className="text-sm text-gray-200 mt-2">
     *Invite must use your unique link.
   </p>
@@ -268,13 +274,18 @@ export default function ReferralProgram() {
         <div className="mt-6">
           <h2 style={{ color: "#fff" }} className="text-lg font-semibold mb-3">Referral Performance</h2>
           <div style={{ marginTop: "10px" }} className="grid grid-cols-2 gap-4">
-            <div  style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
-              <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Referral Earnings</p>
-              <p style={{ color: "#fff" }} className="text-xl font-bold">10 USDT</p>
-            </div>
+          <div style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
+  <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Referral Earnings</p>
+  <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center">
+  <img src="/assets/images/ok3d.png" alt="Crypto Icon" style={{ width: '30px', height: '30px' }} className="ml-2"/> 100
+   
+  </p>
+</div>
+
             <div style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
               <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Successful Referrals</p>
-              <p style={{ color: "#1d8711" }} className="text-xl font-bold">40 USDT</p>
+              <p style={{ color: "#9583ff" }} className="text-xl font-bold flex justify-center items-center"><img src="/assets/images/ok3d.png" alt="Crypto Icon" style={{ width: '30px', height: '30px' }} className="ml-2"/> 400
+              </p>
             </div>
           </div>
         </div>
@@ -303,14 +314,16 @@ export default function ReferralProgram() {
    width: '40px'
   }}/>
     <p style={{ color: "#fff", marginLeft: "10px" }} className="text-sm text-gray-700">
-      Your invited friend must earn <strong>10 AiCoinX</strong> by completing featured offer quests.
+      Your invited friend must earn <strong>10 Coin</strong> by completing featured offer quests.
     </p>
   </div>
 
-  <div style={{ marginTop: "30px" }} className="flex items-center">
-    <img  src="\assets\images\tet.png" alt="Bonus Icon" className="w-8 h-8 mr-3" />
+  <div style={{ marginTop: "30px" }} className="flex items-center" >
+    <img  src="/assets/images/ok3d.png" alt="Bonus Icon" className="w-8 h-8 mr-3"  style={{
+   width: '40px'
+  }}/>
     <p style={{ color: "#fff", marginLeft: "10px" }} className="text-sm text-gray-700">
-      You and your friend both earn <strong>5 USDT bonus</strong> for every <strong>10 USDT</strong> earned by your friend.
+      You and your friend both earn <strong>5 Coin</strong> for every <strong>10 Coin</strong> earned by your friend.
     </p>
   </div>
 </div>
@@ -318,11 +331,12 @@ export default function ReferralProgram() {
 
   {/* Note */}
   <p  style={{ color: "#fff",marginTop:'20px',fontStyle:"oblique" }} className="text-sm text-gray-700">
-    *Repeatable up to 20 times for each friend (100 USDT bonus).
+    *Repeatable up to 20 times for each friend (100 Coin bonus).
   </p>
 </div>
 
       </div>
+       <Footer />
     </div>
   );
 }

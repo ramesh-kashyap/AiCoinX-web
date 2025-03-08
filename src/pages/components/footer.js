@@ -24,7 +24,7 @@ function Footer() {
 >
             <i className="ph ph-arrows-counter-clockwise"></i>
             <div className="absolute -bottom-2 -left-5 -right-5 -z-10">
-              <img src="assets/images/reload-bg.png" alt="Reload" />
+              <img src="/assets/images/reload-bg.png" alt="Reload" />
             </div>
           </button>
         </div>
