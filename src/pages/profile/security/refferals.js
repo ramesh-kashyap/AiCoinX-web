@@ -236,7 +236,7 @@ export default function ReferralProgram() {
 
   <img src="\assets\images\connected-world-concept-illustration_114360-3027-removebg-preview.png" alt="Referral" className="mx-auto mb-4 w-32 h-32" />
   
-  <h2 className="text-lg font-bold">Invite friends and earn up to</h2>
+  <h2  className="text-lg font-bold">Invite friends and earn up to</h2>
 
   {/* 100 USDT with icon in one line */}
   <p className="text-2xl font-bold text-green-400 flex items-center justify-center">

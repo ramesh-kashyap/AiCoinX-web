@@ -115,11 +115,11 @@ const TransactionHistory = () => {
                 <div className="text-g300 flex justify-center items-center p-2 rounded-full text-xl bg-white bg-opacity-5">
                   <i className={`ph ${isWithdrawal ? "ph-arrow-up" : "ph-arrow-down"}`}></i>
                 </div>
-              
+
                 <p className={`font-semibold  ${amountColor} !important`}>
                   {amountSign}{user.amount} 
                 </p>
-                <img style={{height:"18px"}} src="/assets/images/tet.png" alt="Bonus Icon" className="w-8 h-8 mr-2" />
+                <img alt="USDT icon" className=" ml-2 w-5 h-5 mr-1" height="30" width="20px" src="assets/images/ok3d.png" />
 
               </div>
           
