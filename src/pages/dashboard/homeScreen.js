@@ -235,7 +235,7 @@ const fetchGetBalance = async () => {  try {
             {activeTab === 'nft' && (
              <div className="flex flex-col gap-2 pt-5">
             {liveData.topLosers.map((coin, index) => (
-         <div className="flex justify-between items-center bg-white bg-opacity-5 rounded-xl" style={{ paddingTop: "1rem" }}>
+         <div className="flex justify-between items-center bg-white bg-opacity-5 p-4 rounded-xl" style={{ paddingTop: "1rem" }}>
            <div className="flex justify-start items-center gap-2">
              {/* <p className="text-sm text-n70">#01</p> */}
              <div className="text-g300 flex justify-center items-center size-10 rounded-full text-xl bg-white bg-opacity-5">

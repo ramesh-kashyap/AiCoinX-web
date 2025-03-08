@@ -98,7 +98,7 @@ const formatDate = (dateString) => {
                 <p className="font-semibold">Total Stake</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="h-5" />
-                  <p className="text-n70 font-medium">{income.totalInvestmentAmount}</p>
+                  <p className=" font-medium">{income.totalInvestmentAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">

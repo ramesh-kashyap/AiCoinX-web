@@ -40,7 +40,7 @@ const WalletBalance = ({ balance }) => {
 
       {/* Balance Info */}
       <div>
-        <p style={styles.balanceText}>${balance}</p>
+        <p style={styles.balanceText}>{balance}</p>
         <p style={styles.description}>in the wallet</p>
       </div>
     </div>
