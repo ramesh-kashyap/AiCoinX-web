@@ -17,6 +17,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import RedditIcon from "@mui/icons-material/Reddit";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import EmailIcon from "@mui/icons-material/Email";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
 export default function ReferralProgram() {
   const inputRef = useRef(null);
@@ -327,7 +329,7 @@ useEffect(() => {
 
             <div style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
               <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Successful Referrals</p>
-              <p style={{ color: "#9583ff" }} className="text-xl font-bold flex justify-center items-center"><img src="/assets/images/ok3d.png" alt="Crypto Icon" style={{ width: '30px', height: '30px' }} className="ml-2"/> {totalUser}
+              <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center"> <FontAwesomeIcon style={{ color: "#9583ff",marginRight:"7px" }} icon={faUserFriends}  /> {totalUser}
               </p>
             </div>
           </div>
