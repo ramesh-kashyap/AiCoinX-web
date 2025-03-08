@@ -73,12 +73,14 @@ function ConfirmPin() {
     <><Toaster position="top-center" /><div className="container relative overflow-hidden justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
       <div style={styles.container} className="bg-n900">
+      <div className="buySellTab pt-8 px-6 w-full relative z-20">
+
          <div style={{marginRight:"20rem"}}  className="flex justify-start items-center pb-8 mr-8">
                           <Link  to="/security/new-password" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
                             <i className="ph-bold ph-caret-left"></i>
                           </Link>
                          
-                        </div>
+                        </div></div>
         {/* Logo */}
         <div style={{marginBottom:"20px"}}>
           <img style={{width:"70px"}} alt="Profile picture of a person with sunglasses" className="w-12 h-12 rounded-full" height="50" src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg" width="50"/>

@@ -359,7 +359,7 @@ useEffect(() => {
    width: '40px'
   }}/>
     <p style={{ color: "#fff", marginLeft: "10px" }} className="text-sm text-gray-700">
-      Your invited friend must earn <strong>10 Coin</strong> by completing featured offer quests.
+      Your invited friend must earn <strong>10 %</strong> by completing featured offer quests.
     </p>
   </div>
 
@@ -368,7 +368,7 @@ useEffect(() => {
    width: '40px'
   }}/>
     <p style={{ color: "#fff", marginLeft: "10px" }} className="text-sm text-gray-700">
-      You and your friend both earn <strong>5 Coin</strong> for every <strong>10 Coin</strong> earned by your friend.
+      You and your friend both earn <strong>5 %</strong>  earned by your friend.
     </p>
   </div>
 </div>

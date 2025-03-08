@@ -189,7 +189,7 @@ marginTop:"13px"
   </div>
 </form>
 
-        
+{/*         
         <div className="w-full pt-20">
           <Link
             to="/create-password"
@@ -197,7 +197,7 @@ marginTop:"13px"
           >
             Delete account
           </Link>
-        </div>
+        </div> */}
       </div>
     </div></>
   );

@@ -1170,7 +1170,7 @@ video {
   padding-bottom: 0.75rem;
 }
 .pb-36{
-  padding-bottom: 17rem;
+  padding-bottom: 10rem;
 }
 .pb-4{
   padding-bottom: 1rem;
@@ -1301,7 +1301,6 @@ video {
 }
 .text-g300{
   --tw-text-opacity: 1;
-  color: #9583ff;
   color: #9583ff;
 }
 .text-n70{
