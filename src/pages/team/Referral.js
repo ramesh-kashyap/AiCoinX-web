@@ -72,7 +72,7 @@ export default function Referral() {
       <div
         class="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"
       ></div>
-      <div class="px-6 py-8 relative z-20 w-full" style={{background: '#1d282c'}}>
+      <div class="px-6 py-8 relative z-20 w-full" >
         <div class="flex justify-start items-center pb-8 mr-8">
           <a
             onClick={() => navigate(-1)} 
