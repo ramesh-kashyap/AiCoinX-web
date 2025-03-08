@@ -282,6 +282,10 @@ export default function ReferralProgram() {
   </p>
 </div>
 
+
+
+
+
             <div style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
               <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Successful Referrals</p>
               <p style={{ color: "#9583ff" }} className="text-xl font-bold flex justify-center items-center"><img src="/assets/images/ok3d.png" alt="Crypto Icon" style={{ width: '30px', height: '30px' }} className="ml-2"/> 400
