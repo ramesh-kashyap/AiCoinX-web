@@ -329,7 +329,7 @@ useEffect(() => {
 
             <div style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
               <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Successful Referrals</p>
-              <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center"> <FontAwesomeIcon style={{ color: "#9583ff",marginRight:"7px" }} icon={faUserFriends}  /> {totalUser}
+              <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center"> <FontAwesomeIcon style={{ color: "#9583ff",marginRight:"7px",height:"18px" }} icon={faUserFriends}  /> {totalUser}
               </p>
             </div>
           </div>
