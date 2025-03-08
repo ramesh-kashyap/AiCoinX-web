@@ -278,7 +278,7 @@ useEffect(() => {
   <h2  className="text-lg font-bold">Invite friends and earn up to</h2>
 
   {/* 100 USDT with icon in one line */}
-  <p className="text-2xl font-bold text-green-400 flex items-center justify-center">
+  <p className="text-2xl font-bold text-400 flex items-center justify-center">
     <img src="/assets/images/ok3d.png" alt="Crypto Icon" className="w-6 h-5 mr-2" style={{width:'30px',height:'30px'}}/>
     {totalIncome ?? 0} 
       </p>
@@ -320,6 +320,10 @@ useEffect(() => {
    
   </p>
 </div>
+
+
+
+
 
             <div style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
               <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Successful Referrals</p>

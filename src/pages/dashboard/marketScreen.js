@@ -5,12 +5,15 @@ import Api from "../../service/Api";
 import Footer from '../components/footer';
 function Marketplace() {
   const [activeTab, setActiveTab] = useState('tokens');
-  const [users, setUsers] = useState([]); // ✅ Always start with an empty array
+  const [users, setUsers] = useState([]); 
+  const [income, setIncome] = useState([]); // ✅ Always start with an empty array
+
+  // ✅ Always start with an empty array
   const [error, setError] = useState("");
 
   useEffect(() => {
     fetchUsers();
-    
+    fetchIncomes();
 }, []);
 
 const fetchUsers = async () => {
@@ -31,6 +34,18 @@ const fetchUsers = async () => {
         setError(err.response?.data?.error || "Error fetching income");
     }
 };
+
+
+
+const fetchIncomes = async () => {
+  try {
+     const response = await Api.get('/user-incomes');
+     setIncome(response.data);
+  } catch (err) {
+     setError(err.response?.data?.error || "Error fetching income");
+  }
+};
+
 
 
 
@@ -76,9 +91,9 @@ const formatDate = (dateString) => {
                 
               <i className="ph ph-currency-dollar text-2xl text-g300"></i>
 
-                <p className="text-n70 font-semibold">Total earning</p>
+                <p className="text-n70 font-semibold">Total Stake</p>
                 <div className="flex justify-center items-center  gap-1">
-                  <img src="assets/images/ok3d.png" alt="Ethereum" className="h-5" />
+                  <img src="assets/images/ok3d.png"  className="h-5" />
                   <p className="text-n70 font-medium">00.00k</p>
                 </div>
               </div>
@@ -94,19 +109,59 @@ const formatDate = (dateString) => {
               <div className="flex flex-col gap-2">
               <i className="ph ph-trophy text-2xl text-g300"></i>
 
-                <p className="text-n70 font-semibold">Pending</p>
+                <p className="text-n70 font-semibold">Total Withdraw</p>
                 <div className="flex justify-center items-center  gap-1">
-                  <img src="assets/images/Bitcoin_icon.png" alt="Bitcoin" className="w-4 h-4" />
+                  <img src="assets/images/ok3d.png"  className="w-4 h-4" />
                   <p className=" text-n70 font-medium">00.00k</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
-              <AlertCircle />
               </div>
             </div>
           </div>
        
         </div>
+
+
+        <div className="grid grid-cols-2 gap-4 pt-5">
+          {/* Item 1 */}
+          <div className="rounded-xl overflow-hidden col-span-1">
+            <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
+              <div className="flex flex-col gap-2">
+                
+              <i className="ph ph-currency-dollar text-2xl text-g300"></i>
+
+                <p className="text-n70 font-semibold">Total Commission</p>
+                <div className="flex justify-center items-center  gap-1">
+                  <img src="assets/images/ok3d.png"   className="h-5" />
+                  <p className="text-n70 font-medium">00.00k</p>
+                </div>
+              </div>
+              <div className="flex justify-start items-center text-n70 text-sm">
+               
+              </div>
+            </div>
+          </div>
+          {/* Item 2 */}
+          <div className="rounded-xl overflow-hidden col-span-1">
+            {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
+            <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
+              <div className="flex flex-col gap-2">
+              <i className="ph ph-trophy text-2xl text-g300"></i>
+
+                <p className="text-n70 font-semibold">Roi Income</p>
+                <div className="flex justify-center items-center  gap-1">
+                  <img src="assets/images/ok3d.png"  className="w-4 h-4" />
+                  <p className=" text-n70 font-medium">00.00k</p>
+                </div>
+              </div>
+              <div className="flex justify-start items-center text-n70 text-sm">
+              </div>
+            </div>
+          </div>
+       
+        </div>
+
         </div>
 
      {/* Claimable Section */}<div className="px-6 pt-8">
@@ -116,10 +171,9 @@ const formatDate = (dateString) => {
     
     <div class="flex items-center">
      <span class="text-gray-600 font-medium">
-      Claimable
+     Available Balance
      </span>
     </div>
-    <AlertCircle />
     
    </div>
    <div class="flex items-center mb-4">
@@ -128,11 +182,11 @@ const formatDate = (dateString) => {
      0.00
     </span>
    </div>
-   <p class="text-gray-500 mb-4">
-    Minimum claimable rewards to transfer is 5 USDT.
+   <p class="text-gray-500 mb-4" style={{paddingBottom: '11px'}}>
+    {/* Minimum claimable rewards to transfer is 5 USDT. */}
    </p>
    <button class="w-full bg-g300 text-purple-600 py-2 rounded-lg font-medium">
-    Claim to Wallet
+    Withdraw
    </button>
   </div>
   </div>
@@ -140,7 +194,7 @@ const formatDate = (dateString) => {
 
         {/* Invite Section */}
         <div className="px-6 pt-8">
-          <div className="w-full  flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
+          <div className="w-full  p-5 flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
            color: '#fff',
           // backgroundColor: 'rgba(255,255,255,0.9)', // White bg with 5% opacity
         }}>
