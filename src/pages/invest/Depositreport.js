@@ -119,7 +119,7 @@ const TransactionHistory = () => {
                 <p className={`font-semibold  ${amountColor} !important`}>
                   {amountSign}{user.amount} 
                 </p>
-                <img alt="USDT icon" className=" ml-2 w-5 h-5 mr-1" height="30" width="20px" src="assets/images/ok3d.png" />
+                <img alt="USDT icon" className=" ml-2 w-5 h-5 mr-1" height="30" width="20px" src="/assets/images/ok3d.png" />
 
               </div>
           
