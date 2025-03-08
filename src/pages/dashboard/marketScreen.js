@@ -140,7 +140,7 @@ const formatDate = (dateString) => {
 
         {/* Invite Section */}
         <div className="px-6 pt-8">
-          <div className="w-full  flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
+          <div className="w-full  p-5 flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
            color: '#fff',
           // backgroundColor: 'rgba(255,255,255,0.9)', // White bg with 5% opacity
         }}>
