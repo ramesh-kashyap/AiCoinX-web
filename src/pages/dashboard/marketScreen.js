@@ -110,7 +110,7 @@ const formatDate = (dateString) => {
               <i className="ph ph-trophy text-2xl text-g300"></i>
 
                 <p className="text-n70 font-semibold">Total Withdraw</p>
-                <div className="flex justify-center items-center  gap-1">
+                <div className="flex justify-center items-center  gap-1" style={{marginLeft: '-53px'}}>
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
                   <p className=" text-n70 font-medium">00.00k</p>
                 </div>
@@ -132,7 +132,7 @@ const formatDate = (dateString) => {
               <i className="ph ph-currency-dollar text-2xl text-g300"></i>
 
                 <p className="text-n70 font-semibold">Total Commission</p>
-                <div className="flex justify-center items-center  gap-1">
+                <div className="flex justify-center items-center  gap-1" style={{marginLeft: '-53px'}}>
                   <img src="assets/images/ok3d.png"   className="h-5" />
                   <p className="text-n70 font-medium">00.00k</p>
                 </div>
@@ -150,7 +150,7 @@ const formatDate = (dateString) => {
               <i className="ph ph-trophy text-2xl text-g300"></i>
 
                 <p className="text-n70 font-semibold">Roi Income</p>
-                <div className="flex justify-center items-center  gap-1">
+                <div className="flex justify-center items-center  gap-1" style={{marginLeft: '-20px'}}>
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
                   <p className=" text-n70 font-medium">00.00k</p>
                 </div>
