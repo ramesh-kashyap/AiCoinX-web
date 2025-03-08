@@ -3,10 +3,13 @@ import { useParams, useLocation,useNavigate } from "react-router-dom";
 import Api from "../../service/Api";
 import Loader from "../components/Loader";
 
+
 export default function Referral() {
+
   const location = useLocation();
   const navigate = useNavigate();
   const { lvl } = useParams();
+  const [level, setLevel] = useState([]);
 
   const [error, setError] = useState("");
   const [users, setUsers] = useState([]);
@@ -15,6 +18,7 @@ export default function Referral() {
   const [page, setPage] = useState(1);
   const [limit] = useState(7);
   const [total, setTotal] = useState(0);
+  const [maxLength, setMaxLength] = useState(0);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -35,6 +39,8 @@ export default function Referral() {
       if (response.data.status) {
         setUsers(response.data.direct_team);
         setTotal(response.data.total);
+        setMaxLength(response.data.max_length);
+        
       }
     } catch (error) {
       console.error("❌ Error fetching users:", error);
@@ -58,10 +64,20 @@ export default function Referral() {
     }
   };
 
+  const levels = [];
+
+    for (let i = 1; i <= maxLength; i++) {
+      levels.push(i);
+    }
+
   if (loading) {
     return <Loader />;
   }
 
+  const handleLevelClick = (selectedLevel) => {
+    navigate(`/team-list?selected_level=${selectedLevel}`);
+    window.location.reload();  // Page reload force karega
+  };
 
 
   return (
@@ -86,13 +102,14 @@ export default function Referral() {
         </div>
 
 
-        {/* <ul class="flex justify-start items-center gap-3 overflow-y-auto pt-4 vertical-scrollbar pb-3 browserCategory">
+        <ul class="flex justify-start items-center gap-3 overflow-y-auto pt-4 vertical-scrollbar pb-3 browserCategory">
           <li class="item active">All <i class="ph ph-caret-right"></i></li>
-          <li class="item">LvL <i class="ph ph-caret-right"></i></li> */}
-          {/* <li class="item">Sport <i class="ph ph-caret-right"></i></li>
-          <li class="item">People <i class="ph ph-caret-right"></i></li>
-          <li class="item">Celebraties <i class="ph ph-caret-right"></i></li> */}
-        {/* </ul> */}
+          {levels.map((level) => (
+            <li key={level} className="item" onClick={() => handleLevelClick(level)}>
+              Level {level}
+            </li>
+          ))}   
+        </ul>
         <div
           class="flex justify-between items-center gap-4 bg-white bg-opacity-5 rounded-lg py-3 px-4"
         >
@@ -126,7 +143,7 @@ export default function Referral() {
             </div>
             <div class="flex flex-col justify-end items-end">
             <p class="font-semibold flex items-center gap-2 justify-start">
-  <img src="\assets/images/ok3d.png" class="w-6 h-6" style={{width: '27px'}}/>
+  {/* <img src="\assets/images/ok3d.png" class="w-6 h-6" style={{width: '27px'}}/> */}
   <span>{Number(user.package ?? 0).toFixed(2)}</span>
 </p>
               <p class="text-g300 text-sm">{formatDate(user.jdate)}</p>
