@@ -239,7 +239,7 @@ export default function ReferralProgram() {
   <h2  className="text-lg font-bold">Invite friends and earn up to</h2>
 
   {/* 100 USDT with icon in one line */}
-  <p className="text-2xl font-bold text-green-400 flex items-center justify-center">
+  <p className="text-2xl font-bold text-400 flex items-center justify-center">
     <img src="/assets/images/ok3d.png" alt="Crypto Icon" className="w-6 h-5 mr-2" style={{width:'30px',height:'30px'}}/>
     100 
   </p>
