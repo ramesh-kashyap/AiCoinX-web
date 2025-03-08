@@ -155,7 +155,7 @@ const fetchGetBalance = async () => {  try {
                 <p className="text-white font-semibold text-sm">Stake</p>
               </Link>
               <Link
-                to="/invest/Depositreport"
+                to="/all/transaction"
                 className="flex flex-col justify-center items-center gap-2"
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
@@ -293,7 +293,25 @@ const fetchGetBalance = async () => {  try {
             </SwiperSlide>
           ))
         ) : (
-          <p>No news available.</p>
+          <p><div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+            textAlign: 'center'
+          }}>
+            <img 
+              src="\assets\images\empty_state.svg" 
+              alt="empty" 
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+                marginBottom: '20px'
+              }} 
+            />
+            <p style={{ fontSize: '16px', color: '#333' }}>No News found.</p>
+          </div></p>
         )}
         <div
     className="swiper-pagination"

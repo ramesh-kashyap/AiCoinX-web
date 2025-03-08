@@ -259,7 +259,7 @@ marginTop:"13px"
     <img src="\assets\images\Youtube.svg" alt="DigitalNomad" />
     <div>
       <p className="font-semibold">Learn How AI CoinX Works</p>
-      <p className="text-n70 text-sm">Gain insights on how to use Klink</p>
+      <p className="text-n70 text-sm">Gain insights on how to use AI CoinX</p>
     </div>
   </div>
   <i className="ph ph-caret-right text-g300"></i>

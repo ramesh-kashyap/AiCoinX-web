@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import {       BadgeCent, Trophy,  AlertCircle } from 'lucide-react';
 import Api from "../../service/Api";
 import Footer from '../components/footer';
+import WalletBalance from '../components/wallet';
 function Marketplace() {
   const [activeTab, setActiveTab] = useState('tokens');
   const [users, setUsers] = useState([]); 
@@ -94,7 +95,7 @@ const formatDate = (dateString) => {
                 
               <i className="ph ph-wallet text-2xl text-g300"></i>
 
-                <p className="text-n70 font-semibold">Total Stake</p>
+                <p className="font-semibold">Total Stake</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="h-5" />
                   <p className="text-n70 font-medium">{income.totalInvestmentAmount}</p>
@@ -112,10 +113,10 @@ const formatDate = (dateString) => {
               <div className="flex flex-col gap-2">
               <i className="ph ph-handbag text-2xl text-g300"></i>
 
-                <p className="text-n70 font-semibold">Total Withdraw</p>
+                <p className=" font-semibold">Total Withdraw</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
-                  <p className=" text-n70 font-medium">{income.totalWithdrawlAmount}</p>
+                  <p className="  font-medium">{income.totalWithdrawlAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -134,10 +135,10 @@ const formatDate = (dateString) => {
                 
               <i className="ph ph-users text-2xl text-g300"></i>
 
-                <p className="text-n70 font-semibold">Team Commission</p>
+                <p className="font-semibold">Team Commission</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"   className="h-5" />
-                  <p className="text-n70 font-medium">{income.totalTeamAmount}</p>
+                  <p className=" font-medium">{income.totalTeamAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -152,10 +153,10 @@ const formatDate = (dateString) => {
               <div className="flex flex-col gap-2">
               <i className="ph ph-coins text-2xl text-g300"></i> 
 
-                <p className="text-n70 font-semibold">Roi Income</p>
+                <p className=" font-semibold">Roi Income</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
-                  <p className=" text-n70 font-medium">{income.totalRoiAmount}</p>
+                  <p className="  font-medium">{income.totalRoiAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -168,33 +169,11 @@ const formatDate = (dateString) => {
         </div>
 
      {/* Claimable Section */}<div className="px-6 pt-8">
-     <div class="bg-white bg-opacity-5 rounded-lg shadow-md p-4 px-6 max-w-sm w-full">
-      
-   <div class="flex items-center justify-between mb-2">
-    
-    <div class="flex items-center">
-     <span class="text-gray-600 font-medium">
-     Available Balance
-     </span>
-    </div>
-    
-   </div>
-   <div class="flex items-center mb-4">
-    <img alt="USDT icon" class=" ml-2 w-5 h-5 mr-1" height="20" src="assets/images/ok3d.png" width="16"/>
-    <span class="text-white  text-xl font-semibold" style={{margin:"0px 0px 3px 3px"}}>
-   {balance}
-    </span>
-   </div>
-   <p class="text-gray-500 mb-4" style={{paddingBottom: '11px'}}>
-    {/* Minimum claimable rewards to transfer is 5 USDT. */}
-   </p>
-   <button class="w-full bg-g300 text-purple-600 py-2 rounded-lg font-medium">
-    Withdraw
-   </button>
-  </div>
-  </div>
-       
+   
+  <WalletBalance balance={balance} />
 
+  </div>
+        
         {/* Invite Section */}
         <div className="px-6 pt-8">
           <div className="w-full  p-5 flex justify-between items-center rounded-xl relative bg-opacity-20 overflow-hidden" style={{
@@ -290,8 +269,25 @@ const formatDate = (dateString) => {
       </div>
     );
   })
-) : (
-  <p>No users found.</p>
+) : (<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '50vh',
+  textAlign: 'center'
+}}>
+  <img 
+    src="\assets\images\empty_state.svg" 
+    alt="empty" 
+    style={{
+      maxWidth: '100%',
+      height: 'auto',
+      marginBottom: '20px'
+    }} 
+  />
+  <p style={{ fontSize: '16px', color: '#333' }}>No users found.</p>
+</div>
 )}
 
 

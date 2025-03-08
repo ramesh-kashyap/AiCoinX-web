@@ -68,7 +68,7 @@ const TransactionHistory = () => {
      
       <div className="buySellTab pt-8 px-6 w-full relative z-20">
        <div style={{marginTop:"14px"}} className="flex justify-start items-center pb-8 mr-8">
-                <Link to="/account" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
+                <Link to="/home" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
                   <i className="ph-bold ph-caret-left"></i>
                 </Link>
                 <div className="flex justify-center items-center w-full">
@@ -127,7 +127,25 @@ const TransactionHistory = () => {
     );
   })
 ) : (
-  <p>No users found.</p>
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    textAlign: 'center'
+  }}>
+    <img 
+      src="\assets\images\empty_state.svg" 
+      alt="empty" 
+      style={{
+        maxWidth: '100%',
+        height: 'auto',
+        marginBottom: '20px'
+      }} 
+    />
+    <p style={{ fontSize: '16px', color: '#333' }}>No users found.</p>
+  </div>
 )}
 
           
