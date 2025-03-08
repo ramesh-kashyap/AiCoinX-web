@@ -293,14 +293,14 @@ marginTop:"13px"
   <p className="text-n70 font-semibold pb-5">Support</p>
 
   <div className="border border-white border-opacity-10 p-4 rounded-lg">
-  <LinkBox url="/help-center" icon="ph-plus-circle" name="Help Center" />
+  <Linkbutton url="/help-center" icon="ph-plus-circle" name="Help Center" />
   <hr className="border-white border-opacity-10" />
     {/* Add Promo Code */}
-    <LinkBox url="/privacy-policy" icon="ph-plus-circle" name="Privacy Policy" />
+    <Linkbutton url="/privacy-policy" icon="ph-plus-circle" name="Privacy Policy" />
     <hr className="border-white border-opacity-10" />
 
     {/* Refer a Friend */}
-    <LinkBox url="/about" icon="ph-user-plus" name="About" />
+    <Linkbutton url="/about" icon="ph-user-plus" name="About" />
 
   </div>
 </div>
@@ -336,11 +336,11 @@ marginTop:"13px"
   <div className="border border-white border-opacity-10 p-4 rounded-lg">
     
     {/* Add Promo Code */}
-    <LinkBox url="/promotion/promocode" icon="ph-plus-circle" name="Add Promo Code" />
+    <Linkbutton url="/promotion/promocode" icon="ph-plus-circle" name="Add Promo Code" />
     <hr className="border-white border-opacity-10" />
 
     {/* Refer a Friend */}
-    <LinkBox url="/security/refferals-user" icon="ph-user-plus" name="Refer a Friend" />
+    <Linkbutton url="/security/refferals-user" icon="ph-user-plus" name="Refer a Friend" />
 
   </div>
 </div>
@@ -464,6 +464,25 @@ const LinkBox = ({ url, icon, name }) => {
       to={url}
      target="_blank" 
   rel="noopener noreferrer"
+      className="flex justify-between items-center p-3  hover:bg-opacity-5 duration-300 group"
+    >
+      <div className="flex items-center gap-3">
+      <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl 0  duration-300">
+      <i className={`ph ${icon}`}></i>
+        </div>
+        <p className="font-semibold">{name}</p>
+      </div>
+      <i className="ph ph-caret-right text-g300"></i>
+    </Link>
+  );
+};
+
+
+const Linkbutton = ({ url, icon, name }) => {
+  return (
+    <Link
+      to={url}
+
       className="flex justify-between items-center p-3  hover:bg-opacity-5 duration-300 group"
     >
       <div className="flex items-center gap-3">

@@ -74,7 +74,7 @@ const formatDate = (dateString) => {
 
 
   return (
-    <div className="container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
+    <div style={{paddingBottom:"17rem"}} className="container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
       <div className="w-[582px] h-[582px] rounded-full bg-g300/10 absolute -top-48 -left-20 blur-[575px]"></div>
       <div className="relative z-20 w-full">
         {/* Header Card */}
@@ -241,7 +241,7 @@ const formatDate = (dateString) => {
   className={`tabButton w-full border-b-2 border-n700 ${
     activeTab === 'tokens' ? 'activeTabButton' : ''
   }`}
-> <Link to="/all/transaction">View All</Link>
+> <Link to="/all/transaction">View More</Link>
   
 </li>
 
@@ -275,14 +275,14 @@ const formatDate = (dateString) => {
   <p className="font-semibold">
     +{user.amount}
   </p>
-  <img alt="USDT icon" class=" ml-2 w-5 h-5 mr-1" height="30" width="20px" src="/assets/images/ok3d.png" />
+  {/* <img alt="USDT icon" class=" ml-2 w-5 h-5 mr-1" height="30" width="20px" src="/assets/images/ok3d.png" /> */}
 
 </div>
 
               {/* Remark & Date */}
               <div className="flex flex-col justify-end items-end">
                 <p className="font-semibold">{user.remark}</p>
-                <p className="text-g300 text-sm">{formatDate(user.created_at)}</p>
+                <p style={{color:"#fff"}} className="text-g300 text-sm">{formatDate(user.created_at)}</p>
               </div>
             </div>
           </div>

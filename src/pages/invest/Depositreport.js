@@ -67,21 +67,14 @@ const TransactionHistory = () => {
 
      
       <div className="buySellTab pt-8 px-6 w-full relative z-20">
-      <div className="flex justify-start items-center pb-8 mr-8">
-                <Link
-                  to="/account"  // Adjust the route as needed
-                  className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900"
-                >
+       <div style={{marginTop:"14px"}} className="flex justify-start items-center pb-8 mr-8">
+                <Link to="/account" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
                   <i className="ph-bold ph-caret-left"></i>
                 </Link>
-               
-                
+                <div className="flex justify-center items-center w-full">
+                  <h1 style={{ color: "#fff" }} className="font-semibold text-2xl">Transaction</h1>
+                </div>
               </div>
-        <ul className="tab-button flex justify-between items-center text-lg font-semibold">
-          <li style={{color:"#fff"}} className="activeTabButton tabButton w-full text-center pb-2 border-b-2 border-n700">
-           TRANSACTION
-          </li>
-        </ul>
 
         <div className="pt-8">
           <div style={styles.box} className="flex justify-between items-center gap-4 bg-white bg-opacity-5 rounded-lg py-3 px-4">
@@ -103,7 +96,7 @@ const TransactionHistory = () => {
   users.map((user, index) => {
     const isWithdrawal = user.remark?.toLowerCase().includes("withdraw");
     const amountSign = isWithdrawal ? "-" : "+";
-    const amountColor = isWithdrawal ? "text-red-400" : "text-green-400"; 
+    const amountColor = isWithdrawal ? "text-red-400" : ""; 
 
     return (
       <div key={index} className="homeTab pt-8 px-6">
@@ -119,13 +112,13 @@ const TransactionHistory = () => {
                 <p className={`font-semibold  ${amountColor} !important`}>
                   {amountSign}{user.amount} 
                 </p>
-                <img alt="USDT icon" className=" ml-2 w-5 h-5 mr-1" height="30" width="20px" src="/assets/images/ok3d.png" />
+                {/* <img alt="USDT icon" className=" ml-2 w-5 h-5 mr-1" height="30" width="20px" src="/assets/images/ok3d.png" /> */}
 
               </div>
           
               <div className="flex flex-col justify-end items-end">
                 <p className="font-semibold">{user.remark}</p>
-                <p className="text-g300 text-sm">{formatDate(user.created_at)}</p>
+                <p style={{color:"#fff"}} className="text-g300 text-sm">{formatDate(user.created_at)}</p>
               </div>
             </div>
           </div>
