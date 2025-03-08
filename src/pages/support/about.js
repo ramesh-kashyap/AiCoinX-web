@@ -1,6 +1,6 @@
 import React from 'react';
 // Uncomment if using react-router-dom for internal navigation
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function About() {
   return (
@@ -9,12 +9,11 @@ function About() {
       <div className="px-6 py-8 relative z-20 w-full">
         <div className="flex justify-start items-center pb-8 mr-8">
           {/* Replace with Link if using react-router */}
-          <a
-            href="/account"
+            <Link to="/account"
             className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900"
           >
             <i className="ph-bold ph-caret-left"></i>
-          </a>
+          </Link>
           <div className="flex justify-center items-center w-full">
             <h1 className="font-semibold text-2xl">About</h1>
           </div>

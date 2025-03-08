@@ -27,6 +27,7 @@ import Depositreport from './pages/invest/Depositreport';
 import Depositconfirm from './pages/invest/Depositconfirm';
 
 
+import HelpCenter from './pages/support/helpCenter';
 
 import About from './pages/support/about';
 import PrivacyPolicy from './pages/support/privacy-policy';
@@ -101,6 +102,8 @@ function App() {
         <Route path="/withdraw/otp" element={<ProtectedRoute><Otp /></ProtectedRoute>} />
         <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
         <Route path="/privacy-policy" element={<ProtectedRoute><PrivacyPolicy /></ProtectedRoute>} />
+        <Route path="/help-center" element={<ProtectedRoute><HelpCenter /></ProtectedRoute>} />
+
         <Route path="/language" element={<ProtectedRoute><Language /></ProtectedRoute>} />
         <Route path="/currency" element={<ProtectedRoute><Currency /></ProtectedRoute>} />
         <Route path="/add-token" element={<ProtectedRoute><AddToken /></ProtectedRoute>} />
