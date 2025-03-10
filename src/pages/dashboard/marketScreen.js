@@ -93,8 +93,8 @@ const formatDate = (dateString) => {
             <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
               <div className="flex flex-col gap-2">
                 
-              <i className="ph ph-wallet text-2xl text-g300"></i>
-
+              {/* <i className="ph ph-wallet text-2xl text-g300"></i> */}
+              <img src="\assets\images\stake.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
                 <p className="font-semibold">Total Stake</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="h-5" />
@@ -111,8 +111,8 @@ const formatDate = (dateString) => {
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
             <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
               <div className="flex flex-col gap-2">
-              <i className="ph ph-handbag text-2xl text-g300"></i>
-
+              {/* <i className="ph ph-handbag text-2xl text-g300"></i> */}
+              <img src="\assets\images\withdraw.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
                 <p className=" font-semibold">Total Withdraw</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
@@ -132,8 +132,8 @@ const formatDate = (dateString) => {
           <div className="rounded-xl overflow-hidden col-span-1">
             <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
               <div className="flex flex-col gap-2">
-                
-              <i className="ph ph-users text-2xl text-g300"></i>
+              <img src="\assets\images\users.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
+              {/* <i className="ph ph-users text-2xl text-g300"></i> */}
 
                 <p className="font-semibold">Team Commission</p>
                 <div className="flex  items-center  gap-1">
@@ -151,8 +151,8 @@ const formatDate = (dateString) => {
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
             <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
               <div className="flex flex-col gap-2">
-              <i className="ph ph-coins text-2xl text-g300"></i> 
-
+              {/* <i className="ph ph-coins text-2xl text-g300"></i>  */}
+              <img src="\assets\images\roi.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
                 <p className=" font-semibold">Roi Income</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
@@ -286,7 +286,7 @@ const formatDate = (dateString) => {
       marginBottom: '20px'
     }} 
   />
-  <p style={{ fontSize: '16px', color: '#333' }}>No users found.</p>
+  <p style={{ fontSize: '16px', color: '#fff' }}>No users found.</p>
 </div>
 )}
 

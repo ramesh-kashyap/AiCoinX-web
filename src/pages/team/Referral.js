@@ -127,54 +127,80 @@ export default function Referral() {
         </div>
 
         <div class="flex flex-col gap-2 pt-5">
-        {users.map((user, index) => (
-          <div
-            class="flex justify-between items-center bg-white bg-opacity-5 p-4 rounded-xl"
-          key={index}>
-            <div class="flex justify-start items-center gap-2">
-              <p class="text-sm text-n70">LvL {user.level}</p>
+         {users.length > 0 ?(
+            users.map((user, index) => (
+              <>
               <div
-                class="text-g300 flex justify-center items-center size-10 rounded-full text-xl bg-white bg-opacity-5"
-              >
-          {/* <i className="ph ph-user text-2xl"></i> */}
-          <img  src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg"  />
-          </div>
-              <p class="font-semibold">{user.fullname}</p>
-              
-            </div>
-            <div class="flex flex-col justify-end items-end">
-            <p class="font-semibold flex items-center gap-2 justify-start">
-  {/* <img src="\assets/images/ok3d.png" class="w-6 h-6" style={{width: '27px'}}/> */}
-  <span>{Number(user.package ?? 0).toFixed(2)}</span>
-</p>
-              <p class="text-g300 text-sm">{formatDate(user.jdate)}</p>
-            </div>
-          </div>
-        ))}
+                class="flex justify-between items-center bg-white bg-opacity-5 p-4 rounded-xl"
+              key={index}>
+                <div class="flex justify-start items-center gap-2">
+                  <p class="text-sm text-n70">LvL {user.level}</p>
+                  <div
+                    class="text-g300 flex justify-center items-center size-10 rounded-full text-xl bg-white bg-opacity-5"
+                  >
+              {/* <i className="ph ph-user text-2xl"></i> */}
+              <img  src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg"  />
+              </div>
+                  <p class="font-semibold">{user.fullname}</p>
+                  
+                </div>
+                <div class="flex flex-col justify-end items-end">
+                <p class="font-semibold flex items-center gap-2 justify-start">
+      {/* <img src="\assets/images/ok3d.png" class="w-6 h-6" style={{width: '27px'}}/> */}
+      <span>{Number(user.package ?? 0).toFixed(2)}</span>
+    </p>
+                  <p class="text-g300 text-sm">{formatDate(user.jdate)}</p>
+                </div>
+              </div>
+               <div className="flex justify-center items-center gap-4 mt-6">
+               <button
+                 className="px-4 py-2 bg-g300 text-white rounded-md"
+                 disabled={page === 1}
+                 onClick={() => handlePageChange(page - 1)}
+               >
+                 &lt;&lt;
+               </button>
+               
+               <span className="text-white">{page} / {Math.ceil(total / limit)}</span>
+ 
+               
+               <button
+                 className="px-4 py-2 bg-g300 text-white rounded-md"
+                 disabled={page >= Math.ceil(total / limit)}
+                 onClick={() => handlePageChange(page + 1)}
+               >
+                 &gt;&gt;
+               </button>
+             </div>
+             </>
+            ))
+         ): (<div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '50vh',
+          textAlign: 'center'
+        }}>
+          <img 
+            src="\assets\images\empty_state.svg" 
+            alt="empty" 
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              marginBottom: '20px'
+            }} 
+          />
+          <p style={{ fontSize: '16px', color: '#fff' }}>No users found.</p>
+        </div>
+        )}
+        
+        
         
         </div>
 
 
-        <div className="flex justify-center items-center gap-4 mt-6">
-              <button
-                className="px-4 py-2 bg-g300 text-white rounded-md"
-                disabled={page === 1}
-                onClick={() => handlePageChange(page - 1)}
-              >
-                &lt;&lt;
-              </button>
-              
-              <span className="text-white">{page} / {Math.ceil(total / limit)}</span>
-
-              
-              <button
-                className="px-4 py-2 bg-g300 text-white rounded-md"
-                disabled={page >= Math.ceil(total / limit)}
-                onClick={() => handlePageChange(page + 1)}
-              >
-                &gt;&gt;
-              </button>
-            </div>
+       
 
 
 

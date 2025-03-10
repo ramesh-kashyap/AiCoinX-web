@@ -52,6 +52,7 @@ const handleChange = (e) => {
               <i className="ph ph-headset"></i>
             </div>
             <div className="p-2 rounded-full flex justify-center items-center bg-n700 text-g300">
+            {/* <img src="../assets/images/bell.png" alt="swap" style={{width:25, height:"auto"}}/> */}
               <i className="ph ph-bell"></i>
             </div>
           </div>
@@ -61,7 +62,7 @@ const handleChange = (e) => {
         <div className="py-8">
           <a className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl">
             <div className="flex justify-start items-center gap-3">
-              <img src="assets/images/account-img-1.png" alt="DigitalNomad" />
+              <img src="assets/images/personal.png" alt="DigitalNomad" />
               <div>
                 <p className="font-semibold">Personal Details</p>
               </div>

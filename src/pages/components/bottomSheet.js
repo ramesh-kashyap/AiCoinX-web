@@ -70,7 +70,13 @@ const BottomSheet = ({ isOpen, onClose }) => {
         {/* Options */}
         <Link to="/security/refferals-user"  style={styles.option}>
        
-          <div style={styles.icon} ><i className="fas fa-exchange-alt mr-2"></i> </div>
+          <div style={styles.icon} >
+          {/* <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300"> */}
+                <i className="ph-fill ph-swap"></i>
+                {/* <img src="../assets/images/swap.png" alt="swap" style={{width:25, height:"auto"}}/> */}
+                {/* </div> */}
+            {/* <i className="fas fa-exchange-alt mr-2"></i>  */}
+            </div>
     
           <div>
             <strong>Swap</strong>
@@ -82,7 +88,10 @@ const BottomSheet = ({ isOpen, onClose }) => {
         </Link>
 
         <Link to="/withdraw" style={styles.option}>
-        <div style={styles.icon} ><i className="fas fa-arrow-down mr-2"></i> </div>
+        <div style={styles.icon} >
+          {/* <i className="fas fa-arrow-down mr-2"></i> */}
+          <i className="ph-fill ph-currency-dollar"></i>
+           </div>
           <div>
             <strong>Withdraw</strong>
             <p style={{ margin: "0", fontSize: "12px", color: "#fff" }}>
@@ -93,7 +102,10 @@ const BottomSheet = ({ isOpen, onClose }) => {
         </Link>
 
         <Link to="#" style={styles.option}>
-        <div style={styles.icon} ><i className="fas fa-layer-group mr-2"></i></div>
+        <div style={styles.icon} >
+          {/* <i className="fas fa-layer-group mr-2"></i> */}
+          <i className="ph-fill ph-wallet"></i> 
+          </div>
           <div>
             <strong>Stake</strong>
             <p style={{ margin: "0", fontSize: "12px", color: "#fff" }}>
@@ -104,7 +116,10 @@ const BottomSheet = ({ isOpen, onClose }) => {
         </Link>
 
         <Link to="/invest/Depositreport" style={styles.option}>
-        <div style={styles.icon} ><i className="fas fa-history mr-2"></i></div>
+        <div style={styles.icon} >
+          {/* <i className="fas fa-history mr-2"></i> */}
+          <i className="fas fa-history"></i>
+          </div>
           <div>
             <strong>History</strong>
             <p style={{ margin: "0", fontSize: "12px", color: "#fff" }}>

@@ -100,9 +100,10 @@ const fetchGetBalance = async () => {  try {
               </Link>
               <Link
                 to="/notification"
-                className="flex justify-center items-center text-xl p-2 text-g300 rounded-full bg-white bg-opacity-5" 
+                className="flex justify-center items-center text-xl p-2 text-g300 rounded-full bg-white bg-opacity-5" style={{backgroundColor:"rgb(81 78 124)"}}
               >
-                <i className="ph ph-bell" style={{colo:'#fff' }}></i>
+                {/* <i className="ph ph-bell" style={{colo:'#fff' }}></i> */}
+                <img src="../assets/images/bell.png" alt="swap" style={{width:25, height:"auto"}}/>
               </Link>
             </div>
           </div>
@@ -131,6 +132,7 @@ const fetchGetBalance = async () => {  try {
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
                 <i className="ph-fill ph-swap"></i>
+                {/* <img src="../assets/images/swap.png" alt="swap" style={{width:25, height:"auto"}}/> */}
                 </div>
                 <p className="text-white font-semibold text-sm">Swap</p>
               </Link>
@@ -141,6 +143,7 @@ const fetchGetBalance = async () => {  try {
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
                 <i className="ph-fill ph-currency-dollar"></i>
+                {/* <img src="../assets/images/withdraw.png" alt="swap" style={{width:25, height:"auto"}}/> */}
                 </div>
                 <p className="text-white font-semibold text-sm">Withdraw</p>
               </Link>
@@ -151,6 +154,7 @@ const fetchGetBalance = async () => {  try {
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
                 <i className="ph-fill ph-wallet"></i> 
+                {/* <img src="../assets/images/stake.png" alt="swap" style={{width:25, height:"auto"}}/> */}
                 </div>
                 <p className="text-white font-semibold text-sm">Stake</p>
               </Link>
@@ -160,6 +164,7 @@ const fetchGetBalance = async () => {  try {
               >
                 <div className="flex justify-center items-center p-4 text-xl bg-white bg-opacity-5 rounded-full text-g300">
                <i className="fas fa-history"></i>
+               {/* <img src="../assets/images/history.png" alt="swap" style={{width:25, height:"auto"}}/> */}
                 </div>
                 <p className="text-white font-semibold text-sm">History</p>
               </Link>

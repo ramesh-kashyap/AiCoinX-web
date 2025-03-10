@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { ProtectedRoute, PublicRoute, ProtecRegRoute } from './Helper/helper'; // adjust the path accordingly
+import { ProtectedRoute, PublicRoute ,ProtecRegRoute } from './Helper/helper'; // adjust the path accordingly
 
 import Splash from './pages/splash';
 import Register from './pages/auth/registerScreen';

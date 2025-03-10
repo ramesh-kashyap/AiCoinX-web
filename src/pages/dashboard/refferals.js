@@ -19,7 +19,7 @@ import PinterestIcon from "@mui/icons-material/Pinterest";
 import EmailIcon from "@mui/icons-material/Email";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserFriends } from '@fortawesome/free-solid-svg-icons';
-
+import { Toaster, toast } from "react-hot-toast";
 export default function ReferralProgram() {
   const inputRef = useRef(null);
   const [showPopup, setShowPopup] = useState(false);
@@ -66,7 +66,19 @@ export default function ReferralProgram() {
     fetchUserData();
 }, []);
 
-
+const copyToClipboard = () => {
+  if (inputRef.current) {
+    inputRef.current.select();
+    navigator.clipboard.writeText(inputRef.current.value);
+    setIsCopied(true);
+    
+    // Alert ki jagah toast message show karega
+    toast.success("Referral link copied! ✅", {
+      duration: 3000, // 3 seconds tak show hoga
+      position: "top-center",
+    });
+  }
+};
 useEffect(() => {
   const fetchUserData = async () => {
       try {
@@ -134,21 +146,22 @@ useEffect(() => {
 
 
   // Copy Function
-  const copyToClipboard = () => {
-    if (inputRef.current) {
-      inputRef.current.select();
-      navigator.clipboard.writeText(inputRef.current.value);
-      setIsCopied(true);
-      alert("Referral link copied! ✅");
-    }
-  };
-  return (
+  // const copyToClipboard = () => {
+  //   if (inputRef.current) {
+  //     inputRef.current.select();
+  //     navigator.clipboard.writeText(inputRef.current.value);
+  //     setIsCopied(true);
+  //     alert("Referral link copied! ✅");
+  //   }
+  // };
+  return (    
     <div 
-      style={{ backgroundColor: "#fff" }} 
+      // style={{ backgroundColor: "#fff" }} 
       className="container bg-n900 h-dvh relative flex justify-start items-start text-white"
     >
+      <Toaster />
       {/* Page Content */}
-      <div   style={{ backgroundColor: "rgba(17, 24, 32, 1)",paddingBottom:"110px" }}  className="w-full max-w-md mx-auto p-5">
+      <div   style={{backgroundColor:"rgba(17, 24, 32, 1)", paddingBottom:"110px" }}  className="w-full max-w-md mx-auto p-5">
         {/* Header */}
         <div className="flex justify-start items-center pb-8 mr-8">
           <Link to="/home" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
@@ -329,7 +342,10 @@ useEffect(() => {
 
             <div style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
               <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Successful Referrals</p>
-              <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center"> <FontAwesomeIcon style={{ color: "#9583ff",marginRight:"7px",height:"18px" }} icon={faUserFriends}  /> {totalUser}
+              <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center">
+              {/* <img src="../assets/images/users.png" alt="swap" style={{width:25, height:"auto"}}/> */}
+                 <FontAwesomeIcon style={{ color: "#9583ff",marginRight:"7px",height:"18px" }} icon={faUserFriends} /> 
+                 {totalUser}
               </p>
             </div>
           </div>

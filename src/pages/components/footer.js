@@ -13,7 +13,7 @@ function Footer() {
     ) : (
     <div className="fixed left-0 right-0 bottom-0" style={{  zIndex: 1 }}>
       
-      <div className="container relative bg-white bg-opacity-5 py-5 flex justify-around items-center after:absolute after:bg-n700 after:inset-0">
+      <div className="container relative bg-white bg-opacity-9 py-5 flex justify-around items-center after:absolute after:bg-n700 after:inset-0">
         <div className="absolute left-[41%] bottom-[72px] z-40"   style={{
                   bottom:'48px',
                   left:'45%',
@@ -36,7 +36,8 @@ function Footer() {
                 }`
               }
             >
-              <FontAwesomeIcon icon={faHouse} size="1.8x"/>
+              <FontAwesomeIcon className="p-2 bg-white bg-opacity-9 rounded-full" icon={faHouse} size="1.8x"/>
+              {/* <img src="/assets/images/home2.png" alt="Reload" style={{width:35, height:"auto"}}/> */}
               <p
                 className="text-xs font-semibold"
                 style={{
@@ -55,7 +56,7 @@ function Footer() {
                 }`
               }
             >
-              <FontAwesomeIcon icon={faUserFriends} size="1.8x" />
+              <FontAwesomeIcon className="p-2 bg-white bg-opacity-9 rounded-full" icon={faUserFriends} size="1.8x" />
               <p
                 className="text-xs font-semibold"
                 style={{
@@ -79,7 +80,7 @@ function Footer() {
                 }`
               }
             >
-              <FontAwesomeIcon icon={faWallet} size="1.8x" />
+              <FontAwesomeIcon className="p-2 bg-white bg-opacity-9 rounded-full" icon={faWallet} size="1.8x" />
               <p
                 className="text-xs font-semibold"
                 style={{
@@ -100,7 +101,7 @@ function Footer() {
                 }`
               }
             >
-              <FontAwesomeIcon icon={faUser} size="1.8x" />
+              <FontAwesomeIcon className="p-2 bg-white bg-opacity-9 rounded-full" icon={faUser} size="1.8x" />
               <p
                 className="text-xs font-semibold"
                 style={{

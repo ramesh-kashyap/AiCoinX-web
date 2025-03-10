@@ -63,7 +63,7 @@ function Account() {
   return (
     <><Toaster position="top-center" /><div className="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white pb-28">
     {/* Background Circle */}
-    <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
+    <div className="w-[582px] h-[582px] rounded-full absolute -top-32 -left-20 blur-[575px]"></div>
 
     <div className="relative z-20 p-6 w-full">
 

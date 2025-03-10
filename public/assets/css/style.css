@@ -1074,6 +1074,9 @@ video {
 .bg-opacity-5{
   --tw-bg-opacity: 0.05;
 }
+.bg-opacity-9{
+  --tw-bg-opacity: 0.09;
+}
 .p-1{
   padding: 0.25rem;
 }
@@ -1146,8 +1149,8 @@ video {
   padding-bottom: 1rem;
 }
 .py-5{
-  padding-top: 0.8rem;
-  padding-bottom: 1.25rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.75rem;
 }
 .py-6{
   padding-top: 1.5rem;

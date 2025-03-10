@@ -49,7 +49,7 @@ const AirdropCard = () => {
     },
     arrow: {
       fontSize: "20px",
-      color: "#666",
+      color: "#fff",
     },
   };
 
