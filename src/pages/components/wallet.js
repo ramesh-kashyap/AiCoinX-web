@@ -6,7 +6,7 @@ const WalletBalance = ({ balance }) => {
       display: "flex",
       alignItems: "center",
       gap: "15px",
-      backgroundColor: "#36454F", // Light gray background
+      backgroundColor: "#3a3362", // Light gray background
       padding: "15px",
       borderRadius: "12px",
       boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)", // Subtle shadow
@@ -41,7 +41,7 @@ const WalletBalance = ({ balance }) => {
       {/* Balance Info */}
       <div>
         <p style={styles.balanceText}>{balance}</p>
-        <p style={styles.description}>in the wallet</p>
+        <p style={{ ...styles.description}}>in the wallet</p>
       </div>
     </div>
   );

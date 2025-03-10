@@ -71,7 +71,7 @@ const fetchGetBalance = async () => {  try {
   }, []);
 
   return (
-    <div className="container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
+    <div className="bg-[#0d0d0d] container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
       <div className="w-[582px] h-[582px] rounded-full bg-g300/10 absolute -top-48 -left-20 blur-[575px]"></div>
       <div className="relative z-20 w-full">
         {/* Header Card */}
@@ -100,7 +100,7 @@ const fetchGetBalance = async () => {  try {
               </Link>
               <Link
                 to="/notification"
-                className="flex justify-center items-center text-xl p-2 text-g300 rounded-full bg-white bg-opacity-5" 
+                className="flex justify-center items-center text-xl p-2 text-g300 rounded-full bg-white bg-opacity-5" style={{backgroundColor:"rgb(81 78 124)"}}
               >
                 <i className="ph ph-bell" style={{colo:'#fff' }}></i>
               </Link>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; // Uncomment if using React Router
 
 function TopLosers() {
   return (
-    <div className="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white">
+    <div className="bg-[#0d0d0d] container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white">
       <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
 
       <div className="px-6 py-8 relative z-20 w-full">

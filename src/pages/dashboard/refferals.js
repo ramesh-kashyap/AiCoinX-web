@@ -145,7 +145,7 @@ useEffect(() => {
   return (
     <div 
       style={{ backgroundColor: "#fff" }} 
-      className="container bg-n900 h-dvh relative flex justify-start items-start text-white"
+      className="bg-[#0d0d0d] container bg-n900 h-dvh relative flex justify-start items-start text-white"
     >
       {/* Page Content */}
       <div   style={{ backgroundColor: "rgba(17, 24, 32, 1)",paddingBottom:"110px" }}  className="w-full max-w-md mx-auto p-5">
