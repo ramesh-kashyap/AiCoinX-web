@@ -159,7 +159,7 @@ useEffect(() => {
       // style={{ backgroundColor: "#fff" }} 
       className="container bg-n900 h-dvh relative flex justify-start items-start text-white"
       style={{ backgroundColor: "#fff" }} 
-      className="bg-[#0d0d0d] container bg-n900 h-dvh relative flex justify-start items-start text-white"
+      // className="bg-[#0d0d0d] container bg-n900 h-dvh relative flex justify-start items-start text-white"
     >
       <Toaster />
       {/* Page Content */}
