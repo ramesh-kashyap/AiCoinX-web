@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 const DetailPage = () => {
   return (
-    <div className="container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
+    <div className="bg-[#0d0d0d] container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
       {/* Tailwind classes for background styling */}
       <div className="w-[582px] h-[582px] rounded-full bg-g300/10 absolute -top-48 -left-20 blur-[575px]"></div>
 

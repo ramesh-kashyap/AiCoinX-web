@@ -75,7 +75,7 @@ const formatDate = (dateString) => {
 
 
   return (
-    <div style={{paddingBottom:"17rem"}} className="container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
+    <div style={{paddingBottom:"17rem"}} className="bg-[#0d0d0d] container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
       <div className="w-[582px] h-[582px] rounded-full bg-g300/10 absolute -top-48 -left-20 blur-[575px]"></div>
       <div className="relative z-20 w-full">
         {/* Header Card */}
