@@ -6,7 +6,7 @@ const WalletBalance = ({ balance }) => {
       display: "flex",
       alignItems: "center",
       gap: "15px",
-      backgroundColor: "rgb(58 51 98 / 41%)", // Light gray background
+      backgroundColor: "rgba(17, 24, 32)", // Light gray background
       backgroundColor: "#3a3362", // Light gray background
       padding: "15px",
       borderRadius: "12px",

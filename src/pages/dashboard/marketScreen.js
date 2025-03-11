@@ -75,11 +75,11 @@ const formatDate = (dateString) => {
 
 
   return (
-    <div style={{paddingBottom:"17rem"}} className="bg-[#0d0d0d] container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
+    <div style={{paddingBottom:"17rem"}} className="container bg-n900 relative overflow-hidden flex justify-start items-start text-white pb-36">
       <div className="w-[582px] h-[582px] rounded-full bg-g300/10 absolute -top-48 -left-20 blur-[575px]"></div>
       <div className="relative z-20 w-full">
         {/* Header Card */}
-        <div className="bg-white bg-opacity-5 py-8 px-6 rounded-b-3xl">
+        <div className="bg-white bg-opacity-5 py-8 px-6 rounded-b-3xl" >
           <div className="flex justify-between items-center">
           <NavLink to="/home"> <i className="ph-bold ph-caret-left"></i>
 
@@ -90,7 +90,7 @@ const formatDate = (dateString) => {
           <div className="grid grid-cols-2 gap-4 pt-5">
           {/* Item 1 */}
           <div className="rounded-xl overflow-hidden col-span-1">
-            <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
+            <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#5e6dac"}}>
               <div className="flex flex-col gap-2">
                 
               {/* <i className="ph ph-wallet text-2xl text-g300"></i> */}
@@ -109,7 +109,7 @@ const formatDate = (dateString) => {
           {/* Item 2 */}
           <div className="rounded-xl overflow-hidden col-span-1">
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
-            <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
+            <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#5e6dac"}}>
               <div className="flex flex-col gap-2">
               {/* <i className="ph ph-handbag text-2xl text-g300"></i> */}
               <img src="\assets\images\withdraw.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
@@ -130,7 +130,7 @@ const formatDate = (dateString) => {
         <div className="grid grid-cols-2 gap-4 pt-5">
           {/* Item 1 */}
           <div className="rounded-xl overflow-hidden col-span-1">
-            <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
+            <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#5e6dac"}}>
               <div className="flex flex-col gap-2">
               <img src="\assets\images\users.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
               {/* <i className="ph ph-users text-2xl text-g300"></i> */}
@@ -149,7 +149,7 @@ const formatDate = (dateString) => {
           {/* Item 2 */}
           <div className="rounded-xl overflow-hidden col-span-1">
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
-            <div className="bg-white bg-opacity-5 p-3 flex justify-between items-center">
+            <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#5e6dac"}}>
               <div className="flex flex-col gap-2">
               {/* <i className="ph ph-coins text-2xl text-g300"></i>  */}
               <img src="\assets\images\roi.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>

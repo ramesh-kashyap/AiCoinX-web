@@ -159,7 +159,7 @@ useEffect(() => {
       // style={{ backgroundColor: "#fff" }} 
       className="container bg-n900 h-dvh relative flex justify-start items-start text-white"
       style={{ backgroundColor: "#fff" }} 
-      // className="bg-[#0d0d0d] container bg-n900 h-dvh relative flex justify-start items-start text-white"
+      // className="container bg-n900 h-dvh relative flex justify-start items-start text-white"
     >
       <Toaster />
       {/* Page Content */}
@@ -282,7 +282,7 @@ useEffect(() => {
 
         <div
   style={{
-    background: "linear-gradient(to left, rgb(112 92 229), rgb(116 94 243 / 50%))",marginTop:"-3px"
+    background: "#5e6dac",marginTop:"-3px"
   }}
   className="bg-purple-700 p-5 rounded-lg mt-5 text-center"
 >
@@ -330,7 +330,7 @@ useEffect(() => {
         <div className="mt-6">
           <h2 style={{ color: "#fff" }} className="text-lg font-semibold mb-3">Referral Performance</h2>
           <div style={{ marginTop: "10px" }} className="grid grid-cols-2 gap-4">
-          <div style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
+          <div style={{ backgroundColor: "#5e6dac" }} className="p-4 rounded-lg text-center">
   <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Referral Earnings</p>
   <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center">
   <img src="/assets/images/ok3d.png" alt="Crypto Icon" style={{ width: '30px', height: '30px' }} className="ml-2"/>   {totalIncome}
@@ -342,7 +342,7 @@ useEffect(() => {
 
 
 
-            <div style={{ backgroundColor: "#1d252b" }} className="p-4 rounded-lg text-center">
+            <div style={{ backgroundColor: "#5e6dac" }} className="p-4 rounded-lg text-center">
               <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Successful Referrals</p>
               <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center">
               {/* <img src="../assets/images/users.png" alt="swap" style={{width:25, height:"auto"}}/> */}
@@ -356,7 +356,7 @@ useEffect(() => {
         {/* How to Earn USDT Payouts */}
 
         <div className="mt-6">
-  <h2 style={{ color: "#fff",borderColor:"#6755d3" }} className="text-lg font-semibold text-center mb-3">
+  <h2 style={{ color: "#fff",borderColor:"#5e6dac" }} className="text-lg font-semibold text-center mb-3">
     How to earn USDT payouts
   </h2>
 
@@ -368,7 +368,7 @@ useEffect(() => {
     border: "2px solid", // Border width set kiya
     borderRadius: "13px", // Border ko rounded banane ke liye
     padding: "16px", // Andar ka space maintain karne ke liye
-    borderColor:"#6151c7"
+    borderColor:"#5e6dac"
   }}
   className="mb-3"
 >

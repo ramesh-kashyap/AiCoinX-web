@@ -62,14 +62,13 @@ import SetPin from './pages/auth/setPin';
 import Team from './pages/team/Referral';
 import Withdraw from './pages/Withdraw/withdraw';
 import Otp from './pages/invest/otpScreen';
-import Signup from './pages/components/test';
-import VerifyEmail from './pages/components/test2';
+// import Signup from './pages/components/test';
+// import VerifyEmail from './pages/components/test2';
 
 function App() {
   return (
     <Router>
-      <Routes>
-        {/ Public Route: Splash or landing page /}
+      <Routes>        
         <Route path="/" element={<PublicRoute><Splash /></PublicRoute>} />
         <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
         <Route 
@@ -124,8 +123,8 @@ function App() {
         <Route path="/security/refferals-user" element={<ProtectedRoute><Refferals/></ProtectedRoute>} />
         <Route path="/promotion/promocode" element={<ProtectedRoute><PromoCode/></ProtectedRoute>} />
         <Route path="/team-list" element={<ProtectedRoute><Team /></ProtectedRoute>} />
-        <Route path="/test" element={<Signup />} />
-        <Route path="/test2" element={<VerifyEmail />} />
+        {/* <Route path="/test" element={<Signup />} />
+        <Route path="/test2" element={<VerifyEmail />} /> */}
 
         <Route path="/all/transaction" element={<ProtectedRoute><Depositreport /></ProtectedRoute>}/>
 
