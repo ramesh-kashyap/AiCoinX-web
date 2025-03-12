@@ -6,8 +6,8 @@ const WalletBalance = ({ balance }) => {
       display: "flex",
       alignItems: "center",
       gap: "15px",
-      backgroundColor: "rgba(17, 24, 32)", // Light gray background
-      backgroundColor: "#3a3362", // Light gray background
+      backgroundColor: "#f4f4f4", // Light gray background
+      backgroundColor: "#f4f4f4", // Light gray background
       padding: "15px",
       borderRadius: "12px",
       boxShadow: "0 2px 6px rgb(17 24 32)", // Subtle shadow
@@ -21,11 +21,12 @@ const WalletBalance = ({ balance }) => {
     balanceText: {
       fontSize: "20px",
       fontWeight: "bold",
+      color:"#101014",
       margin: "0",
     },
     description: {
       fontSize: "14px",
-      color: "#fff",
+      color: "#101014",
       margin: "0",
     },
   };

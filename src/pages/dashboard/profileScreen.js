@@ -41,7 +41,11 @@ function Account() {
     fetchUserData();
   }, []);
   
-
+  const styles = {
+    p:{
+        color:"#101014",
+    }
+  }
 
   const handleUpdateProfile = async () => {
     try {
@@ -64,7 +68,6 @@ function Account() {
     <><Toaster position="top-center" /><div className="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white pb-28">
     {/* Background Circle */}
     <div className="w-[582px] h-[582px] rounded-full absolute -top-32 -left-20 blur-[575px]"></div>
-
     <div className="relative z-20 p-6 w-full">
 
           {/* Popup Form */}
@@ -197,7 +200,7 @@ marginTop:"13px"
             <i className="ph-bold ph-caret-left"></i>
           </Link>
           <div className="flex justify-center items-center w-full">
-            <h1 style={{ color: "#fff" }} className="font-semibold text-2xl">Profile</h1>
+            <h1 style={{ color: "#101014" }} className="font-semibold text-2xl">Profile</h1>
           </div>
         </div>
         <div className="flex items-center justify-between w-full mb-4">
@@ -231,17 +234,12 @@ marginTop:"13px"
         <div className="mt-6 space-y-3">
 
         <Link to="/security/refferals-user" >
-          <a style={{backgroundColor:"#242b47"}} className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl">
+          <a style={{backgroundColor:"#f4f4f4"}} className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl">
             <div className="flex justify-start items-center gap-3">
-            <img
-  alt="Referrals"
-  className="w-12 h-12"
-  style={{ borderRadius: "32px" }}
-  src="\assets\images\Task.61fab7c74b5700a23bb5c33281136ac7.svg"  // Replace with the actual image path
-/>
+            <img alt="Referrals" className="w-12 h-12" style={{ borderRadius: "32px" }} src="\assets\images\Task.61fab7c74b5700a23bb5c33281136ac7.svg"/>
               <div>
-                <p className="font-semibold">Refer Friends</p>
-                <p  className="text-n70 text-sm">Refer and earn up to 100 Coins per friend</p>
+                <p className="font-semibold" style={styles.p}>Refer Friends</p>
+                <p  className="text-n70 text-sm" style={styles.p}>Refer and earn up to 100 Coins per friend</p>
               </div>
             </div>
             <i className="ph ph-caret-right text-g300"></i>
@@ -252,14 +250,14 @@ marginTop:"13px"
   target="_blank" 
   rel="noopener noreferrer"
   
-  style={{ marginTop: "10px",backgroundColor:"#242b47" }} 
+  style={{ marginTop: "10px",backgroundColor:"#f4f4f4" }} 
   className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl"
 >
   <div className="flex justify-start items-center gap-3">
     <img src="\assets\images\Youtube.svg" alt="DigitalNomad" />
     <div>
-      <p className="font-semibold">Learn How AI CoinX Works</p>
-      <p className="text-n70 text-sm">Gain insights on how to use AI CoinX</p>
+      <p className="font-semibold" style={styles.p}>Learn How AI CoinX Works</p>
+      <p className="text-n70 text-sm" style={styles.p}>Gain insights on how to use AI CoinX</p>
     </div>
   </div>
   <i className="ph ph-caret-right text-g300"></i>
@@ -267,18 +265,17 @@ marginTop:"13px"
         </div>
          {/* Language and Localization Section */}
          <div className="pt-8">
-          <p className="text-n70 font-semibold pb-5">Account</p>
+          <p className="text-n70 font-semibold pb-5" style={styles.p}>Account</p>
           <div className="flex flex-col gap-5">
             
-            <Link
-              to="/currency"
+            <Link to="/currency" style={{backgroundColor:"#f4f4f4"}}
               className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center  hover:bg-opacity-5 duration-300 group"
             >
               <div className="flex justify-start items-center gap-3">
-              <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl  duration-300">
+              <div className="p-2.5 bg-white1 bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl  duration-300">
               <i className="ph ph-user-circle"></i>
                 </div>
-                <p className="font-semibold">Personal Details</p>
+                <p className="font-semibold" style={styles.p}>Personal Details</p>
               </div>
               <div className="flex justify-start items-center gap-2">
                 <i className="ph ph-caret-right text-g300"></i>
@@ -290,10 +287,10 @@ marginTop:"13px"
 
 
         <div className="pt-8">
-  <p className="text-n70 font-semibold pb-5">Support</p>
+  <p className="text-n70 font-semibold pb-5" style={styles.p}>Support</p>
 
   <div className="border border-white border-opacity-10 p-4 rounded-lg">
-  <Linkbutton url="/help-center" icon="ph-plus-circle" name="Help Center" />
+  <Linkbutton url="/help-center" icon="ph-plus-circle" name="Help Center"/>
   <hr className="border-white border-opacity-10" />
     {/* Add Promo Code */}
     <Linkbutton url="/privacy-policy" icon="ph-plus-circle" name="Privacy Policy" />
@@ -309,8 +306,8 @@ marginTop:"13px"
 
  {/* Security Section */}
  <div className="pt-8">
-          <p className="text-n70 font-semibold pb-5">Security</p>
-          <div className="flex flex-col gap-5">
+          <p className="text-n70 font-semibold pb-5" style={styles.p}>Security</p>
+          <div className="flex flex-col gap-5" style={{backgroundColor:"#f4f4f4",borderRadius:"5px"}}>
             <Link
               to="/security/change-password"
               className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center  hover:bg-opacity-5 duration-300 group"
@@ -319,7 +316,7 @@ marginTop:"13px"
                 <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl  duration-300">
                   <i className="ph ph-cardholder"></i>
                 </div>
-                <p className="font-semibold">Change Pin</p>
+                <p className="font-semibold" style={styles.p}>Change Pin</p>
               </div>
               <i className="ph ph-caret-right text-g300"></i>
             </Link>
@@ -331,7 +328,7 @@ marginTop:"13px"
 
          {/* Support Section */}
          <div className="pt-8">
-  <p className="text-n70 font-semibold pb-5">Promotions</p>
+  <p className="text-n70 font-semibold pb-5" style={styles.p}>Promotions</p>
 
   <div className="border border-white border-opacity-10 p-4 rounded-lg">
     
@@ -347,7 +344,7 @@ marginTop:"13px"
 
         {/* Social Section */}
         <div className="pt-8">
-        <p style={{paddingBottom: "1.25rem"}} className="text-n70 font-semibold pb-5">Follow Us</p>
+        <p style={{paddingBottom: "1.25rem", color:"#101014"}} className="text-n70 font-semibold pb-5">Follow Us</p>
 
         <div className="border border-white border-opacity-10 p-4 rounded-lg">
     {/* Telegram */}
@@ -460,17 +457,13 @@ marginTop:"13px"
 }
 const LinkBox = ({ url, icon, name }) => {
   return (
-    <Link
-      to={url}
-     target="_blank" 
-  rel="noopener noreferrer"
-      className="flex justify-between items-center p-3  hover:bg-opacity-5 duration-300 group"
-    >
+    <Link to={url} target="_blank" rel="noopener noreferrer"
+      className="flex justify-between items-center p-3  hover:bg-opacity-5 duration-300 group" style={{backgroundColor:"#f4f4f4", borderRadius:"5px"}}>
       <div className="flex items-center gap-3">
-      <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl 0  duration-300">
+      <div className="p-2.5 bg-white1 bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl 0  duration-300">
       <i className={`ph ${icon}`}></i>
         </div>
-        <p className="font-semibold">{name}</p>
+        <p className="font-semibold" style={{color:"#101014"}}>{name}</p>
       </div>
       <i className="ph ph-caret-right text-g300"></i>
     </Link>
@@ -480,16 +473,13 @@ const LinkBox = ({ url, icon, name }) => {
 
 const Linkbutton = ({ url, icon, name }) => {
   return (
-    <Link
-      to={url}
-
-      className="flex justify-between items-center p-3  hover:bg-opacity-5 duration-300 group"
-    >
+    <Link to={url}
+      className="flex justify-between items-center p-3 hover:bg-opacity-5 duration-300 group" style={{backgroundColor:"#f4f4f4", borderRadius:"5px"}}>
       <div className="flex items-center gap-3">
       <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl 0  duration-300">
       <i className={`ph ${icon}`}></i>
         </div>
-        <p className="font-semibold">{name}</p>
+        <p style={{color:"#101010"}} className="font-semibold">{name}</p>
       </div>
       <i className="ph ph-caret-right text-g300"></i>
     </Link>
@@ -500,7 +490,7 @@ const styles = {
     maxWidth: '100%',
     maxHeight: '50%',
     marginTop:'20px',
-    border: '2px solid #6633cc',
+    border: '2px solid #222129',
     borderRadius: '12px',
     padding: '12px',
     fontFamily: 'sans-serif',

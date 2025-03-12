@@ -86,7 +86,7 @@ export default function Referral() {
       class="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white"
     >
       <div
-        class="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"
+        class="w-[582px] h-[582px] rounded-full bg-g3001 absolute -top-32 -left-20 blur-[575px]"
       ></div>
       <div class="px-6 py-8 relative z-20 w-full" >
         <div class="flex justify-start items-center pb-8 mr-8">
@@ -191,7 +191,7 @@ export default function Referral() {
               marginBottom: '20px'
             }} 
           />
-          <p style={{ fontSize: '16px', color: '#fff' }}>No users found.</p>
+          <p style={{ fontSize: '16px', color: '#101014' }}>No users found.</p>
         </div>
         )}
         

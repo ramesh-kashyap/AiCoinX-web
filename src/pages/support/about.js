@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function About() {
   return (
     <div className="container bg-n900 h-dvh relative overflow-hidden flex justify-start items-start text-white">
-      <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
+      <div className="w-[582px] h-[582px] rounded-full bg-g3001 absolute -top-32 -left-20 blur-[575px]"></div>
       <div className="px-6 py-8 relative z-20 w-full">
         <div className="flex justify-start items-center pb-8 mr-8">
           {/* Replace with Link if using react-router */}

@@ -61,7 +61,7 @@ function EnterPin() {
 
   return (
     <><Toaster position="top-center" /><div className="container relative overflow-hidden justify-start items-start text-white">
-      <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
+      <div className="w-[582px] h-[582px] rounded-full bg-g3001 absolute -top-48 -left-20 blur-[575px]"></div>
       
       <div style={styles.container} className="bg-n900">
       <div className="buySellTab pt-8 px-6 w-full relative z-20">
@@ -125,7 +125,7 @@ function EnterPin() {
 const styles = {
   container: {
     minHeight: "100vh",
-    backgroundColor: "rgb(17 22 27)",
+    backgroundColor: "#f4f4f4",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -134,7 +134,7 @@ const styles = {
     color: "#000",
   },
   logoContainer: {
-    BorderColor: "#fff",
+    BorderColor: "#f4f4f4",
     marginBottom: "1.5rem",
     marginTop: "2rem",
   },
@@ -142,12 +142,12 @@ const styles = {
     margin: 0,
     fontSize: "1.5rem",
     fontWeight: "bold",
-    color: "#fff",
+    color: "#101014",
   },
   subtitle: {
     margin: "0.5rem 0 2rem 0",
     fontSize: "0.95rem",
-    color: "#fff",
+    color: "#101014",
     textAlign: "center",
     maxWidth: "300px",
   },
@@ -163,14 +163,14 @@ const styles = {
     border: "2px solid #ccc",
     margin: "0 5px",
     display: "flex",
-    alignItems: "center",
+    alignItems: "center",    
     justifyContent: "center",
   },
   filledDot: {
     width: "18px",
     height: "18px",
     borderRadius: "50%",
-    backgroundColor: "#fff",
+    backgroundColor: "#101014",
   },
   keypad: {
     display: "grid",

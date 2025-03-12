@@ -45,7 +45,7 @@ function Footer() {
                   lineHeight: '0.8rem',
                 }}
               >
-                Home
+                {/* Home */}
               </p>
             </NavLink>
             <NavLink
@@ -64,7 +64,7 @@ function Footer() {
                   lineHeight: '0.8rem',
                 }}
               >
-                Refer Friends
+                {/* Refer Friends */}
               </p>
             </NavLink>
 
@@ -88,7 +88,7 @@ function Footer() {
                   lineHeight: '0.8rem',
                 }}
               >
-                Assets
+                {/* Assets */}
               </p>
             </NavLink>
 
@@ -109,7 +109,7 @@ function Footer() {
                   lineHeight: '0.8rem',
                 }}
               >
-                Account
+                {/* Account */}
               </p>
             </NavLink>
       </div>

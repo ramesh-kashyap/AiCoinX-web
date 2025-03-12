@@ -9,7 +9,7 @@ const AirdropCard = () => {
       padding: "15px",
       borderRadius: "15px",
       boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-      border: "2px solid #a78bfa", // Light purple border
+      border: "2px solid #222129", // Light purple border
       maxWidth: "400px",
       margin: "20px auto",
     },
@@ -27,7 +27,7 @@ const AirdropCard = () => {
       fontSize: "16px",
       fontWeight: "bold",
       margin: "0",
-      color: "#fff",
+      color: "#101014",
     },
     points: {
       display: "flex",
@@ -38,7 +38,7 @@ const AirdropCard = () => {
     },
     amount: {
       fontWeight: "bold",
-      color: "#a78bfa",
+      color: "#3A3F4A",
       fontSize: "18px",
       marginRight: "5px",
     },
@@ -49,7 +49,7 @@ const AirdropCard = () => {
     },
     arrow: {
       fontSize: "20px",
-      color: "#fff",
+      color: "#101014",
     },
   };
 
@@ -74,7 +74,7 @@ const AirdropCard = () => {
               alt="Klink Logo"
               style={styles.tokenIcon}
             />
-            <span>points earned so far</span>
+            <span style={{color:"#101024"}}>points earned so far</span>
           </p>
         </div>
       </div>

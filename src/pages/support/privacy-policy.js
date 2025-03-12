@@ -1,16 +1,20 @@
 import React from 'react';
 // Uncomment the following line if you are using react-router-dom for internal navigation
 import { Link } from 'react-router-dom';
-
+const styles ={
+  h1:{
+    color: "#101014",
+  }  
+}
 function PrivacyPolicy() {
   return (
     <div className="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white">
-      <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
+      <div className="w-[582px] h-[582px] rounded-full bg-g3001 absolute -top-32 -left-20 blur-[575px]"></div>
       <div className="px-6 py-8 relative z-20 w-full">
         <div className="flex justify-start items-center pb-8 mr-8">
           {/* Use Link if you are using react-router */}
             <Link to="/account"
-            className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900"
+            className="flex justify-center items-center p-2 rounded-full bg-g3001 text-n900"
           >
             <i className="ph-bold ph-caret-left"></i>
           </Link>
@@ -20,7 +24,7 @@ function PrivacyPolicy() {
         </div>
         <div className="border-t border-dashed border-white border-opacity-10">
           <div className="max-h-[600px] overflow-y-auto my-8 pr-4">
-            <p className="text-lg">Terms</p>
+            <p className="text-lg"  style={styles.h1}>Terms</p>
             <p className="text-n70 pt-4">
               By using our services, you agree to comply with our terms and
               conditions. We reserve the right to update these terms at any
@@ -29,7 +33,7 @@ function PrivacyPolicy() {
               stay informed about any changes. Your adherence ensures a secure
               and reliable experience for all users.
             </p>
-            <p className="text-lg pt-4">Changes to the Service</p>
+            <p className="text-lg pt-4" style={styles.h1}>Changes to the Service</p>
             <p className="text-n70 pt-4">
               We reserve the right to modify, update, or discontinue the Service
               at any time, with or without notice. Changes may include, but are

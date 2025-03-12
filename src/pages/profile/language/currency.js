@@ -54,7 +54,7 @@ function Profile() {
  
   return (
      <><Toaster position="top-center" /><div className="container bg-n900 h-dvh relative overflow-hidden flex justify-start items-start text-white">
-      <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
+      <div className="w-[582px] h-[582px] rounded-full bg-g3001 absolute -top-32 -left-20 blur-[575px]"></div>
       
             <div className="px-6 py-8 relative z-20 w-full">
 
@@ -69,7 +69,7 @@ function Profile() {
   >
     <div
       style={{
-        backgroundColor: "#202338",
+        backgroundColor: "#f4f4f4",
         width: 429,
         height: 300,
         borderTopLeftRadius: "38px",
@@ -81,14 +81,14 @@ function Profile() {
       {/* Info Icon */}
       <div className="h-1 w-16 bg-gray-300 rounded mx-auto mb-3"></div>
       <div className="flex justify-center items-center">
-        <div style={{ backgroundColor: "#fff" }} className="w-16 h-1 bg-white bg-opacity-5 rounded-full"></div>
+        <div style={{ backgroundColor: "#101014" }} className="w-16 h-1 bg-white bg-opacity-5 rounded-full"></div>
       </div>
 
       {/* Confirmation Message */}
       <h2 style={{ marginTop: "30px", marginBottom: "30px" }} className="text-lg font-bold mb-4 text-center">
         Edit Username
       </h2>
-      <p style={{marginTop:"10px",marginBottom:"20px"}} className="text-gray-500 text-center mb-4">
+      <p style={{marginTop:"10px",marginBottom:"20px", color:"#101014"}} className="text-gray-500 text-center mb-4">
         Please fill in the field to continue
       </p>
       {/* Username Input Field */}
@@ -136,7 +136,7 @@ marginTop:"13px"
               <div className="flex justify-start items-center pb-8 mr-8">
                 <Link
                   to="/account"  // Adjust the route as needed
-                  className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900"
+                  className="flex justify-center items-center p-2 rounded-full bg-g3001 text-n900"
                 >
                   <i className="ph-bold ph-caret-left"></i>
                 </Link>
@@ -170,16 +170,16 @@ marginTop:"13px"
           }`}
         >
           <div>
-            <p className="text-gray-400 text-sm">{item.label}</p>
+            <p className="text-gray-400 text-sm" style={{color:"#101014"}}>{item.label}</p>
             <p 
   className="text-lg font-semibold" 
-  style={{ color: "rgb(245 245 245)" }}
+  style={{ color: "#101014" }}
 >
   {item.value || "N/A"}
 </p>
           </div>
           {item.icon && (
-            <i onClick={() => setShowPopupProfile(true)} className="ph-bold ph-caret-right"></i>
+            <i onClick={() => setShowPopupProfile(true)} className="ph-bold ph-caret-right"style={{ color: "#101014" }}></i>
           )}
         </div>
       ))

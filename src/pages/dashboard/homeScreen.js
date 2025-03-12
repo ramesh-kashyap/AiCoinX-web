@@ -70,7 +70,7 @@ const fetchGetBalance = async () => {  try {
       maxWidth: "430px",
       minHeight:"600px",
       margin: "auto",
-      background: "#24244f",
+      background: "#fff",
       padding: "20px",
       // borderRadius: "20px",
       boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
@@ -93,7 +93,7 @@ const fetchGetBalance = async () => {  try {
       borderRadius: "50%",
     },
     balanceCard: {
-      background: "#5e6dac",      
+      background: "#222129",      
       color: "white",
       padding: "20px",
       borderRadius: "12px",
@@ -141,6 +141,7 @@ const fetchGetBalance = async () => {  try {
       marginTop: "20px",
     },
     transaction: {
+      backgroundColor: "#f4f4f4",
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
@@ -164,7 +165,7 @@ const fetchGetBalance = async () => {  try {
       marginTop: "20px",
     },
     actionCard: {
-      background: "#5e6dac",
+      background: "#f4f4f4",
       padding: "15px",
       borderRadius: "12px",
       textAlign: "center",
@@ -175,7 +176,7 @@ const fetchGetBalance = async () => {  try {
       display: "flex",
       justifyContent: "space-around",
       padding: "10px",
-      background: "#fff",
+      background: "#101014",
       borderRadius: "12px",
       position: "fixed",
       bottom: "20px",
@@ -193,24 +194,24 @@ const fetchGetBalance = async () => {  try {
     p: {
       fontSize: "14px",
       margin: 0,
-      color: "#fff",
+      color: "#101014",
     },
     span:{
       fontSize: "10px",
       fontWeight: "100",
-      color: "#fff",
+      color: "#101014",
     },
     h1: {
       fontWeight:"800",
       fontSize: "30px",
     },
     h2: {
-      color: "#fff",
+      color: "#222129",
       fontWeight:"800",
       fontSize: "20px",
     },
     h3:{
-      color: "#fff",
+      color: "#101014",
     }
   };
 
@@ -219,7 +220,7 @@ const fetchGetBalance = async () => {  try {
       {/* User Info */}
       <header style={styles.header}>
         <div style={styles.profile}>
-          <img src="assets/images/frends.png" alt="User Avatar" style={styles.avatar} />
+          <img src="assets/images/jabru.png" alt="User Avatar" style={styles.avatar} />
           <div>
             <span style={styles.span}>Hello,</span>
             <h2 style={styles.h2}>{user 
@@ -227,14 +228,14 @@ const fetchGetBalance = async () => {  try {
     : "Guest"}</h2>
           </div>
         </div>
-        <FiBell style={{ fontSize: "20px" , color:"#fff"}} />
+        <FiBell style={{ fontSize: "20px" , color:"#101014",}} />
       </header>
 
       {/* Balance Card */}
       <div style={styles.balanceCard}>
-        <p>Your Balance</p>
-        <h1 style={styles.h1}>${balance}</h1>
-        <span>Credit Limit $10,000.00</span>
+        <p style={{textAlign:"left"}}>Your Balance</p>
+        <h1 style={{fontWeight:"800",fontSize: "30px",textAlign:"left", color:"#fff"}}>${balance}.29856</h1>
+        <span style={{marginRight:"50%"}}>Credit Limit <span style={{color:"#ffd502"}}>$10,000.00</span></span>
 
         <div style={styles.actionButtons}>
   <div style={styles.actionItem}>
@@ -259,7 +260,7 @@ const fetchGetBalance = async () => {  try {
 
       {/* Transactions */}
       <div style={styles.transactions} onClick={()=>navigate('/security/refferals-user')}>
-        <h3 style={styles.h3}>Transactions <span style={{ color: "#6a5acd", cursor: "pointer", marginLeft: "60%"}}>See all</span></h3>
+        <h3 style={styles.h3}>Transactions <span style={{ color: "#9583ff", cursor: "pointer", marginLeft: "60%"}}>See all</span></h3>
         {liveData.topGainers.map((coin, index) => (
         <div style={styles.transaction}>
           <img src={coin.icon} alt={coin.name} style={styles.avatar} />
@@ -273,7 +274,7 @@ const fetchGetBalance = async () => {  try {
       </div>
 
       {/* Quick Actions */}
-      <div style={styles.quickActions}>
+      {/* <div style={styles.quickActions}>
   <div 
     onClick={() => navigate('/security/refferals-user')} 
     style={{ 
@@ -282,23 +283,41 @@ const fetchGetBalance = async () => {  try {
       overflow: "visible"
     }}
   >
-    {/* Left-side Text */}
     <div style={{ flex: "1", textAlign: "left" }}>
-      <p style={{ fontWeight: "bold", fontSize: "16px", color: "#fff" }}>Invite Friends</p>
-      <p style={{ fontSize: "12px", color: "#fff" }}>Invite friends to join using our application</p>
+      <p style={{ fontWeight: "bold", fontSize: "16px", color: "#222129" }}>Invite Friends</p>
+      <p style={{ fontSize: "12px", color: "#222129" }}>Invite friends to join using our application</p>
     </div>
-
-    {/* Right-side Image (Half Out) */}
     <div 
       style={{ 
         position: "absolute", 
-        right: "-20px", /* Moves image outside the section */
+        right: "-20px", 
         top: "50%", 
         transform: "translateY(-50%)"
       }}
     >
       <img src="assets/images/refer.png" alt="Invite Friends" style={{width:120,height:120}} />
     </div>
+  </div>
+</div> */}
+          <div style={styles.quickActions}>
+  {/* Invite Friends Section */}
+  <div onClick={() => navigate('/security/refferals-user')} style={styles.actionCard}>
+    <div style={{ display: "flex", justifyContent: "center", marginBottom: "10px" }}>
+      <img src="assets/images/jabru.png" alt="Friend 1" style={styles.avatar} />
+      <img src="assets/images/payal.png" alt="Friend 2" style={{ ...styles.avatar, marginLeft: "-10px" }} />
+      <img src="assets/images/rahul.png" alt="Friend 3" style={{ ...styles.avatar, marginLeft: "-10px" }} />
+    </div>
+    <p style={{ fontWeight: "bold", fontSize: "16px" }}>Invite Friends</p>
+    <p style={{ fontSize: "12px", color: "#666" }}>Invite friends to join using our application</p>
+  </div>
+
+  {/* Add Card Section */}
+  <div style={styles.actionCard}>
+    <div style={{ display: "flex", justifyContent: "center", marginBottom: "10px" }}>
+      <img src="assets/images/rupaycard.png" alt="Card" style={{ borderRadius: "8px" }} />
+    </div>
+    <p style={{ fontWeight: "bold", fontSize: "16px" }}>Add Card</p>
+    <p style={{ fontSize: "12px", color: "#666" }}>Add your card to make transactions easier</p>
   </div>
 </div>
 

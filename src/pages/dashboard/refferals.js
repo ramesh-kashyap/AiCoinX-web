@@ -144,7 +144,17 @@ useEffect(() => {
     window.open(url, "_blank");
   };
 
-
+  const styles = {
+    h1:{
+      color:"#101014",
+    },
+    h2:{
+      color:"#101014",
+    },
+    p:{
+      color:"#101014",
+    }
+  }
   // Copy Function
   // const copyToClipboard = () => {
   //   if (inputRef.current) {
@@ -163,14 +173,14 @@ useEffect(() => {
     >
       <Toaster />
       {/* Page Content */}
-      <div   style={{backgroundColor:"rgba(17, 24, 32, 1)", paddingBottom:"110px" }}  className="w-full max-w-md mx-auto p-5">
+      <div   style={{backgroundColor:"#fff", paddingBottom:"110px" }}  className="w-full max-w-md mx-auto p-5">
         {/* Header */}
         <div className="flex justify-start items-center pb-8 mr-8">
           <Link to="/home" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
             <i className="ph-bold ph-caret-left"></i>
           </Link>
           <div className="flex justify-center items-center w-full">
-            <h1 style={{ color: "#fff" }} className="font-semibold text-2xl">Referral Program</h1>
+            <h1 style={styles.h1} className="font-semibold text-2xl">Referral Program</h1>
           </div>
         </div>
 
@@ -191,7 +201,7 @@ useEffect(() => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="h-1 w-16 bg-gray-300 rounded mx-auto mb-3"></div>
-            <h2 style={{ marginBottom: "30px", textAlign: "center", color: "#fff" }} className="text-lg font-bold">Invite Friends</h2>
+          <h2 style={{ marginBottom: "30px", textAlign: "center", color: "#101014" }} className="text-lg font-bold">Invite Friends</h2>
 
             {/* Swiper Slider */}
             <Swiper
@@ -282,7 +292,7 @@ useEffect(() => {
 
         <div
   style={{
-    background: "#5e6dac",marginTop:"-3px"
+    background: "#9583ff",marginTop:"-3px"
   }}
   className="bg-purple-700 p-5 rounded-lg mt-5 text-center"
 >
@@ -296,7 +306,7 @@ useEffect(() => {
 
   {/* 100 USDT with icon in one line */}
   <p className="text-2xl font-bold text-400 flex items-center justify-center">
-    <img src="/assets/images/ok3d.png" alt="Crypto Icon" className="w-6 h-5 mr-2" style={{width:'30px',height:'30px'}}/>
+    <img src="/assets/images/ok3d.png" alt="Crypto Icon" className="w-6 h-5 mr-2" style={{width:'30px',height:'30px', color:"#fff3b7"}}/>
     {totalIncome ?? 0} 
       </p>
 
@@ -305,36 +315,36 @@ useEffect(() => {
   </p>
 
           {/* Referral Link */}
-          <div style={{ backgroundColor: "rgb(153 138 243 / 97%)" }} className="bg-white text-black p-2 rounded-md flex justify-between items-center mt-4">
-            <input style={{ color: "#fff" }} type="text" ref={inputRef}   value={`Referral Code: ${shareUrl}`}className="bg-transparent w-full text-sm px-2" readOnly />
+          <div style={{ backgroundColor: "#f4f4f4" }} className="bg-white text-black p-2 rounded-md flex justify-between items-center mt-4">
+            <input style={{ color: "#101014" }} type="text" ref={inputRef}   value={`Referral Code: ${shareUrl}`}className="bg-transparent w-full text-sm px-2" readOnly />
             <button onClick={copyToClipboard} className="text-blue-600">
-              <i style={{ color: "#fff" }} className="ph-bold ph-copy"></i>
+              <i style={{ color: "#101014" }} className="ph-bold ph-copy"></i>
             </button>
           </div>
 
           {/* Invite Button */}
-          <button     onClick={() => setShowPopup(true)} style={{ backgroundColor: "rgba(0, 0, 0, 1)", marginTop: "16px", marginRight: "5px",borderRadius:"30px",width: "45%" }} className="bg-black rounded-md px-5 py-2 text-white mt-3 w-full">
+          <button     onClick={() => setShowPopup(true)} style={{ backgroundColor: "#f4f4f4",color:"#101014", marginTop: "16px", marginRight: "5px",borderRadius:"30px",width: "45%" }} className="bg-black rounded-md px-5 py-2 text-white mt-3 w-full">
             Invite Friends
           </button>
           <Link to='/team-list'>
-          <button   style={{ backgroundColor: "rgba(0, 0, 0, 1)", marginTop: "16px",borderRadius:"30px", marginLeft: "5px",width: "45%" }} className="bg-black rounded-md px-5 py-2 text-white mt-3 w-full">
+          <button   style={{ backgroundColor: "#f4f4f4",color:"#101014", marginTop: "16px",borderRadius:"30px", marginLeft: "5px",width: "45%" }} className="bg-black rounded-md px-5 py-2 text-white mt-3 w-full">
             Team Lists
           </button>
           </Link>
         </div>
         
-        <p style={{ marginBottom: "14px",marginTop: "12px",fontStyle:"oblique",fontSize:"17px",marginLeft:"75px" }} className="text-sm text-gray-200 mt-2">
-    *Invite must use your unique link.
-  </p>
+        <p style={{ marginBottom: "14px",marginTop: "12px",fontStyle:"oblique",fontSize:"17px",marginLeft:"75px",color:"#101014" }} className="text-sm text-gray-200 mt-2">
+        *Invite must use your unique link.
+       </p>
         {/* Referral Performance */}
         <div className="mt-6">
-          <h2 style={{ color: "#fff" }} className="text-lg font-semibold mb-3">Referral Performance</h2>
+          <h2 style={styles.h2} className="text-lg font-semibold mb-3">Referral Performance</h2>
           <div style={{ marginTop: "10px" }} className="grid grid-cols-2 gap-4">
-          <div style={{ backgroundColor: "#5e6dac" }} className="p-4 rounded-lg text-center">
-  <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Referral Earnings</p>
-  <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center">
+          <div style={{ backgroundColor: "#f4f4f4" }} className="p-4 rounded-lg text-center">
+  <p style={styles.p} className="text-sm text-gray-400">Referral Earnings</p>
+  <p style={styles.p} className="text-xl font-bold flex justify-center items-center">
   <img src="/assets/images/ok3d.png" alt="Crypto Icon" style={{ width: '30px', height: '30px' }} className="ml-2"/>   {totalIncome}
-   
+    
   </p>
 </div>
 
@@ -342,11 +352,11 @@ useEffect(() => {
 
 
 
-            <div style={{ backgroundColor: "#5e6dac" }} className="p-4 rounded-lg text-center">
-              <p style={{ color: "rgb(207 211 215)" }} className="text-sm text-gray-400">Successful Referrals</p>
-              <p style={{ color: "#fff" }} className="text-xl font-bold flex justify-center items-center">
+            <div style={{ backgroundColor: "#f4f4f4" }} className="p-4 rounded-lg text-center">
+              <p style={{ color: "#101014" }} className="text-sm text-gray-400">Successful Referrals</p>
+              <p style={{ color: "#101014" }} className="text-xl font-bold flex justify-center items-center">
               {/* <img src="../assets/images/users.png" alt="swap" style={{width:25, height:"auto"}}/> */}
-                 <FontAwesomeIcon style={{ color: "#9583ff",marginRight:"7px",height:"18px" }} icon={faUserFriends} /> 
+                 <FontAwesomeIcon style={{ color: "#101014",marginRight:"7px",height:"18px" }} icon={faUserFriends} /> 
                  {totalUser}
               </p>
             </div>
@@ -356,7 +366,7 @@ useEffect(() => {
         {/* How to Earn USDT Payouts */}
 
         <div className="mt-6">
-  <h2 style={{ color: "#fff",borderColor:"#5e6dac" }} className="text-lg font-semibold text-center mb-3">
+  <h2 style={{ color: "#101014",borderColor:"#5e6dac" }} className="text-lg font-semibold text-center mb-3">
     How to earn USDT payouts
   </h2>
 
@@ -368,7 +378,7 @@ useEffect(() => {
     border: "2px solid", // Border width set kiya
     borderRadius: "13px", // Border ko rounded banane ke liye
     padding: "16px", // Andar ka space maintain karne ke liye
-    borderColor:"#5e6dac"
+    borderColor:"#3A3F4A"
   }}
   className="mb-3"
 >
@@ -376,7 +386,7 @@ useEffect(() => {
     <img src="/assets/images/ok3d.png" alt="Task Icon" className="w-8 h-8 mr-3"   style={{
    width: '40px'
   }}/>
-    <p style={{ color: "#fff", marginLeft: "10px" }} className="text-sm text-gray-700">
+    <p style={{ color: "#101014", marginLeft: "10px" }} className="text-sm text-gray-700">
       Your invited friend must earn <strong>10 %</strong> by completing featured offer quests.
     </p>
   </div>
@@ -385,7 +395,7 @@ useEffect(() => {
     <img  src="/assets/images/ok3d.png" alt="Bonus Icon" className="w-8 h-8 mr-3"  style={{
    width: '40px'
   }}/>
-    <p style={{ color: "#fff", marginLeft: "10px" }} className="text-sm text-gray-700">
+    <p style={{ color: "#101014", marginLeft: "10px" }} className="text-sm text-gray-700">
       You and your friend both earn <strong>5 %</strong>  earned by your friend.
     </p>
   </div>
@@ -393,7 +403,7 @@ useEffect(() => {
 
 
   {/* Note */}
-  <p  style={{ color: "#fff",marginTop:'20px',fontStyle:"oblique" }} className="text-sm text-gray-700">
+  <p  style={{ color: "#101014",marginTop:'20px',fontStyle:"oblique" }} className="text-sm text-gray-700">
     *Repeatable up to 20 times for each friend (100 Coin bonus).
   </p>
 </div>
