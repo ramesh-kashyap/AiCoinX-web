@@ -195,7 +195,7 @@ useEffect(() => {
           onClick={() => setShowPopup(false)} 
         >
           <div
-            style={{ backgroundColor: "rgb(17 24 32)", width: 429, height: 542, marginBottom: "-200px",borderTopLeftRadius: "38px",
+            style={{ backgroundColor: "#f4f4f4", width: 429, height: 542, marginBottom: "-200px",borderTopLeftRadius: "38px",
               borderTopRightRadius: "38px"  }}
             className="fixed bottom-10 bg-n900 text-white p-6 shadow-lg transition-transform transform translate-y-0"
             onClick={(e) => e.stopPropagation()}

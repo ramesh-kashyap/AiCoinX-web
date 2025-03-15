@@ -21,7 +21,7 @@ const BottomSheet = ({ isOpen, onClose }) => {
     sheet: {
       width: "425px",
     
-      backgroundColor: "rgb(32, 35, 56)",
+      backgroundColor: "#f4f4f4",
       borderRadius: "20px 20px 0 0",
       padding: "20px",
       boxShadow: "0px -4px 10px rgba(0,0,0,0.1)",
@@ -79,8 +79,8 @@ const BottomSheet = ({ isOpen, onClose }) => {
             </div>
     
           <div>
-            <strong>Swap</strong>
-            <p style={{ margin: "0", fontSize: "12px", color: "#fff" }}>
+            <strong style={{color:"#101014"}}>Swap</strong>
+            <p style={{ margin: "0", fontSize: "12px", color: "#101014" }}>
             Exchange one token for another
             </p>
           </div>
@@ -93,8 +93,8 @@ const BottomSheet = ({ isOpen, onClose }) => {
           <i className="ph-fill ph-currency-dollar"></i>
            </div>
           <div>
-            <strong>Withdraw</strong>
-            <p style={{ margin: "0", fontSize: "12px", color: "#fff" }}>
+            <strong style={{color:"#101014"}}>Withdraw</strong>
+            <p style={{ margin: "0", fontSize: "12px", color: "#101014" }}>
               Withdraw tokens from other wallets
             </p>
           </div>
@@ -107,8 +107,8 @@ const BottomSheet = ({ isOpen, onClose }) => {
           <i className="ph-fill ph-wallet"></i> 
           </div>
           <div>
-            <strong>Stake</strong>
-            <p style={{ margin: "0", fontSize: "12px", color: "#fff" }}>
+            <strong style={{color:"#101014"}}>Stake</strong>
+            <p style={{ margin: "0", fontSize: "12px", color: "#101014" }}>
             Lock tokens to earn rewards or interest.
             </p>
           </div>
@@ -121,8 +121,8 @@ const BottomSheet = ({ isOpen, onClose }) => {
           <i className="fas fa-history"></i>
           </div>
           <div>
-            <strong>History</strong>
-            <p style={{ margin: "0", fontSize: "12px", color: "#fff" }}>
+            <strong style={{color:"#101014"}}>History</strong>
+            <p style={{ margin: "0", fontSize: "12px", color: "#101014" }}>
             View your past transactions and activities.
             </p>
           </div>

@@ -79,7 +79,7 @@ const formatDate = (dateString) => {
       <div className="w-[582px] h-[582px] rounded-full bg-g300/10 absolute -top-48 -left-20 blur-[575px]"></div>
       <div className="relative z-20 w-full">
         {/* Header Card */}
-        <div className="bg-white1 bg-opacity-5 py-8 px-6 rounded-b-3xl" >
+        <div className="bg-white2 bg-opacity-5 py-8 px-6 rounded-b-3xl" >
           <div className="flex justify-between items-center">
           <NavLink to="/home"> <i className="ph-bold ph-caret-left"></i>
 
@@ -90,15 +90,15 @@ const formatDate = (dateString) => {
           <div className="grid grid-cols-2 gap-4 pt-5">
           {/* Item 1 */}
           <div className="rounded-xl overflow-hidden col-span-1">
-            <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#222129"}}>
+            <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#f4f4f4"}}>
               <div className="flex flex-col gap-2">
                 
               {/* <i className="ph ph-wallet text-2xl text-g300"></i> */}
-              <img src="\assets\images\stake.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
-                <p className="font-semibold">Total Stake</p>
+              <img src="\assets\images\stake1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
+                <p className="font-semibold" style={{color:"#101014"}}>Total Stake</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="h-5" />
-                  <p className=" font-medium">{income.totalInvestmentAmount}</p>
+                  <p className=" font-medium"style={{color:"#101014"}}>{income.totalInvestmentAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -109,14 +109,14 @@ const formatDate = (dateString) => {
           {/* Item 2 */}
           <div className="rounded-xl overflow-hidden col-span-1">
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
-            <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#222129"}}>
+            <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#f4f4f4"}}>
               <div className="flex flex-col gap-2">
               {/* <i className="ph ph-handbag text-2xl text-g300"></i> */}
-              <img src="\assets\images\withdraw.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
-                <p className=" font-semibold">Total Withdraw</p>
+              <img src="\assets\images\withdraw1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
+                <p className=" font-semibold" style={{color:"#101014"}}>Total Withdraw</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
-                  <p className="  font-medium">{income.totalWithdrawlAmount}</p>
+                  <p className="  font-medium" style={{color:"#101014"}}>{income.totalWithdrawlAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -130,15 +130,15 @@ const formatDate = (dateString) => {
         <div className="grid grid-cols-2 gap-4 pt-5">
           {/* Item 1 */}
           <div className="rounded-xl overflow-hidden col-span-1">
-            <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#222129"}}>
+            <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#f4f4f4"}}>
               <div className="flex flex-col gap-2">
-              <img src="\assets\images\users.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
+              <img src="\assets\images\team1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
               {/* <i className="ph ph-users text-2xl text-g300"></i> */}
 
-                <p className="font-semibold">Team Commission</p>
+                <p className="font-semibold" style={{color:"#101014"}}>Team Commission</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"   className="h-5" />
-                  <p className=" font-medium">{income.totalTeamAmount}</p>
+                  <p className=" font-medium"style={{color:"#101014"}}>{income.totalTeamAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -149,14 +149,14 @@ const formatDate = (dateString) => {
           {/* Item 2 */}
           <div className="rounded-xl overflow-hidden col-span-1">
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
-            <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#222129"}}>
+            <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#f4f4f4"}}>
               <div className="flex flex-col gap-2">
               {/* <i className="ph ph-coins text-2xl text-g300"></i>  */}
-              <img src="\assets\images\roi.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
-                <p className=" font-semibold">Roi Income</p>
+              <img src="\assets\images\roi1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
+                <p className=" font-semibold"style={{color:"#101014"}}>Roi Income</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
-                  <p className="  font-medium">{income.totalRoiAmount}</p>
+                  <p className="  font-medium"style={{color:"#101014"}}>{income.totalRoiAmount}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">

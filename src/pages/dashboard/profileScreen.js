@@ -107,7 +107,7 @@ function Account() {
               color: "#fff", 
               borderColor: "#292c3d",
               paddingLeft: "40px", // Left padding taaki text icon se overlap na ho
-marginTop:"13px"
+              marginTop:"13px"
             }}
             type="text"
             value={UserData}        
@@ -289,7 +289,7 @@ marginTop:"13px"
         <div className="pt-8">
   <p className="text-n70 font-semibold pb-5" style={styles.p}>Support</p>
 
-  <div className="border border-white border-opacity-10 p-4 rounded-lg">
+  <div className="border border-white border-opacity-10 rounded-lg">
   <Linkbutton url="/help-center" icon="ph-plus-circle" name="Help Center"/>
   <hr className="border-white border-opacity-10" />
     {/* Add Promo Code */}
@@ -330,7 +330,7 @@ marginTop:"13px"
          <div className="pt-8">
   <p className="text-n70 font-semibold pb-5" style={styles.p}>Promotions</p>
 
-  <div className="border border-white border-opacity-10 p-4 rounded-lg">
+  <div className="border border-white border-opacity-10 rounded-lg">
     
     {/* Add Promo Code */}
     <Linkbutton url="/promotion/promocode" icon="ph-plus-circle" name="Add Promo Code" />
@@ -346,7 +346,7 @@ marginTop:"13px"
         <div className="pt-8">
         <p style={{paddingBottom: "1.25rem", color:"#101014"}} className="text-n70 font-semibold pb-5">Follow Us</p>
 
-        <div className="border border-white border-opacity-10 p-4 rounded-lg">
+        <div className="border border-white border-opacity-10 rounded-lg">
     {/* Telegram */}
         {/* Telegram */}
       <LinkBox url="https://t.me/yourtelegramchannel" icon="ph-telegram-logo" name="Telegram" />
