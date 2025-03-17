@@ -44,6 +44,9 @@ function Account() {
   const styles = {
     p:{
         color:"#101014",
+    },
+    border :{
+      border: "1px solid rgb(0, 0, 0)",
     }
   }
 
@@ -78,7 +81,7 @@ function Account() {
   >
     <div 
       style={{ 
-        backgroundColor: "rgb(32 37 57)", 
+        backgroundColor: "#EDE7F6", 
         width: 429, 
         height: 313,
         borderTopLeftRadius: "38px",
@@ -234,7 +237,7 @@ function Account() {
         <div className="mt-6 space-y-3">
 
         <Link to="/security/refferals-user" >
-          <a style={{backgroundColor:"#f4f4f4"}} className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl">
+          <a style={{backgroundColor:"#D1C4E9", border :"1px solid rgb(0, 0, 0)",}} className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl">
             <div className="flex justify-start items-center gap-3">
             <img alt="Referrals" className="w-12 h-12" style={{ borderRadius: "32px" }} src="\assets\images\Task.61fab7c74b5700a23bb5c33281136ac7.svg"/>
               <div>
@@ -242,7 +245,7 @@ function Account() {
                 <p  className="text-n70 text-sm" style={styles.p}>Refer and earn up to 100 Coins per friend</p>
               </div>
             </div>
-            <i className="ph ph-caret-right text-g300"></i>
+            <i className="ph ph-caret-right text-g301"></i>
           </a>
           </Link>
           <a 
@@ -250,7 +253,7 @@ function Account() {
   target="_blank" 
   rel="noopener noreferrer"
   
-  style={{ marginTop: "10px",backgroundColor:"#f4f4f4" }} 
+  style={{ marginTop: "10px",backgroundColor:"#D1C4E9", border:"1px solid rgb(0, 0, 0)  " }} 
   className="w-full flex justify-between items-center gap-6 bg-white bg-opacity-5 p-4 rounded-xl"
 >
   <div className="flex justify-start items-center gap-3">
@@ -260,7 +263,7 @@ function Account() {
       <p className="text-n70 text-sm" style={styles.p}>Gain insights on how to use AI CoinX</p>
     </div>
   </div>
-  <i className="ph ph-caret-right text-g300"></i>
+  <i className="ph ph-caret-right text-g301"></i>
 </a>
         </div>
          {/* Language and Localization Section */}
@@ -268,17 +271,17 @@ function Account() {
           <p className="text-n70 font-semibold pb-5" style={styles.p}>Account</p>
           <div className="flex flex-col gap-5">
             
-            <Link to="/currency" style={{backgroundColor:"#f4f4f4"}}
+            <Link to="/currency" style={{backgroundColor:"#D1C4E9", border:"1px solid rgb(0, 0, 0)"}}
               className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center  hover:bg-opacity-5 duration-300 group"
             >
               <div className="flex justify-start items-center gap-3">
-              <div className="p-2.5 bg-white1 bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl  duration-300">
+              <div className=" bg-opacity-5 flex justify-center items-center rounded-full text-g301 text-xl  duration-300">
               <i className="ph ph-user-circle"></i>
                 </div>
                 <p className="font-semibold" style={styles.p}>Personal Details</p>
               </div>
               <div className="flex justify-start items-center gap-2">
-                <i className="ph ph-caret-right text-g300"></i>
+                <i className="ph ph-caret-right text-g301"></i>
               </div>
             </Link>
           </div>
@@ -307,18 +310,18 @@ function Account() {
  {/* Security Section */}
  <div className="pt-8">
           <p className="text-n70 font-semibold pb-5" style={styles.p}>Security</p>
-          <div className="flex flex-col gap-5" style={{backgroundColor:"#f4f4f4",borderRadius:"5px"}}>
+          <div className="flex flex-col gap-5" style={{backgroundColor:"#D1C4E9",borderRadius:"5px"}}>
             <Link
               to="/security/change-password"
-              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center  hover:bg-opacity-5 duration-300 group"
+              className="rounded-lg p-3 border border-white border-opacity-5 flex justify-between items-center  hover:bg-opacity-5 duration-300 group" style={styles.border}
             >
               <div className="flex justify-start items-center gap-3">
-                <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl  duration-300">
+                <div className=" bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g301 text-xl  duration-300">
                   <i className="ph ph-cardholder"></i>
                 </div>
                 <p className="font-semibold" style={styles.p}>Change Pin</p>
               </div>
-              <i className="ph ph-caret-right text-g300"></i>
+              <i className="ph ph-caret-right text-g301"></i>
             </Link>
       
            
@@ -382,7 +385,7 @@ function Account() {
           className="rounded-lg p-3 w-full flex justify-between items-center hover:bg-white hover:bg-opacity-5 duration-300 group logoutModalOpenButton"
         >
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
+            <div className=" bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g301 text-xl group-hover:bg-g300 group-hover:text-white group-hover:bg-opacity-100 duration-300">
             <i className="ph ph-arrows-down-up"></i>
             </div>
             <p className="font-semibold"></p>
@@ -391,7 +394,7 @@ function Account() {
 
 <button 
   onClick={() => setShowPopupLogout(true)}
-  style={{ marginTop: "16px", border: "2px solid red",borderRadius:"15px",marginTop:"25px",color:"red"}} 
+  style={{ marginTop: "16px", border: "2px solid red",borderRadius:"15px",marginTop:"25px",color:"#fff"}} 
   className="w-full p-3 font-bold mb-4 bg-purple-500 text-white rounded-md hover:bg-purple-600"
 >
   Log Out
@@ -412,11 +415,11 @@ function Account() {
               <h2 className="text-xl font-semibold text-center pt-8">
                 Check your biometrics
               </h2>
-              <button className="absolute top-4 right-4 text-2xl text-g300 checkBiometricsCloseButton">
+              <button className="absolute top-4 right-4 text-2xl text-g301 checkBiometricsCloseButton">
                 <i className="ph ph-x-circle"></i>
               </button>
               <div className="flex flex-col gap-4 pt-8">
-                <div className="text-[100px] text-g300 flex justify-center items-center">
+                <div className="text-[100px] text-g301 flex justify-center items-center">
                   <i className="ph ph-fingerprint"></i>
                 </div>
                 <div className="text-center">
@@ -432,7 +435,7 @@ function Account() {
               <div className="flex justify-center items-center">
                 <div className="w-16 h-1 bg-white bg-opacity-5 rounded-full"></div>
               </div>
-              <h2 className="text-2xl font-semibold text-center pt-8 text-g300 pb-5">
+              <h2 className="text-2xl font-semibold text-center pt-8 text-g301 pb-5">
                 Logout
               </h2>
               <div className="pt-5 border-t border-dashed border-white border-opacity-10">
@@ -441,7 +444,7 @@ function Account() {
                 </p>
               </div>
               <div className="w-full pt-12 flex justify-between items-center gap-3">
-                <button className="block text-g300 border border-g300 bg-white bg-opacity-5 font-semibold text-center py-3 rounded-lg w-full logoutModalCloseButton">
+                <button className="block text-g301 border border-g300 bg-white bg-opacity-5 font-semibold text-center py-3 rounded-lg w-full logoutModalCloseButton">
                   Cancel
                 </button>
                 <a href="" className="block bg-g300 font-semibold text-center py-3 rounded-lg w-full">
@@ -458,14 +461,14 @@ function Account() {
 const LinkBox = ({ url, icon, name }) => {
   return (
     <Link to={url} target="_blank" rel="noopener noreferrer"
-      className="flex justify-between items-center p-3  hover:bg-opacity-5 duration-300 group" style={{backgroundColor:"#f4f4f4", borderRadius:"5px"}}>
+      className="flex justify-between items-center p-3  hover:bg-opacity-5 duration-300 group" style={{backgroundColor:"#D1C4E9", borderRadius:"5px", border:"1px solid rgb(0, 0, 0)", marginBottom: 5}}>
       <div className="flex items-center gap-3">
-      <div className="p-2.5 bg-white1 bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl 0  duration-300">
+      <div className="bg-opacity-5 flex justify-center items-center rounded-full text-g301 text-xl 0  duration-300">
       <i className={`ph ${icon}`}></i>
         </div>
         <p className="font-semibold" style={{color:"#101014"}}>{name}</p>
       </div>
-      <i className="ph ph-caret-right text-g300"></i>
+      <i className="ph ph-caret-right text-g301"></i>
     </Link>
   );
 };
@@ -474,14 +477,14 @@ const LinkBox = ({ url, icon, name }) => {
 const Linkbutton = ({ url, icon, name }) => {
   return (
     <Link to={url}
-      className="flex justify-between items-center p-3 hover:bg-opacity-5 duration-300 group" style={{backgroundColor:"#f4f4f4", borderRadius:"5px"}}>
+      className="flex justify-between items-center p-3 hover:bg-opacity-5 duration-300 group" style={{backgroundColor:"#D1C4E9", borderRadius:"5px", border:"1px solid rgb(0, 0, 0)", marginBottom:5}}>
       <div className="flex items-center gap-3">
-      <div className="p-2.5 bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g300 text-xl 0  duration-300">
+      <div className=" bg-white bg-opacity-5 flex justify-center items-center rounded-full text-g301 text-xl 0  duration-300">
       <i className={`ph ${icon}`}></i>
         </div>
         <p style={{color:"#101010"}} className="font-semibold">{name}</p>
       </div>
-      <i className="ph ph-caret-right text-g300"></i>
+      <i className="ph ph-caret-right text-g301"></i>
     </Link>
   );
 };

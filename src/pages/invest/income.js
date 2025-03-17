@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Api from "../../service/Api";
 import { Link } from "react-router-dom";
 
-const TransactionHistory = () => {
+const AllIncome = () => {
   const [users, setUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState(""); 
   const [error, setError] = useState("");
@@ -17,7 +17,7 @@ const TransactionHistory = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await Api.get("/deposit-History", {
+      const response = await Api.get("/all-income", {
         params: { search: searchQuery, page: currentPage, limit: itemsPerPage }, 
       });
 
@@ -62,7 +62,7 @@ const TransactionHistory = () => {
 
   return (
     <div className="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white">
-      <div className="w-[582px] h-[582px] rounded-full  absolute -top-32 -left-20 blur-[575px]"></div>
+      <div className="w-[582px] h-[582px] rounded-full absolute -top-32 -left-20 blur-[575px]"></div>
 
 
      
@@ -117,8 +117,8 @@ const TransactionHistory = () => {
               </div>
           
               <div className="flex flex-col justify-end items-end">
-                <p className="font-semibold bg-g301">{user.remark}</p>
-                <p className="text-sm bg-g301">{formatDate(user.created_at)}</p>
+                <p className="font-semibold">{user.remark}</p>
+                <p style={{color:"#fff"}} className="text-g300 text-sm">{formatDate(user.created_at)}</p>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@ const TransactionHistory = () => {
         marginBottom: '20px'
       }} 
     />
-    <p style={{ fontSize: '16px', color: '#fff' }}>No users found.</p>
+    <p style={{ fontSize: '16px', color: '#000' }}>No users found.</p>
   </div>
 )}
 
@@ -152,7 +152,7 @@ const TransactionHistory = () => {
           {totalPages > 1 && (
             <div className="flex justify-center items-center gap-4 mt-6">
               <button
-                className="px-4 py-2 bg-g301 text-white rounded-md"
+                className="px-4 py-2 bg-g300 text-white rounded-md"
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
               >
@@ -160,7 +160,7 @@ const TransactionHistory = () => {
               </button>
               
               {currentPage > 2 && <span className="text-white">1, 2...</span>}
-              <span className="text-white bg-g301">{currentPage}</span>
+              <span className="text-white">{currentPage}</span>
               {currentPage < totalPages - 1 && <span className="text-white">... {totalPages}</span>}
               
               <button
@@ -187,8 +187,8 @@ const TransactionHistory = () => {
 
 const styles = {
   box: {
-    backgroundColor: "rgba(255, 255, 255, var(--tw-bg-opacity))",
+    backgroundColor: "#D1C4E9",
   },
 };
 
-export default TransactionHistory;
+export default AllIncome;

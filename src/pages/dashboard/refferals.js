@@ -168,12 +168,12 @@ useEffect(() => {
     <div 
       // style={{ backgroundColor: "#fff" }} 
       className="container bg-n900 h-dvh relative flex justify-start items-start text-white"
-      style={{ backgroundColor: "#fff" }} 
+      // style={{ backgroundColor: "#EDE7F6" }} 
       // className="container bg-n900 h-dvh relative flex justify-start items-start text-white"
     >
       <Toaster />
       {/* Page Content */}
-      <div   style={{backgroundColor:"#fff", paddingBottom:"110px" }}  className="w-full max-w-md mx-auto p-5">
+      <div   style={{backgroundColor:"#EDE7F6", paddingBottom:"110px" }}  className="w-full max-w-md mx-auto p-5">
         {/* Header */}
         <div className="flex justify-start items-center pb-8 mr-8">
           <Link to="/home" className="flex justify-center items-center p-2 rounded-full bg-g300 text-n900">
@@ -195,7 +195,7 @@ useEffect(() => {
           onClick={() => setShowPopup(false)} 
         >
           <div
-            style={{ backgroundColor: "#f4f4f4", width: 429, height: 542, marginBottom: "-200px",borderTopLeftRadius: "38px",
+            style={{ backgroundColor: "#D1C4E9", width: 429, height: 542, marginBottom: "-200px",borderTopLeftRadius: "38px",
               borderTopRightRadius: "38px"  }}
             className="fixed bottom-10 bg-n900 text-white p-6 shadow-lg transition-transform transform translate-y-0"
             onClick={(e) => e.stopPropagation()}
@@ -292,7 +292,7 @@ useEffect(() => {
 
         <div
   style={{
-    background: "#9583ff",marginTop:"-3px"
+    background: "#D1C4E9",marginTop:"-3px"
   }}
   className="bg-purple-700 p-5 rounded-lg mt-5 text-center"
 >
@@ -340,7 +340,7 @@ useEffect(() => {
         <div className="mt-6">
           <h2 style={styles.h2} className="text-lg font-semibold mb-3">Referral Performance</h2>
           <div style={{ marginTop: "10px" }} className="grid grid-cols-2 gap-4">
-          <div style={{ backgroundColor: "#f4f4f4" }} className="p-4 rounded-lg text-center">
+          <div style={{ backgroundColor: "#D1C4E9" }} className="p-4 rounded-lg text-center">
   <p style={styles.p} className="text-sm text-gray-400">Referral Earnings</p>
   <p style={styles.p} className="text-xl font-bold flex justify-center items-center">
   <img src="/assets/images/ok3d.png" alt="Crypto Icon" style={{ width: '30px', height: '30px' }} className="ml-2"/>   {totalIncome}
@@ -352,7 +352,7 @@ useEffect(() => {
 
 
 
-            <div style={{ backgroundColor: "#f4f4f4" }} className="p-4 rounded-lg text-center">
+            <div style={{ backgroundColor: "#D1C4E9" }} className="p-4 rounded-lg text-center">
               <p style={{ color: "#101014" }} className="text-sm text-gray-400">Successful Referrals</p>
               <p style={{ color: "#101014" }} className="text-xl font-bold flex justify-center items-center">
               {/* <img src="../assets/images/users.png" alt="swap" style={{width:25, height:"auto"}}/> */}

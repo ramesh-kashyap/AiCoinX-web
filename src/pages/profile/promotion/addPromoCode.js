@@ -7,7 +7,7 @@ const PromoCodePage = () => {
   return (
     <div className="container bg-n900 min-h-dvh relative overflow-hidden flex justify-start items-start text-white pb-28">
       {/* Background Circle */}
-      <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
+      <div className="w-[582px] h-[582px] rounded-full  absolute -top-32 -left-20 blur-[575px]"></div>
 
       <div className="relative z-20 p-6 w-full">
         {/* Header */}
@@ -16,7 +16,7 @@ const PromoCodePage = () => {
             <i className="ph-bold ph-caret-left"></i>
           </Link>
           <div className="flex justify-center items-center w-full">
-            <h1 style={{ color: "#fff" }} className="font-semibold text-2xl">Profile</h1>
+            <h1 className="font-semibold text-2xl">Profile</h1>
           </div>
         </div>
 

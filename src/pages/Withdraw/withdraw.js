@@ -80,12 +80,12 @@ if (isNaN(amountValue) || !Number.isInteger(amountValue)) {
   return (
     <div className="container bg-n900 h-dvh relative overflow-hidden justify-start items-start text-white">
       {/* Blurred Circular Background */}
-      <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
+      <div className="w-[582px] h-[582px] rounded-full text-g301 absolute -top-32 -left-20 blur-[575px]"></div>
       
       <div className="relative z-20 px-6 w-full">
         {/* Header Text */}
         <div className="flex justify-start items-center gap-3 pb-8 w-full " style={{ gap: "3rem" ,paddingTop: '1rem' }}>
-                      <Link to="/account" className="flex justify-center  p-2 rounded-full bg-g300 text-n900">
+                      <Link to="/account" className="flex justify-center  p-2 rounded-full text-g301 text-n900">
                         <i className="ph-bold ph-caret-left"></i>
                       </Link>
                       <div className="flex justify-center items-center flex-col gap-2 pt-8" >
@@ -132,7 +132,7 @@ if (isNaN(amountValue) || !Number.isInteger(amountValue)) {
                   width="25px"
                   className="inline mr-1"
                 /></p>
-            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-xl text-n70 text-xl">
+            <div className="flex justify-between items-center gap-3 p-4 bg-white3 bg-opacity-5 rounded-xl text-n70 text-xl">
               <input
                 type="text"
                 name="amount"
@@ -147,7 +147,7 @@ if (isNaN(amountValue) || !Number.isInteger(amountValue)) {
            {/* Wallet Address Input */}
            <div>
             <p className="text-sm font-semibold pb-2">Wallet Address</p>
-            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-xl text-white text-n70 text-xl">
+            <div className="flex justify-between items-center gap-3 p-4 bg-white3 bg-opacity-5 rounded-xl text-white text-n70 text-xl">
               <input
                 type="text"
                 name="walletAddress"
@@ -161,7 +161,7 @@ if (isNaN(amountValue) || !Number.isInteger(amountValue)) {
           <div className="w-full pt-20" style={{ paddingTop: '1rem' }}>
           <button
       type="submit"
-      className="block bg-g300 font-semibold text-center rounded-xl py-3 w-full"
+      className="block font-semibold bg-white2 text-center rounded-xl py-3 w-full"
     >
       Withdraw
       <svg

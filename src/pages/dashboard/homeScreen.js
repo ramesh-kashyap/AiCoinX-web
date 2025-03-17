@@ -6,14 +6,16 @@ import Api from '../../service/Api';
 import WalletBalance from '../components/wallet';
 import AirdropCard from '../components/airDrop';
 import NewsCard from '../components/newsComponent';
-import { minHeight } from "@mui/system";
+import { fontSize, minHeight } from "@mui/system";
 const WalletDashboard = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('tokens');
   const [coinData, setCoinData] = useState(null);
   const [news, setNews] = useState(null);
   const [user, setUser] = useState(null);
+  const [users, setUsers] = useState([]);
   const [balance, setBalance] = useState(null);
+  const [error, setError] = useState("");
   const [liveData, setLiveData] = useState({ topGainers: [], topLosers: [] });
    const fetchNewsData = async () => {  try {
     // Fetch news data (adjust the endpoint as needed)
@@ -64,13 +66,31 @@ const fetchGetBalance = async () => {  try {
     return () => clearInterval(interval);
   }, []);
 
+  const fetchUsers = async () => {
+    try {
+      const response = await Api.get("/deposit-History");
+
+      if (response.data && Array.isArray(response.data.data)) {
+        setUsers(response.data.data);
+      } else {
+        setUsers([]);
+      }
+    } catch (err) {
+      setError(err.response?.data?.error || "Error fetching data");
+    }
+  };
+
+  // Run effect on component mount
+  useEffect(() => {
+    fetchUsers();
+  }, []);
   // Inline CSS styles
   const styles = {
     container: {
       maxWidth: "430px",
       minHeight:"600px",
       margin: "auto",
-      background: "#fff",
+      // background: "#fff",
       padding: "20px",
       // borderRadius: "20px",
       boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
@@ -113,7 +133,7 @@ const fetchGetBalance = async () => {  try {
       gap: "5px",
     },
     iconButton: {
-      background: "#fff",
+      background: "#D1C4E9",
       border: "none",
       width: "50px",
       height: "50px",
@@ -141,19 +161,20 @@ const fetchGetBalance = async () => {  try {
       marginTop: "20px",
     },
     transaction: {
-      backgroundColor: "#f4f4f4",
+      // backgroundColor: "#d1c4e9",
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
       // background: "white",
-      padding: "10px",
+      padding: "12px",
       borderRadius: "10px",
       marginTop: "10px",
       boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
     },
     received: {
       color: "green",
-      fontWeight: "bold",
+      fontSize: "14px",
+      // fontWeight: "bold",
     },
     outgoing: {
       color: "red",
@@ -165,7 +186,7 @@ const fetchGetBalance = async () => {  try {
       marginTop: "20px",
     },
     actionCard: {
-      background: "#f4f4f4",
+      background: "#D1C4E9",
       padding: "15px",
       borderRadius: "12px",
       textAlign: "center",
@@ -216,7 +237,7 @@ const fetchGetBalance = async () => {  try {
   };
 
   return (
-    <div style={styles.container}>
+    <div style={styles.container} class="bg-n900">
       {/* User Info */}
       <header style={styles.header}>
         <div style={styles.profile}>
@@ -259,19 +280,54 @@ const fetchGetBalance = async () => {  try {
       </div>
 
       {/* Transactions */}
-      <div style={styles.transactions} onClick={()=>navigate('/security/refferals-user')}>
-        <h3 style={styles.h3}>Transactions <span style={{ color: "#9583ff", cursor: "pointer", marginLeft: "60%"}}>See all</span></h3>
-        {liveData.topGainers.map((coin, index) => (
-        <div style={styles.transaction}>
-          <img src={coin.icon} alt={coin.name} style={styles.avatar} />
-          <div>
-            <p style={styles.p}>{coin.name}</p>
-            <span style={styles.p}>${coin.price.toFixed(2)}</span>
+      <div style={styles.transactions} onClick={() => navigate('/all/transaction')}>
+      <h3 style={styles.h3}>
+        Transactions 
+        <span style={{ color: "#101014", cursor: "pointer", marginLeft: "60%" }}>See all</span>
+      </h3>
+
+      {users.length > 0 ? (
+         users.slice(0, 5).map((user, index) => (
+          <div key={index} style={styles.transaction}>
+            {/* Replace with a valid image URL */}
+            <img src={user.remark === "Deposit" ? "/assets/images/recived.png" : "/assets/images/send.png"} alt="User" style={{width:20, height:20}} />
+            <span style={{ fontSize: 12, marginLeft: "-20%" }}>
+                {user.remark}
+              </span>
+            <div>
+              {/* <p style={styles.p}>{user.remark}</p> */}
+              <span style={styles.p}>
+                ${parseFloat(user.amount || 0).toFixed(2)}
+              </span>
+            </div>
+
+            <span style={styles.received}>
+              {user.status === "Active" ? "Success": "Pending"}
+            </span>
           </div>
-          <span style={styles.received}>+{coin.percentage.toFixed(2)}%</span>
+        ))
+      ) : (
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+          textAlign: 'center'
+        }}>
+          <img 
+            src="/assets/images/empty_state.svg" 
+            alt="empty" 
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              marginBottom: '20px'
+            }} 
+          />
+          <p style={{ fontSize: '16px', color: '#fff' }}>No users found.</p>
         </div>
-         ))}
-      </div>
+      )}
+    </div>
 
       {/* Quick Actions */}
       {/* <div style={styles.quickActions}>

@@ -21,7 +21,7 @@ const BottomSheet = ({ isOpen, onClose }) => {
     sheet: {
       width: "425px",
     
-      backgroundColor: "#f4f4f4",
+      backgroundColor: "#EDE7F6",
       borderRadius: "20px 20px 0 0",
       padding: "20px",
       boxShadow: "0px -4px 10px rgba(0,0,0,0.1)",

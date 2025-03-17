@@ -6,8 +6,8 @@ const WalletBalance = ({ balance }) => {
       display: "flex",
       alignItems: "center",
       gap: "15px",
-      backgroundColor: "#f4f4f4", // Light gray background
-      backgroundColor: "#f4f4f4", // Light gray background
+      backgroundColor: "#D1C4E9", // Light gray background
+      backgroundColor: "#D1C4E9", // Light gray background
       padding: "15px",
       borderRadius: "12px",
       boxShadow: "0 2px 6px rgb(17 24 32)", // Subtle shadow
@@ -42,7 +42,7 @@ const WalletBalance = ({ balance }) => {
 
       {/* Balance Info */}
       <div>
-        <p style={styles.balanceText}>{balance}</p>
+        <p style={styles.balanceText}>{parseFloat(balance).toFixed(2)}</p>
         <p style={{ ...styles.description}}>in the wallet</p>
       </div>
     </div>

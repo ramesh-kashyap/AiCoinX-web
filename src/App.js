@@ -38,6 +38,7 @@ import TopGainers from './pages/dashboard/home/topGainers';
 import TopLosers from './pages/dashboard/home/topLosers';
 import Notification from './pages/components/notofications';
 import Tokentransaction from './pages/invest/Tokentransaction';
+import AllIncome  from './pages/invest/income'
 import Receiveds from './pages/invest/Receiveds';
 import Swaps from './pages/invest/Swaps';
 import Buysells from './pages/invest/Buysells';
@@ -127,7 +128,7 @@ function App() {
         <Route path="/test2" element={<VerifyEmail />} /> */}
 
         <Route path="/all/transaction" element={<ProtectedRoute><Depositreport /></ProtectedRoute>}/>
-
+        <Route path="/all/income" element={<ProtectedRoute><AllIncome/></ProtectedRoute>}/>
 
 
 

@@ -33,10 +33,10 @@ function Profile() {
 
   const handleUpdateProfile = async () => {
     try {
-        const response = await Api.put("/updateUsername", { user_name: UserData });
+        const response = await Api.put("/updateUsername", { username: UserData });
 
         if (response.data) {
-            setUser((prevUser) => ({ ...prevUser, user_name: UserData }));
+            setUser((prevUser) => ({ ...prevUser, username: UserData }));
             toast.success(response.data.message); // Use message from backend
 
              console.log("Profile Updated Successfully");
@@ -69,7 +69,7 @@ function Profile() {
   >
     <div
       style={{
-        backgroundColor: "#f4f4f4",
+        backgroundColor: "#EDE7F6",
         width: 429,
         height: 300,
         borderTopLeftRadius: "38px",

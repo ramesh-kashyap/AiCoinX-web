@@ -79,7 +79,7 @@ const formatDate = (dateString) => {
       <div className="w-[582px] h-[582px] rounded-full bg-g300/10 absolute -top-48 -left-20 blur-[575px]"></div>
       <div className="relative z-20 w-full">
         {/* Header Card */}
-        <div className="bg-white2 bg-opacity-5 py-8 px-6 rounded-b-3xl" >
+        <div className="bg-white2 bg-opacity-5 py-8 px-6 rounded-b-3xl" style={{backgroundColor:"#EDE7F6"}}>
           <div className="flex justify-between items-center">
           <NavLink to="/home"> <i className="ph-bold ph-caret-left"></i>
 
@@ -90,7 +90,7 @@ const formatDate = (dateString) => {
           <div className="grid grid-cols-2 gap-4 pt-5">
           {/* Item 1 */}
           <div className="rounded-xl overflow-hidden col-span-1">
-            <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#f4f4f4"}}>
+            <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#D1C4E9"}}>
               <div className="flex flex-col gap-2">
                 
               {/* <i className="ph ph-wallet text-2xl text-g300"></i> */}
@@ -98,7 +98,7 @@ const formatDate = (dateString) => {
                 <p className="font-semibold" style={{color:"#101014"}}>Total Stake</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="h-5" />
-                  <p className=" font-medium"style={{color:"#101014"}}>{income.totalInvestmentAmount}</p>
+                  <p className=" font-medium"style={{color:"#101014"}}>{parseFloat(income.totalInvestmentAmount).toFixed(2)}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -109,14 +109,14 @@ const formatDate = (dateString) => {
           {/* Item 2 */}
           <div className="rounded-xl overflow-hidden col-span-1">
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
-            <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#f4f4f4"}}>
+            <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#D1C4E9"}}>
               <div className="flex flex-col gap-2">
               {/* <i className="ph ph-handbag text-2xl text-g300"></i> */}
               <img src="\assets\images\withdraw1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
                 <p className=" font-semibold" style={{color:"#101014"}}>Total Withdraw</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
-                  <p className="  font-medium" style={{color:"#101014"}}>{income.totalWithdrawlAmount}</p>
+                  <p className="  font-medium" style={{color:"#101014"}}>{parseFloat(income.totalWithdrawlAmount).toFixed(2)}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -130,7 +130,7 @@ const formatDate = (dateString) => {
         <div className="grid grid-cols-2 gap-4 pt-5">
           {/* Item 1 */}
           <div className="rounded-xl overflow-hidden col-span-1">
-            <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#f4f4f4"}}>
+            <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#D1C4E9"}}>
               <div className="flex flex-col gap-2">
               <img src="\assets\images\team1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
               {/* <i className="ph ph-users text-2xl text-g300"></i> */}
@@ -138,7 +138,7 @@ const formatDate = (dateString) => {
                 <p className="font-semibold" style={{color:"#101014"}}>Team Commission</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"   className="h-5" />
-                  <p className=" font-medium"style={{color:"#101014"}}>{income.totalTeamAmount}</p>
+                  <p className=" font-medium"style={{color:"#101014"}}>{parseFloat(income.totalTeamAmount).toFixed(2)}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -149,14 +149,14 @@ const formatDate = (dateString) => {
           {/* Item 2 */}
           <div className="rounded-xl overflow-hidden col-span-1">
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
-            <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#f4f4f4"}}>
+            <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#D1C4E9"}}>
               <div className="flex flex-col gap-2">
               {/* <i className="ph ph-coins text-2xl text-g300"></i>  */}
               <img src="\assets\images\roi1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
                 <p className=" font-semibold"style={{color:"#101014"}}>Roi Income</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
-                  <p className="  font-medium"style={{color:"#101014"}}>{income.totalRoiAmount}</p>
+                  <p className="  font-medium"style={{color:"#101014"}}>{parseFloat(income.totalRoiAmount).toFixed(2)}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center text-n70 text-sm">
@@ -204,10 +204,9 @@ const formatDate = (dateString) => {
      {/* Tab Section */}
      <div className="homeTab pt-8 px-6">
           <ul className="tab-button flex justify-between items-center text-lg font-semibold">
-            <li   onClick={() => setActiveTab('tokens')} className={`tabButton w-full  pb-2 border-b-2 border-n700 ${activeTab === 'activity' ? 'activeTabButton' : ''}`}>
+            <li   onClick={() => setActiveTab('tokens')} className={`tabButton w-full  pb-2 border-b-2 border-n700 ${activeTab === 'activity' ? 'activeTabButton' : ''}`} style={{color:"#000"}}>
               History
-            </li>
-          
+            </li>          
             <li 
   
   style={{
@@ -220,7 +219,7 @@ const formatDate = (dateString) => {
   className={`tabButton w-full border-b-2 border-n700 ${
     activeTab === 'tokens' ? 'activeTabButton' : ''
   }`}
-> <Link to="/all/transaction">View More</Link>
+> <Link to="/all/income">View More</Link>
   
 </li>
 
@@ -235,9 +234,6 @@ const formatDate = (dateString) => {
 
               {users.length > 0 ? (
   users.map((user, index) => {
-  
-
-    return (
       <div key={index} className="homeTab pt-8 px-6">
         <div className="pt-8">
           <div className="flex flex-col gap-4">
@@ -267,7 +263,6 @@ const formatDate = (dateString) => {
           </div>
         </div>
       </div>
-    );
   })
 ) : (<div style={{
   display: 'flex',
