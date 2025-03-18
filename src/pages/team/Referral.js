@@ -112,7 +112,7 @@ export default function Referral() {
           ))}   
         </ul>
         <div
-          class="flex justify-between items-center gap-4 bg-white bg-opacity-5 rounded-lg py-3 px-4"
+          class="flex justify-between items-center gap-4 bg-white3 bg-opacity-5 rounded-lg py-3 px-4"
         >
           <input
             type="text"
@@ -131,12 +131,12 @@ export default function Referral() {
             users.map((user, index) => (
               <>
               <div
-                class="flex justify-between items-center bg-white bg-opacity-5 p-4 rounded-xl"
+                class="flex justify-between items-center bg-white3 bg-opacity-5 p-4 rounded-xl"
               key={index}>
                 <div class="flex justify-start items-center gap-2">
                   <p class="text-sm text-n70">LvL {user.level}</p>
                   <div
-                    class="text-g300 flex justify-center items-center size-10 rounded-full text-xl bg-white bg-opacity-5"
+                    class="text-g300 flex justify-center items-center size-10 rounded-full text-xl bg-white3 bg-opacity-5"
                   >
               {/* <i className="ph ph-user text-2xl"></i> */}
               <img  src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg"  />

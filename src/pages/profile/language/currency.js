@@ -94,12 +94,12 @@ function Profile() {
       {/* Username Input Field */}
     
 <div className="relative w-full">
-          <i style={{marginTop:"24px",marginLeft:"10px"}} className="ph ph-user absolute inset-y-0 left-3 flex items-center text-white text-lg"></i>
+          <i style={{marginTop:"24px",marginLeft:"10px",color:"#000"}} className="ph ph-user absolute inset-y-0 left-3 flex items-center text-white text-lg"></i>
 
           <input  
             style={{ 
-              backgroundColor: "rgb(88 102 89)", 
-              color: "#fff", 
+              backgroundColor: "#D1C4E9", 
+              color: "#000", 
               borderColor: "#292c3d",
               paddingLeft: "40px", // Left padding taaki text icon se overlap na ho
 marginTop:"13px"

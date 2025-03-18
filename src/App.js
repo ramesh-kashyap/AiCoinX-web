@@ -67,7 +67,9 @@ import Signup from './pages/components/test';
 import VerifyEmail from './pages/auth/verifyEmail';
 import { SignIn } from 'phosphor-react';
 import Signin from './pages/components/test';
-
+import Forget from './pages/auth/forgetPass';
+import ForgetOtp from './pages/auth/forgetOtp';
+import ConformPass from './pages/auth/confirmPass';
 function App() {
   return (
     <Router>
@@ -132,9 +134,9 @@ function App() {
 
         <Route path="/all/transaction" element={<ProtectedRoute><Depositreport /></ProtectedRoute>}/>
         <Route path="/all/income" element={<ProtectedRoute><AllIncome/></ProtectedRoute>}/>
-
-
-
+        <Route path="/forgot" element={<PublicRoute><Forget/></PublicRoute>}/>
+        <Route path="/forgetOtp" element={<PublicRoute><ForgetOtp/></PublicRoute>}/>
+        <Route path="/confirmPass" element={<PublicRoute><ConformPass/></PublicRoute>}/>
         <Route 
           path="/login" 
           element={

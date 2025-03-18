@@ -30,17 +30,17 @@ const PromoCodePage = () => {
         </div>
 
         {/* Text Content */}
-        <h2 style={{ color: "#fff" }}className="text-2xl font-bold text-center text-white mb-2">
+        <h2 style={{ color: "#000" }}className="text-2xl font-bold text-center text-white mb-2">
           Add Promo Code
         </h2>
-        <p style={{ color: "rgba(169, 172, 175, 1)" }} className="text-center text-gray-400 mb-6">
+        <p style={{ color: "#4f5358" }} className="text-center text-gray-400 mb-6">
           If you have a promo code, add it here to receive the free reward.
         </p>
 
         {/* Input Field */}
-        <div style={{ backgroundColor: "#292c3d",marginTop:"20px" }} className="flex items-center bg-gray-100 text-black rounded-lg p-3 mb-6  ">
+        <div style={{ backgroundColor: "#D1C4E9",marginTop:"20px" }} className="flex items-center bg-gray-100 text-black rounded-lg p-3 mb-6  ">
           <i style={{ color: "#9583ff" }} className="ph-bold ph-tag text-purple-600 text-lg mr-2"></i>
-          <input style={{ color: "rgba(169, 172, 175, 1)",marginLeft:"10px" }}
+          <input style={{ color: "#4f5358",marginLeft:"10px" }}
             type="text"
             className="bg-transparent flex-1 outline-none text-lg"
             value={promoCode}

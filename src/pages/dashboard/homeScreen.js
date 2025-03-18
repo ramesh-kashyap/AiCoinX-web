@@ -264,15 +264,16 @@ const fetchGetBalance = async () => {  try {
     <p>Withdraw</p>
   </div>
   <div style={styles.actionItem}>
-    <button onClick={()=>navigate('/invest')} style={styles.iconButton}><FiTrendingUp style={{color:"#000"}}/></button>
-    <p>Invest</p>
+    <button onClick={()=>navigate('/market')} style={styles.iconButton}><FiTrendingUp style={{color:"#000"}}/></button>
+    <p>Assets</p>
   </div>
   <div style={styles.actionItem}>
     <button onClick={()=>navigate('/all/transaction')} style={styles.iconButton}><FiSend style={{color:"#000"}}/></button>
     <p>Transfer</p>
   </div>
   <div style={styles.actionItem}>
-    <button onClick={()=>navigate('https://thirdparty.com/invest/swaps?userid=12&amount=12')} style={styles.iconButton}><FiArrowDownLeft style={{color:"#000"}}/></button>
+    <button onClick={() => window.open('https://thirdparty.com/invest/swaps?userid=12&amount=12', '_blank')}
+ style={styles.iconButton}><FiArrowDownLeft style={{color:"#000"}}/></button>
     <p>Request</p>
   </div>
 </div>
@@ -312,7 +313,7 @@ const fetchGetBalance = async () => {  try {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '100vh',
+          // height: '100vh',
           textAlign: 'center'
         }}>
           <img 

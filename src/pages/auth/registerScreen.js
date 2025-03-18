@@ -137,18 +137,18 @@ function Register() {
         }
         /* Container (mobile-friendly) */
         .container {
-          max-width: 480px;
+          // max-width: 480px;
              height: 130dvh;
           margin: 0 auto;
           padding: 1rem;
-           background-color:  rgba(17, 24, 32, 1)
+           background-color:  #EDE7F6
         }
            @media only screen and (max-width: 600px) {.container {
           max-width: 480px;
              height: 130dvh;
           margin: 0 auto;
           padding: 1rem;
-           background-color:  rgba(17, 24, 32, 1)
+           background-color:  #EDE7F6
         }}
         /* Header */
         .header {
@@ -163,6 +163,7 @@ function Register() {
           gap: 0.5rem;
           font-size: 1rem;
           font-weight: 700;
+          color: #000;
         }
         .logo-icon {
           width: 35px;
@@ -230,7 +231,7 @@ function Register() {
           bottom: 0;
           transform: translateY(30%);
           font-size: 0.9rem;
-          color: #fff;
+          color: #000;
         }
         /* Signup Headings */
         .signup-container h1 {
@@ -239,7 +240,7 @@ function Register() {
         }
         .signup-container p {
           font-size: 0.9rem;
-          color: #fff;
+          color: #000;
           margin-bottom: 1rem;
         }
         /* Signup Form */
@@ -260,13 +261,11 @@ function Register() {
           padding: 0.75rem 1rem;
           font-size: 1rem;
            border: 1px solid #fff;
-          color: #fff;
-          
-           
-        }
+          color: #000; 
+          }
            .name-row input.input-field {
-  flex: 1;
-}
+             flex: 1;
+            }
 
         .input-field:focus {
           outline: 2px solid #7f5af0;
@@ -304,7 +303,7 @@ function Register() {
           outline: none;
           background: transparent;
           font-size: 1rem;
-          color: #fff;
+          color: #000;
         }
         .input-icon input::placeholder {
           color: #aaa;
@@ -325,6 +324,7 @@ function Register() {
           align-items: flex-start;
           gap: 0.5rem;
           font-size: 0.9rem;
+          color: #000;
         }
         .form-check input[type="checkbox"] {
           margin-top: 0.2rem;

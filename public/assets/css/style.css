@@ -1348,8 +1348,8 @@ h2{
 }
 .text-n70{
   --tw-text-opacity: 1;
-  color: rgba(169, 172, 175, 1);
-  color: rgba(169, 172, 175, var(--tw-text-opacity));
+  color: #4f5358;
+  color: rgba(79,83,88, var(--tw-text-opacity));
 }
 .text-n900{
   --tw-text-opacity: 1;

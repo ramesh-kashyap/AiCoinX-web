@@ -3,7 +3,7 @@ import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { useNavigate, Link } from "react-router-dom";
 import Api from "../../service/Api";
 import { Toaster, toast } from "react-hot-toast";
-const Login = () => {
+const Forget = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,21 +12,19 @@ const Login = () => {
     e.preventDefault();
   
     try {
-      const response = await Api.post("/login", {
+      const response = await Api.post("/forgot", {
         email,
-        password,
       });
       console.log('response:',response);
 
-      if(response.data.status){
-        
-      const { token } = response.data;
-      localStorage.setItem("authToken", token);
+      if(response.data.status){        
+      const { email } = response.data;
+      localStorage.setItem("Email", email);
       toast.success(response.data.message); // Use message from backend
       
-      navigate("/home");}
+      navigate("/forgetOtp");}
       else{
-        console.error('Login failed:', response.data.error);
+        console.error('Forgot failed:', response.data.error);
       }
 
     } catch (error) {
@@ -39,10 +37,10 @@ const Login = () => {
     <div className="container relative overflow-hidden justify-start items-start text-white">
         <div className="w-[582px] h-[582px] rounded-full  absolute -top-48 -left-20 blur-[575px] pointer-events-none"></div>
         <div  className="bg-n900 ">
-    <div className="login-container  ">
+    <div className="Forget-container  ">
       <style>
         {`
-          .login-container {
+          .Forget-container {
             padding: 20px;
             max-width: 100%;
             min-height: 100vh;
@@ -213,16 +211,16 @@ const Login = () => {
           <img src="assets/images/ok3d.png" alt="ok3d"  style={{ maxWidth: "45px" }} />
          AI CoinX
         </div>
-        <Link to='/forgot'>
-        <button className="sign-up-button">Forget Password</button>
+        <Link to='/register'>
+        <button className="sign-up-button">Sign Up</button>
         </Link>
       </div>
 
       <img src="\assets\images\login_icon.png" alt="Account" className='illustration' />
 
       <div className="content">
-        <h1 className="title">Login to Account</h1>
-        <p className="subtitle">Enter your email and password to continue</p>
+        <h1 className="title">Forgot to Account</h1>
+        <p className="subtitle">Enter your email  to continue</p>
 
         <div className="input-container">
           <Mail className="input-icon" size={20} />
@@ -233,25 +231,6 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
-
-        <div className="input-container">
-          <Lock className="input-icon" size={20} />
-          <input
-            type={showPassword ? "text" : "password"}
-            className="input-field with-toggle"
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button 
-            type="button"
-            className="toggle-password"
-            onClick={() => setShowPassword(!showPassword)}
-            aria-label={showPassword ? "Hide password" : "Show password"}
-          >
-            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-          </button>
         </div>
 
       
@@ -267,4 +246,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Forget;

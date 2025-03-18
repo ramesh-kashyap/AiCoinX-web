@@ -3,30 +3,33 @@ import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { useNavigate, Link } from "react-router-dom";
 import Api from "../../service/Api";
 import { Toaster, toast } from "react-hot-toast";
-const Login = () => {
+const ConformPass = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const handleSubmit = async (e) => {
-    e.preventDefault();
-  
+    const email = localStorage.getItem("Email");
+    e.preventDefault();   
     try {
-      const response = await Api.post("/login", {
-        email,
+        if (password !== confirmPassword) {
+            toast.error("Passwords do not match");
+            return;
+          }
+      const response = await Api.post("/conformPass", {
         password,
+        email,
       });
       console.log('response:',response);
 
       if(response.data.status){
         
-      const { token } = response.data;
-      localStorage.setItem("authToken", token);
-      toast.success(response.data.message); // Use message from backend
-      
-      navigate("/home");}
+    //   const { token } = response.data;
+    //   localStorage.setItem("authToken", token);
+      toast.success(response.data.message); // Use message from backend      
+      navigate("/login");}
       else{
-        console.error('Login failed:', response.data.error);
+        console.error('ConformPass failed:', response.data.error);
       }
 
     } catch (error) {
@@ -213,27 +216,16 @@ const Login = () => {
           <img src="assets/images/ok3d.png" alt="ok3d"  style={{ maxWidth: "45px" }} />
          AI CoinX
         </div>
-        <Link to='/forgot'>
+        {/* <Link>
         <button className="sign-up-button">Forget Password</button>
-        </Link>
+        </Link> */}
       </div>
 
       <img src="\assets\images\login_icon.png" alt="Account" className='illustration' />
 
       <div className="content">
-        <h1 className="title">Login to Account</h1>
-        <p className="subtitle">Enter your email and password to continue</p>
-
-        <div className="input-container">
-          <Mail className="input-icon" size={20} />
-          <input
-            type="email"
-            className="input-field"
-            placeholder="Enter Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
+        <h1 className="title">Enter New Password</h1>
+        <p className="subtitle">Enter your password to continue</p>
 
         <div className="input-container">
           <Lock className="input-icon" size={20} />
@@ -244,6 +236,17 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+        </div>
+
+        <div className="input-container">
+          <Lock className="input-icon" size={20} />
+          <input
+            type={showPassword ? "text" : "password"}
+            className="input-field with-toggle"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
           <button 
             type="button"
             className="toggle-password"
@@ -253,9 +256,6 @@ const Login = () => {
             {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
           </button>
         </div>
-
-      
-
         <button className="continue-button"   onClick={handleSubmit}>
           Continue
         </button>
@@ -267,4 +267,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ConformPass;

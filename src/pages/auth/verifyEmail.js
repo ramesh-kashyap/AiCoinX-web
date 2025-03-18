@@ -136,7 +136,7 @@ function VerifyEmail() {
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
         body { background-color: #ffffff; color: #fff; }
-        .container { max-width: 480px; margin: 0 auto; padding: 1rem; height: 130dvh; background-color: #111820; }
+        .container { max-width: 480px; margin: 0 auto; padding: 1rem; height: 130dvh; background-color: #EDE7F6; }
         .header { display: flex; justify-content: center; align-items: center; margin-bottom: 1rem; }
         .header h2 { font-size: 1.25rem; font-weight: 600; }
         .progress-section { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
@@ -145,13 +145,13 @@ function VerifyEmail() {
         .segment { position: absolute; top: 0; bottom: 0; width: 2px; background-color: #ffffff; }
         .segment-1 { left: 33.33%; }
         .segment-2 { left: 66.66%; }
-        .progress-text { font-size: 0.9rem; color: #fff; }
+        .progress-text { font-size: 0.9rem; color: #000; }
         .illustration { display: flex; justify-content: center; margin-bottom: 1.5rem; }
-        .verify-heading { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .verify-text { font-size: 0.9rem; color: #fff; margin-bottom: 1.5rem; line-height: 1.4; }
+        .verify-heading { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;color:#000; }
+        .verify-text { font-size: 0.9rem; color: #000; margin-bottom: 1.5rem; line-height: 1.4; }
         .input-with-icon { display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.05); border: 1px solid #e0e0e0; border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1rem; }
         .icon { width: 20px; height: 20px; margin-right: 0.75rem; fill: none; stroke: #707070; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-        .input-with-icon input { flex: 1; border: none; outline: none; background: transparent; font-size: 1rem; color: #fff; }
+        .input-with-icon input { flex: 1; border: none; outline: none; background: transparent; font-size: 1rem; color: #000; }
         .input-with-icon input::placeholder { color: #aaaaaa; }
         .btn-row { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1rem; }
         .secondary-btn { background-color: #ffffff; color: #000000; border: 1px solid #000000; border-radius: 8px; font-size: 1rem; padding: 0.75rem; cursor: pointer; }

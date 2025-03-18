@@ -86,7 +86,7 @@ const TransactionHistory = () => {
               className="outline-none bg-transparent w-full text-n70 placeholder:text-n70 text-sm"
             />
             <div>
-              <i className="ph ph-magnifying-glass text-g300 text-xl"></i>
+              <i className="ph ph-magnifying-glass text-xl"></i>
             </div>
           </div>
 
@@ -187,7 +187,7 @@ const TransactionHistory = () => {
 
 const styles = {
   box: {
-    backgroundColor: "rgba(255, 255, 255, var(--tw-bg-opacity))",
+    backgroundColor: "#D1C4E9",
   },
 };
 
