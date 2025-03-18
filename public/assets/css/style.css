@@ -1085,6 +1085,10 @@ video {
   background-color: #D1C4E9;
   /* background-color: #9583ff; */
 }
+.bg-white4{
+  background-color: #fff;
+  /* background-color: #9583ff; */
+}
 h1{
   color:#101014;
 }
@@ -1293,6 +1297,7 @@ h2{
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
+  color:#000;
 }
 .text-xl{
   font-size: 1.33rem;
@@ -1306,6 +1311,7 @@ h2{
   font-weight: 700;
 }
 .font-medium{
+  color:#000;
   font-weight: 500;
 }
 .font-normal{

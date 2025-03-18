@@ -124,7 +124,7 @@ function EnterPin() {
 const styles = {
   container: {
     minHeight: "100vh",
-    backgroundColor: "rgb(17 22 27)",
+    // backgroundColor: "rgb(17 22 27)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -141,12 +141,12 @@ const styles = {
     margin: 0,
     fontSize: "1.5rem",
     fontWeight: "bold",
-    color: "#fff",
+    // color: "#fff",
   },
   subtitle: {
     margin: "0.5rem 0 2rem 0",
     fontSize: "0.95rem",
-    color: "#fff",
+    // color: "#fff",
     textAlign: "center",
     maxWidth: "300px",
   },

@@ -91,11 +91,12 @@ const formatDate = (dateString) => {
           {/* Item 1 */}
           <div className="rounded-xl overflow-hidden col-span-1">
             <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#D1C4E9"}}>
+            <img src="\assets\images\stakec.png" alt="DigitalNomad" style={{width:45, height:"auto"}}/>
               <div className="flex flex-col gap-2">
                 
               {/* <i className="ph ph-wallet text-2xl text-g300"></i> */}
-              <img src="\assets\images\stake1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
-                <p className="font-semibold" style={{color:"#101014"}}>Total Stake</p>
+              {/* <img src="\assets\images\stake1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/> */}
+                <p className="font-semibold" style={{color:"#101014", marginTop:30}}>Total Stake</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="h-5" />
                   <p className=" font-medium"style={{color:"#101014"}}>{parseFloat(income.totalInvestmentAmount).toFixed(2)}</p>
@@ -110,10 +111,11 @@ const formatDate = (dateString) => {
           <div className="rounded-xl overflow-hidden col-span-1">
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
             <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#D1C4E9"}}>
+            <img src="\assets\images\withdrawc.png" alt="DigitalNomad" style={{width:45, height:"auto"}}/>
               <div className="flex flex-col gap-2">
               {/* <i className="ph ph-handbag text-2xl text-g300"></i> */}
-              <img src="\assets\images\withdraw1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
-                <p className=" font-semibold" style={{color:"#101014"}}>Total Withdraw</p>
+              {/* <img src="\assets\images\withdraw1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/> */}
+                <p className=" font-semibold" style={{color:"#101014", marginTop:30}}>Total Withdraw</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
                   <p className="  font-medium" style={{color:"#101014"}}>{parseFloat(income.totalWithdrawlAmount).toFixed(2)}</p>
@@ -131,11 +133,12 @@ const formatDate = (dateString) => {
           {/* Item 1 */}
           <div className="rounded-xl overflow-hidden col-span-1">
             <div className="bg-opacity-5 p-3 flex justify-between items-center"  style={{backgroundColor:"#D1C4E9"}}>
+            <img src="\assets\images\teamc.png" alt="DigitalNomad" style={{width:45, height:"auto"}}/>
               <div className="flex flex-col gap-2">
-              <img src="\assets\images\team1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
+              {/* <img src="\assets\images\team1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/> */}
               {/* <i className="ph ph-users text-2xl text-g300"></i> */}
 
-                <p className="font-semibold" style={{color:"#101014"}}>Team Commission</p>
+                <p className="font-semibold" style={{color:"#101014", marginTop:30}}>Team Commission</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"   className="h-5" />
                   <p className=" font-medium"style={{color:"#101014"}}>{parseFloat(income.totalTeamAmount).toFixed(2)}</p>
@@ -150,10 +153,11 @@ const formatDate = (dateString) => {
           <div className="rounded-xl overflow-hidden col-span-1">
             {/* <img src="assets/images/nft-tab-img-2.png" alt="Item 2" /> */}
             <div className=" bg-opacity-5 p-3 flex justify-between items-center" style={{backgroundColor:"#D1C4E9"}}>
+            <img src="\assets\images\roic.png" alt="DigitalNomad" style={{width:45, height:"auto"}}/>
               <div className="flex flex-col gap-2">
               {/* <i className="ph ph-coins text-2xl text-g300"></i>  */}
-              <img src="\assets\images\roi1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/>
-                <p className=" font-semibold"style={{color:"#101014"}}>Roi Income</p>
+              {/* <img src="\assets\images\roi1.png" alt="DigitalNomad" style={{width:25, height:"auto"}}/> */}
+                <p className=" font-semibold"style={{color:"#101014", marginTop:30}}>Roi Income</p>
                 <div className="flex  items-center  gap-1">
                   <img src="assets/images/ok3d.png"  className="w-4 h-4" />
                   <p className="  font-medium"style={{color:"#101014"}}>{parseFloat(income.totalRoiAmount).toFixed(2)}</p>

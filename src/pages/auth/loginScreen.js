@@ -40,7 +40,7 @@ function Login() {
   return (
    <><Toaster position="top-center" /> <div className="container bg-n900 h-dvh relative overflow-hidden  justify-start items-start text-white">
       {/* Blurred Circular Background */}
-      <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
+      <div className="w-[582px] h-[582px] rounded-full absolute -top-32 -left-20 blur-[575px]"></div>
       
       <div className="relative z-20 px-6">
         {/* Header Text */}
@@ -56,7 +56,7 @@ function Login() {
           {/* Email Field */}
           <div>
             <p className="text-sm font-semibold pb-2">Email Address</p>
-            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+            <div className="flex justify-between items-center gap-3 p-4 bg-white4 bg-opacity-5 rounded-lg text-n70 text-xl">
               <input
                 type="email"
                 placeholder="Email Address"
@@ -70,7 +70,7 @@ function Login() {
           {/* Password Field */}
           <div>
       <p className="text-sm font-semibold pb-2">Password</p>
-      <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+      <div className="flex justify-between items-center gap-3 p-4 bg-white4 bg-opacity-5 rounded-lg text-n70 text-xl">
         <input
           type={showPassword ? "text" : "password"}
           placeholder="******"
@@ -99,7 +99,7 @@ function Login() {
         {/* Terms & Conditions */}
         <p className="pt-3 text-xs text-n70">
           By logging in, you agree to our{" "}
-          <a href="" className="text-g300">
+          <a href="" className="text-g301">
             Terms and Conditions.
           </a>
         </p>

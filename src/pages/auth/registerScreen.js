@@ -80,7 +80,7 @@ function Register() {
 
   return (
    <><Toaster position="top-center" /> <div className="container bg-n900 h-dvh relative overflow-hidden flex justify-start items-start text-white">
-      <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-32 -left-20 blur-[575px]"></div>
+      <div className="w-[582px] h-[582px] rounded-full absolute -top-32 -left-20 blur-[575px]"></div>
       <div className="relative z-20 px-6">
         <div className="flex justify-center items-center flex-col gap-3 pt-8">
           <h1 className="text-2xl font-semibold">Sign Up </h1>
@@ -94,7 +94,7 @@ function Register() {
             {/* First Name */}
             <div className="w-1/2">
               <p className="text-sm font-semibold pb-2">First Name</p>
-              <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+              <div className="flex justify-between items-center gap-3 p-4 bg-white4 bg-opacity-5 rounded-lg text-n70 text-xl">
                 <input
                   type="text"
                   name="fullname"
@@ -109,7 +109,7 @@ function Register() {
             {/* Last Name */}
             <div className="w-1/2">
               <p className="text-sm font-semibold pb-2">Last Name</p>
-              <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+              <div className="flex justify-between items-center gap-3 p-4 bg-white4 bg-opacity-5 rounded-lg text-n70 text-xl">
                 <input
                   type="text"
                   name="lastname"
@@ -124,7 +124,7 @@ function Register() {
 
           <div>
             <p className="text-sm font-semibold pb-2">Email</p>
-            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+            <div className="flex justify-between items-center gap-3 p-4 bg-white4 bg-opacity-5 rounded-lg text-n70 text-xl">
               <input
                 type="email"
                 name="email"
@@ -138,7 +138,7 @@ function Register() {
 
           <div>
             <p className="text-sm font-semibold pb-2">Date of Birth</p>
-            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+            <div className="flex justify-between items-center gap-3 p-4 bg-white4 bg-opacity-5 rounded-lg text-n70 text-xl">
               <DatePicker
                 name="date"
                 type="text"
@@ -153,7 +153,7 @@ function Register() {
 
           <div>
             <p className="text-sm font-semibold pb-2">Referral Code</p>
-            <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+            <div className="flex justify-between items-center gap-3 p-4 bg-white4 bg-opacity-5 rounded-lg text-n70 text-xl">
               <input
                 type="text"
                 name="referralCode"
@@ -169,7 +169,7 @@ function Register() {
             {/* First Name */}
             <div className="w-1/2">
               <p className="text-sm font-semibold pb-2">New Password</p>
-              <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+              <div className="flex justify-between items-center gap-3 p-4 bg-white4 bg-opacity-5 rounded-lg text-n70 text-xl">
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
@@ -187,7 +187,7 @@ function Register() {
             {/* Last Name */}
             <div className="w-1/2">
               <p className="text-sm font-semibold pb-2">Confirm Password</p>
-              <div className="flex justify-between items-center gap-3 p-4 bg-white bg-opacity-5 rounded-lg text-n70 text-xl">
+              <div className="flex justify-between items-center gap-3 p-4 bg-white4 bg-opacity-5 rounded-lg text-n70 text-xl">
                 <input
                  type={showConfirmPassword ? "text" : "password"}
                   name="repeatPassword"
