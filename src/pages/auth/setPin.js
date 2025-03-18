@@ -1,6 +1,6 @@
-import React, { useState , useEffect  } from "react";
+import React, { useState,useEffect } from "react";
 import Api from "../../service/Api";
-import { useLocation,useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 
 function SetPin() {
@@ -10,12 +10,23 @@ function SetPin() {
   const [confirmPin, setConfirmPin] = useState("");
   const navigate = useNavigate();
   const email = location.state?.email || "";
+
+  // Calculate progress using a three-part bar:
+  // The first two segments (66.66%) are auto-filled.
   useEffect(() => {
     if (!email) {
-      navigate("/register"); // Agar email nahi mili to register page bhejo
+      navigate("/register");
     }
   }, [email, navigate]);
-  // ✅ Handle PIN Entry
+  // The third segment (33.33%) is based on user input.
+  const baseProgress = 66.66;
+  const segmentProgress = 16.5;
+  const progressValue =
+    step === "setPin"
+      ? baseProgress + (pin.length / 4) * segmentProgress
+      : baseProgress + (confirmPin.length / 4) * segmentProgress+16.5;
+
+  // Handle PIN digit click
   const handleDigitClick = (digit) => {
     if (step === "setPin") {
       if (pin.length < 4) {
@@ -30,13 +41,13 @@ function SetPin() {
         const newConfirmPin = confirmPin + digit.toString();
         setConfirmPin(newConfirmPin);
         if (newConfirmPin.length === 4) {
-          verifyPin(pin, newConfirmPin); // Call API once both PINs are entered
+          verifyPin(pin, newConfirmPin); // Verify once both PINs are entered
         }
       }
     }
   };
 
-  // ✅ Remove Last PIN Digit
+  // Remove the last digit from the current PIN entry
   const handleBackspace = () => {
     if (step === "setPin") {
       setPin((prevPin) => prevPin.slice(0, -1));
@@ -45,7 +56,7 @@ function SetPin() {
     }
   };
 
-  // ✅ Verify PINs and Call API
+  // Verify PINs and call API
   const verifyPin = async (enteredPin, confirmedPin) => {
     if (enteredPin !== confirmedPin) {
       alert("PINs do not match! Try again.");
@@ -57,75 +68,113 @@ function SetPin() {
 
     try {
       const response = await Api.post("/set-pin", { email, pin });
-      console.log("API Response:", response.data); // Debug API Response
+      console.log("API Response:", response.data);
       if (response.data.status) {
         const { token } = response.data;
-      localStorage.setItem("authToken", token);
-
-      navigate("/home");
+        localStorage.setItem("authToken", token);
+        navigate("/home");
       } else {
         alert("Error setting PIN.");
       }
     } catch (error) {
-      console.error("API Error:", error.response?.data?.error || "Unknown Error");
-      toast.error(error.response?.data?.error || "Something went wrong!"); 
-
+      console.error(
+        "API Error:",
+        error.response?.data?.error || "Unknown Error"
+      );
+      toast.error(error.response?.data?.error || "Something went wrong!");
     }
   };
 
-
   return (
-     <><Toaster position="top-center" /><div className="container relative overflow-hidden justify-start items-start text-white">
-      <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
-      <div style={styles.container} className="bg-n900">
-
-        {/* Logo */}
-        <div style={{marginBottom:"20px"}}>
-          <img style={{width:"70px"}} alt="Profile picture of a person with sunglasses" className="w-12 h-12 rounded-full" height="50" src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg" width="50"/>
-
-        </div>
-
-        {/* Title & Subtitle */}
-        <h1 style={styles.title}>{step === "setPin" ? "Set PIN" : "Confirm PIN"}</h1>
-        <p style={styles.subtitle}>
-          {step === "setPin" ? "Enter a 4-digit PIN" : "Confirm your 4-digit PIN"}
-        </p>
-
-        {/* PIN Dots */}
-        <div style={styles.pinDisplay}>
-          {[0, 1, 2, 3].map((i) => (
-            <div key={i} style={styles.pinDot}>
-              {(step === "setPin" ? pin[i] : confirmPin[i]) ? <div style={styles.filledDot} /> : null}
+    <>
+      <Toaster position="top-center" />
+      <div className="container relative overflow-hidden justify-start items-start text-white">
+        <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px]"></div>
+        <div style={styles.container} className="bg-n900">
+          {/* Progress Bar with 3 segments */}
+          <div style={styles.progressContainer}>
+            <div style={styles.progressBar}>
+              <div
+                style={{
+                  ...styles.progressFill,
+                  width: `${progressValue}%`,
+                }}
+              />
+              {/* Divider segments */}
+              <div style={{ ...styles.segment, ...styles.segment1 }} />
+              <div style={{ ...styles.segment, ...styles.segment2 }} />
             </div>
-          ))}
-        </div>
+            <span style={styles.progressText}>
+              {progressValue.toFixed(0)}%
+            </span>
+          </div>
 
-        {/* Keypad */}
-        <div style={styles.keypad}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-            <button key={num} style={styles.keyButton} onClick={() => handleDigitClick(num)}>
-              {num}
+          {/* Logo */}
+          <div style={{ marginBottom: "20px" }}>
+            <img
+              style={{ width: "70px" }}
+              alt="Profile picture of a person with sunglasses"
+              className="w-12 h-12 rounded-full"
+              height="50"
+              src="\assets\images\userIcon.edc1c75ce595e5bb3b239b6d69ec9cf4.svg"
+              width="50"
+            />
+          </div>
+
+          {/* Title & Subtitle */}
+          <h1 style={styles.title}>
+            {step === "setPin" ? "Set PIN" : "Confirm PIN"}
+          </h1>
+          <p style={styles.subtitle}>
+            {step === "setPin"
+              ? "Enter a 4-digit PIN"
+              : "Confirm your 4-digit PIN"}
+          </p>
+
+          {/* PIN Dots */}
+          <div style={styles.pinDisplay}>
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} style={styles.pinDot}>
+                {(step === "setPin" ? pin[i] : confirmPin[i]) ? (
+                  <div style={styles.filledDot} />
+                ) : null}
+              </div>
+            ))}
+          </div>
+
+          {/* Keypad */}
+          <div style={styles.keypad}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+              <button
+                key={num}
+                style={styles.keyButton}
+                onClick={() => handleDigitClick(num)}
+              >
+                {num}
+              </button>
+            ))}
+            {/* Empty space for layout */}
+            <div />
+            {/* Zero Button */}
+            <button
+              style={styles.keyButton}
+              onClick={() => handleDigitClick(0)}
+            >
+              0
             </button>
-          ))}
+            {/* Backspace Button */}
+            <button style={styles.keyButton} onClick={handleBackspace}>
+              ✕
+            </button>
+          </div>
 
-          {/* Empty Space for Layout */}
-          <div />
-
-          {/* Zero Button */}
-          <button style={styles.keyButton} onClick={() => handleDigitClick(0)}>
-            0
-          </button>
-
-          {/* Backspace Button */}
-          <button style={styles.keyButton} onClick={handleBackspace}>
-            ✕
-          </button>
+          {/* Forgot PIN Link */}
+          <a href="#!" style={styles.forgotPin}>
+            Forgot PIN?
+          </a>
         </div>
-
-        {/* Forgot PIN Link */}
-        <a href="#!" style={styles.forgotPin}>Forgot PIN?</a>
       </div>
-    </div></>
+    </>
   );
 }
 
@@ -140,10 +189,47 @@ const styles = {
     fontFamily: "sans-serif",
     color: "#000",
   },
-  logoContainer: {
-    BorderColor: "#fff",
-    marginBottom: "1.5rem",
-    marginTop: "2rem",
+  progressContainer: {
+    display: "flex",
+    alignItems: "center",
+    width: "100%",
+    marginBottom: "20px",
+  },
+  progressBar: {
+    position: "relative",
+    flex: 1,
+    height: "8px",
+    backgroundColor: "#f0f0f0",
+    borderRadius: "4px",
+    overflow: "hidden",
+  },
+  progressFill: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    bottom: 0,
+    backgroundColor: "#7f5af0",
+    borderRadius: "4px",
+    transition: "width 0.3s ease",
+  },
+  progressText: {
+    fontSize: "0.9rem",
+    color: "#666666",
+    marginLeft: "0.5rem",
+  },
+  // Segment styles for dividing the progress bar into 3 parts
+  segment: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    width: "2px",
+    backgroundColor: "#ffffff",
+  },
+  segment1: {
+    left: "33.33%",
+  },
+  segment2: {
+    left: "66.66%",
   },
   title: {
     margin: 0,
@@ -196,25 +282,8 @@ const styles = {
     backgroundColor: "#fff",
     cursor: "pointer",
     outline: "none",
-    position: "relative", // ✅ Ensure button is not blocked
+    position: "relative",
     zIndex: 10,
-  },
-  fingerprintButton: {
-    display: "flex",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    border: "1px solid #6f49ed",
-    padding: "0.5rem 1rem",
-    borderRadius: "8px",
-    cursor: "pointer",
-    outline: "none",
-    marginBottom: "1rem",
-  },
-  fingerprintText: {
-    marginLeft: "0.5rem",
-    color: "#6f49ed",
-    fontSize: "1rem",
-    fontWeight: "500",
   },
   forgotPin: {
     marginTop: "auto",
@@ -223,4 +292,5 @@ const styles = {
     fontWeight: "500",
   },
 };
+
 export default SetPin;
