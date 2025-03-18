@@ -3,7 +3,7 @@ import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { useNavigate, Link } from "react-router-dom";
 import Api from "../../service/Api";
 import { Toaster, toast } from "react-hot-toast";
-const Login = () => {
+const Signin = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,7 +37,7 @@ const Login = () => {
   return (
     <><Toaster position="top-center" />
     <div className="container relative overflow-hidden justify-start items-start text-white">
-        <div className="w-[582px] h-[582px] rounded-full  absolute -top-48 -left-20 blur-[575px] pointer-events-none"></div>
+        <div className="w-[582px] h-[582px] rounded-full bg-g300 absolute -top-48 -left-20 blur-[575px] pointer-events-none"></div>
         <div  className="bg-n900 ">
     <div className="login-container  ">
       <style>
@@ -60,15 +60,15 @@ const Login = () => {
           .logo {
             display: flex;
             align-items: center;
-            
-            font-size: 1rem;
+            gap: 8px;
+            font-size: 24px;
             font-weight: bold;
           }
 
           .logo-dot {
             width: 8px;
             height: 8px;
-            
+            background-color: #6366f1;
             border-radius: 50%;
           }
 
@@ -122,7 +122,7 @@ const Login = () => {
             left: 16px;
             top: 50%;
             transform: translateY(-50%);
-            color: #7f5af0;
+            color: #6366f1;
           }
 
           .toggle-password {
@@ -130,14 +130,17 @@ const Login = () => {
             right: 16px;
             top: 50%;
             transform: translateY(-50%);
-            color:#7f5af0;
+            color: #6b7280;
             cursor: pointer;
             padding: 4px;
             border-radius: 4px;
             transition: all 0.2s;
           }
 
-         
+          .toggle-password:hover {
+            color: #4b5563;
+            
+          }
 
           .input-field {
             width: 100%;
@@ -163,8 +166,8 @@ const Login = () => {
             padding: 16px;
             border-radius: 12px;
             border: none;
-            background-color: #7f5af0;
-            color: #fff;
+            background-color: #e0e7ff;
+            color: #4f46e5;
             font-size: 16px;
             font-weight: 500;
             cursor: pointer;
@@ -195,22 +198,13 @@ const Login = () => {
           .forgot-password a:hover {
             text-decoration: underline;
           }
-            .logo-icon {
-          width: 35px;
-          height: 40px;
-          fill: none;
-          stroke: #000;
-          stroke-width: 2;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-        }
         `}
       </style>
 
-      <div className="header relative z-20 ">
+      <div className="header">
         <div className="logo">
-          <img src="assets/images/ok3d.png" alt="ok3d"  style={{ maxWidth: "45px" }} />
-         AI CoinX
+          <div className="logo-dot"></div>
+          Klink
         </div>
         <Link to='/register'>
         <button className="sign-up-button">Sign Up</button>
@@ -266,4 +260,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signin;

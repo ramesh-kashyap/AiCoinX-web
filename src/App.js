@@ -63,8 +63,10 @@ import SetPin from './pages/auth/setPin';
 import Team from './pages/team/Referral';
 import Withdraw from './pages/Withdraw/withdraw';
 import Otp from './pages/invest/otpScreen';
-// import Signup from './pages/components/test';
-// import VerifyEmail from './pages/components/test2';
+import Signup from './pages/components/test';
+import VerifyEmail from './pages/auth/verifyEmail';
+import { SignIn } from 'phosphor-react';
+import Signin from './pages/components/test';
 
 function App() {
   return (
@@ -80,6 +82,7 @@ function App() {
             </ProtectedRoute>
           } 
         />
+        <Route path="/verify-email" element={<PublicRoute><VerifyEmail /></PublicRoute>} />
         <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
         <Route path="/create-password" element={<ProtectedRoute><CreatePassword /></ProtectedRoute>} />
         <Route path="/secure-wallet" element={<ProtectedRoute><SecureWallet /></ProtectedRoute>} />
@@ -124,8 +127,8 @@ function App() {
         <Route path="/security/refferals-user" element={<ProtectedRoute><Refferals/></ProtectedRoute>} />
         <Route path="/promotion/promocode" element={<ProtectedRoute><PromoCode/></ProtectedRoute>} />
         <Route path="/team-list" element={<ProtectedRoute><Team /></ProtectedRoute>} />
-        {/* <Route path="/test" element={<Signup />} />
-        <Route path="/test2" element={<VerifyEmail />} /> */}
+        <Route path="/test2" element={<Signin />} />
+        
 
         <Route path="/all/transaction" element={<ProtectedRoute><Depositreport /></ProtectedRoute>}/>
         <Route path="/all/income" element={<ProtectedRoute><AllIncome/></ProtectedRoute>}/>
