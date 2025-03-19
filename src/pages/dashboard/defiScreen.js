@@ -88,7 +88,7 @@ function Defi() {
       <div className="w-[582px] h-[582px] rounded-full bg-g300/10 absolute -top-48 -left-20 blur-[575px]"></div>
       <div className="relative z-20 w-full">
         {/* Header Card */}
-        <div className="bg-white bg-opacity-5 py-8 px-6 rounded-b-3xl">
+        <div className="bg-white bg-opacity-5 py-8 px-6 rounded-b-3xl bg-g300">
           <div className="flex justify-between items-center">
           <NavLink to="/home"> <i className="ph-bold ph-caret-left"></i>
 

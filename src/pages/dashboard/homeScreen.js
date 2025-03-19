@@ -16,6 +16,7 @@ const WalletDashboard = () => {
   const [users, setUsers] = useState([]);
   const [balance, setBalance] = useState(null);
   const [error, setError] = useState("");
+  const [income, setIncome] = useState([]); 
   const [liveData, setLiveData] = useState({ topGainers: [], topLosers: [] });
    const fetchNewsData = async () => {  try {
     // Fetch news data (adjust the endpoint as needed)
@@ -83,7 +84,20 @@ const fetchGetBalance = async () => {  try {
   // Run effect on component mount
   useEffect(() => {
     fetchUsers();
+    fetchIncomes();
   }, []);
+
+  const fetchIncomes = async () => {
+    try {
+       const response = await Api.get('/user-incomes');
+       console.log('cehel',response.data.data);
+       setIncome(response.data.data);
+       
+    } catch (err) {
+      console.err("someting wrong");
+       setError(err.response?.data?.error || "Error fetching income");
+    }
+  };
   // Inline CSS styles
   const styles = {
     container: {
@@ -255,8 +269,8 @@ const fetchGetBalance = async () => {  try {
       {/* Balance Card */}
       <div style={styles.balanceCard}>
         <p style={{textAlign:"left"}}>Your Balance</p>
-        <h1 style={{fontWeight:"800",fontSize: "30px",textAlign:"left", color:"#fff"}}>${balance}.29856</h1>
-        <span style={{marginRight:"50%"}}>Credit Limit <span style={{color:"#ffd502"}}>$10,000.00</span></span>
+        <h1 style={{fontWeight:"800",fontSize: "30px",textAlign:"left", color:"#fff"}}>{balance}</h1>
+        <span style={{marginRight:"50%"}}>Total Stake<span style={{color:"#ffd502",marginLeft:10}}>{parseFloat(income.totalInvestmentAmount).toFixed(2)}</span></span>
 
         <div style={styles.actionButtons}>
   <div style={styles.actionItem}>
@@ -325,7 +339,7 @@ const fetchGetBalance = async () => {  try {
               marginBottom: '20px'
             }} 
           />
-          <p style={{ fontSize: '16px', color: '#fff' }}>No users found.</p>
+          <p style={{ fontSize: '16px', color: '#000' }}>No users found.</p>
         </div>
       )}
     </div>
@@ -371,7 +385,7 @@ const fetchGetBalance = async () => {  try {
   {/* Add Card Section */}
   <div style={styles.actionCard}>
     <div style={{ display: "flex", justifyContent: "center", marginBottom: "10px" }}>
-      <img src="assets/images/rupaycard.png" alt="Card" style={{ borderRadius: "8px" }} />
+      <img src="assets/images/card.png" alt="Card" style={{ borderRadius: "8px" }} />
     </div>
     <p style={{ fontWeight: "bold", fontSize: "16px" }}>Add Card</p>
     <p style={{ fontSize: "12px", color: "#666" }}>Add your card to make transactions easier</p>

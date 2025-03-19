@@ -33,10 +33,10 @@ function Profile() {
 
   const handleUpdateProfile = async () => {
     try {
-        const response = await Api.put("/updateUsername", { username: UserData });
+        const response = await Api.put("/updateUsername", { fullname: UserData });
 
         if (response.data) {
-            setUser((prevUser) => ({ ...prevUser, username: UserData }));
+            setUser((prevUser) => ({ ...prevUser, fullname: UserData }));
             toast.success(response.data.message); // Use message from backend
 
              console.log("Profile Updated Successfully");
@@ -98,7 +98,7 @@ function Profile() {
 
           <input  
             style={{ 
-              backgroundColor: "#D1C4E9", 
+              backgroundColor: "#fff", 
               color: "#000", 
               borderColor: "#292c3d",
               paddingLeft: "40px", // Left padding taaki text icon se overlap na ho

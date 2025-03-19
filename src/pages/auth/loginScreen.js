@@ -74,7 +74,7 @@ const Login = () => {
 
           .sign-up-button {
             padding: 8px 20px;
-            border: 2px solid #e5e7eb;
+            border: 2px solid #beb7b7;
             border-radius: 20px;
             font-weight: 500;
             background: transparent;
@@ -83,7 +83,8 @@ const Login = () => {
           }
 
           .sign-up-button:hover {
-            border-color: #d1d5db;
+            border-color: #7f5af0;
+;
           }
 
           .illustration {
@@ -146,7 +147,7 @@ const Login = () => {
             border: none;
                background-color: rgba(255, 255, 255, 5%);
             font-size: 16px;
-            outline:2px solid #fff;
+            outline:1px solid #beb7b7;
             transition: all 0.2s;
             color:#000;
           }
@@ -211,14 +212,14 @@ const Login = () => {
       <div className="header relative z-20 ">
         <div className="logo">
           <img src="assets/images/ok3d.png" alt="ok3d"  style={{ maxWidth: "45px" }} />
-         AI CoinX
+         AICOINX
         </div>
-        <Link to='/forgot'>
-        <button className="sign-up-button">Forget Password</button>
+        <Link to='/register'>
+        <button className="sign-up-button">Sign Up</button>
         </Link>
       </div>
 
-      <img src="\assets\images\login_icon.png" alt="Account" className='illustration' />
+      {/* <img src="\assets\images\login_icon.png" alt="Account" className='illustration' /> */}
 
       <div className="content">
         <h1 className="title">Login to Account</h1>
@@ -252,9 +253,16 @@ const Login = () => {
           >
             {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
           </button>
-        </div>
-
-      
+        </div>    
+         
+        <div className="header relative z-20 ">
+        <Link to='/forgot'>
+        <button>Forget Password ?</button>
+        </Link>
+        {/* <Link to='/register'>
+        <i className="ph ph-caret-right text-g301"></i>
+        </Link> */}
+      </div>
 
         <button className="continue-button"   onClick={handleSubmit}>
           Continue

@@ -176,7 +176,7 @@ function Register() {
         }
         .login-btn {
           padding: 8px 20px;
-            border: 2px solid #e5e7eb;
+            border: 2px solid #beb7b7;
             border-radius: 20px;
             font-weight: 500;
             background: transparent;
@@ -184,7 +184,8 @@ function Register() {
             transition: all 0.2s;
         }
         .login-btn:hover {
-          text-decoration: underline;
+          // text-decoration: #7f5af0;
+           border: 2px solid #7f5af0;
         }
         /* Progress Bar Section */
         .progress-section {
@@ -199,7 +200,7 @@ function Register() {
           position: relative;
           width: 80%;
           height: 8px;
-          background-color: #f0f0f0;
+          background-color: #beb7b7;
           border-radius: 4px;
           overflow: hidden;
           margin: 0 auto;
@@ -260,7 +261,7 @@ function Register() {
           border-radius: 8px;
           padding: 0.75rem 1rem;
           font-size: 1rem;
-           border: 1px solid #fff;
+           border: 1px solid #beb7b7;
           color: #000; 
           }
            .name-row input.input-field {
@@ -281,7 +282,7 @@ function Register() {
           background-color: rgba(255, 255, 255, 5%);
           border-radius: 8px;
           padding: 0.75rem 1rem;
-          border: 1px solid #fff;
+          border: 1px solid #beb7b7;
         }
         .input-icon:focus-within {
           outline: 2px solid #7f5af0;
@@ -363,7 +364,7 @@ function Register() {
             <div className="logo-icon" >
             <img src="assets/images/ok3d.png" alt="ok3d"  style={{ maxWidth: "45px" }} />
             </div>
-           AI CoinX
+           AICOINX
           </div>
           <Link to='/login'>
           <button className="login-btn">Login</button>

@@ -33,8 +33,9 @@ const DetailPage = () => {
               style={{
                 marginRight: '1rem',
                 fontSize: '1.2rem',
-                color: '#FFFFFF',
+                color: '#000',
                 textDecoration: 'none',
+                backgroundColor:"#9583ff",
               }}
             >
               <i className="ph-bold ph-caret-left"></i>

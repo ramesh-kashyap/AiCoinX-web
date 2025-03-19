@@ -81,7 +81,7 @@ function Account() {
   >
     <div 
       style={{ 
-        backgroundColor: "#EDE7F6", 
+        backgroundColor: "#fff", 
         width: 429, 
         height: 313,
         borderTopLeftRadius: "38px",
@@ -106,8 +106,8 @@ function Account() {
 
           <input  
             style={{ 
-              backgroundColor: "rgb(88 102 89)", 
-              color: "#fff", 
+              backgroundColor: "#fff", 
+              color: "#000", 
               borderColor: "#292c3d",
               paddingLeft: "40px", // Left padding taaki text icon se overlap na ho
               marginTop:"13px"
@@ -142,7 +142,7 @@ function Account() {
           onClick={() => setShowPopupLogout(false)} // Click outside to close
         >
           <div
-            style={{ backgroundColor: "#202338", width: 425, height: 351, marginBottom: -39, borderTopLeftRadius: "38px",
+            style={{ backgroundColor: "#fff", width: 425, height: 351, marginBottom: -39, borderTopLeftRadius: "38px",
               borderTopRightRadius: "38px" }}
             className="fixed bottom-10 bg-n900 text-white p-6 shadow-lg rounded-t-lg transition-transform transform translate-y-0"
             onClick={(e) => e.stopPropagation()} // Prevent closing on click inside
@@ -150,7 +150,7 @@ function Account() {
             {/* Info Icon */}
             <div className="h-1 w-16 bg-gray-300 rounded mx-auto mb-3"></div>
             <div className="flex justify-center items-center">
-                <div style={{backgroundColor:"#fff"}} className="w-16 h-1 bg-white bg-opacity-5 rounded-full"></div>
+                <div style={{backgroundColor:"#000"}} className="w-16 h-1 bg-white bg-opacity-5 rounded-full"></div>
               </div>
             {/* Rounded Image */}
             <div className="flex justify-center mb-4">
@@ -218,7 +218,7 @@ function Account() {
     />
     <div>
       <h2 className="text-lg font-bold">{UserData}</h2>
-      <p style={{ color: "rgba(169, 172, 175, 1)" }} className="text-gray-500">
+      <p style={{ color: "rgba(87, 92, 97, 1)" }} className="text-gray-500">
         {newEmail}
       </p>
     </div>
@@ -394,7 +394,7 @@ function Account() {
 
 <button 
   onClick={() => setShowPopupLogout(true)}
-  style={{ marginTop: "16px", border: "2px solid red",borderRadius:"15px",marginTop:"25px",color:"#fff"}} 
+  style={{ marginTop: "16px", border: "1px solid black",borderRadius:"15px",marginTop:"25px",color:"#000"}} 
   className="w-full p-3 font-bold mb-4 bg-purple-500 text-white rounded-md hover:bg-purple-600"
 >
   Log Out

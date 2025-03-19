@@ -19,7 +19,7 @@ function Marketplace() {
 
 const fetchUsers = async () => {
     try {
-        const response = await Api.get("/user-income");
+        const response = await Api.get("/deposit-History");
 
         if (response.data && Array.isArray(response.data.data)) {
             setUsers(response.data.data);
@@ -191,7 +191,7 @@ const formatDate = (dateString) => {
             />
             <div className="max-w-[200px]">
               <p className="text-xl font-semibold" style={{color:"#101014"}}>
-                Invite a friends and get <span className="text-g300">5%</span>
+                Invite a friends and get <span className="text-g301">5%</span>
               </p>
               <p className="text-n70 pt-4 text-xs" style={{color:"#101014"}}>
                 This section can be used as an Advertisement or a Call to Action
@@ -223,7 +223,7 @@ const formatDate = (dateString) => {
   className={`tabButton w-full border-b-2 border-n700 ${
     activeTab === 'tokens' ? 'activeTabButton' : ''
   }`}
-> <Link to="/all/income">View More</Link>
+> <Link to="/all/transaction">View More</Link>
   
 </li>
 

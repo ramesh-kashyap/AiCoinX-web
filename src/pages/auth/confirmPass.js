@@ -149,7 +149,7 @@ const ConformPass = () => {
             border: none;
                background-color: rgba(255, 255, 255, 5%);
             font-size: 16px;
-            outline:2px solid #fff;
+            outline:1px solid #beb7b7;
             transition: all 0.2s;
             color:#000;
           }
@@ -214,14 +214,14 @@ const ConformPass = () => {
       <div className="header relative z-20 ">
         <div className="logo">
           <img src="assets/images/ok3d.png" alt="ok3d"  style={{ maxWidth: "45px" }} />
-         AI CoinX
+         AICOINX
         </div>
         {/* <Link>
         <button className="sign-up-button">Forget Password</button>
         </Link> */}
       </div>
 
-      <img src="\assets\images\login_icon.png" alt="Account" className='illustration' />
+      {/* <img src="\assets\images\login_icon.png" alt="Account" className='illustration' /> */}
 
       <div className="content">
         <h1 className="title">Enter New Password</h1>

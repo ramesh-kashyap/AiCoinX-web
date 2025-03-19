@@ -144,7 +144,7 @@ const TransactionHistory = () => {
         marginBottom: '20px'
       }} 
     />
-    <p style={{ fontSize: '16px', color: '#fff' }}>No users found.</p>
+    <p className="bg-g301">No users found.</p>
   </div>
 )}
 
